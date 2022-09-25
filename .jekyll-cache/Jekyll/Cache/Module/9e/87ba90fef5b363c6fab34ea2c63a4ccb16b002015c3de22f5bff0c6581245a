@@ -1,0 +1,31 @@
+I"
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/blog/"><img src="/blog/assets/images/logo.png" alt="Stack O Flow"></a>
+        
+        <a class="site-title" href="/blog/">
+          Stack O Flow
+          <span class="site-subtitle">복붙노트</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/blog/categories/">카테고리</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/tags/">태그</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/search/">🔎</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+:ET

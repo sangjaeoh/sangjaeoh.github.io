@@ -1,0 +1,25 @@
+# main links
+main:
+  - title: "카테고리"
+    url: /categories/
+  - title: "태그"
+    url: /tags/
+  - title: "🔎"
+    url: /search/
+
+
+docs:
+  - title: "etc"
+    children:
+      - title: "Git"
+        url: /categories/git
+        category: "Git"
+
+  # - title: "About"
+  #   url: https://mmistakes.github.io/minimal-mistakes/about/
+  # - title: "Sample Posts"
+  #   url: /year-archive/
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
+  # - title: "Sitemap"
+  #   url: /sitemap/
