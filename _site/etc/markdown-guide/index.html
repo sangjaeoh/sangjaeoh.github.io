@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>test | Stack O Flow</title>
-<meta name="description" content="">
+<!-- begin _includes/seo.html --><title>마크다운 작성방법 | Stack O Flow</title>
+<meta name="description" content="마크다운이란?    마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어다. 일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며, 일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다. HTML과 리치 텍스트(RTF) 등 서식 문서로 쉽게 변환되기 때문에 응용 소프트웨어와 함께 배포되는 README 파일이나 온라인 게시물 등에 많이 사용된다. - 위키백과">
 
 
   <meta name="author" content="Sangjae Oh">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Stack O Flow">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://localhost:4000/blog/git/test/">
+<meta property="og:title" content="마크다운 작성방법">
+<meta property="og:url" content="http://localhost:4000/etc/markdown-guide/">
 
 
-  <meta property="og:description" content="">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2022-09-25T00:00:00+09:00">
+  <meta property="og:description" content="마크다운이란?    마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어다. 일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며, 일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다. HTML과 리치 텍스트(RTF) 등 서식 문서로 쉽게 변환되기 때문에 응용 소프트웨어와 함께 배포되는 README 파일이나 온라인 게시물 등에 많이 사용된다. - 위키백과">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2022-09-26T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/blog/git/test/">
+
+<link rel="canonical" href="http://localhost:4000/etc/markdown-guide/">
 
 
 
@@ -56,7 +56,7 @@
     
       "@type": "Person",
       "name": "Sangjae Oh",
-      "url": "http://localhost:4000/blog/"
+      "url": "http://localhost:4000/"
     
   }
 </script>
@@ -71,7 +71,7 @@
 
 
 
-  <link href="/blog/feed.xml" type="application/atom+xml" rel="alternate" title="Stack O Flow Feed">
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Stack O Flow Feed">
 
 
 <!-- https://t.co/dKP3o1e -->
@@ -82,7 +82,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/blog/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/main.css">
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
 
@@ -112,18 +112,18 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
-          <a class="site-logo" href="/blog/"><img src="/blog/assets/images/logo.png" alt="Stack O Flow"></a>
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt="Stack O Flow"></a>
         
-        <a class="site-title" href="/blog/">
+        <a class="site-title" href="/">
           Stack O Flow
           <span class="site-subtitle">복붙노트</span>
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/blog/categories/">카테고리</a>
+              <a href="/categories/">카테고리</a>
             </li><li class="masthead__menu-item">
-              <a href="/blog/tags/">태그</a>
+              <a href="/tags/">태그</a>
             </li><li class="masthead__menu-item">
-              <a href="/blog/search/">🔎</a>
+              <a href="/search/">🔎</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -155,7 +155,7 @@
     
       
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/blog/" itemprop="item"><span itemprop="name">Home</span></a>
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
 
           <meta itemprop="position" content="1" />
         </li>
@@ -164,7 +164,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/blog/categories/#git" itemprop="item"><span itemprop="name">Git</span></a>
+          <a href="/categories/#etc" itemprop="item"><span itemprop="name">Etc</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">></span>
@@ -172,7 +172,7 @@
     
       
       
-        <li class="current">test</li>
+        <li class="current">마크다운 작성방법</li>
       
     
   </ol>
@@ -193,7 +193,7 @@
 
   <div class="author__content">
     <h3 class="author__name p-name" itemprop="name">
-      <a class="u-url" rel="me" href="http://localhost:4000/blog/" itemprop="url">Sangjae Oh</a>
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Sangjae Oh</a>
     </h3>
     
       <div class="author__bio p-note" itemprop="description">
@@ -317,7 +317,7 @@
         <ul>
           
           
-            <li><a href="/blog/categories/git">Git (1)</a></li>
+            <li><a href="/categories/git">Git ()</a></li>
           
         </ul>
         
@@ -333,16 +333,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="test">
-    <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2022-09-25T00:00:00+09:00">
+    <meta itemprop="headline" content="마크다운 작성방법">
+    <meta itemprop="description" content="마크다운이란?  마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어다. 일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며, 일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다. HTML과 리치 텍스트(RTF) 등 서식 문서로 쉽게 변환되기 때문에 응용 소프트웨어와 함께 배포되는 README 파일이나 온라인 게시물 등에 많이 사용된다.- 위키백과">
+    <meta itemprop="datePublished" content="2022-09-26T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/blog/git/test/" class="u-url" itemprop="url">test
+            <a href="http://localhost:4000/etc/markdown-guide/" class="u-url" itemprop="url">마크다운 작성방법
 </a>
           </h1>
           
@@ -353,7 +353,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2022-09-25T00:00:00+09:00">2022-09-25</time>
+        <time datetime="2022-09-26T00:00:00+09:00">2022-09-26</time>
       </span>
     
 
@@ -381,12 +381,27 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#마크다운이란">마크다운이란?</a></li><li><a href="#마크다운-문법">마크다운 문법</a><ul><li><a href="#headings">Headings</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
-        
+        <h2 id="마크다운이란">마크다운이란?</h2>
+<blockquote>
+  <p>마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어다. 일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며, 일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다. HTML과 리치 텍스트(RTF) 등 서식 문서로 쉽게 변환되기 때문에 응용 소프트웨어와 함께 배포되는 README 파일이나 온라인 게시물 등에 많이 사용된다.<br />
+- 위키백과</p>
+</blockquote>
+
+<hr />
+
+<h2 id="마크다운-문법">마크다운 문법</h2>
+<p><a href="https://www.markdownguide.org/basic-syntax/">마크다운 기본 가이드</a>,
+<a href="https://www.markdownguide.org/extended-syntax/">마크다운 확장 가이드</a>
+을 참고하였습니다.</p>
+<h3 id="headings">Headings</h3>
+<p>제목을 만들려면 단어 앞에 기호(#)를 추가합니다.<br />
+|Markdown|HTML|Output|</p>
+
 
         
       </section>
@@ -403,9 +418,9 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/blog/tags/#git" class="page__taxonomy-item p-category" rel="tag">Git</a><span class="sep">, </span>
+      <a href="/tags/#markdown" class="page__taxonomy-item p-category" rel="tag">Markdown</a><span class="sep">, </span>
     
-      <a href="/blog/tags/#github" class="page__taxonomy-item p-category" rel="tag">Github</a>
+      <a href="/tags/#%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4" class="page__taxonomy-item p-category" rel="tag">마크다운</a>
     
     </span>
   </p>
@@ -422,7 +437,7 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
     <span itemprop="keywords">
     
-      <a href="/blog/categories/#git" class="page__taxonomy-item p-category" rel="tag">Git</a>
+      <a href="/categories/#etc" class="page__taxonomy-item p-category" rel="tag">Etc</a>
     
     </span>
   </p>
@@ -430,7 +445,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-09-25T00:00:00+09:00">2022-09-25</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-09-26T00:00:00+09:00">2022-09-26</time></p>
 
       </footer>
 
@@ -439,11 +454,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=test%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fgit%2Ftest%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4+%EC%9E%91%EC%84%B1%EB%B0%A9%EB%B2%95%20http%3A%2F%2Flocalhost%3A4000%2Fetc%2Fmarkdown-guide%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fgit%2Ftest%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fetc%2Fmarkdown-guide%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fgit%2Ftest%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fetc%2Fmarkdown-guide%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
@@ -500,7 +515,7 @@
     
 
     
-      <li><a href="/blog/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
     
   </ul>
 </div>
@@ -511,7 +526,7 @@
     </div>
 
     
-  <script src="/blog/assets/js/main.min.js"></script>
+  <script src="/assets/js/main.min.js"></script>
 
 
 
@@ -522,8 +537,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/blog/git/test/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/git/test"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/etc/markdown-guide/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/etc/markdown-guide"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
