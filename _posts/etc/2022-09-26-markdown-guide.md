@@ -2,7 +2,7 @@
 layout: single
 title: "마크다운 작성방법"
 categories: [etc]
-tag: [Markdown]
+tag: [markdown]
 author_profile: true
 toc: true
 toc_sticky: true
