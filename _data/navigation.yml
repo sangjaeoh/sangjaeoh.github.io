@@ -9,7 +9,9 @@ main:
 
 
 docs:
-  - title: "etc"
+  - title: "기타"
+    url: /categories/etc
+    category: "etc"
     children:
       - title: "Git"
         url: /categories/git

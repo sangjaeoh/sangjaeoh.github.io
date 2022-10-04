@@ -7,9 +7,6 @@
   
   <ul class="nav__items">
     {% assign sum = site.posts | size %}
-      <li>
-        📂 <span>전체 글 수 {{sum}} 개</span>
-      </li>
     {% for nav in navigation %}
       <li>
         {% if nav.url %}
