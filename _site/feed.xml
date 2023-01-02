@@ -1,4 +1,86 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-04T23:44:16+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">마크다운 작성방법</title><link href="http://localhost:4000/etc/markdown-guide/" rel="alternate" type="text/html" title="마크다운 작성방법" /><published>2022-09-26T00:00:00+09:00</published><updated>2022-09-26T00:00:00+09:00</updated><id>http://localhost:4000/etc/markdown-guide</id><content type="html" xml:base="http://localhost:4000/etc/markdown-guide/"><![CDATA[<h2 id="마크다운이란">마크다운이란?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-02T23:36:17+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">객체지향 생활체조 원칙</title><link href="http://localhost:4000/etc/object-calisthenics/" rel="alternate" type="text/html" title="객체지향 생활체조 원칙" /><published>2023-01-02T00:00:00+09:00</published><updated>2023-01-02T00:00:00+09:00</updated><id>http://localhost:4000/etc/object-calisthenics</id><content type="html" xml:base="http://localhost:4000/etc/object-calisthenics/"><![CDATA[<h2 id="-객체지향-생활-체조-원칙이란">🤔 객체지향 생활 체조 원칙이란?</h2>
+<p>객체지향 생활 체조 원칙은 ‘소트웍스 앤솔러지’라는 책에서 제시하는 내용으로 객체지향 프로그래밍을 잘 하기 위한 9가지 원칙을 제시합니다.</p>
+
+<h2 id="️️-객체지향-생활-체조-9가지-원칙">⛹️‍♀️ 객체지향 생활 체조 9가지 원칙</h2>
+<ul>
+  <li>규칙 1: 한 메서드에 오직 한 단계의 들여쓰기(indent)만 한다.</li>
+  <li>규칙 2: else 예약어를 쓰지 않는다.</li>
+  <li>규칙 3: 모든 원시값과 문자열을 포장한다.</li>
+  <li>규칙 4: 한 줄에 점을 하나만 찍는다.</li>
+  <li>규칙 5: 줄여쓰지 않는다(축약 금지).</li>
+  <li>규칙 6: 모든 엔티티를 작게 유지한다.</li>
+  <li>규칙 7: 3개 이상의 인스턴스 변수를 가진 클래스를 쓰지 않는다.</li>
+  <li>규칙 8: 일급 콜렉션을 쓴다.</li>
+  <li>규칙 9: 게터/세터/프로퍼티를 쓰지 않는다.</li>
+</ul>
+
+<h2 id="️-왜-객체지향-생활-체조-원칙인가">❗️ 왜 객체지향 생활 체조 원칙인가?</h2>
+<p>객체지향 설계와 구현은 단순 암기만 한다고 해결되는게 아닌 꾸준한 연습의 영역입니다. 많은 시니어 개발자들과 강사들이 OOP를 강조하지만, 책만 보고 암기만해서 시도하면 늘 고배를 마시게됩니다. 그러다 포기하는 상황도 잦은데 이렇게 고배를 마시는 이유는 많은 객체지향 책에서 어떻게 설계하고 구현하는지에 대해 추상적으로만 제시하기 때문입니다. 어디가 잘못되었는지도 모르는 개발자에게 이런 추상적인 제안은 더 혼동되게만 할 뿐입니다.</p>
+
+<p>쉽지는 않겠지만 꾸준히 규칙을 상기하며 설계 및 구현을 하다보면 지금까지 이해가 안되던 추상적인 개념들이 이해되는 시점이 찾아올 것입니다.</p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="OOP" /><summary type="html"><![CDATA[🤔 객체지향 생활 체조 원칙이란? 객체지향 생활 체조 원칙은 ‘소트웍스 앤솔러지’라는 책에서 제시하는 내용으로 객체지향 프로그래밍을 잘 하기 위한 9가지 원칙을 제시합니다.]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 소개 및 커리큘럼</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-%EC%86%8C%EA%B0%9C/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 소개 및 커리큘럼" /><published>2023-01-02T00:00:00+09:00</published><updated>2023-01-02T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-%EC%86%8C%EA%B0%9C</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-%EC%86%8C%EA%B0%9C/"><![CDATA[<p><em>10월 24일 ~ 12월 23일</em><br />
+우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
+
+<h2 id="️-우아한테크캠프-pro-소개">🙇🏻‍♂️ 우아한테크캠프 Pro 소개</h2>
+<p>NextStep 교육 과정으로 9주 동안 8개 미션을 진행을 합니다. 각 미션별 코드 리뷰어가 배정 되며 미션을 진행하고, 진행한 미션에 대해 코드 리뷰를 받는식으로 강의를 진행 합니다.</p>
+
+<h2 id="-우아한테크캠프-pro-과정의-학습-목표">🎯 우아한테크캠프 Pro 과정의 학습 목표</h2>
+<ul>
+  <li>클린코드를 통해 유지보수하기 좋은 코드를 구현하는 경험</li>
+  <li>JPA 기반으로 웹 애플리케이션을 개발하는 경험</li>
+  <li>단위, 인수 테스트를 기반으로 웹 애플리케이션을 개발하는 경험</li>
+  <li>레거시 코드를 안정적으로 리팩터링하는 경험</li>
+  <li>시스템 아키텍처를 설계하고 운영하는 경험</li>
+  <li>대용량 데이터에 대해 최적화할 대상을 살펴보고, 서버를 튜닝하는 경험</li>
+</ul>
+
+<h2 id="-커리큘럼">🧾 커리큘럼</h2>
+<p><strong>1주차: 로또 - TDD</strong></p>
+<ul>
+  <li>Github 기반으로 온라인 코드 리뷰하는 경험</li>
+  <li>TDD 기반으로 프로그래밍하는 경험</li>
+  <li>메소드 분리 + 클래스를 분리하는 리팩토링 경험</li>
+  <li>점진적으로 리팩토링하는 경험</li>
+</ul>
+
+<p><strong>2주차: Q&amp;A - JPA</strong></p>
+<ul>
+  <li>JPA 학습 테스트를 통한 JPA 학습</li>
+  <li>Q&amp;A 서비스를 JPA로 매핑</li>
+</ul>
+
+<p><strong>3주차: 지하철 노선도 - ATDD</strong></p>
+<ul>
+  <li>ATDD Cycle</li>
+  <li>인수 테스트</li>
+</ul>
+
+<p><strong>4주차: 그럴듯한 서비스 만들기</strong></p>
+<ul>
+  <li>서비스 구성 및 배포</li>
+</ul>
+
+<p><strong>5주차: 인수 테스트 기반 TDD</strong></p>
+<ul>
+  <li>TDD, 단위 테스트와 통합 테스트</li>
+  <li>로그인 상태 인수 테스트</li>
+</ul>
+
+<p><strong>6주차: 서비스 진단하기</strong></p>
+<ul>
+  <li>부하 테스트 및 성능 모니터링</li>
+</ul>
+
+<p><strong>7주차: 레거시 코드 리팩터링</strong></p>
+<ul>
+  <li>레거시 코드 리팩터링 with 테스트</li>
+  <li>멀티 모듈, DDD</li>
+</ul>
+
+<p><strong>8주차: 안정적인 서비스 만들기</strong></p>
+<ul>
+  <li>서비스 진단 및 화면 응답 개선하기</li>
+  <li>SQL 최적화</li>
+</ul>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[10월 24일 ~ 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">마크다운 작성방법</title><link href="http://localhost:4000/etc/markdown-guide/" rel="alternate" type="text/html" title="마크다운 작성방법" /><published>2022-09-26T00:00:00+09:00</published><updated>2022-09-26T00:00:00+09:00</updated><id>http://localhost:4000/etc/markdown-guide</id><content type="html" xml:base="http://localhost:4000/etc/markdown-guide/"><![CDATA[<h2 id="마크다운이란">마크다운이란?</h2>
 <p>마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어다. 일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며, 일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다. HTML과 리치 텍스트(RTF) 등 서식 문서로 쉽게 변환되기 때문에 응용 소프트웨어와 함께 배포되는 README 파일이나 온라인 게시물 등에 많이 사용된다.<br />
 - 위키백과</p>
 
