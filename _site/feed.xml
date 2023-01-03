@@ -1,4 +1,141 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-02T23:36:17+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">객체지향 생활체조 원칙</title><link href="http://localhost:4000/etc/object-calisthenics/" rel="alternate" type="text/html" title="객체지향 생활체조 원칙" /><published>2023-01-02T00:00:00+09:00</published><updated>2023-01-02T00:00:00+09:00</updated><id>http://localhost:4000/etc/object-calisthenics</id><content type="html" xml:base="http://localhost:4000/etc/object-calisthenics/"><![CDATA[<h2 id="-객체지향-생활-체조-원칙이란">🤔 객체지향 생활 체조 원칙이란?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-04T00:42:58+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">우아한테크캠프 Pro 5기 - 1주차 (로또 TDD)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 1주차 (로또 TDD)" /><published>2023-01-03T00:00:00+09:00</published><updated>2023-01-03T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
+우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
+
+<h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
+<p>로또 구입 금액을 입력하면, 구입 금액에 해당하는 로또를 발급하는 애플리케이션을 만드는 미션</p>
+
+<h2 id="-학습-목표">🎯 학습 목표</h2>
+<ul>
+  <li><strong>TDD 기반으로 프로그래밍하는 경험</strong></li>
+  <li>메소드 분리 + 클래스를 분리하는 리팩토링 경험</li>
+  <li>점진적으로 리팩토링하는 경험</li>
+  <li>객체지향 생활 체조 원칙 경험</li>
+  <li>Clean Code 경험</li>
+</ul>
+
+<h2 id="-강의-내용">📖 강의 내용</h2>
+<p>강의 내용은 TDD란 무엇이고, 하는 이유, TDD로 프로그래밍 하는 방법, TDD 원칙을 설명합니다.</p>
+
+<p><strong>TDD란?</strong></p>
+<ul>
+  <li>TDD = TFD(Test First Development) + 리팩토링</li>
+  <li>TDD란 프로그래밍 의사결정과 피드백 사이의 간극을 의식하고 이를 제어하는 기술이다.</li>
+  <li>TDD의 아이러니 중 하나는 테스트 기술이 아니라는 점이다. TDD는 분석 기술이며, 설계 기술이기도 하다.</li>
+</ul>
+
+<p><strong>TDD를 하는 이유</strong></p>
+<ul>
+  <li>디버깅 시간을 줄여준다.</li>
+  <li>동작하는 문서 역할을 한다.</li>
+  <li>변화에 대한 두려움을 줄여준다.</li>
+</ul>
+
+<p><strong>TDD 사이클</strong>
+<img src="/assets/images/posts/tdd_cycle.png" alt="tdd_cycle" /></p>
+<ul>
+  <li>실패하는 테스트를 구현한다.</li>
+  <li>테스트가 성공하도록 프로덕션 코드를 구현한다.</li>
+  <li>프로덕션 코드와 테스트코드를 리팩토링한다.</li>
+</ul>
+
+<p><strong>TDD 원칙</strong></p>
+<ul>
+  <li>실패하는 단위 테스트를 작성할 때까지 프로덕션 코드(production code)를 작성하지 않는다.</li>
+  <li>컴파일은 실패하지 않으면서 실행이 실패하는 정도로만 단위 테스트를 작성한다.</li>
+  <li>현재 실패하는 테스트를 통과할 정도로만 실제 코드를 작성한다.</li>
+</ul>
+
+<p><strong>TDD가 막막할 때 팁</strong></p>
+<ol>
+  <li>우선 <strong>구현할 기능 목록을 작성</strong>한 후에 TDD로 도전.</li>
+  <li>그래도 막막하다면 <strong>지금까지 익숙한 방식으로 일단 구현</strong></li>
+  <li>구현하려는 프로그래밍의 <strong>도메인 지식을 쌓는다.</strong></li>
+  <li><strong>구현한 모든 코드를 버린다.</strong></li>
+  <li>구현할 기능 목록 작성 또는 간단한 도메인 설계</li>
+  <li>기능 목록 중 가장 만만한 녀석부터 TDD로 구현 시작</li>
+  <li>복잡도가 높아져 리팩토링하기 힘든 상태가 되면 다시 버린다.</li>
+  <li>다시 도전</li>
+</ol>
+
+<h2 id="-미션-후기">📝 미션 후기</h2>
+<p>기존에 TDD가 무엇인지는 알고 있었지만 실제로 써본 것은 처음이여서 어떻게 시작해야 할 지 막막하였다. 그래서 일단 키보드에서 손을 떼고 로또 애플리케이션을 만들기 위해서 어떤 도메인이 필요한지부터 생각하였다.</p>
+
+<p>물론 TDD만 처음 접한 것 뿐만 아니라 도메인 설계 지식도 부족하여 이 또한 막막하였다.</p>
+
+<p>도메인을 설계를 어떻게 해야 하나 고민하며 내가 내린 결론은, 실 생활에서 로또를 구매한다면 어떤 주체들이 필요한지를 떠올리는 것이었다. 실 생활에 대입해 보니 어느정도 도메인 윤곽이 잡혔고, 구현 기능 목록을 작성을 시작으로 TDD 사이클을 지키도록 노력하며 애플리케이션 개발을 하였다.</p>
+
+<p>TDD를 진행하며 처음 테스트코드를 작성할 때 어떤 기능부터 작성해야 하는지 잘 몰라서 답답했는데, 포비님의 가르침 대로 일단 생성을 테스트하는 것부터 만들며 시작하였다. 그렇게 물꼬를 트면서 시작하니까 조금은 수월하게 테스트코드를 작성할 수 있었다.</p>
+
+<p>TDD를 진행하면서 처음에는 어색했지만 조금씩 익숙해 졌고, 그 다음에는 객체지향 생활 체조 원칙을 지키며 프로그래밍 하려고 노력하며 프로그래밍을 하였고 미션을 잘 마무리할 수 있었다.</p>
+
+<p>로또 미션을 하며 나의 문제점은 테스트코드를 작성할 때 설명의 가독성이 떨어진다는 것이었다.<em>(예: 로또 구매 가능 갯수 계산 -&gt; 5000원으로 구매 가능한 로또의 개수를 계산하면 5개 이다.)</em> 이를 개선하기 위해서 피드백 받은것 처럼 파라미터와 리턴값도 정확히 테스트코드 설명에 추가 하는식으로 작성하면 좋을 것 같다. <del>독서를 통해 글을 잘 쓰는 능력을 키우는 것도…</del></p>
+
+<h2 id="-저장소">💾 저장소</h2>
+<p><a href="https://github.com/sangjaeoh/java-lotto-pro/tree/step5" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 2주차 (JPA)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 2주차 (JPA)" /><published>2023-01-03T00:00:00+09:00</published><updated>2023-01-03T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
+우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
+
+<h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
+<p>QnA 저장소를 기반으로 JPA를 사용하여 엔티티 매핑, 연관 관계 매핑, 서비스 레이어 리팩터링을 진행하는 미션</p>
+
+<h2 id="-학습-목표">🎯 학습 목표</h2>
+<ul>
+  <li>JPA 학습 테스트를 통한 <strong>JPA 학습</strong></li>
+  <li>Q&amp;A 서비스를 JPA로 매핑</li>
+</ul>
+
+<h2 id="-강의-내용">📖 강의 내용</h2>
+<p>JPA에 대해 전반적인 내용을 설명합니다. 강의 내용이 많아 여기서 다 설명할 수 없고 아래의 링크를 통해 학습하거나 <a href="https://edu.nextstep.camp/">NEXTSTEP</a> 강의를 통해 학습할 수 있습니다. 😆<br />
+- <a href="https://www.youtube.com/playlist?list=PL9mhQYIlKEhfpMVndI23RwWTL9-VL-B7U" target="_blank">JPA 프로그래밍 기본기 다지기 | T아카데미</a><br />
+- <a href="https://www.slideshare.net/ssusere4d67c/jpa-56081624" target="_blank">영속성 컨텍스트로 보는 JPA</a><br />
+- <a href="https://youtu.be/mezbxKGu68Y" target="_blank">ORM vs SQL Mapper vs JDBC</a><br />
+- <a href="http://www.yes24.com/Product/Goods/19040233" target="_blank">자바 ORM 표준 JPA 프로그래밍</a></p>
+
+<p><strong>JPA 설정</strong><br />
+- Spring Data JPA 사용 시 아래 옵션은 동작 쿼리를 로그로 확인할 수 있게 해준다.</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.show-sql=true
+</code></pre></div></div>
+
+<p>- H2 데이터베이스를 사용한다면 아래의 프로퍼티를 추가하여 MySQL Dialect을 사용할 수 있다.</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spring.datasource.url=jdbc:h2:~/test;MODE=MySQL
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL57Dialect
+</code></pre></div></div>
+
+<p><strong>엔티티 비교</strong><br />
+- 엔티티의 <code class="language-plaintext highlighter-rouge">equals()</code>와 <code class="language-plaintext highlighter-rouge">hashCode()</code>를 구현할 때는 엔티티의 식별자만 있어도 충분하다.</p>
+
+<p><strong>@ManyToOne vs @OneToOne</strong><br />
+- 생성되는 DDL은 똑같을 수 있다.<br />
+- 관념적으로 차이가 발생한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Address</span> <span class="n">address</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Address</span><span class="o">();</span>
+<span class="nc">Order</span> <span class="n">order1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Order</span><span class="o">();</span>
+<span class="n">order1</span><span class="o">.</span><span class="na">setAddress</span><span class="o">(</span><span class="n">address</span><span class="o">);</span>
+<span class="nc">Order</span> <span class="n">order2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Order</span><span class="o">();</span>
+<span class="n">order2</span><span class="o">.</span><span class="na">setAddress</span><span class="o">(</span><span class="n">address</span><span class="o">);</span>
+<span class="n">save</span><span class="o">();</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@OneToOne</span> <span class="k">case</span><span class="o">:</span>
+<span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">HibernateException</span><span class="o">:</span> <span class="nc">More</span> <span class="n">than</span> <span class="n">one</span> <span class="n">row</span> <span class="n">with</span> <span class="n">the</span> <span class="n">given</span> <span class="n">identifier</span> <span class="n">was</span> <span class="nl">found:</span> <span class="mi">1</span>
+
+<span class="nd">@ManyToOne</span> <span class="k">case</span><span class="o">:</span>
+<span class="no">SUCCESS</span>
+</code></pre></div></div>
+
+<h2 id="-미션-후기">📝 미션 후기</h2>
+<p>JPA 미션을 시작하기 전에 바로 코딩을 하기 보다는 부족한 JPA지식을 쌓고 미션을 시작하는게 좋다고 판단하여 예전에 샀던 <strong>자바 ORM 표준 JPA 프로그래밍</strong> 책을 다시한번 읽으며 JPA에 대해 공부를 먼저 하였다. 처음 읽었을 때는 이해 안가는 부분이 많았지만 <del>(mappedBy)</del> 두 번째 읽으니 한 번 읽은 경험이 있어서 그런지 처음보다는 빠르게 이해가 되었다.</p>
+
+<p>우테캠 Pro 진행하는 사람들끼리 모여 JPA 스터디그룹도 만드는것 같았지만 내가 스터디를 병행하기에는 시간이 부족할거 같아 혼자 공부하는 방법을 택했다. <del>좀 아쉽다…</del></p>
+
+<p>주말을 투자해 책을 읽으니 대략적으로 내용을 이해할 수 있었고, 미션을 시작하였다.</p>
+
+<p>엔티티 매핑, 연관 관계 매핑의 경우 크게 복잡한 요구사항이 아니라 수월하게 진행할 수 있었고, 질문 삭제하기 리팩터링(서비스 레이어 리팩터링) 경우에는 강의 내용을 참고하여 도메인으로 로직을 분리하고 서비스에서는 도메인을 호출하는 식으로 리팩터링을 진행하며 미션을 마무리할 수 있었다.</p>
+
+<p>JPA 미션을 하며 나의 문제점은 JPA에 사용에 대한 문제라기 보다는<del>(해당 미션의 JPA 매핑 요구사항 난이도가 높지 않은 편)</del> 이전 미션에서도 지적 받은 테스트 코드의 미숙함으로 <strong>설명의 가독성</strong>, <strong>테스트의 독립성을 최대로 보장하는 습관</strong>이 부족하였다.</p>
+
+<p>이를 개선하기 위해서 테스트설명은 파라미터와 리턴값도 작성하며 상세하게 작성하고, <code class="language-plaintext highlighter-rouge">@BeforeEach</code>는 정말 필요할 때만 사용하며 리뷰어님께 피드백 받은 것처럼 <code class="language-plaintext highlighter-rouge">TextFixture</code>를 활용하는 방법도 찾아서 적용해 봐야겠다. 그리고 제일 중요한 것은 반복 숙달을 통한 연습이 필요할 것 같다. 😂</p>
+
+<h2 id="-저장소">💾 저장소</h2>
+<p><a href="https://github.com/sangjaeoh/jwp-qna/tree/step3" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">객체지향 생활체조 원칙</title><link href="http://localhost:4000/etc/object-calisthenics/" rel="alternate" type="text/html" title="객체지향 생활체조 원칙" /><published>2023-01-02T00:00:00+09:00</published><updated>2023-01-02T00:00:00+09:00</updated><id>http://localhost:4000/etc/object-calisthenics</id><content type="html" xml:base="http://localhost:4000/etc/object-calisthenics/"><![CDATA[<h2 id="-객체지향-생활-체조-원칙이란">🤔 객체지향 생활 체조 원칙이란?</h2>
 <p>객체지향 생활 체조 원칙은 ‘소트웍스 앤솔러지’라는 책에서 제시하는 내용으로 객체지향 프로그래밍을 잘 하기 위한 9가지 원칙을 제시합니다.</p>
 
 <h2 id="️️-객체지향-생활-체조-9가지-원칙">⛹️‍♀️ 객체지향 생활 체조 9가지 원칙</h2>
@@ -17,7 +154,7 @@
 <h2 id="️-왜-객체지향-생활-체조-원칙인가">❗️ 왜 객체지향 생활 체조 원칙인가?</h2>
 <p>객체지향 설계와 구현은 단순 암기만 한다고 해결되는게 아닌 꾸준한 연습의 영역입니다. 많은 시니어 개발자들과 강사들이 OOP를 강조하지만, 책만 보고 암기만해서 시도하면 늘 고배를 마시게됩니다. 그러다 포기하는 상황도 잦은데 이렇게 고배를 마시는 이유는 많은 객체지향 책에서 어떻게 설계하고 구현하는지에 대해 추상적으로만 제시하기 때문입니다. 어디가 잘못되었는지도 모르는 개발자에게 이런 추상적인 제안은 더 혼동되게만 할 뿐입니다.</p>
 
-<p>쉽지는 않겠지만 꾸준히 규칙을 상기하며 설계 및 구현을 하다보면 지금까지 이해가 안되던 추상적인 개념들이 이해되는 시점이 찾아올 것입니다.</p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="OOP" /><summary type="html"><![CDATA[🤔 객체지향 생활 체조 원칙이란? 객체지향 생활 체조 원칙은 ‘소트웍스 앤솔러지’라는 책에서 제시하는 내용으로 객체지향 프로그래밍을 잘 하기 위한 9가지 원칙을 제시합니다.]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 소개 및 커리큘럼</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-%EC%86%8C%EA%B0%9C/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 소개 및 커리큘럼" /><published>2023-01-02T00:00:00+09:00</published><updated>2023-01-02T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-%EC%86%8C%EA%B0%9C</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-%EC%86%8C%EA%B0%9C/"><![CDATA[<p><em>10월 24일 ~ 12월 23일</em><br />
+<p>쉽지는 않겠지만 꾸준히 규칙을 상기하며 설계 및 구현을 하다보면 지금까지 이해가 안되던 추상적인 개념들이 이해되는 시점이 찾아올 것입니다.</p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="OOP" /><summary type="html"><![CDATA[🤔 객체지향 생활 체조 원칙이란? 객체지향 생활 체조 원칙은 ‘소트웍스 앤솔러지’라는 책에서 제시하는 내용으로 객체지향 프로그래밍을 잘 하기 위한 9가지 원칙을 제시합니다.]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 소개 및 커리큘럼</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-%EC%86%8C%EA%B0%9C/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 소개 및 커리큘럼" /><published>2023-01-02T00:00:00+09:00</published><updated>2023-01-02T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-%EC%86%8C%EA%B0%9C</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-%EC%86%8C%EA%B0%9C/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
 
 <h2 id="️-우아한테크캠프-pro-소개">🙇🏻‍♂️ 우아한테크캠프 Pro 소개</h2>
@@ -80,7 +217,7 @@
 <ul>
   <li>서비스 진단 및 화면 응답 개선하기</li>
   <li>SQL 최적화</li>
-</ul>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[10월 24일 ~ 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">마크다운 작성방법</title><link href="http://localhost:4000/etc/markdown-guide/" rel="alternate" type="text/html" title="마크다운 작성방법" /><published>2022-09-26T00:00:00+09:00</published><updated>2022-09-26T00:00:00+09:00</updated><id>http://localhost:4000/etc/markdown-guide</id><content type="html" xml:base="http://localhost:4000/etc/markdown-guide/"><![CDATA[<h2 id="마크다운이란">마크다운이란?</h2>
+</ul>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">마크다운 작성방법</title><link href="http://localhost:4000/etc/markdown-guide/" rel="alternate" type="text/html" title="마크다운 작성방법" /><published>2022-09-26T00:00:00+09:00</published><updated>2022-09-26T00:00:00+09:00</updated><id>http://localhost:4000/etc/markdown-guide</id><content type="html" xml:base="http://localhost:4000/etc/markdown-guide/"><![CDATA[<h2 id="마크다운이란">마크다운이란?</h2>
 <p>마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어다. 일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며, 일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다. HTML과 리치 텍스트(RTF) 등 서식 문서로 쉽게 변환되기 때문에 응용 소프트웨어와 함께 배포되는 README 파일이나 온라인 게시물 등에 많이 사용된다.<br />
 - 위키백과</p>
 
