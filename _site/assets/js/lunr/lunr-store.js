@@ -28,4 +28,10 @@ var store = [{
         "tags": ["education","우아한테크캠프 pro 5기"],
         "url": "/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8/",
         "teaser": null
+      },{
+        "title": "우아한테크캠프 Pro 5기 - 3주차 (인수 테스트 주도 개발 - ATDD)",
+        "excerpt":"2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다. 🙇🏻‍♂️ 미션 설명 인수 테스트 만들기 경험을 위해 지하철 노선도 관리 어드민 서비스 구현을 제공된 인수 조건 기반으로, 인수 테스트 주도 개발을 진행하는 미션 🎯 학습 목표 웹 애플리케이션을 인수 테스트 주도 개발 방법으로 개발하는 경험 📖...","categories": ["etc","education"],
+        "tags": ["education","우아한테크캠프 pro 5기"],
+        "url": "/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-3%EC%A3%BC%EC%B0%A8/",
+        "teaser": null
       }]

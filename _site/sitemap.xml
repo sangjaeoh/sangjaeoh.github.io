@@ -21,6 +21,10 @@
 <lastmod>2023-01-03T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-3%EC%A3%BC%EC%B0%A8/</loc>
+<lastmod>2023-01-04T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/categories/</loc>
 </url>
 <url>
@@ -37,5 +41,8 @@
 </url>
 <url>
 <loc>http://localhost:4000/tags/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page2/</loc>
 </url>
 </urlset>
