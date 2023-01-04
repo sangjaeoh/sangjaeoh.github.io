@@ -34,4 +34,10 @@ var store = [{
         "tags": ["education","우아한테크캠프 pro 5기"],
         "url": "/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-3%EC%A3%BC%EC%B0%A8/",
         "teaser": null
+      },{
+        "title": "우아한테크캠프 Pro 5기 - 4주차 (그럴듯한 서비스 만들기)",
+        "excerpt":"2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다. 🙇🏻‍♂️ 미션 설명 AWS에서 네트워크를 구성해보고 서비스를 배포하며 네트워크에 대한 기본적인 개념을 학습해보는 미션 🎯 학습 목표 AWS 상에서 네트워크를 구성하며, 네트워크 기본 개념들을 학습 도커 컨테이너를 학습 개발 환경을 구성해보고 지속적 통합을 경험 📖 강의 내용...","categories": ["etc","education"],
+        "tags": ["education","우아한테크캠프 pro 5기"],
+        "url": "/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-4%EC%A3%BC%EC%B0%A8/",
+        "teaser": null
       }]
