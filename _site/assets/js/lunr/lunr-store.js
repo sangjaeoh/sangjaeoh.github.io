@@ -40,4 +40,10 @@ var store = [{
         "tags": ["education","우아한테크캠프 pro 5기"],
         "url": "/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-4%EC%A3%BC%EC%B0%A8/",
         "teaser": null
+      },{
+        "title": "우아한테크캠프 Pro 5기 - 5주차 (인수 테스트 기반 TDD)",
+        "excerpt":"2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다. 🙇🏻‍♂️ 미션 설명 지하철 노선도 서비스을 구현하면서 인수 테스트 기반 TDD를 진행하는 미션 🎯 학습 목표 인수 테스트 기반의 TDD 경험 로그인 상태 인수 테스트 📖 강의 내용 인수 테스트 기반으로 TDD를 진행하는 방법을 설명하고, 단위테스트와 통합테스트...","categories": ["etc","education"],
+        "tags": ["education","우아한테크캠프 pro 5기"],
+        "url": "/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-5%EC%A3%BC%EC%B0%A8/",
+        "teaser": null
       }]
