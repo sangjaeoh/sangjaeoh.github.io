@@ -1,4 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-07T21:25:46+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">우아한테크캠프 Pro 5기 - 5주차 (인수 테스트 기반 TDD)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-5%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 5주차 (인수 테스트 기반 TDD)" /><published>2023-01-05T00:00:00+09:00</published><updated>2023-01-05T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-5%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-5%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-07T23:43:54+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">우아한테크캠프 Pro 5기 - 6주차 (서비스 진단하기)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 6주차 (서비스 진단하기)" /><published>2023-01-07T00:00:00+09:00</published><updated>2023-01-07T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
+우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
+
+<h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
+<p>웹 성능 테스트, 부하 테스트 및 성능 모니터링을 직접 해보는 미션</p>
+
+<h2 id="-학습-목표">🎯 학습 목표</h2>
+<ul>
+  <li>웹 성능테스트</li>
+  <li>부하테스트</li>
+  <li>모니터링</li>
+</ul>
+
+<h2 id="-강의-내용">📖 강의 내용</h2>
+<p>웹 성능테스트, 부하 테스트 및 모니터링의 설명과 함께 PageSpeed, k6, Cloudwatch 등을 이용해 직접 테스트할 수 있도록 설명</p>
+
+<p><strong>부하 테스트</strong><br />
+<em>1. 목표 rps 구하기</em></p>
+<ul>
+  <li>우선 예상 1일 사용자 수(DAU)를 정해봅니다.</li>
+  <li>피크 시간대의 집중률을 예상해봅니다. (최대 트개픽 / 평소 트래픽)</li>
+  <li>1명당 1일 평균 접속 혹은 요청수를 예상해봅니다.</li>
+  <li>이를 바탕으로 Throughput을 계산합니다.
+    <ul>
+      <li>Throughput : 1일 평균 rps ~ 1일 최대 rps
+        <ul>
+          <li>1일 사용자 수(DAU) x 1명당 1일 평균 접속 수 = 1일 총 접속 수</li>
+          <li>1일 총 접속 수 / 86,400 (초/일) = 1일 평균 rps</li>
+          <li>1일 평균 rps x (최대 트래픽 / 평소 트래픽) = 1일 최대 rps</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><em>2. VUser 구하기</em></p>
+<ul>
+  <li>Request Rate: measured by the number of requests per second (RPS)</li>
+  <li>VU: the number of virtual users</li>
+  <li>R: the number of requests per VU iteration</li>
+  <li>T: a value larger than the time needed to complete a VU iteration
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>T = (R * http_req_duration) (+ 1s)
+VUser = (목표 rps * T) / R
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>로깅 주의점</strong></p>
+<ul>
+  <li>Avoid side effects
+    <ul>
+      <li>logging으로 인해 애플리케이션 기능의 동작에 영향을 미치지 않아야 합니다.</li>
+      <li>예를 들어 logging하는 시점에 NullPointerException이 발생해 프로그램이 정상적으로 동작하지 않는 상황이 발생하면 안됩니다.</li>
+    </ul>
+  </li>
+  <li>Be concise and descriptive
+    <ul>
+      <li>각 Logging에는 데이터와 설명이 모두 포함되어야 합니다.</li>
+    </ul>
+  </li>
+  <li>Log method arguments and return values
+    <ul>
+      <li>메소드의 input과 output을 로그로 남기면 debugger를 사용해 디버깅하지 않아도 됩니다.</li>
+      <li>AOP를 활용할 수 있습니다.</li>
+    </ul>
+  </li>
+  <li>Delete personal information
+    <ul>
+      <li>로그에 사용자의 전화번호, 계좌번호, 패스워드, 주소, 전화번호와 같은 개인정보를 남기지 않습니다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>로깅 레벨</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ERROR</code>: 예상하지 못한 심각한 문제가 발생하여 즉시 조사해야 함</li>
+  <li><code class="language-plaintext highlighter-rouge">WARN</code>: 로직상 유효성 확인, 예상 가능한 문제로 인한 예외처리 등을 남김, 서비스는 운영될 수 있지만, 주의해야 함</li>
+  <li><code class="language-plaintext highlighter-rouge">INFO</code>: 운영에 참고할만한 사항으로, 중요한 비즈니스 프로세스가 완료됨</li>
+  <li><code class="language-plaintext highlighter-rouge">DEBUG</code> / <code class="language-plaintext highlighter-rouge">TRACE</code>: 개발 단계에서만 사용하고 운영 단계에서는 사용하지 않음</li>
+</ul>
+
+<h2 id="-미션-후기">📝 미션 후기</h2>
+<p>이번 미션에서는 새로운 부하테스트 방법과 서버, 애플리케이션 로깅을 해볼 수 있어서 좋았다.</p>
+
+<p>기존에 부하테스트 할 때는 JMeter를 사용했었는데, 이번에 k6라는 것을 처음 알았고 실제로 사용해보니까 JMeter보다 훨씬 사용하기가 편했다.
+또 grafana와 연계해서 데이터를 시각화 해보니 JMeter보다 훨씬 이쁘게 나와서 더욱 마음에 들었다. 😁</p>
+
+<p>로깅, 모니터링 같은 경우는 AWS에서 Cloudwatch를 활용해서 어떻게 ec2 access log, metric log를 수집하는지, 대시보드에 어떻게 표현하는지 알 수 있었다.
+다만 개인적으로는 Cloudwatch가 좀 덜 이쁘고, 약간 불편하다? 라는 느낌이 있었다. 😅</p>
+
+<p>이번 강의를 통해 k6와 부하테스트의 방법을 배웠으니, 앞으로 API를 개발할 때마다 간단하게 테스트 해보면 좋을것 같다. 👍</p>
+
+<h2 id="-저장소">💾 저장소</h2>
+<p><a href="https://github.com/sangjaeoh/infra-subway-monitoring/tree/step3" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 5주차 (인수 테스트 기반 TDD)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-5%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 5주차 (인수 테스트 기반 TDD)" /><published>2023-01-05T00:00:00+09:00</published><updated>2023-01-05T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-5%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-5%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
 
 <h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
@@ -296,71 +393,7 @@
 <p>이를 개선하기 위해서 객체 지향 설계에 대해 더 공부, 연습을 하고 메소드, 변수의 의미를 바로알 수 있도록 축약하지 않고 자세히 설명하는 이름을 짓는 노력을 해야할 것 같다. 😅😂</p>
 
 <h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/atdd-subway-admin/tree/step4" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 2주차 (JPA)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 2주차 (JPA)" /><published>2023-01-03T00:00:00+09:00</published><updated>2023-01-03T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
-우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
-
-<h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
-<p>QnA 저장소를 기반으로 JPA를 사용하여 엔티티 매핑, 연관 관계 매핑, 서비스 레이어 리팩터링을 진행하는 미션</p>
-
-<h2 id="-학습-목표">🎯 학습 목표</h2>
-<ul>
-  <li>JPA 학습 테스트를 통한 <strong>JPA 학습</strong></li>
-  <li>Q&amp;A 서비스를 JPA로 매핑</li>
-</ul>
-
-<h2 id="-강의-내용">📖 강의 내용</h2>
-<p>JPA에 대해 전반적인 내용을 설명합니다. 강의 내용이 많아 여기서 다 설명할 수 없고 아래의 링크를 통해 학습하거나 <a href="https://edu.nextstep.camp/">NEXTSTEP</a> 강의를 통해 학습할 수 있습니다. 😆<br />
-- <a href="https://www.youtube.com/playlist?list=PL9mhQYIlKEhfpMVndI23RwWTL9-VL-B7U" target="_blank">JPA 프로그래밍 기본기 다지기 | T아카데미</a><br />
-- <a href="https://www.slideshare.net/ssusere4d67c/jpa-56081624" target="_blank">영속성 컨텍스트로 보는 JPA</a><br />
-- <a href="https://youtu.be/mezbxKGu68Y" target="_blank">ORM vs SQL Mapper vs JDBC</a><br />
-- <a href="http://www.yes24.com/Product/Goods/19040233" target="_blank">자바 ORM 표준 JPA 프로그래밍</a></p>
-
-<p><strong>JPA 설정</strong><br />
-- Spring Data JPA 사용 시 아래 옵션은 동작 쿼리를 로그로 확인할 수 있게 해준다.</p>
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spring.jpa.properties.hibernate.format_sql=true
-spring.jpa.show-sql=true
-</code></pre></div></div>
-
-<p>- H2 데이터베이스를 사용한다면 아래의 프로퍼티를 추가하여 MySQL Dialect을 사용할 수 있다.</p>
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spring.datasource.url=jdbc:h2:~/test;MODE=MySQL
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL57Dialect
-</code></pre></div></div>
-
-<p><strong>엔티티 비교</strong><br />
-- 엔티티의 <code class="language-plaintext highlighter-rouge">equals()</code>와 <code class="language-plaintext highlighter-rouge">hashCode()</code>를 구현할 때는 엔티티의 식별자만 있어도 충분하다.</p>
-
-<p><strong>@ManyToOne vs @OneToOne</strong><br />
-- 생성되는 DDL은 똑같을 수 있다.<br />
-- 관념적으로 차이가 발생한다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Address</span> <span class="n">address</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Address</span><span class="o">();</span>
-<span class="nc">Order</span> <span class="n">order1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Order</span><span class="o">();</span>
-<span class="n">order1</span><span class="o">.</span><span class="na">setAddress</span><span class="o">(</span><span class="n">address</span><span class="o">);</span>
-<span class="nc">Order</span> <span class="n">order2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Order</span><span class="o">();</span>
-<span class="n">order2</span><span class="o">.</span><span class="na">setAddress</span><span class="o">(</span><span class="n">address</span><span class="o">);</span>
-<span class="n">save</span><span class="o">();</span>
-</code></pre></div></div>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@OneToOne</span> <span class="k">case</span><span class="o">:</span>
-<span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">HibernateException</span><span class="o">:</span> <span class="nc">More</span> <span class="n">than</span> <span class="n">one</span> <span class="n">row</span> <span class="n">with</span> <span class="n">the</span> <span class="n">given</span> <span class="n">identifier</span> <span class="n">was</span> <span class="nl">found:</span> <span class="mi">1</span>
-
-<span class="nd">@ManyToOne</span> <span class="k">case</span><span class="o">:</span>
-<span class="no">SUCCESS</span>
-</code></pre></div></div>
-
-<h2 id="-미션-후기">📝 미션 후기</h2>
-<p>JPA 미션을 시작하기 전에 바로 코딩을 하기 보다는 부족한 JPA지식을 쌓고 미션을 시작하는게 좋다고 판단하여 예전에 샀던 <strong>자바 ORM 표준 JPA 프로그래밍</strong> 책을 다시한번 읽으며 JPA에 대해 공부를 먼저 하였다. 처음 읽었을 때는 이해 안가는 부분이 많았지만 <del>(mappedBy)</del> 두 번째 읽으니 한 번 읽은 경험이 있어서 그런지 처음보다는 빠르게 이해가 되었다.</p>
-
-<p>우테캠 Pro 진행하는 사람들끼리 모여 JPA 스터디그룹도 만드는것 같았지만 내가 스터디를 병행하기에는 시간이 부족할거 같아 혼자 공부하는 방법을 택했다. <del>좀 아쉽다…</del></p>
-
-<p>주말을 투자해 책을 읽으니 대략적으로 내용을 이해할 수 있었고, 미션을 시작하였다.</p>
-
-<p>엔티티 매핑, 연관 관계 매핑의 경우 크게 복잡한 요구사항이 아니라 수월하게 진행할 수 있었고, 질문 삭제하기 리팩터링(서비스 레이어 리팩터링) 경우에는 강의 내용을 참고하여 도메인으로 로직을 분리하고 서비스에서는 도메인을 호출하는 식으로 리팩터링을 진행하며 미션을 마무리할 수 있었다.</p>
-
-<p>JPA 미션을 하며 나의 문제점은 JPA에 사용에 대한 문제라기 보다는<del>(물론 JPA 이해도가 높다고 할 수 없으며 공부 필요!)</del> 이전 미션에서도 지적 받은 테스트 코드의 미숙함으로 <strong>설명의 가독성</strong>, <strong>테스트의 독립성을 최대로 보장하는 습관</strong>이 부족하였다.</p>
-
-<p>이를 개선하기 위해서 테스트설명은 파라미터와 리턴값도 작성하며 상세하게 작성하고, <code class="language-plaintext highlighter-rouge">@BeforeEach</code>는 정말 필요할 때만 사용하며 리뷰어님께 피드백 받은 것처럼 <code class="language-plaintext highlighter-rouge">TextFixture</code>를 활용하는 방법도 찾아서 적용해 봐야겠다. 그리고 제일 중요한 것은 반복 숙달을 통한 연습이 필요할 것 같다. 😂</p>
-
-<h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/jwp-qna/tree/step3" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 1주차 (로또 TDD)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 1주차 (로또 TDD)" /><published>2023-01-03T00:00:00+09:00</published><updated>2023-01-03T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
+<p><a href="https://github.com/sangjaeoh/atdd-subway-admin/tree/step4" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 1주차 (로또 TDD)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 1주차 (로또 TDD)" /><published>2023-01-03T00:00:00+09:00</published><updated>2023-01-03T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
 
 <h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
@@ -433,7 +466,71 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL57Dialect
 <p>로또 미션을 하며 나의 문제점은 테스트코드를 작성할 때 설명의 가독성이 떨어진다는 것이었다.<em>(예: 로또 구매 가능 갯수 계산 -&gt; 5000원으로 구매 가능한 로또의 개수를 계산하면 5개 이다.)</em> 이를 개선하기 위해서 피드백 받은것 처럼 파라미터와 리턴값도 정확히 테스트코드 설명에 추가 하는식으로 작성하면 좋을 것 같다. <del>독서를 통해 글을 잘 쓰는 능력을 키우는 것도…</del></p>
 
 <h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/java-lotto-pro/tree/step5" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">객체지향 생활체조 원칙</title><link href="http://localhost:4000/etc/object-calisthenics/" rel="alternate" type="text/html" title="객체지향 생활체조 원칙" /><published>2023-01-02T00:00:00+09:00</published><updated>2023-01-02T00:00:00+09:00</updated><id>http://localhost:4000/etc/object-calisthenics</id><content type="html" xml:base="http://localhost:4000/etc/object-calisthenics/"><![CDATA[<h2 id="-객체지향-생활-체조-원칙이란">🤔 객체지향 생활 체조 원칙이란?</h2>
+<p><a href="https://github.com/sangjaeoh/java-lotto-pro/tree/step5" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 2주차 (JPA)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 2주차 (JPA)" /><published>2023-01-03T00:00:00+09:00</published><updated>2023-01-03T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
+우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
+
+<h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
+<p>QnA 저장소를 기반으로 JPA를 사용하여 엔티티 매핑, 연관 관계 매핑, 서비스 레이어 리팩터링을 진행하는 미션</p>
+
+<h2 id="-학습-목표">🎯 학습 목표</h2>
+<ul>
+  <li>JPA 학습 테스트를 통한 <strong>JPA 학습</strong></li>
+  <li>Q&amp;A 서비스를 JPA로 매핑</li>
+</ul>
+
+<h2 id="-강의-내용">📖 강의 내용</h2>
+<p>JPA에 대해 전반적인 내용을 설명합니다. 강의 내용이 많아 여기서 다 설명할 수 없고 아래의 링크를 통해 학습하거나 <a href="https://edu.nextstep.camp/">NEXTSTEP</a> 강의를 통해 학습할 수 있습니다. 😆<br />
+- <a href="https://www.youtube.com/playlist?list=PL9mhQYIlKEhfpMVndI23RwWTL9-VL-B7U" target="_blank">JPA 프로그래밍 기본기 다지기 | T아카데미</a><br />
+- <a href="https://www.slideshare.net/ssusere4d67c/jpa-56081624" target="_blank">영속성 컨텍스트로 보는 JPA</a><br />
+- <a href="https://youtu.be/mezbxKGu68Y" target="_blank">ORM vs SQL Mapper vs JDBC</a><br />
+- <a href="http://www.yes24.com/Product/Goods/19040233" target="_blank">자바 ORM 표준 JPA 프로그래밍</a></p>
+
+<p><strong>JPA 설정</strong><br />
+- Spring Data JPA 사용 시 아래 옵션은 동작 쿼리를 로그로 확인할 수 있게 해준다.</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.show-sql=true
+</code></pre></div></div>
+
+<p>- H2 데이터베이스를 사용한다면 아래의 프로퍼티를 추가하여 MySQL Dialect을 사용할 수 있다.</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spring.datasource.url=jdbc:h2:~/test;MODE=MySQL
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL57Dialect
+</code></pre></div></div>
+
+<p><strong>엔티티 비교</strong><br />
+- 엔티티의 <code class="language-plaintext highlighter-rouge">equals()</code>와 <code class="language-plaintext highlighter-rouge">hashCode()</code>를 구현할 때는 엔티티의 식별자만 있어도 충분하다.</p>
+
+<p><strong>@ManyToOne vs @OneToOne</strong><br />
+- 생성되는 DDL은 똑같을 수 있다.<br />
+- 관념적으로 차이가 발생한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Address</span> <span class="n">address</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Address</span><span class="o">();</span>
+<span class="nc">Order</span> <span class="n">order1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Order</span><span class="o">();</span>
+<span class="n">order1</span><span class="o">.</span><span class="na">setAddress</span><span class="o">(</span><span class="n">address</span><span class="o">);</span>
+<span class="nc">Order</span> <span class="n">order2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Order</span><span class="o">();</span>
+<span class="n">order2</span><span class="o">.</span><span class="na">setAddress</span><span class="o">(</span><span class="n">address</span><span class="o">);</span>
+<span class="n">save</span><span class="o">();</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@OneToOne</span> <span class="k">case</span><span class="o">:</span>
+<span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">HibernateException</span><span class="o">:</span> <span class="nc">More</span> <span class="n">than</span> <span class="n">one</span> <span class="n">row</span> <span class="n">with</span> <span class="n">the</span> <span class="n">given</span> <span class="n">identifier</span> <span class="n">was</span> <span class="nl">found:</span> <span class="mi">1</span>
+
+<span class="nd">@ManyToOne</span> <span class="k">case</span><span class="o">:</span>
+<span class="no">SUCCESS</span>
+</code></pre></div></div>
+
+<h2 id="-미션-후기">📝 미션 후기</h2>
+<p>JPA 미션을 시작하기 전에 바로 코딩을 하기 보다는 부족한 JPA지식을 쌓고 미션을 시작하는게 좋다고 판단하여 예전에 샀던 <strong>자바 ORM 표준 JPA 프로그래밍</strong> 책을 다시한번 읽으며 JPA에 대해 공부를 먼저 하였다. 처음 읽었을 때는 이해 안가는 부분이 많았지만 <del>(mappedBy)</del> 두 번째 읽으니 한 번 읽은 경험이 있어서 그런지 처음보다는 빠르게 이해가 되었다.</p>
+
+<p>우테캠 Pro 진행하는 사람들끼리 모여 JPA 스터디그룹도 만드는것 같았지만 내가 스터디를 병행하기에는 시간이 부족할거 같아 혼자 공부하는 방법을 택했다. <del>좀 아쉽다…</del></p>
+
+<p>주말을 투자해 책을 읽으니 대략적으로 내용을 이해할 수 있었고, 미션을 시작하였다.</p>
+
+<p>엔티티 매핑, 연관 관계 매핑의 경우 크게 복잡한 요구사항이 아니라 수월하게 진행할 수 있었고, 질문 삭제하기 리팩터링(서비스 레이어 리팩터링) 경우에는 강의 내용을 참고하여 도메인으로 로직을 분리하고 서비스에서는 도메인을 호출하는 식으로 리팩터링을 진행하며 미션을 마무리할 수 있었다.</p>
+
+<p>JPA 미션을 하며 나의 문제점은 JPA에 사용에 대한 문제라기 보다는<del>(물론 JPA 이해도가 높다고 할 수 없으며 공부 필요!)</del> 이전 미션에서도 지적 받은 테스트 코드의 미숙함으로 <strong>설명의 가독성</strong>, <strong>테스트의 독립성을 최대로 보장하는 습관</strong>이 부족하였다.</p>
+
+<p>이를 개선하기 위해서 테스트설명은 파라미터와 리턴값도 작성하며 상세하게 작성하고, <code class="language-plaintext highlighter-rouge">@BeforeEach</code>는 정말 필요할 때만 사용하며 리뷰어님께 피드백 받은 것처럼 <code class="language-plaintext highlighter-rouge">TextFixture</code>를 활용하는 방법도 찾아서 적용해 봐야겠다. 그리고 제일 중요한 것은 반복 숙달을 통한 연습이 필요할 것 같다. 😂</p>
+
+<h2 id="-저장소">💾 저장소</h2>
+<p><a href="https://github.com/sangjaeoh/jwp-qna/tree/step3" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">객체지향 생활체조 원칙</title><link href="http://localhost:4000/etc/object-calisthenics/" rel="alternate" type="text/html" title="객체지향 생활체조 원칙" /><published>2023-01-02T00:00:00+09:00</published><updated>2023-01-02T00:00:00+09:00</updated><id>http://localhost:4000/etc/object-calisthenics</id><content type="html" xml:base="http://localhost:4000/etc/object-calisthenics/"><![CDATA[<h2 id="-객체지향-생활-체조-원칙이란">🤔 객체지향 생활 체조 원칙이란?</h2>
 <p>객체지향 생활 체조 원칙은 ‘소트웍스 앤솔러지’라는 책에서 제시하는 내용으로 객체지향 프로그래밍을 잘 하기 위한 9가지 원칙을 제시합니다.</p>
 
 <h2 id="️️-객체지향-생활-체조-9가지-원칙">⛹️‍♀️ 객체지향 생활 체조 9가지 원칙</h2>
