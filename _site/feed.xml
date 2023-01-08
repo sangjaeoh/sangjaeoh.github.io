@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-08T18:46:36+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-08T22:18:54+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
 
 <h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
@@ -92,9 +92,57 @@
 <p>위 문제점을 개선하기 위해 DDD관련 글을 읽고 공부, 연습을 많이 해봐야 할거같고, 테스트 코드 작성시에도 의존관계를 생각해야할 것 같다(TestFixtures등을 이용)</p>
 
 <h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/jwp-refactoring/tree/step4" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">MAC 단축키 모음 💻</title><link href="http://localhost:4000/etc/mac/hotkey/" rel="alternate" type="text/html" title="MAC 단축키 모음 💻" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/etc/mac/hotkey</id><content type="html" xml:base="http://localhost:4000/etc/mac/hotkey/"><![CDATA[<ul>
+<p><a href="https://github.com/sangjaeoh/jwp-refactoring/tree/step4" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">MAC 단축키 모음 💻</title><link href="http://localhost:4000/etc/mac/hotkey/" rel="alternate" type="text/html" title="MAC 단축키 모음 💻" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/etc/mac/hotkey</id><content type="html" xml:base="http://localhost:4000/etc/mac/hotkey/"><![CDATA[<h2 id="일반-단축키">일반 단축키</h2>
+<ul>
   <li>화면 잠금: Control + Command + Q</li>
-</ul>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="mac" /><category term="mac" /><category term="단축키" /><summary type="html"><![CDATA[화면 잠금: Control + Command + Q]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 6주차 (서비스 진단하기)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 6주차 (서비스 진단하기)" /><published>2023-01-07T00:00:00+09:00</published><updated>2023-01-07T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
+  <li>복제: Command + x</li>
+  <li>다시찾기: Command + G</li>
+  <li>윈도우 최소화: Command + M</li>
+  <li>프린트: Command + P</li>
+  <li>붙여넣기: Command + V</li>
+  <li>모두선택: Command + A</li>
+  <li>복사: Command + C</li>
+  <li>숨기기: Command + H</li>
+  <li>선택항목 열기: Command + O</li>
+  <li>문서 저장: Command + S</li>
+  <li>이전명령: Command + Z</li>
+  <li>항목찾기: Command + F</li>
+  <li>새 탭 열기: Command + T</li>
+  <li>창 닫기: Command + W</li>
+  <li>강제 종료: Option + Command + Esc</li>
+  <li>Spotlight 표시/숨기기: Command + Spacebar</li>
+  <li>이모티콘 및 기타 기호: Ctrl + Command + Spacebar</li>
+  <li>전체화면: Ctrl + Command + F</li>
+  <li>스크린샷 및 화면 기록: Shift + Command + 5</li>
+  <li>새폴더 생성: Shift + Command + N</li>
+  <li>환경설정 열기: Command + ,</li>
+  <li>최근 사용 앱으로 전환: Command + Tab</li>
+  <li>훑어보기: Spacebar</li>
+</ul>
+
+<h2 id="finder-및-시스템-단축키">Finder 및 시스템 단축키</h2>
+<ul>
+  <li>선택 파일 복제: Command + D</li>
+  <li>Finder 윈도우에서 Spotlight 검색 시작: Command + F</li>
+  <li>선택 디스크 또는 볼륨 추출: Command + E</li>
+  <li>선택 파일의 정보 가져오기: Command + I</li>
+  <li>가상본의 원본 파일이 형성: Command + R</li>
+  <li>컴퓨터 윈도우 열기: Shift + Command + C</li>
+  <li>최근 윈도우/파일 표시: Shift + Command + F</li>
+  <li>현재 macOS 사용자 계정 폴더 열기: Shift + Command + H</li>
+  <li>데스크탑 폴더 열기: Shift + Command + D</li>
+  <li>폴더로 이동 윈도우 열기: Shift + Command + G</li>
+  <li>iCloud Drive 열기: Shift + Command + I</li>
+  <li>Shift + Command K 네트위크 윈도우 열기</li>
+  <li>새 폴더 생성: Shift + Command + N</li>
+  <li>Finder 미리보기 패널 표시/가리기: Shift + Command + P</li>
+  <li>다운로드 폴더 열기: Shift + Command + L</li>
+  <li>문서 폴더 열기: Shift + Command + O</li>
+  <li>AirDrop 윈도우 열기: Shift + Command + R</li>
+</ul>
+
+<h2 id="참고-사이트">참고 사이트</h2>
+<p><a href="https://www.invaiz.com/blog/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;bmode=view&amp;idx=12577409&amp;t=board" target="_blank">invaiz 블로그</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="mac" /><category term="mac" /><category term="단축키" /><summary type="html"><![CDATA[일반 단축키 화면 잠금: Control + Command + Q 복제: Command + x 다시찾기: Command + G 윈도우 최소화: Command + M 프린트: Command + P 붙여넣기: Command + V 모두선택: Command + A 복사: Command + C 숨기기: Command + H 선택항목 열기: Command + O 문서 저장: Command + S 이전명령: Command + Z 항목찾기: Command + F 새 탭 열기: Command + T 창 닫기: Command + W 강제 종료: Option + Command + Esc Spotlight 표시/숨기기: Command + Spacebar 이모티콘 및 기타 기호: Ctrl + Command + Spacebar 전체화면: Ctrl + Command + F 스크린샷 및 화면 기록: Shift + Command + 5 새폴더 생성: Shift + Command + N 환경설정 열기: Command + , 최근 사용 앱으로 전환: Command + Tab 훑어보기: Spacebar]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 6주차 (서비스 진단하기)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 6주차 (서비스 진단하기)" /><published>2023-01-07T00:00:00+09:00</published><updated>2023-01-07T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
 
 <h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>

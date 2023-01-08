@@ -66,7 +66,7 @@ var store = [{
         "teaser": null
       },{
         "title": "MAC 단축키 모음 💻",
-        "excerpt":"   화면 잠금: Control + Command + Q  ","categories": ["etc","mac"],
+        "excerpt":"일반 단축키 화면 잠금: Control + Command + Q 복제: Command + x 다시찾기: Command + G 윈도우 최소화: Command + M 프린트: Command + P 붙여넣기: Command + V 모두선택: Command + A 복사: Command + C 숨기기: Command + H 선택항목 열기: Command + O 문서 저장: Command...","categories": ["etc","mac"],
         "tags": ["mac","단축키"],
         "url": "/etc/mac/hotkey/",
         "teaser": null
