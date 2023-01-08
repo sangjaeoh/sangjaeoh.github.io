@@ -11,7 +11,7 @@ var store = [{
         "url": "/etc/object-calisthenics/",
         "teaser": null
       },{
-        "title": "우아한테크캠프 Pro 5기 소개 및 커리큘럼",
+        "title": "우아한테크캠프 Pro 5기 - 소개 및 커리큘럼",
         "excerpt":"2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다. 🙇🏻‍♂️ 우아한테크캠프 Pro 소개 NextStep 교육 과정으로 9주 동안 8개 미션을 진행을 합니다. 각 미션별 코드 리뷰어가 배정 되며 미션을 진행하고, 진행한 미션에 대해 코드 리뷰를 받는식으로 강의를 진행 합니다. 🎯 우아한테크캠프 Pro 과정의 학습 목표 클린코드를...","categories": ["etc","education"],
         "tags": ["우아한테크캠프 pro 5기"],
         "url": "/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-%EC%86%8C%EA%B0%9C/",
@@ -57,6 +57,12 @@ var store = [{
         "excerpt":"2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다. 🙇🏻‍♂️ 미션 설명 레거시 프로젝트를 리팩터링하는 미션 🎯 학습 목표 레거시 프로젝트를 리팩터링하는 경험을 통해 서비스를 안정적으로 운영하면서 레거시 코드를 리팩터링할 수 있는 역량을 키운다. 프로젝트를 만드는 단계에서 끝나는 것이 아니라 프로젝트를 완료한 후 일정 기간 유지보수를...","categories": ["etc","education"],
         "tags": ["우아한테크캠프 pro 5기"],
         "url": "/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-7%EC%A3%BC%EC%B0%A8/",
+        "teaser": null
+      },{
+        "title": "우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)",
+        "excerpt":"2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다. 🙇🏻‍♂️ 미션 설명 안정적인 서비스를 위한 성능개선, 스케일 아웃, 쿼리 최적화 등을 직접 해보는 미션 🎯 학습 목표 HTTP 개선에 따른 차이를 이해하고 Reverse Proxy 성능 개선 HTTP Cache 전략을 이해하여 적절한 정책을 설정 쿼리를 최적화하여 조회...","categories": ["etc","education"],
+        "tags": ["우아한테크캠프 pro 5기"],
+        "url": "/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/",
         "teaser": null
       },{
         "title": "MAC 단축키 모음 💻",
