@@ -16,7 +16,9 @@ docs:
       - title: "교육"
         url: /categories/education
         category: "education"
-
+      - title: "mac"
+        url: /categories/mac
+        category: "mac"
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
