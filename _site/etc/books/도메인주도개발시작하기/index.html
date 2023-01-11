@@ -350,7 +350,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#1-도메인-모델-시작하기">1. 도메인 모델 시작하기</a><ul><li><a href="#11-도메인이란">1.1 도메인이란?</a></li><li><a href="#12-도메인-전문가와-개발자-간-지식공유">1.2 도메인 전문가와 개발자 간 지식공유</a></li><li><a href="#13-도메인-모델">1.3 도메인 모델</a></li><li><a href="#14-도메인-모델-패턴">1.4 도메인 모델 패턴</a></li><li><a href="#15-도메인-모델-도출">1.5 도메인 모델 도출</a></li><li><a href="#16-엔티티와-벨류">1.6 엔티티와 벨류</a><ul><li><a href="#161-엔티티">1.6.1 엔티티</a></li><li><a href="#162-엔티티의-식별자-생성">1.6.2 엔티티의 식별자 생성</a></li><li><a href="#163-밸류-타입">1.6.3 밸류 타입</a></li><li><a href="#164-엔티티-식별자와-밸류-타입">1.6.4 엔티티 식별자와 밸류 타입</a></li><li><a href="#165-도메인-모델에-set-넣지-않기">1.6.5 도메인 모델에 set 넣지 않기</a></li></ul></li><li><a href="#17-도메인-용어와-유비쿼터스-언어">1.7 도메인 용어와 유비쿼터스 언어</a></li></ul></li><li><a href="#2-아키택처-개요">2. 아키택처 개요</a><ul><li><a href="#21-네-개의-영역">2.1 네 개의 영역</a></li><li><a href="#22-계층-구조-아키텍처">2.2 계층 구조 아키텍처</a></li><li><a href="#23-dip">2.3 DIP</a></li><li><a href="#24-도메인-영역의-주요-구성요소">2.4 도메인 영역의 주요 구성요소</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#1-도메인-모델-시작하기">1. 도메인 모델 시작하기</a><ul><li><a href="#11-도메인이란">1.1 도메인이란?</a></li><li><a href="#12-도메인-전문가와-개발자-간-지식공유">1.2 도메인 전문가와 개발자 간 지식공유</a></li><li><a href="#13-도메인-모델">1.3 도메인 모델</a></li><li><a href="#14-도메인-모델-패턴">1.4 도메인 모델 패턴</a></li><li><a href="#15-도메인-모델-도출">1.5 도메인 모델 도출</a></li><li><a href="#16-엔티티와-벨류">1.6 엔티티와 벨류</a><ul><li><a href="#161-엔티티">1.6.1 엔티티</a></li><li><a href="#162-엔티티의-식별자-생성">1.6.2 엔티티의 식별자 생성</a></li><li><a href="#163-밸류-타입">1.6.3 밸류 타입</a></li><li><a href="#164-엔티티-식별자와-밸류-타입">1.6.4 엔티티 식별자와 밸류 타입</a></li><li><a href="#165-도메인-모델에-set-넣지-않기">1.6.5 도메인 모델에 set 넣지 않기</a></li></ul></li><li><a href="#17-도메인-용어와-유비쿼터스-언어">1.7 도메인 용어와 유비쿼터스 언어</a></li></ul></li><li><a href="#2-아키택처-개요">2. 아키택처 개요</a><ul><li><a href="#21-네-개의-영역">2.1 네 개의 영역</a></li><li><a href="#22-계층-구조-아키텍처">2.2 계층 구조 아키텍처</a></li><li><a href="#23-dip">2.3 DIP</a></li><li><a href="#24-도메인-영역의-주요-구성요소">2.4 도메인 영역의 주요 구성요소</a></li><li><a href="#25-요청-처리-흐름">2.5 요청 처리 흐름</a></li><li><a href="#26-인프라스트럭처-개요">2.6 인프라스트럭처 개요</a></li><li><a href="#27-모듈-구성">2.7 모듈 구성</a></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -505,7 +505,7 @@ STEP1, STEP2 같은것이 아닌 PAYMENT_WAITING, PREPARING 같은 도메인 용
   </thead>
   <tbody>
     <tr>
-      <td>엔티티 ENTUTY</td>
+      <td>엔티티 ENTITY</td>
       <td>고유의 식별자를 갖는 객체로 자신의 라이프 사이클을 갖는다. 주문, 회원, 상품과 같이 도메인의 고유한 개념을 표현한다. 도메인 모델의 데이터를 포함하며 해당 데이터와 관련된 기능을 함께 제공한다.</td>
     </tr>
     <tr>
@@ -526,6 +526,21 @@ STEP1, STEP2 같은것이 아닌 PAYMENT_WAITING, PREPARING 같은 도메인 용
     </tr>
   </tbody>
 </table>
+
+<h2 id="25-요청-처리-흐름">2.5 요청 처리 흐름</h2>
+<center><img src="/assets/images/posts/books/2_5_요청처리흐름.png" alt="요청처리흐름" width="80%" height="80%" /></center>
+
+<h2 id="26-인프라스트럭처-개요">2.6 인프라스트럭처 개요</h2>
+<ul>
+  <li>도메인 객체의 영속성 처리, 트랜젝션, REST 클라이언트 등 다른영역에서 필요로 하는 프레임워크, 구현 기술, 보조 기능을 지원한다.</li>
+  <li>보통 의존성역전 사용</li>
+  <li>@Transactional 같은 DIP를 사용하지 않는 예외도 편의를 위해 허용</li>
+</ul>
+
+<h2 id="27-모듈-구성">2.7 모듈 구성</h2>
+<center><img src="/assets/images/posts/books/2_7_모듈구성1.png" alt="모듈구성1" width="60%" height="60%" /></center>
+<center><img src="/assets/images/posts/books/2_7_모듈구성2.png" alt="모듈구성2" width="60%" height="60%" /></center>
+<center><img src="/assets/images/posts/books/2_7_모듈구성3.png" alt="모듈구성3" width="60%" height="60%" /></center>
 
 <p><strong>… 작성중 …</strong></p>
 
