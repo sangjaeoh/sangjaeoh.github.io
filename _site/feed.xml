@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-13T23:23:26+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</title><link href="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지" /><published>2023-01-09T00:00:00+09:00</published><updated>2023-01-09T00:00:00+09:00</updated><id>http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 구입해서 읽는것을 추천합니다~👍</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-13T23:37:22+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</title><link href="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지" /><published>2023-01-09T00:00:00+09:00</published><updated>2023-01-09T00:00:00+09:00</updated><id>http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 구입해서 읽는것을 추천합니다~👍</p>
 
 <hr />
 
@@ -270,15 +270,33 @@ STEP1, STEP2 같은것이 아닌 PAYMENT_WAITING, PREPARING 같은 도메인 용
   <li>쿼리가 복잡하거나 특화된 기능을 사용해야 한다면 마이바티스와 같은 기술로 구현하는걸 고려한다.</li>
 </ul>
 
-<h2 id="애그리거트-간-집합-연관">애그리거트 간 집합 연관</h2>
+<h2 id="35-애그리거트-간-집합-연관">3.5 애그리거트 간 집합 연관</h2>
 <p>1-N, M-N 연관에 대해 살펴본다.</p>
 
 <p><strong>1-N</strong></p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Category</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Product</span><span class="o">&gt;</span> <span class="n">products</span><span class="o">;</span> <span class="c1">//다른 애그리거트에 대한 1-N 연관</span>
 <span class="o">}</span>
-
 </code></pre></div></div>
+<p>조회시 개념적으로 애거리거트 간에 1-N 연관이 있더라도 성능 문제 때문에 실제 구현에 반영하지 않는다. N-1로 연관지어 구현한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">CategoryId</span> <span class="n">categoryId</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProductListService</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nc">Page</span><span class="o">&lt;</span><span class="nc">Product</span><span class="o">&gt;</span> <span class="nf">getProductOfCategory</span><span class="o">(</span><span class="nc">Long</span> <span class="n">categoryId</span><span class="o">,</span> <span class="kt">int</span> <span class="n">page</span><span class="o">,</span> <span class="kt">int</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Category</span> <span class="n">category</span> <span class="o">=</span> <span class="n">categoryRepository</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">categoryId</span><span class="o">);</span>
+        <span class="n">checkCategory</span><span class="o">(</span><span class="n">category</span><span class="o">);</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Product</span><span class="o">&gt;</span> <span class="n">products</span> <span class="o">=</span> <span class="n">productRepository</span><span class="o">.</span><span class="na">findByCategoryId</span><span class="o">(</span><span class="n">category</span><span class="o">.</span><span class="na">getId</span><span class="o">(),</span> <span class="n">page</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">totalCount</span> <span class="o">=</span> <span class="n">productRepository</span><span class="o">.</span><span class="na">countByCategoryId</span><span class="o">(</span><span class="n">category</span><span class="o">.</span><span class="na">getId</span><span class="o">());</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Page</span><span class="o">(</span><span class="n">page</span><span class="o">,</span> <span class="n">size</span><span class="o">,</span> <span class="n">totalCount</span><span class="o">,</span> <span class="n">products</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>M-N</strong>
+M-N 연관은 개념적으로 양쪽 애그리거트에 컬렉션으로 연관을 만든다.</p>
 
 <p><strong>… 작성중 …</strong></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="books" /><category term="books" /><category term="DDD" /><summary type="html"><![CDATA[도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 구입해서 읽는것을 추천합니다~👍]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
