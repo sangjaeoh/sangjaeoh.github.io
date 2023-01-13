@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-13T23:45:40+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</title><link href="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지" /><published>2023-01-09T00:00:00+09:00</published><updated>2023-01-09T00:00:00+09:00</updated><id>http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 구입해서 읽는것을 추천합니다~👍</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-14T00:09:36+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</title><link href="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지" /><published>2023-01-09T00:00:00+09:00</published><updated>2023-01-09T00:00:00+09:00</updated><id>http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 구입해서 읽는것을 추천합니다~👍</p>
 
 <hr />
 
@@ -295,8 +295,52 @@ STEP1, STEP2 같은것이 아닌 PAYMENT_WAITING, PREPARING 같은 도메인 용
 <span class="o">}</span>
 </code></pre></div></div>
 
+<p><br /></p>
+
 <p><strong>M-N</strong><br />
-M-N 연관은 개념적으로 양쪽 애그리거트에 컬렉션으로 연관을 만든다.</p>
+M-N 연관은 개념적으로 양쪽 애그리거트에 컬렉션으로 연관을 만든다. 하지만 구현은 요구사항을 고려해서 결정한다. 개념적으로는 상품과 카테고리의 양방향 M-N 연관이 존재하지만 실제 구현에서는 상품에서 카테고리로의 단방향 M-N 연관만 적용하면 되는 것이다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">CategoryId</span><span class="o">&gt;</span> <span class="n">categoryIds</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>RDBMS에서 M-N 연관 구현</strong></p>
+<center><img src="/assets/images/posts/books/1/3_5_RDBMS_M-N연관.png" alt="RDBMS_M-N연관" width="70%" height="70%" /></center>
+
+<p><br /></p>
+
+<p><strong>JPA를 이용하여 ID 참조를 이용한 M-N 단방향 연관 구현</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"product"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+    <span class="nd">@EmbeddedId</span>
+    <span class="kd">private</span> <span class="nc">ProductId</span> <span class="n">id</span><span class="o">;</span>
+    
+    <span class="nd">@ElementCollection</span>
+    <span class="nd">@CollectionTable</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"product_category"</span><span class="o">,</span>
+        <span class="n">joinColumns</span> <span class="o">=</span> <span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"product_id"</span><span class="o">))</span>
+    <span class="kd">private</span> <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">CategoryId</span><span class="o">&gt;</span> <span class="n">categoryIds</span><span class="o">;</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="36-애그리거트를-팩토리로-사용하기">3.6 애그리거트를 팩토리로 사용하기</h2>
+<ul>
+  <li>애그리거트가 갖고 있는 데이터를 이용해서 다른 애그리거트를 생성해야 한다면 애그리거트에 팩토리 메서드를 구현하는 것을 고려한다.</li>
+  <li>별도의 도메인 서비스나, 팩토리 클래스를 만들 수도 있다.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Store</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="nc">Product</span> <span class="nf">createProduct</span> <span class="o">(</span><span class="nc">ProductId</span> <span class="n">newProductId</span><span class="o">,</span> <span class="o">...</span><span class="na">생략</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">isBlocked</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">StoreBlockedException</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Product</span><span class="o">(</span><span class="n">newProductId</span><span class="o">,</span> <span class="n">getId</span><span class="o">(),</span> <span class="o">...</span><span class="na">생략</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
 
 <p><strong>… 작성중 …</strong></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="books" /><category term="books" /><category term="DDD" /><summary type="html"><![CDATA[도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 구입해서 읽는것을 추천합니다~👍]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
