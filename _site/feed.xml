@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-14T16:05:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</title><link href="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지" /><published>2023-01-09T00:00:00+09:00</published><updated>2023-01-09T00:00:00+09:00</updated><id>http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 구입해서 읽는것을 추천합니다~👍</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-14T18:44:19+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</title><link href="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지" /><published>2023-01-09T00:00:00+09:00</published><updated>2023-01-09T00:00:00+09:00</updated><id>http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
 
 <hr />
 
@@ -728,7 +728,241 @@ M-N 연관은 개념적으로 양쪽 애그리거트에 컬렉션으로 연관�
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@OneToMany</span><span class="o">(</span><span class="n">cascade</span> <span class="o">=</span> <span class="o">{</span><span class="nc">CascadeType</span><span class="o">.</span><span class="na">PERSIST</span><span class="o">,</span> <span class="nc">CascadeType</span><span class="o">.</span><span class="na">REMOVE</span><span class="o">})</span>
 </code></pre></div></div>
 
-<p><strong>… 작성중 …</strong></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="books" /><category term="books" /><category term="DDD" /><summary type="html"><![CDATA[도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 구입해서 읽는것을 추천합니다~👍]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
+<h2 id="46-식별자-생성-기능">4.6 식별자 생성 기능</h2>
+<p>식별자는 크게 세 가지 방식 중 하나로 생성한다.</p>
+<ul>
+  <li>사용자가 직접 생성</li>
+  <li>도메인 로직으로 생성</li>
+  <li>DB를 이용한 일련번호 사용</li>
+</ul>
+
+<h2 id="47-도메인-구현과-dip">4.7 도메인 구현과 DIP</h2>
+<p>JPA의 @Entity나 @Table, extends Repository 인터페이스는 DIP 원칙을 어기고 있지만 개발 편의성과 실용성을 가지고, 복잡도를 높이지 않으면서 기술에 따른 구현 제약이 낮다면 합리적으로 선택하여 사용할 수 있다.</p>
+
+<h1 id="5-스프링-데이터-jpa를-이용한-조회-기능">5. 스프링 데이터 JPA를 이용한 조회 기능</h1>
+
+<h2 id="51-시작에-앞서">5.1 시작에 앞서</h2>
+<h2 id="52-검색을-위한-스펙">5.2 검색을 위한 스펙</h2>
+<p>조회를 위해 다양한 검색 조건을 조합해야 할 때가 있다. 이 때 사용할 수 있는 것이 스펙(<a href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#specifications" target="_blank">Specification</a>)이다.</p>
+
+<h2 id="53-스프링-데이터-jpa를-이용한-스펙-구현">5.3 스프링 데이터 JPA를 이용한 스펙 구현</h2>
+
+<p><strong>스프링 데이터 JPA가 제공하는 Specification 인터페이스</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Specification</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="nc">Predicate</span> <span class="nf">toPredicate</span><span class="o">(</span><span class="nc">Root</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">root</span><span class="o">,</span> <span class="nc">CriteriaQuery</span><span class="o">&lt;?&gt;</span> <span class="n">query</span><span class="o">,</span> <span class="nc">CriteriaBuilder</span> <span class="n">builder</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>레포지토리 인터페이스 상속</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">CustomerRepository</span> <span class="kd">extends</span> <span class="nc">CrudRepository</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">,</span> <span class="nc">Long</span><span class="o">&gt;,</span> <span class="nc">JpaSpecificationExecutor</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">(</span><span class="nc">Specification</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="n">spec</span><span class="o">);</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">(</span><span class="nc">Specification</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="n">spec</span><span class="o">,</span> <span class="nc">Sort</span> <span class="n">sort</span><span class="o">);</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">(</span><span class="nc">Specification</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="n">spec</span><span class="o">,</span> <span class="nc">Pageable</span> <span class="n">pageable</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>스펙 생성 기능을 별도 클래스로 구현</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomerSpecs</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Specification</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="nf">isLongTermCustomer</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">query</span><span class="o">,</span> <span class="n">builder</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
+      <span class="nc">LocalDate</span> <span class="n">date</span> <span class="o">=</span> <span class="nc">LocalDate</span><span class="o">.</span><span class="na">now</span><span class="o">().</span><span class="na">minusYears</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+      <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="na">lessThan</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">Customer_</span><span class="o">.</span><span class="na">createdAt</span><span class="o">),</span> <span class="n">date</span><span class="o">);</span>
+    <span class="o">};</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Specification</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="nf">hasSalesOfMoreThan</span><span class="o">(</span><span class="nc">MonetaryAmount</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">query</span><span class="o">,</span> <span class="n">builder</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
+      <span class="c1">// build query here</span>
+    <span class="o">};</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="54-리포지터리dao에서-스펙-사용하기">5.4 리포지터리/DAO에서 스펙 사용하기</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="n">customers</span> <span class="o">=</span> <span class="n">customerRepository</span><span class="o">.</span><span class="na">findAll</span><span class="o">(</span><span class="n">isLongTermCustomer</span><span class="o">());</span>
+</code></pre></div></div>
+
+<h2 id="55-스펙-조합">5.5 스펙 조합</h2>
+<p>스펙 인터페이스는 <code class="language-plaintext highlighter-rouge">and</code>와 <code class="language-plaintext highlighter-rouge">or</code> 등 조합 메서드를 제공한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">MonetaryAmount</span> <span class="n">amount</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MonetaryAmount</span><span class="o">(</span><span class="mf">200.0</span><span class="o">,</span> <span class="nc">Currencies</span><span class="o">.</span><span class="na">DOLLAR</span><span class="o">);</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="n">customers</span> <span class="o">=</span> <span class="n">customerRepository</span><span class="o">.</span><span class="na">findAll</span><span class="o">(</span>
+  <span class="n">isLongTermCustomer</span><span class="o">().</span><span class="na">or</span><span class="o">(</span><span class="n">hasSalesOfMoreThan</span><span class="o">(</span><span class="n">amount</span><span class="o">)));</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">null</code> 가능성이 있는 스펙 객체의 조합은 <code class="language-plaintext highlighter-rouge">where</code>를 사용한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Specification</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="n">spec</span> <span class="o">=</span> <span class="nc">Specification</span><span class="o">.</span><span class="na">where</span><span class="o">(</span><span class="n">createNullableSpec</span><span class="o">()).</span><span class="na">and</span><span class="o">(</span><span class="n">createOtherSpec</span><span class="o">());</span>
+</code></pre></div></div>
+
+<h2 id="56-정렬-지정하기">5.6 정렬 지정하기</h2>
+<p>스프링 데이터 JPA는 두 가지 방법을 사용해서 정렬을 지정할 수 있다.</p>
+<ul>
+  <li>메서드 이름에 OrderBy를 사용해서 정렬 기준 지정</li>
+  <li>Sort를 인자로 전달</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">OrderSummaryDao</span> <span class="kd">extends</span> <span class="nc">Repository</span><span class="o">&lt;</span><span class="nc">OrderSummary</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="c1">// OrderBy</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">OrderSummary</span><span class="o">&gt;</span> <span class="nf">findByOrdererIdOrderByNumberDesc</span><span class="o">(</span><span class="nc">String</span> <span class="n">ordererId</span><span class="o">);</span>
+
+    <span class="c1">// Sort</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">OrderSummary</span><span class="o">&gt;</span> <span class="nf">findByOrdererId</span><span class="o">(</span><span class="nc">String</span> <span class="n">ordererId</span><span class="o">,</span> <span class="nc">Sort</span> <span class="n">sort</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Sort</span> <span class="n">sort</span> <span class="o">=</span> <span class="nc">Sort</span><span class="o">.</span><span class="na">by</span><span class="o">(</span><span class="nc">Sort</span><span class="o">.</span><span class="na">Direction</span><span class="o">.</span><span class="na">DESC</span><span class="o">,</span> <span class="s">"number"</span><span class="o">);</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">OrderSummary</span><span class="o">&gt;</span> <span class="n">results</span> <span class="o">=</span> <span class="n">orderSummaryDao</span><span class="o">.</span><span class="na">findByOrdererId</span><span class="o">(</span><span class="s">"id"</span><span class="o">,</span> <span class="n">sort</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h2 id="57-페이징-처리하기">5.7 페이징 처리하기</h2>
+<p>스프링 데이터 JPA는 페이징 처리를 위해 <code class="language-plaintext highlighter-rouge">Pageable</code> 타입을 이용한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">MemberDataDao</span> <span class="kd">extends</span> <span class="nc">Repository</span><span class="o">&lt;</span><span class="nc">MemberData</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">MemberData</span><span class="o">&gt;</span> <span class="nf">findByNameLike</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="nc">Pageable</span> <span class="n">pageable</span><span class="o">);</span>
+    <span class="nc">Page</span><span class="o">&lt;</span><span class="nc">MemberData</span><span class="o">&gt;</span> <span class="nf">findByBlocked</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">blocked</span><span class="o">,</span> <span class="nc">Pageable</span> <span class="n">pageable</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1은 페이지 번호, 0부터 시작한다.  10은 개수</span>
+<span class="c1">// Sort 사용 가능</span>
+<span class="nc">Sort</span> <span class="n">sort</span> <span class="o">=</span> <span class="nc">Sort</span><span class="o">.</span><span class="na">by</span><span class="o">(</span><span class="nc">Sort</span><span class="o">.</span><span class="na">Direction</span><span class="o">.</span><span class="na">DESC</span><span class="o">,</span> <span class="s">"name"</span><span class="o">);</span>
+<span class="nc">PageRequest</span> <span class="n">pageReq</span> <span class="o">=</span> <span class="nc">PageRequest</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="n">sort</span><span class="o">);</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">MemberData</span><span class="o">&gt;</span> <span class="n">user</span> <span class="o">=</span> <span class="n">memberDataDao</span><span class="o">.</span><span class="na">findByNameLike</span><span class="o">(</span><span class="s">"이름%"</span><span class="o">,</span> <span class="n">pageReq</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>Page 리턴 타입</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PageRequest</span> <span class="n">pageReq</span> <span class="o">=</span> <span class="nc">PageRequest</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+<span class="nc">Page</span><span class="o">&lt;</span><span class="nc">MemberData</span><span class="o">&gt;</span> <span class="n">page</span> <span class="o">=</span> <span class="n">memberDataDao</span><span class="o">.</span><span class="na">findByBlocked</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="n">pageReq</span><span class="o">);</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">MemberData</span><span class="o">&gt;</span> <span class="n">content</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="na">getContent</span><span class="o">();</span> <span class="c1">// 조회 결과 목록</span>
+<span class="kt">long</span> <span class="n">totalElements</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="na">getTotalElements</span><span class="o">();</span> <span class="c1">// 조건에 해당하는 전체 개수</span>
+<span class="kt">int</span> <span class="n">totalPages</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="na">getTotalPages</span><span class="o">();</span> <span class="c1">// 전체 페이지 번호</span>
+<span class="kt">int</span> <span class="n">number</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="na">getNumber</span><span class="o">();</span> <span class="c1">// 현재 페이지 번호</span>
+<span class="kt">int</span> <span class="n">numberOfElements</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="na">getNumberOfElements</span><span class="o">()</span> <span class="c1">// 조회 결과 개수</span>
+<span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="na">getSize</span><span class="o">();</span> <span class="c1">// 페이지 크기</span>
+</code></pre></div></div>
+
+<p>Page 리턴 타입은 COUNT 쿼리를 실행하므로 List만 필요한 경우 리턴 타입을 List로 한다.</p>
+
+<h2 id="58-스펙-조합을-위한-스펙-빌더-클래스">5.8 스펙 조합을 위한 스펙 빌더 클래스</h2>
+<p>스펙을 조합할 때 스펙 빌더를 만들어 사용할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Specification</span><span class="o">&lt;</span><span class="nc">MemberData</span><span class="o">&gt;</span> <span class="n">spec</span> <span class="o">=</span> <span class="nc">SpecBuilder</span><span class="o">.</span><span class="na">builder</span><span class="o">(</span><span class="nc">MemberData</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">ifTrue</span><span class="o">(</span><span class="n">searchRequest</span><span class="o">.</span><span class="na">isOnlyNotBlocked</span><span class="o">(),</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="nc">MemberDataSpecs</span><span class="o">.</span><span class="na">nonBlocked</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">ifHasText</span><span class="o">(</span><span class="n">searchRequest</span><span class="o">.</span><span class="na">getName</span><span class="o">(),</span> <span class="n">name</span> <span class="o">-&gt;</span> <span class="nc">MemberDataSpecs</span><span class="o">.</span><span class="na">nameLike</span><span class="o">(</span><span class="n">searchRequest</span><span class="o">.</span><span class="na">getName</span><span class="o">()))</span>
+                <span class="o">.</span><span class="na">toSpec</span><span class="o">();</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">MemberData</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">memberDataDao</span><span class="o">.</span><span class="na">findAll</span><span class="o">(</span><span class="n">spec</span><span class="o">,</span> <span class="nc">PageRequest</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">5</span><span class="o">));</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpecBuilder</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nc">Builder</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">builder</span><span class="o">(</span><span class="nc">Class</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">type</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nc">Builder</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Builder</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+        <span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Specification</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;&gt;</span> <span class="n">specs</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+        <span class="kd">public</span> <span class="nc">Builder</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">and</span><span class="o">(</span><span class="nc">Specification</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">spec</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">specs</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">spec</span><span class="o">);</span>
+            <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="nc">Builder</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">ifHasText</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">,</span>
+                                    <span class="nc">Function</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Specification</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;&gt;</span> <span class="n">specSupplier</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="nc">StringUtils</span><span class="o">.</span><span class="na">hasText</span><span class="o">(</span><span class="n">str</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">specs</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">specSupplier</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">str</span><span class="o">));</span>
+            <span class="o">}</span>
+            <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="nc">Builder</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">ifTrue</span><span class="o">(</span><span class="nc">Boolean</span> <span class="n">cond</span><span class="o">,</span>
+                                 <span class="nc">Supplier</span><span class="o">&lt;</span><span class="nc">Specification</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;&gt;</span> <span class="n">specSupplier</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">cond</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">cond</span><span class="o">.</span><span class="na">booleanValue</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">specs</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">specSupplier</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+            <span class="o">}</span>
+            <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="nc">Specification</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">toSpec</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nc">Specification</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">spec</span> <span class="o">=</span> <span class="nc">Specification</span><span class="o">.</span><span class="na">where</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+            <span class="k">for</span> <span class="o">(</span><span class="nc">Specification</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">s</span> <span class="o">:</span> <span class="n">specs</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">spec</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="na">and</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">return</span> <span class="n">spec</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="59-동적-인스턴스-생성">5.9 동적 인스턴스 생성</h2>
+<p>JPQL의 new 키워드를 통해 객체를 동적으로 생성할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">OrderSummaryDao</span> <span class="kd">extends</span> <span class="nc">Repository</span><span class="o">&lt;</span><span class="nc">OrderSummary</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="nd">@Query</span><span class="o">(</span><span class="s">"""    
+            select new com.myshop.order.query.dto.OrderView(
+                o.number, o.state, m.name, m.id, p.name
+            )
+            from Order o join o.orderLines ol, Member m, Product p
+            where o.orderer.memberId.id = :ordererId
+            and o.orderer.memberId.id = m.id
+            and index(ol) = 0
+            and ol.productId.id = p.id
+            order by o.number.number desc
+            """</span><span class="o">)</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">OrderView</span><span class="o">&gt;</span> <span class="nf">findOrderView</span><span class="o">(</span><span class="nc">String</span> <span class="n">ordererId</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="510-하이버네이트-subselect-사용">5.10 하이버네이트 @Subselect 사용</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">@Subselect</code>는 쿼리 결과를 <code class="language-plaintext highlighter-rouge">@Entity</code>로 매핑할 수 있다.</li>
+  <li><code class="language-plaintext highlighter-rouge">@Immutable</code>, <code class="language-plaintext highlighter-rouge">@Subselect</code>, <code class="language-plaintext highlighter-rouge">@Synchronize</code> 와 같이 사용한다.</li>
+  <li>뷰를 수정할 수 없듯 <code class="language-plaintext highlighter-rouge">@Subselect</code>로 조회한 <code class="language-plaintext highlighter-rouge">@Entity</code> 역시 수정할 수 없다.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="nd">@Immutable</span>
+<span class="nd">@Subselect</span><span class="o">(</span>
+        <span class="s">"""
+        select o.order_number as number,
+        o.version,
+        o.orderer_id,
+        o.orderer_name,
+        o.total_amounts,
+        o.receiver_name,
+        o.state,
+        o.order_date,
+        p.product_id,
+        p.name as product_name
+        from purchase_order o inner join order_line ol
+            on o.order_number = ol.order_number
+            cross join product p
+        where
+        ol.line_idx = 0
+        and ol.product_id = p.product_id"""</span>
+<span class="o">)</span>
+<span class="nd">@Synchronize</span><span class="o">({</span><span class="s">"purchase_order"</span><span class="o">,</span> <span class="s">"order_line"</span><span class="o">,</span> <span class="s">"product"</span><span class="o">})</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderSummary</span> <span class="o">{</span>
+    <span class="nd">@Id</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">number</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">long</span> <span class="n">version</span><span class="o">;</span>
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"orderer_id"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">ordererId</span><span class="o">;</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+    <span class="kd">protected</span> <span class="nf">OrderSummary</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>… 작성중 …</strong></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="books" /><category term="books" /><category term="DDD" /><summary type="html"><![CDATA[도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
 
 <h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
