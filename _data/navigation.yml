@@ -9,19 +9,25 @@ main:
 
 
 docs:
+  - title: "os"
+    url: /categories/os
+    category: "os"
+    children:
+      - title: "mac"
+        url: /categories/os/mac
+        category: "mac"
+
   - title: "기타"
     url: /categories/etc
     category: "etc"
     children:
       - title: "교육"
-        url: /categories/education
+        url: /categories/etc/education
         category: "education"
       - title: "책"
-        url: /categories/books
+        url: /categories/etc/books
         category: "books"
-      - title: "mac"
-        url: /categories/mac
-        category: "mac"
+      
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
