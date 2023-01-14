@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-14T00:09:36+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</title><link href="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지" /><published>2023-01-09T00:00:00+09:00</published><updated>2023-01-09T00:00:00+09:00</updated><id>http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 구입해서 읽는것을 추천합니다~👍</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-14T16:05:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</title><link href="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지" /><published>2023-01-09T00:00:00+09:00</published><updated>2023-01-09T00:00:00+09:00</updated><id>http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 구입해서 읽는것을 추천합니다~👍</p>
 
 <hr />
 
@@ -185,7 +185,7 @@ STEP1, STEP2 같은것이 아닌 PAYMENT_WAITING, PREPARING 같은 도메인 용
 <center><img src="/assets/images/posts/books/1/2_7_모듈구성2.png" alt="모듈구성2" width="60%" height="60%" /></center>
 <center><img src="/assets/images/posts/books/1/2_7_모듈구성3.png" alt="모듈구성3" width="60%" height="60%" /></center>
 
-<h1 id="애그리거트">애그리거트</h1>
+<h1 id="3-애그리거트">3. 애그리거트</h1>
 <h2 id="31-애그리거트">3.1 애그리거트</h2>
 <p>복잡한 도메인을 이해하고 관리하기 쉬운 단위로 만드려면 상위 수준에서 모델을 조망할 수 있는 방법이 필요한데, 그 방법이 바로 애그리거트다. 애그리거트는 관련된 객체를 하나의 군으로 묶어 준다.</p>
 <center><img src="/assets/images/posts/books/1/3_1_애거리거트모델.png" alt="애거리거트모델" width="60%" height="60%" /></center>
@@ -340,6 +340,392 @@ M-N 연관은 개념적으로 양쪽 애그리거트에 컬렉션으로 연관�
     <span class="o">}</span>
 
 <span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h1 id="4-리포지터리와-모델-구현">4. 리포지터리와 모델 구현</h1>
+<p>4장과 5장은 스프링 데이터 JPA의 사용방법에 대해서 설명합니다. 여기서는 책의 자세한 설명을 하지 않습니다. 아래의 문서와 책을 읽는 것을 추천합니다. 👍</p>
+<ul>
+  <li><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a></li>
+  <li><a href="http://www.yes24.com/Product/Goods/19040233" target="_blank">자바 ORM 표준 JPA 프로그래밍</a></li>
+  <li><a href="https://spring.io/projects/spring-data-jpa" target="_blank">Spring Data JPA</a></li>
+</ul>
+
+<h2 id="41-jpa를-이용한-리포지터리-구현">4.1 JPA를 이용한 리포지터리 구현</h2>
+<h3 id="411-모듈-위치">4.1.1 모듈 위치</h3>
+<center><img src="/assets/images/posts/books/1/4_1_모듈위치.png" alt="모듈위치" width="70%" height="70%" /></center>
+
+<h3 id="412-리포지터리-기본-기능-구현">4.1.2 리포지터리 기본 기능 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">OrderRepository</span> <span class="o">{</span>
+    <span class="nc">Order</span> <span class="nf">findById</span><span class="o">(</span><span class="nc">OrderNo</span> <span class="n">no</span><span class="o">);</span>
+    <span class="kt">void</span> <span class="nf">save</span><span class="o">(</span><span class="nc">Order</span> <span class="n">order</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">JpaOrderRepository</span> <span class="kd">implements</span> <span class="nc">OrderRepository</span> <span class="o">{</span>
+    <span class="nd">@PersistenceContext</span>
+    <span class="kd">private</span> <span class="nc">EntityManager</span> <span class="n">entityManager</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Order</span> <span class="nf">findById</span><span class="o">(</span><span class="nc">OrderNo</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="nc">Order</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="o">(</span><span class="nc">Order</span> <span class="n">order</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">entityManager</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">order</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="42-스프링-데이터-jpa를-이용한-리포지터리-구현">4.2 스프링 데이터 JPA를 이용한 리포지터리 구현</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"purchase_order"</span><span class="o">)</span>
+<span class="nd">@Access</span><span class="o">(</span><span class="nc">AccessType</span><span class="o">.</span><span class="na">FIELD</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Order</span> <span class="o">{</span>
+    <span class="nd">@EmbeddedId</span>
+    <span class="kd">private</span> <span class="nc">OrderNo</span> <span class="n">number</span><span class="o">;</span>
+
+    <span class="nd">@Version</span>
+    <span class="kd">private</span> <span class="kt">long</span> <span class="n">version</span><span class="o">;</span>
+
+    <span class="nd">@Embedded</span>
+    <span class="kd">private</span> <span class="nc">Orderer</span> <span class="n">orderer</span><span class="o">;</span>
+
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">OrderRepository</span> <span class="kd">extends</span> <span class="nc">Repository</span><span class="o">&lt;</span><span class="nc">Order</span><span class="o">,</span> <span class="nc">OrderNo</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Order</span><span class="o">&gt;</span> <span class="nf">findById</span><span class="o">(</span><span class="nc">OrderNo</span> <span class="n">id</span><span class="o">);</span>
+
+    <span class="kt">void</span> <span class="nf">save</span><span class="o">(</span><span class="nc">Order</span> <span class="n">order</span><span class="o">);</span>
+
+    <span class="k">default</span> <span class="nc">OrderNo</span> <span class="nf">nextOrderNo</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">randomNo</span> <span class="o">=</span> <span class="nc">ThreadLocalRandom</span><span class="o">.</span><span class="na">current</span><span class="o">().</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">900000</span><span class="o">)</span> <span class="o">+</span> <span class="mi">100000</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">number</span> <span class="o">=</span> <span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"%tY%&lt;tm%&lt;td%&lt;tH-%d"</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Date</span><span class="o">(),</span> <span class="n">randomNo</span><span class="o">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">OrderNo</span><span class="o">(</span><span class="n">number</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CancelOrderService</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">OrderRepository</span> <span class="n">orderRepository</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">CancelPolicy</span> <span class="n">cancelPolicy</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">CancelOrderService</span><span class="o">(</span><span class="nc">OrderRepository</span> <span class="n">orderRepository</span><span class="o">,</span> <span class="nc">CancelPolicy</span> <span class="n">cancelPolicy</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">orderRepository</span> <span class="o">=</span> <span class="n">orderRepository</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">cancelPolicy</span> <span class="o">=</span> <span class="n">cancelPolicy</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Transactional</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">cancel</span><span class="o">(</span><span class="nc">OrderNo</span> <span class="n">orderNo</span><span class="o">,</span> <span class="nc">Canceller</span> <span class="n">canceller</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Order</span> <span class="n">order</span> <span class="o">=</span> <span class="n">orderRepository</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">orderNo</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">orElseThrow</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">NoOrderException</span><span class="o">());</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="n">cancelPolicy</span><span class="o">.</span><span class="na">hasCancellationPermission</span><span class="o">(</span><span class="n">order</span><span class="o">,</span> <span class="n">canceller</span><span class="o">))</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">NoCancellablePermission</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="n">order</span><span class="o">.</span><span class="na">cancel</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="43-매핑-구현">4.3 매핑 구현</h2>
+<h3 id="431-엔티티와-밸류-기본-매핑-구현">4.3.1 엔티티와 밸류 기본 매핑 구현</h3>
+<p>애그리거트와 JPA 매핑을 위한 기본 규칙</p>
+<ul>
+  <li>애그리거트 루트는 엔티티이므로 <code class="language-plaintext highlighter-rouge">@Entity</code>로 매핑 설정한다.</li>
+</ul>
+
+<p>한 테이블에 엔티티와 밸류 데이터가 같이 있다면</p>
+<ul>
+  <li>밸류는 <code class="language-plaintext highlighter-rouge">@Embeddable</code>로 매핑 설정한다.</li>
+  <li>밸류 타입 프로퍼티는 <code class="language-plaintext highlighter-rouge">@Embedded</code>로 매핑 설정한다.</li>
+  <li>매핑할 컬럼명 변경은 <code class="language-plaintext highlighter-rouge">@AttributeOverrides</code> 를 이용한다</li>
+</ul>
+
+<center><img src="/assets/images/posts/books/1/4_3_매핑구현.png" alt="매핑구현" width="70%" height="70%" /></center>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Embeddable</span>
+<span class="nd">@Embeddable</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ShippingInfo</span> <span class="o">{</span>
+    <span class="nd">@Embedded</span>
+    <span class="nd">@AttributeOverrides</span><span class="o">({</span>
+            <span class="nd">@AttributeOverride</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"zipCode"</span><span class="o">,</span> <span class="n">column</span> <span class="o">=</span> <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"shipping_zip_code"</span><span class="o">)),</span>
+            <span class="nd">@AttributeOverride</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"address1"</span><span class="o">,</span> <span class="n">column</span> <span class="o">=</span> <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"shipping_addr1"</span><span class="o">)),</span>
+            <span class="nd">@AttributeOverride</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"address2"</span><span class="o">,</span> <span class="n">column</span> <span class="o">=</span> <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"shipping_addr2"</span><span class="o">))</span>
+    <span class="o">})</span>
+    <span class="kd">private</span> <span class="nc">Address</span> <span class="n">address</span><span class="o">;</span>
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"shipping_message"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">message</span><span class="o">;</span>
+    <span class="nd">@Embedded</span>
+    <span class="kd">private</span> <span class="nc">Receiver</span> <span class="n">receiver</span><span class="o">;</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"purchase_order"</span><span class="o">)</span>
+<span class="nd">@Access</span><span class="o">(</span><span class="nc">AccessType</span><span class="o">.</span><span class="na">FIELD</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Order</span> <span class="o">{</span>
+    <span class="o">...</span>
+    <span class="nd">@Embedded</span>
+    <span class="kd">private</span> <span class="nc">Orderer</span> <span class="n">orderer</span><span class="o">;</span>
+
+    <span class="nd">@Embedded</span>
+    <span class="kd">private</span> <span class="nc">ShippingInfo</span> <span class="n">shippingInfo</span><span class="o">;</span>
+    <span class="o">...</span>
+</code></pre></div></div>
+
+<h3 id="432-기본-생성자">4.3.2 기본 생성자</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protected</span> <span class="nf">Receiver</span><span class="o">(){}</span>
+</code></pre></div></div>
+
+<h3 id="432-필드-접근-방식-사용">4.3.2 필드 접근 방식 사용</h3>
+<p><code class="language-plaintext highlighter-rouge">@Access</code>를 이용해서 명시적으로 접근 방식을 지정하지 않으면 <code class="language-plaintext highlighter-rouge">@Id</code>나 <code class="language-plaintext highlighter-rouge">@EmbeddedId</code>의 위치에 따라 접근 방식을 결정한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"purchase_order"</span><span class="o">)</span>
+<span class="nd">@Access</span><span class="o">(</span><span class="nc">AccessType</span><span class="o">.</span><span class="na">FIELD</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Order</span> <span class="o">{</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="434-attributeconverter를-이용한-밸류-매핑-처리">4.3.4 AttributeConverter를 이용한 밸류 매핑 처리</h3>
+<p>두 개 이상의 프로퍼티를 가진 밸류 타입을 한 개 컬럼에 매핑하려면 <code class="language-plaintext highlighter-rouge">@Embeddable</code> 애너테이션으로는 처리할 수 없다. 이럴 때 사용할 수 있는 것이 <code class="language-plaintext highlighter-rouge">AttributeConverter</code>이다.</p>
+
+<center><img src="/assets/images/posts/books/1/4_3_두개프러퍼컬럼매핑.png" alt="두개프러퍼컬럼매핑" width="70%" height="70%" /></center>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Converter</span><span class="o">(</span><span class="n">autoApply</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MoneyConverter</span> <span class="kd">implements</span> <span class="nc">AttributeConverter</span><span class="o">&lt;</span><span class="nc">Money</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="o">{</span> 
+    <span class="c1">// Money는 밸류 타입, Integer는 DB 타입</span>
+
+    <span class="c1">// 밸류 타입을 DB 칼럼 값으로 변환</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Integer</span> <span class="nf">convertToDatabaseColumn</span><span class="o">(</span><span class="nc">Money</span> <span class="n">money</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">money</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="kc">null</span> <span class="o">:</span> <span class="n">money</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="c1">// DB 칼럼 값을 밸류로 변환</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Money</span> <span class="nf">convertToEntityAttribute</span><span class="o">(</span><span class="nc">Integer</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">value</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="kc">null</span> <span class="o">:</span> <span class="k">new</span> <span class="nc">Money</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// @Converter(autoApply = true) 작성한 타입에 대해 자동 적용</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Order</span> <span class="o">{</span>
+
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"total_amounts"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Money</span> <span class="n">totalAmounts</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// @Converter(autoApply = false) 기본값, 직접 지정해야함</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Order</span> <span class="o">{</span>
+
+    <span class="nd">@Convert</span><span class="o">(</span><span class="n">converter</span> <span class="o">=</span> <span class="nc">MoneyConverter</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"total_amounts"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Money</span> <span class="n">totalAmounts</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="435-밸류-컬렉션-별도-테이블-매핑">4.3.5 밸류 컬렉션: 별도 테이블 매핑</h3>
+<p>밸류 컬렉션을 별도 테이블로 매핑할때는 <code class="language-plaintext highlighter-rouge">@ElementCollection</code>과 <code class="language-plaintext highlighter-rouge">@CollectionTable</code>을 함께 사용한다.</p>
+
+<center><img src="/assets/images/posts/books/1/4_3_밸류컬렉션테이블매핑.png" alt="밸류컬렉션테이블매핑" width="70%" height="70%" /></center>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"purchase_order"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Order</span> <span class="o">{</span>
+    <span class="nd">@EmbeddedId</span>
+    <span class="kd">private</span> <span class="nc">OrderNo</span> <span class="n">number</span><span class="o">;</span>
+
+    <span class="nd">@ElementCollection</span><span class="o">(</span><span class="n">fetch</span> <span class="o">=</span> <span class="nc">FetchType</span><span class="o">.</span><span class="na">LAZY</span><span class="o">)</span>
+    <span class="nd">@CollectionTable</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"order_line"</span><span class="o">,</span> <span class="n">joinColumns</span> <span class="o">=</span> <span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"order_number"</span><span class="o">))</span>
+    <span class="nd">@OrderColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"line_idx"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">OrderLine</span><span class="o">&gt;</span> <span class="n">orderLines</span><span class="o">;</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Embeddable</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderLine</span> <span class="o">{</span>
+    <span class="nd">@Embedded</span>
+    <span class="kd">private</span> <span class="nc">ProductId</span> <span class="n">productId</span><span class="o">;</span>
+
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"price"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Money</span> <span class="n">price</span><span class="o">;</span>
+
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"quantity"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">quantity</span><span class="o">;</span>
+
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"amounts"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Money</span> <span class="n">amounts</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="436-밸류-컬렉션-한-개-컬럼-매핑">4.3.6 밸류 컬렉션: 한 개 컬럼 매핑</h3>
+<p>한 개 컬럼에 콤마로 구분해서 저장할 때 사용. <code class="language-plaintext highlighter-rouge">AttributeConverter</code>를 이용한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EmailSet</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Email</span><span class="o">&gt;</span> <span class="n">emails</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;&gt;();</span>
+
+    <span class="kd">public</span> <span class="nf">EmailSet</span><span class="o">(</span><span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Email</span><span class="o">&gt;</span> <span class="n">emails</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">emails</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">emails</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Email</span><span class="o">&gt;</span> <span class="nf">getEmails</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nc">Collections</span><span class="o">.</span><span class="na">unmodifiableSet</span><span class="o">(</span><span class="n">emails</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EmailSetConverter</span> <span class="kd">implements</span> <span class="nc">AttributeConverter</span><span class="o">&lt;</span><span class="nc">EmailSet</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">convertToDatabaseColumn</span><span class="o">(</span><span class="nc">EmailSet</span> <span class="n">attribute</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">attribute</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">attribute</span><span class="o">.</span><span class="na">getEmails</span><span class="o">().</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">email</span> <span class="o">-&gt;</span> <span class="n">email</span><span class="o">.</span><span class="na">getAddress</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">joining</span><span class="o">(</span><span class="s">","</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">EmailSet</span> <span class="nf">convertToEntityAttribute</span><span class="o">(</span><span class="nc">String</span> <span class="n">dbData</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">dbData</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">emails</span> <span class="o">=</span> <span class="n">dbData</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
+        <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Email</span><span class="o">&gt;</span> <span class="n">emailSet</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">emails</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">value</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">Email</span><span class="o">(</span><span class="n">value</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="n">toSet</span><span class="o">());</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">EmailSet</span><span class="o">(</span><span class="n">emailSet</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="437-밸류를-이용한-id-매핑">4.3.7 밸류를 이용한 ID 매핑</h3>
+<p>JPA에서 식별자 타입은 <code class="language-plaintext highlighter-rouge">Serializable</code> 타입이어야 하므로 <code class="language-plaintext highlighter-rouge">Serializable</code> 인터페이스를 상속받아야 한다. 밸류 타입으로 식별자를 구현할 때 얻을 수 있는 장점은 식별자에 기능을 추가할 수 있다는 점이다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"purchase_order"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Order</span> <span class="o">{</span>
+    <span class="nd">@EmbeddedId</span>
+    <span class="kd">private</span> <span class="nc">OrderNo</span> <span class="n">number</span><span class="o">;</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Embeddable</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderNo</span> <span class="kd">implements</span> <span class="nc">Serializable</span> <span class="o">{</span>
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"order_number"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">number</span><span class="o">;</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="438-별도-테이블에-저장하는-밸류-매핑">4.3.8 별도 테이블에 저장하는 밸류 매핑</h3>
+<p>루트 엔티티 외에 또 다른 엔티티가 있다면 진짜 엔티티인지 의심해 봐야한다. 단지 별도 테이블에 데이터를 저장 한다고 해서 엔티티인 것은 아니다.</p>
+
+<p>예를 들어 게시글 데이터를 <code class="language-plaintext highlighter-rouge">ARTICLE</code> 테이블과 <code class="language-plaintext highlighter-rouge">ARTICLE_CONTENT</code> 테이블로 나눠서 저장한다고 하자.</p>
+
+<p><strong>엔티티로 매핑 예 (잘못 됨)</strong></p>
+<center><img src="/assets/images/posts/books/1/4_3_밸류매핑잘못.png" alt="밸류매핑잘못" width="70%" height="70%" /></center>
+
+<p><br /></p>
+
+<p><strong>별도 테이블로 매핑</strong></p>
+<center><img src="/assets/images/posts/books/1/4_3_밸류매핑별도테이블.png" alt="밸류매핑별도테이블" width="70%" height="70%" /></center>
+
+<p>밸류 매핑을 별도 테이블로 저장 하려면 <code class="language-plaintext highlighter-rouge">@SecondaryTable</code>과 <code class="language-plaintext highlighter-rouge">@AttributeOverride</code>을 사용한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"article"</span><span class="o">)</span>
+<span class="nd">@SecondaryTable</span><span class="o">(</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">"article_content"</span><span class="o">,</span>
+        <span class="n">pkJoinColumns</span> <span class="o">=</span> <span class="nd">@PrimaryKeyJoinColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"id"</span><span class="o">)</span>
+<span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Article</span> <span class="o">{</span>
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="nc">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Long</span> <span class="n">id</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">title</span><span class="o">;</span>
+
+    <span class="nd">@AttributeOverrides</span><span class="o">({</span>
+            <span class="nd">@AttributeOverride</span><span class="o">(</span>
+                    <span class="n">name</span> <span class="o">=</span> <span class="s">"content"</span><span class="o">,</span>
+                    <span class="n">column</span> <span class="o">=</span> <span class="nd">@Column</span><span class="o">(</span><span class="n">table</span> <span class="o">=</span> <span class="s">"article_content"</span><span class="o">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"content"</span><span class="o">)),</span>
+            <span class="nd">@AttributeOverride</span><span class="o">(</span>
+                    <span class="n">name</span> <span class="o">=</span> <span class="s">"contentType"</span><span class="o">,</span>
+                    <span class="n">column</span> <span class="o">=</span> <span class="nd">@Column</span><span class="o">(</span><span class="n">table</span> <span class="o">=</span> <span class="s">"article_content"</span><span class="o">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"content_type"</span><span class="o">))</span>
+    <span class="o">})</span>
+    <span class="nd">@Embedded</span>
+    <span class="kd">private</span> <span class="nc">ArticleContent</span> <span class="n">content</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="439-밸류-컬렉션을-entity로-매핑하기">4.3.9 밸류 컬렉션을 @Entity로 매핑하기</h3>
+<p><code class="language-plaintext highlighter-rouge">@OneToMany</code> 사용</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"product"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+    <span class="nd">@OneToMany</span><span class="o">(</span><span class="n">cascade</span> <span class="o">=</span> <span class="o">{</span><span class="nc">CascadeType</span><span class="o">.</span><span class="na">PERSIST</span><span class="o">,</span> <span class="nc">CascadeType</span><span class="o">.</span><span class="na">REMOVE</span><span class="o">},</span>
+            <span class="n">orphanRemoval</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span> <span class="n">fetch</span> <span class="o">=</span> <span class="nc">FetchType</span><span class="o">.</span><span class="na">LAZY</span><span class="o">)</span>
+    <span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"product_id"</span><span class="o">)</span>
+    <span class="nd">@OrderColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"list_idx"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Image</span><span class="o">&gt;</span> <span class="n">images</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">@Inheritance</code>를 이용한 상속 가능</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="nd">@Inheritance</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="nc">InheritanceType</span><span class="o">.</span><span class="na">SINGLE_TABLE</span><span class="o">)</span>
+<span class="nd">@DiscriminatorColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"image_type"</span><span class="o">)</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"image"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Image</span> <span class="o">{</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="nd">@DiscriminatorValue</span><span class="o">(</span><span class="s">"II"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">InternalImage</span> <span class="kd">extends</span> <span class="nc">Image</span> <span class="o">{</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+<span class="o">}</span>
+<span class="nd">@Entity</span>
+<span class="nd">@DiscriminatorValue</span><span class="o">(</span><span class="s">"EI"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExternalImage</span> <span class="kd">extends</span> <span class="nc">Image</span> <span class="o">{</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+</code></pre></div></div>
+
+<h3 id="4310-id-참조와-조인-테이블을-이용한-단방향-m-n-매핑">4.3.10 ID 참조와 조인 테이블을 이용한 단방향 M-N 매핑</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"product"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+    <span class="nd">@ElementCollection</span><span class="o">(</span><span class="n">fetch</span> <span class="o">=</span> <span class="nc">FetchType</span><span class="o">.</span><span class="na">LAZY</span><span class="o">)</span>
+    <span class="nd">@CollectionTable</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"product_category"</span><span class="o">,</span>
+            <span class="n">joinColumns</span> <span class="o">=</span> <span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"product_id"</span><span class="o">))</span>
+    <span class="kd">private</span> <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">CategoryId</span><span class="o">&gt;</span> <span class="n">categoryIds</span><span class="o">;</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="44-애그리거트-로딩-전략">4.4 애그리거트 로딩 전략</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// @Embeddable 컬렉션에 대한 즉시 로딩 설정</span>
+<span class="nd">@ElementCollection</span><span class="o">(</span><span class="n">fetch</span> <span class="o">=</span> <span class="nc">FetchType</span><span class="o">.</span><span class="na">EAGER</span><span class="o">)</span>
+
+<span class="c1">// @Entity 컬렉션에 대한 지연 로딩 설정</span>
+<span class="nd">@OneToMany</span><span class="o">(</span><span class="n">fetch</span> <span class="o">=</span> <span class="nc">FetchType</span><span class="o">.</span><span class="na">LAZY</span><span class="o">)</span>
+</code></pre></div></div>
+<ul>
+  <li>즉시 로딩: 에그리거트 루트를 구할 때 연관된 구성 요소를 DB에서 함께 읽어온다.</li>
+  <li>지연 로딩: 실제 컬렉션에 접근할 때 DB에서 조회한다.</li>
+</ul>
+
+<h2 id="45-애그리거트-영속성-전파">4.5 애그리거트 영속성 전파</h2>
+<p>애그리거트가 완전한 상태여야 한다는 것은 애그리거트 루트를 조회할 때뿐만 아니라 저장하고 삭제할 때도 하나로 처리해야 함을 의미한다.</p>
+<ul>
+  <li>저장 메서드는 애그리거트 루트만 저장하면 안되고 애그리거트에 속한 모든 객체를 저장해야 한다.</li>
+  <li>삭제 메서드는 애그리거트 루트뿌만 아니라 애그리거트에 속한 모든 객체를 삭제해야 한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">@Embeddable</code> 매핑 타입은 함께 저장되고 삭제 되므로 추가 설정이 필요없다.</li>
+  <li><code class="language-plaintext highlighter-rouge">@Entity</code> 타입에 대한 매핑은 <code class="language-plaintext highlighter-rouge">cascade</code> 속성을 사용한다.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@OneToMany</span><span class="o">(</span><span class="n">cascade</span> <span class="o">=</span> <span class="o">{</span><span class="nc">CascadeType</span><span class="o">.</span><span class="na">PERSIST</span><span class="o">,</span> <span class="nc">CascadeType</span><span class="o">.</span><span class="na">REMOVE</span><span class="o">})</span>
 </code></pre></div></div>
 
 <p><strong>… 작성중 …</strong></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="books" /><category term="books" /><category term="DDD" /><summary type="html"><![CDATA[도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 구입해서 읽는것을 추천합니다~👍]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
