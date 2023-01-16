@@ -1,0 +1,968 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>📖 자바 ORM 표준 JPA 프로그래밍 | Stack O Flow</title>
+<meta name="description" content="자바 ORM 표준 JPA 프로그래밍 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍">
+
+
+  <meta name="author" content="Sangjae Oh">
+  
+  <meta property="article:author" content="Sangjae Oh">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Stack O Flow">
+<meta property="og:title" content="📖 자바 ORM 표준 JPA 프로그래밍">
+<meta property="og:url" content="http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">
+
+
+  <meta property="og:description" content="자바 ORM 표준 JPA 프로그래밍 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-01-16T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Sangjae Oh",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Stack O Flow Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
+<!-- <link rel="manifest" href="/assets/logo.ico/site.webmanifest"> -->
+<link rel="mask-icon" href="/assets/images/favicon.png" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt="Stack O Flow"></a>
+        
+        <a class="site-title" href="/">
+          Stack O Flow
+          <span class="site-subtitle">복붙노트</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">카테고리</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">태그</a>
+            </li><li class="masthead__menu-item">
+              <a href="/search/">🔎</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Sangjae Oh</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>안녕하세요~🙇🏻‍♂️</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:sangjaeoh91.gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/sangjaeoh" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  
+  <ul class="nav__items">
+    
+    <li>
+      <a href="http://localhost:4000/categories/"><span class="nav__sub-title" style="border-bottom: 0px;">전체 (14)</span></a>
+    </li>
+
+    
+      <li>
+        
+          <a href="/categories/os"><span class="nav__sub-title">os</span></a>
+        
+
+        
+        <ul>
+          
+          
+            <li><a href="/categories/os/mac">mac (1)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/categories/etc"><span class="nav__sub-title">기타</span></a>
+        
+
+        
+        <ul>
+          
+          
+            <li><a href="/categories/etc/education">교육 (9)</a></li>
+          
+          
+            <li><a href="/categories/etc/books">책 (2)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="📖 자바 ORM 표준 JPA 프로그래밍">
+    <meta itemprop="description" content="자바 ORM 표준 JPA 프로그래밍 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍">
+    <meta itemprop="datePublished" content="2023-01-16T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="u-url" itemprop="url">📖 자바 ORM 표준 JPA 프로그래밍
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-16T00:00:00+09:00">2023-01-16</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#1-jpa-소개">1. JPA 소개</a><ul><li><a href="#11-sql을-직접-다룰-때-발생하는-문제점">1.1 SQL을 직접 다룰 때 발생하는 문제점</a><ul><li><a href="#111-반복-반복-그리고-반복">1.1.1 반복, 반복 그리고 반복</a></li><li><a href="#112-sql에-의존적인-개발">1.1.2 SQL에 의존적인 개발</a></li><li><a href="#113-jpa와-문제-해결">1.1.3 JPA와 문제 해결</a></li></ul></li><li><a href="#12-패러다임-불일치">1.2 패러다임 불일치</a><ul><li><a href="#121-상속">1.2.1 상속</a></li><li><a href="#122-연관관계">1.2.2 연관관계</a></li><li><a href="#123-객체-그래프-탐색">1.2.3 객체 그래프 탐색</a></li><li><a href="#124-비교">1.2.4 비교</a></li><li><a href="#125-정리">1.2.5 정리</a></li></ul></li><li><a href="#13-jpa란-무엇인가">1.3 JPA란 무엇인가?</a><ul><li><a href="#131-jpa-소개">1.3.1 JPA 소개</a></li><li><a href="#132-왜-jpa를-사용해야-하는가">1.3.2 왜 JPA를 사용해야 하는가?</a></li></ul></li><li><a href="#14-정리">1.4 정리</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p><a href="https://product.kyobobook.co.kr/detail/S000000935744" target="_blank">자바 ORM 표준 JPA 프로그래밍</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
+
+<hr />
+
+<h1 id="1-jpa-소개">1. JPA 소개</h1>
+<h2 id="11-sql을-직접-다룰-때-발생하는-문제점">1.1 SQL을 직접 다룰 때 발생하는 문제점</h2>
+<ul>
+  <li>자바로 개발하는 애플리케이션은 대부분 관계형 데이터베이스를 데이터 저장소로 사용한다.</li>
+  <li>JDBC API를 사용해 SQL을 전달한다.</li>
+</ul>
+
+<h3 id="111-반복-반복-그리고-반복">1.1.1 반복, 반복 그리고 반복</h3>
+<p>객체를 데이터 베이스에 CURD 하려먼 너무많은 SQL과 JDBC API를 코드로 작성해야 한다. 테이블이 여러개라면 무수히 많은 SQL을 작성해야 한다.</p>
+
+<h3 id="112-sql에-의존적인-개발">1.1.2 SQL에 의존적인 개발</h3>
+<p>애플리케이션에서 SQL을 직접 다룰 때 발생하는 문제점</p>
+<ul>
+  <li>진정한 의미의 계층 분할이 어렵다.</li>
+  <li>엔티티를 신뢰할 수 없다.</li>
+  <li>SQL에 의존적인 개발을 피하기 어렵다.</li>
+</ul>
+
+<h3 id="113-jpa와-문제-해결">1.1.3 JPA와 문제 해결</h3>
+<p>JPA를 사용하면 객체를 데이터베이스에 저장하고 관리할 때, 개발자가 직접 SQL을 작성하는 것이 아니라 JPA가 제공하는 API를 사용하면 된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 저장</span>
+<span class="n">jpa</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>
+
+<span class="c1">// 조회</span>
+<span class="nc">String</span> <span class="n">memberId</span> <span class="o">=</span> <span class="s">"helloId"</span>
+<span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="n">jpa</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="nc">Member</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">memberId</span><span class="o">);</span>
+
+<span class="c1">// 수정</span>
+<span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="n">jpa</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="nc">Member</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">memberId</span><span class="o">);</span>
+<span class="n">member</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"이름변경"</span><span class="o">);</span> <span class="c1">// jpa는 update 메소드가 따로 없다.</span>
+
+<span class="c1">// 연관된 객체 조회</span>
+<span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="n">jpa</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="nc">Member</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">memberId</span><span class="o">);</span>
+<span class="nc">Team</span> <span class="n">team</span> <span class="o">=</span> <span class="n">member</span><span class="o">.</span><span class="na">getTeam</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h2 id="12-패러다임-불일치">1.2 패러다임 불일치</h2>
+<ul>
+  <li>객체와 관계형 데이터베이스는 지향하는 목적이 서로 다르다.</li>
+  <li>기능과 표현 방법도 다르다.</li>
+  <li>객체 구조를 테이블 구조에 저장하는 데는 한계가 있다.</li>
+</ul>
+
+<h3 id="121-상속">1.2.1 상속</h3>
+<p>객체는 상속이라는 기능을 가지고 있지만 테이블은 상속이라는 기능이 없다.(일부 데이터베이스는 상속 기능을 지원하지만 객체의 상속과는 약간 다르다.)</p>
+
+<center><img src="/assets/images/posts/books/2/1_2_객체상속모델.png" alt="객체상속모델" width="90%" height="90%" /></center>
+
+<p><br /></p>
+
+<p>데이터 베이스 모델링에서는 슈퍼타입 서브타입 관계를 사용하면 유사하게 만들 수 있다.</p>
+
+<center><img src="/assets/images/posts/books/2/1_2_테이블모델.png" alt="테이블모델" width="90%" height="90%" /></center>
+
+<p><br /></p>
+
+<p>위의 구조를 JDBC API를 사용해서 구현하려면 작성해야 할 코드량이 만만치 않다.</p>
+<ul>
+  <li>INSERT INTO ITEM…</li>
+  <li>INSERT INTO ALBUM…</li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>JPA와 상속</strong><br />
+JPA는 상속과 관련된 패러다임 불일치 문제를 개발자 대신 해결해 준다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 저장</span>
+<span class="n">jpa</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">album</span><span class="o">);</span>
+
+<span class="c1">// JPA에서 실행 해주는 SQL</span>
+<span class="no">INSERT</span> <span class="no">INTO</span> <span class="no">ITEM</span><span class="o">...</span>
+<span class="no">INSERT</span> <span class="no">INTO</span> <span class="no">ALBUM</span><span class="o">...</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="122-연관관계">1.2.2 연관관계</h3>
+<ul>
+  <li><strong>객체는 참조를 사용해 다른 객체와 연관관계</strong>를 가진다. 참조에 접근해서 연관된 객체를 조회한다.</li>
+  <li><strong>테이블은 외래 키를 사용해 다른 테이블과 연관관계</strong>를 가진다. 조인을 사용해서 연관된 테이블을 조회한다.</li>
+  <li><strong>객체는 참조가 있는 방향으로만 조회할 수 있다.</strong></li>
+</ul>
+<center><img src="/assets/images/posts/books/2/1_2_연관관계.png" alt="연관관계" width="90%" height="90%" /></center>
+
+<p><br /></p>
+
+<p><strong>객체를 테이블에 맞추어 모델링</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 관계형 데이터베이스가 사용하는 방식에 맞추면 객체 참조를 통해 조회할 수 없다.</span>
+<span class="kd">class</span> <span class="nc">Member</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">id</span><span class="o">;</span>   <span class="c1">// MEMBER_ID 컬럼 사용</span>
+    <span class="nc">Long</span> <span class="n">teamId</span><span class="o">;</span> <span class="c1">// TEAM_ID FK 컬럼 사용</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>객체지향 모델링</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 패러다임 불일치를 해결하려고 소모하는 코드가 많다.</span>
+<span class="kd">class</span> <span class="nc">Member</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">id</span><span class="o">;</span>   <span class="c1">// MEMBER_ID 컬럼 사용</span>
+    <span class="nc">Team</span> <span class="n">team</span><span class="o">;</span> <span class="c1">// 참조로 연관관계를 맺는다.</span>
+<span class="o">}</span>
+
+<span class="c1">// 데이터베이스에 저장</span>
+<span class="n">member</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span>
+<span class="n">member</span><span class="o">.</span><span class="na">getTeam</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span> <span class="c1">// TEAM_ID FK를 직접 구해야 함</span>
+<span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+
+<span class="c1">// 조회</span>
+<span class="no">SQL</span> <span class="n">실행</span>
+<span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span> <span class="o">();</span>
+<span class="nc">Team</span> <span class="n">team</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Team</span><span class="o">();</span>
+<span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+<span class="n">member</span><span class="o">.</span><span class="na">setTeam</span><span class="o">(</span><span class="n">team</span><span class="o">);</span> <span class="c1">// 직접 회원과 팀 관계 설정</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>JPA와 연관관계</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// JPA는 연관관계와 관련된 패러다임 불일치 문제를 해결해준다.</span>
+
+<span class="c1">// 저장</span>
+<span class="n">member</span><span class="o">.</span><span class="na">setTeam</span><span class="o">(</span><span class="n">team</span><span class="o">);</span>
+<span class="n">jpa</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">member</span><span class="o">);</span> <span class="c1">// TEAM_ID FK를 직접 지정할 필요 없음</span>
+
+<span class="c1">// 조회</span>
+<span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="n">jpa</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="nc">Member</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">memberId</span><span class="o">);</span>
+<span class="nc">Team</span> <span class="n">team</span> <span class="o">=</span> <span class="n">member</span><span class="o">.</span><span class="na">getTeam</span><span class="o">();</span> <span class="c1">// 바로 사용 가능</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="123-객체-그래프-탐색">1.2.3 객체 그래프 탐색</h3>
+<p>객체에서 회원에 소속된 팀을 조회할 때는 다음처럼 참조를 사용해서 연관된 팀을 찾으면 되는데, 이것을 객체 그래프 탐색이라 한다.</p>
+
+<center><img src="/assets/images/posts/books/2/1_2_객체그래프탐색.png" alt="객체그래프탐색" width="90%" height="90%" /></center>
+
+<p><br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 객체 그래프 탐색</span>
+<span class="n">member</span><span class="o">.</span><span class="na">getOrder</span><span class="o">().</span><span class="na">getOrderItem</span><span class="o">()...</span>
+
+<span class="c1">// 문제 발생</span>
+<span class="n">member</span><span class="o">.</span><span class="na">getOrder</span><span class="o">();</span> <span class="c1">// 만약 null이라면?</span>
+</code></pre></div></div>
+
+<p><strong>SQL을 직접 다루면 처음 실행하는 SQL에 따라 객체 그래프를 어디까지 탐색할 수 있는지 정해진다.</strong> 이는 객체 그래프가 언제 끊어질지 모르기 때문에 함부로 탐색할 수 없다.</p>
+
+<p><strong>JPA와 객체 그래프 탐색</strong><br />
+JPA는 연관된 객체를 사용하는 시점에 적절한 SELECT SQL을 실행한다(<strong>지연로딩</strong>). 따라서 JPA를 사용하면 연관된 객체를 신뢰하고 조회할 수 있다.</p>
+
+<h3 id="124-비교">1.2.4 비교</h3>
+<ul>
+  <li>데이터베이스는 기본 키의 값으로 각 row를 구분</li>
+  <li>객체는 동일성, 동등성 비교.
+    <ul>
+      <li>동일성은 == 비교. 객체 인스턴스의 주소 값을 비교한다.</li>
+      <li>동등성은 equals() 비교. 객체 내부의 값을 비교한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>JDBC API 비교</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">memberId</span> <span class="o">=</span> <span class="s">"100"</span><span class="o">;</span>
+<span class="nc">Member</span> <span class="n">member1</span> <span class="o">=</span> <span class="n">memberDAO</span><span class="o">.</span><span class="na">getMember</span><span class="o">(</span><span class="n">memberID</span><span class="o">);</span>
+<span class="nc">Member</span> <span class="n">member2</span> <span class="o">=</span> <span class="n">memberDAO</span><span class="o">.</span><span class="na">getMember</span><span class="o">(</span><span class="n">memberID</span><span class="o">);</span>
+
+<span class="c1">// false</span>
+<span class="n">member1</span> <span class="o">==</span> <span class="n">member2</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p><strong>JPA 비교</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">memberId</span> <span class="o">=</span> <span class="s">"100"</span><span class="o">;</span>
+<span class="nc">Member</span> <span class="n">member1</span> <span class="o">=</span> <span class="n">jpa</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">memberID</span><span class="o">);</span>
+<span class="nc">Member</span> <span class="n">member2</span> <span class="o">=</span> <span class="n">jpa</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">memberID</span><span class="o">);</span>
+
+<span class="c1">// true</span>
+<span class="n">member1</span> <span class="o">==</span> <span class="n">member2</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="125-정리">1.2.5 정리</h3>
+<p><strong>객체 모델과 관계형 데이터베이스 모델은 지향하는 패러다임이 서로 다르다.</strong> 이 패러다임 차이를 극복하려고 개발자가 너무 많은 시간과 코드를 소비한다. 결국, 객체 모델링은 힘을 잃고 점점 데이터 중심의 모델로 변해간다.</p>
+
+<p><strong>JPA는 패러다임 불일치 문제를 해결하고, 정교한 객체 모델링을 유지하게 도와준다.</strong></p>
+
+<p><br />
+<br /></p>
+
+<h2 id="13-jpa란-무엇인가">1.3 JPA란 무엇인가?</h2>
+<p><strong>JPA(java persistence API)는 자바진영 ORM 기술 표준</strong>이다. 애플리케이션과 JDBC 사이에서 동작한다.</p>
+
+<center><img src="/assets/images/posts/books/2/1_3_JPA.png" alt="JPA" width="90%" height="90%" /></center>
+
+<p><br /></p>
+
+<p><strong>ORM이란?</strong><br />
+ORM(Object-Relational Mapping)은 <strong>객체와 관계형 데이터 베이스를 매핑한다는 뜻</strong>이다. 다양한 ORM 프레임워크들이 있는데 자바 진영에서는 <strong>하이버네이트 프레임워크가 가장 많이 사용</strong>된다.</p>
+
+<center><img src="/assets/images/posts/books/2/1_3_JPA조회.png" alt="JPA조회" width="80%" height="80%" /></center>
+
+<p><br />
+<br /></p>
+
+<h3 id="131-jpa-소개">1.3.1 JPA 소개</h3>
+<center><img src="/assets/images/posts/books/2/1_3_JPA표준인터페이스와구현체.png" alt="JPA표준인터페이스와구현체" width="80%" height="80%" /></center>
+
+<p><br /></p>
+
+<p><strong>JPA는 자바 ORM 기술에 대한 API 표준 명세다.</strong> 쉽게 이야기해서 인터페이스를 모아둔 것이다. 따라서 JPA를 사용하려면 JPA를 구현한 ORM 프레임워크를 선택해야 한다. ORM 프레임워크 중 <strong>하이버네이트가 가장 대중적</strong>이다.</p>
+
+<p><br /></p>
+
+<h3 id="132-왜-jpa를-사용해야-하는가">1.3.2 왜 JPA를 사용해야 하는가?</h3>
+<ul>
+  <li>생산성</li>
+  <li>유지보수</li>
+  <li>패러다임 불일치 해결</li>
+  <li>성능 (캐시)</li>
+  <li>데이터 접근 추상화와 벤더 독립성
+    <ul>
+      <li>데이터베이스마다 사용법이 다르다 (예: 페이징 쿼리)</li>
+      <li>JPA에게 데이터베이스만 알려주면 자동으로 해결된다</li>
+    </ul>
+  </li>
+  <li>표준
+    <ul>
+      <li>자바 진영 ORM 기술 표준</li>
+      <li>표준을 사용하면 다른 구현 기술로 손쉽게 변경 가능</li>
+    </ul>
+  </li>
+</ul>
+
+<center><img src="/assets/images/posts/books/2/1_3_벤더독립성.png" alt="벤더독립성" width="80%" height="80%" /></center>
+
+<p><br />
+<br /></p>
+
+<h2 id="14-정리">1.4 정리</h2>
+<ul>
+  <li>SQL을 직접 다룰 때 발생하는 다양한 문제</li>
+  <li>객체지향 언어와 관계형 데이터베이스 사이의 패러다임 불일치 문제</li>
+  <li>JPA가 각 문제를 어떻게 해결하는지</li>
+  <li>JPA가 무엇인지</li>
+  <li>JPA 장점</li>
+</ul>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#books" class="page__taxonomy-item p-category" rel="tag">books</a><span class="sep">, </span>
+    
+      <a href="/tags/#jpa" class="page__taxonomy-item p-category" rel="tag">JPA</a><span class="sep">, </span>
+    
+      <a href="/tags/#orm" class="page__taxonomy-item p-category" rel="tag">ORM</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#books" class="page__taxonomy-item p-category" rel="tag">books</a><span class="sep">, </span>
+    
+      <a href="/categories/#etc" class="page__taxonomy-item p-category" rel="tag">etc</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-16T00:00:00+09:00">2023-01-16</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%F0%9F%93%96+%EC%9E%90%EB%B0%94+ORM+%ED%91%9C%EC%A4%80+JPA+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20http%3A%2F%2Flocalhost%3A4000%2Fetc%2Fbooks%2F%25EC%259E%2590%25EB%25B0%2594-ORM-%25ED%2591%259C%25EC%25A4%2580-JPA-%25ED%2594%2584%25EB%25A1%259C%25EA%25B7%25B8%25EB%259E%2598%25EB%25B0%258D%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fetc%2Fbooks%2F%25EC%259E%2590%25EB%25B0%2594-ORM-%25ED%2591%259C%25EC%25A4%2580-JPA-%25ED%2594%2584%25EB%25A1%259C%25EA%25B7%25B8%25EB%259E%2598%25EB%25B0%258D%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fetc%2Fbooks%2F%25EC%259E%2590%25EB%25B0%2594-ORM-%25ED%2591%259C%25EC%25A4%2580-JPA-%25ED%2594%2584%25EB%25A1%259C%25EA%25B7%25B8%25EB%259E%2598%25EB%25B0%258D%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" class="pagination--pager" title="📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">다른 읽을거리</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="permalink">📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-09T00:00:00+09:00">2023-01-09</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/os/mac/hotkey/" rel="permalink">MAC 단축키 모음 💻
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-08T00:00:00+09:00">2023-01-08</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">⌨ 일반 단축키
+
+  화면 잠금: Control + Command + Q
+  복제: Command + x
+  다시찾기: Command + G
+  윈도우 최소화: Command + M
+  프린트: Command + P
+  붙여넣기: Command + V
+  모두선택: Command ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="permalink">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-08T00:00:00+09:00">2023-01-08</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022년 10월 24일 ~ 2022년 12월 23일
+우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-7%EC%A3%BC%EC%B0%A8/" rel="permalink">우아한테크캠프 Pro 5기 - 7주차 (레거시 코드 리팩터링)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-08T00:00:00+09:00">2023-01-08</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022년 10월 24일 ~ 2022년 12월 23일
+우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/sangjaeoh" rel="nofollow noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Sangjae Oh. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/etc/books/자바-ORM-표준-JPA-프로그래밍"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://stack-o-flow.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+
+    <aside class="sidebar__home">
+      <a href="/">
+        <div style="font-size: 0.5rem;"><i class="fas fa-h-square fa-5x"></i></div>
+      </a>
+    </aside>
+
+    <aside class="sidebar__top">
+      <a href="#site-nav">
+        <div style="font-size: 0.5rem;"><i class="fas fa-caret-square-up fa-5x"></i></div>
+      </a>
+    </aside>
+
+    <aside class="sidebar__bottom">
+      <a href="#footer">
+        <div style="font-size: 0.5rem;"><i class="fas fa-caret-square-down fa-5x"></i></div>
+      </a>
+    </aside>
+
+  </body>
+</html>

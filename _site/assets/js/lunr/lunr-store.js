@@ -76,4 +76,10 @@ var store = [{
         "tags": ["books","DDD"],
         "url": "/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/",
         "teaser": null
+      },{
+        "title": "📖 자바 ORM 표준 JPA 프로그래밍",
+        "excerpt":"자바 ORM 표준 JPA 프로그래밍 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍 1. JPA 소개 1.1 SQL을 직접 다룰 때 발생하는 문제점 자바로 개발하는 애플리케이션은 대부분 관계형 데이터베이스를 데이터 저장소로 사용한다. JDBC API를 사용해 SQL을 전달한다. 1.1.1 반복, 반복 그리고 반복...","categories": ["etc","books"],
+        "tags": ["books","JPA","ORM"],
+        "url": "/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/",
+        "teaser": null
       }]

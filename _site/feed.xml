@@ -1,4 +1,256 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-15T22:30:20+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</title><link href="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지" /><published>2023-01-09T00:00:00+09:00</published><updated>2023-01-09T00:00:00+09:00</updated><id>http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-16T22:08:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">📖 자바 ORM 표준 JPA 프로그래밍</title><link href="http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" rel="alternate" type="text/html" title="📖 자바 ORM 표준 JPA 프로그래밍" /><published>2023-01-16T00:00:00+09:00</published><updated>2023-01-16T00:00:00+09:00</updated><id>http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D</id><content type="html" xml:base="http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000000935744" target="_blank">자바 ORM 표준 JPA 프로그래밍</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
+
+<hr />
+
+<h1 id="1-jpa-소개">1. JPA 소개</h1>
+<h2 id="11-sql을-직접-다룰-때-발생하는-문제점">1.1 SQL을 직접 다룰 때 발생하는 문제점</h2>
+<ul>
+  <li>자바로 개발하는 애플리케이션은 대부분 관계형 데이터베이스를 데이터 저장소로 사용한다.</li>
+  <li>JDBC API를 사용해 SQL을 전달한다.</li>
+</ul>
+
+<h3 id="111-반복-반복-그리고-반복">1.1.1 반복, 반복 그리고 반복</h3>
+<p>객체를 데이터 베이스에 CURD 하려먼 너무많은 SQL과 JDBC API를 코드로 작성해야 한다. 테이블이 여러개라면 무수히 많은 SQL을 작성해야 한다.</p>
+
+<h3 id="112-sql에-의존적인-개발">1.1.2 SQL에 의존적인 개발</h3>
+<p>애플리케이션에서 SQL을 직접 다룰 때 발생하는 문제점</p>
+<ul>
+  <li>진정한 의미의 계층 분할이 어렵다.</li>
+  <li>엔티티를 신뢰할 수 없다.</li>
+  <li>SQL에 의존적인 개발을 피하기 어렵다.</li>
+</ul>
+
+<h3 id="113-jpa와-문제-해결">1.1.3 JPA와 문제 해결</h3>
+<p>JPA를 사용하면 객체를 데이터베이스에 저장하고 관리할 때, 개발자가 직접 SQL을 작성하는 것이 아니라 JPA가 제공하는 API를 사용하면 된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 저장</span>
+<span class="n">jpa</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>
+
+<span class="c1">// 조회</span>
+<span class="nc">String</span> <span class="n">memberId</span> <span class="o">=</span> <span class="s">"helloId"</span>
+<span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="n">jpa</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="nc">Member</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">memberId</span><span class="o">);</span>
+
+<span class="c1">// 수정</span>
+<span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="n">jpa</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="nc">Member</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">memberId</span><span class="o">);</span>
+<span class="n">member</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"이름변경"</span><span class="o">);</span> <span class="c1">// jpa는 update 메소드가 따로 없다.</span>
+
+<span class="c1">// 연관된 객체 조회</span>
+<span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="n">jpa</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="nc">Member</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">memberId</span><span class="o">);</span>
+<span class="nc">Team</span> <span class="n">team</span> <span class="o">=</span> <span class="n">member</span><span class="o">.</span><span class="na">getTeam</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h2 id="12-패러다임-불일치">1.2 패러다임 불일치</h2>
+<ul>
+  <li>객체와 관계형 데이터베이스는 지향하는 목적이 서로 다르다.</li>
+  <li>기능과 표현 방법도 다르다.</li>
+  <li>객체 구조를 테이블 구조에 저장하는 데는 한계가 있다.</li>
+</ul>
+
+<h3 id="121-상속">1.2.1 상속</h3>
+<p>객체는 상속이라는 기능을 가지고 있지만 테이블은 상속이라는 기능이 없다.(일부 데이터베이스는 상속 기능을 지원하지만 객체의 상속과는 약간 다르다.)</p>
+
+<center><img src="/assets/images/posts/books/2/1_2_객체상속모델.png" alt="객체상속모델" width="90%" height="90%" /></center>
+
+<p><br /></p>
+
+<p>데이터 베이스 모델링에서는 슈퍼타입 서브타입 관계를 사용하면 유사하게 만들 수 있다.</p>
+
+<center><img src="/assets/images/posts/books/2/1_2_테이블모델.png" alt="테이블모델" width="90%" height="90%" /></center>
+
+<p><br /></p>
+
+<p>위의 구조를 JDBC API를 사용해서 구현하려면 작성해야 할 코드량이 만만치 않다.</p>
+<ul>
+  <li>INSERT INTO ITEM…</li>
+  <li>INSERT INTO ALBUM…</li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>JPA와 상속</strong><br />
+JPA는 상속과 관련된 패러다임 불일치 문제를 개발자 대신 해결해 준다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 저장</span>
+<span class="n">jpa</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">album</span><span class="o">);</span>
+
+<span class="c1">// JPA에서 실행 해주는 SQL</span>
+<span class="no">INSERT</span> <span class="no">INTO</span> <span class="no">ITEM</span><span class="o">...</span>
+<span class="no">INSERT</span> <span class="no">INTO</span> <span class="no">ALBUM</span><span class="o">...</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="122-연관관계">1.2.2 연관관계</h3>
+<ul>
+  <li><strong>객체는 참조를 사용해 다른 객체와 연관관계</strong>를 가진다. 참조에 접근해서 연관된 객체를 조회한다.</li>
+  <li><strong>테이블은 외래 키를 사용해 다른 테이블과 연관관계</strong>를 가진다. 조인을 사용해서 연관된 테이블을 조회한다.</li>
+  <li><strong>객체는 참조가 있는 방향으로만 조회할 수 있다.</strong></li>
+</ul>
+<center><img src="/assets/images/posts/books/2/1_2_연관관계.png" alt="연관관계" width="90%" height="90%" /></center>
+
+<p><br /></p>
+
+<p><strong>객체를 테이블에 맞추어 모델링</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 관계형 데이터베이스가 사용하는 방식에 맞추면 객체 참조를 통해 조회할 수 없다.</span>
+<span class="kd">class</span> <span class="nc">Member</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">id</span><span class="o">;</span>   <span class="c1">// MEMBER_ID 컬럼 사용</span>
+    <span class="nc">Long</span> <span class="n">teamId</span><span class="o">;</span> <span class="c1">// TEAM_ID FK 컬럼 사용</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>객체지향 모델링</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 패러다임 불일치를 해결하려고 소모하는 코드가 많다.</span>
+<span class="kd">class</span> <span class="nc">Member</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">id</span><span class="o">;</span>   <span class="c1">// MEMBER_ID 컬럼 사용</span>
+    <span class="nc">Team</span> <span class="n">team</span><span class="o">;</span> <span class="c1">// 참조로 연관관계를 맺는다.</span>
+<span class="o">}</span>
+
+<span class="c1">// 데이터베이스에 저장</span>
+<span class="n">member</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span>
+<span class="n">member</span><span class="o">.</span><span class="na">getTeam</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span> <span class="c1">// TEAM_ID FK를 직접 구해야 함</span>
+<span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+
+<span class="c1">// 조회</span>
+<span class="no">SQL</span> <span class="n">실행</span>
+<span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span> <span class="o">();</span>
+<span class="nc">Team</span> <span class="n">team</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Team</span><span class="o">();</span>
+<span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+<span class="n">member</span><span class="o">.</span><span class="na">setTeam</span><span class="o">(</span><span class="n">team</span><span class="o">);</span> <span class="c1">// 직접 회원과 팀 관계 설정</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>JPA와 연관관계</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// JPA는 연관관계와 관련된 패러다임 불일치 문제를 해결해준다.</span>
+
+<span class="c1">// 저장</span>
+<span class="n">member</span><span class="o">.</span><span class="na">setTeam</span><span class="o">(</span><span class="n">team</span><span class="o">);</span>
+<span class="n">jpa</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">member</span><span class="o">);</span> <span class="c1">// TEAM_ID FK를 직접 지정할 필요 없음</span>
+
+<span class="c1">// 조회</span>
+<span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="n">jpa</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="nc">Member</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">memberId</span><span class="o">);</span>
+<span class="nc">Team</span> <span class="n">team</span> <span class="o">=</span> <span class="n">member</span><span class="o">.</span><span class="na">getTeam</span><span class="o">();</span> <span class="c1">// 바로 사용 가능</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="123-객체-그래프-탐색">1.2.3 객체 그래프 탐색</h3>
+<p>객체에서 회원에 소속된 팀을 조회할 때는 다음처럼 참조를 사용해서 연관된 팀을 찾으면 되는데, 이것을 객체 그래프 탐색이라 한다.</p>
+
+<center><img src="/assets/images/posts/books/2/1_2_객체그래프탐색.png" alt="객체그래프탐색" width="90%" height="90%" /></center>
+
+<p><br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 객체 그래프 탐색</span>
+<span class="n">member</span><span class="o">.</span><span class="na">getOrder</span><span class="o">().</span><span class="na">getOrderItem</span><span class="o">()...</span>
+
+<span class="c1">// 문제 발생</span>
+<span class="n">member</span><span class="o">.</span><span class="na">getOrder</span><span class="o">();</span> <span class="c1">// 만약 null이라면?</span>
+</code></pre></div></div>
+
+<p><strong>SQL을 직접 다루면 처음 실행하는 SQL에 따라 객체 그래프를 어디까지 탐색할 수 있는지 정해진다.</strong> 이는 객체 그래프가 언제 끊어질지 모르기 때문에 함부로 탐색할 수 없다.</p>
+
+<p><strong>JPA와 객체 그래프 탐색</strong><br />
+JPA는 연관된 객체를 사용하는 시점에 적절한 SELECT SQL을 실행한다(<strong>지연로딩</strong>). 따라서 JPA를 사용하면 연관된 객체를 신뢰하고 조회할 수 있다.</p>
+
+<h3 id="124-비교">1.2.4 비교</h3>
+<ul>
+  <li>데이터베이스는 기본 키의 값으로 각 row를 구분</li>
+  <li>객체는 동일성, 동등성 비교.
+    <ul>
+      <li>동일성은 == 비교. 객체 인스턴스의 주소 값을 비교한다.</li>
+      <li>동등성은 equals() 비교. 객체 내부의 값을 비교한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>JDBC API 비교</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">memberId</span> <span class="o">=</span> <span class="s">"100"</span><span class="o">;</span>
+<span class="nc">Member</span> <span class="n">member1</span> <span class="o">=</span> <span class="n">memberDAO</span><span class="o">.</span><span class="na">getMember</span><span class="o">(</span><span class="n">memberID</span><span class="o">);</span>
+<span class="nc">Member</span> <span class="n">member2</span> <span class="o">=</span> <span class="n">memberDAO</span><span class="o">.</span><span class="na">getMember</span><span class="o">(</span><span class="n">memberID</span><span class="o">);</span>
+
+<span class="c1">// false</span>
+<span class="n">member1</span> <span class="o">==</span> <span class="n">member2</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p><strong>JPA 비교</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">memberId</span> <span class="o">=</span> <span class="s">"100"</span><span class="o">;</span>
+<span class="nc">Member</span> <span class="n">member1</span> <span class="o">=</span> <span class="n">jpa</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">memberID</span><span class="o">);</span>
+<span class="nc">Member</span> <span class="n">member2</span> <span class="o">=</span> <span class="n">jpa</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">memberID</span><span class="o">);</span>
+
+<span class="c1">// true</span>
+<span class="n">member1</span> <span class="o">==</span> <span class="n">member2</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="125-정리">1.2.5 정리</h3>
+<p><strong>객체 모델과 관계형 데이터베이스 모델은 지향하는 패러다임이 서로 다르다.</strong> 이 패러다임 차이를 극복하려고 개발자가 너무 많은 시간과 코드를 소비한다. 결국, 객체 모델링은 힘을 잃고 점점 데이터 중심의 모델로 변해간다.</p>
+
+<p><strong>JPA는 패러다임 불일치 문제를 해결하고, 정교한 객체 모델링을 유지하게 도와준다.</strong></p>
+
+<p><br />
+<br /></p>
+
+<h2 id="13-jpa란-무엇인가">1.3 JPA란 무엇인가?</h2>
+<p><strong>JPA(java persistence API)는 자바진영 ORM 기술 표준</strong>이다. 애플리케이션과 JDBC 사이에서 동작한다.</p>
+
+<center><img src="/assets/images/posts/books/2/1_3_JPA.png" alt="JPA" width="90%" height="90%" /></center>
+
+<p><br /></p>
+
+<p><strong>ORM이란?</strong><br />
+ORM(Object-Relational Mapping)은 <strong>객체와 관계형 데이터 베이스를 매핑한다는 뜻</strong>이다. 다양한 ORM 프레임워크들이 있는데 자바 진영에서는 <strong>하이버네이트 프레임워크가 가장 많이 사용</strong>된다.</p>
+
+<center><img src="/assets/images/posts/books/2/1_3_JPA조회.png" alt="JPA조회" width="80%" height="80%" /></center>
+
+<p><br />
+<br /></p>
+
+<h3 id="131-jpa-소개">1.3.1 JPA 소개</h3>
+<center><img src="/assets/images/posts/books/2/1_3_JPA표준인터페이스와구현체.png" alt="JPA표준인터페이스와구현체" width="80%" height="80%" /></center>
+
+<p><br /></p>
+
+<p><strong>JPA는 자바 ORM 기술에 대한 API 표준 명세다.</strong> 쉽게 이야기해서 인터페이스를 모아둔 것이다. 따라서 JPA를 사용하려면 JPA를 구현한 ORM 프레임워크를 선택해야 한다. ORM 프레임워크 중 <strong>하이버네이트가 가장 대중적</strong>이다.</p>
+
+<p><br /></p>
+
+<h3 id="132-왜-jpa를-사용해야-하는가">1.3.2 왜 JPA를 사용해야 하는가?</h3>
+<ul>
+  <li>생산성</li>
+  <li>유지보수</li>
+  <li>패러다임 불일치 해결</li>
+  <li>성능 (캐시)</li>
+  <li>데이터 접근 추상화와 벤더 독립성
+    <ul>
+      <li>데이터베이스마다 사용법이 다르다 (예: 페이징 쿼리)</li>
+      <li>JPA에게 데이터베이스만 알려주면 자동으로 해결된다</li>
+    </ul>
+  </li>
+  <li>표준
+    <ul>
+      <li>자바 진영 ORM 기술 표준</li>
+      <li>표준을 사용하면 다른 구현 기술로 손쉽게 변경 가능</li>
+    </ul>
+  </li>
+</ul>
+
+<center><img src="/assets/images/posts/books/2/1_3_벤더독립성.png" alt="벤더독립성" width="80%" height="80%" /></center>
+
+<p><br />
+<br /></p>
+
+<h2 id="14-정리">1.4 정리</h2>
+<ul>
+  <li>SQL을 직접 다룰 때 발생하는 다양한 문제</li>
+  <li>객체지향 언어와 관계형 데이터베이스 사이의 패러다임 불일치 문제</li>
+  <li>JPA가 각 문제를 어떻게 해결하는지</li>
+  <li>JPA가 무엇인지</li>
+  <li>JPA 장점</li>
+</ul>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="books" /><category term="books" /><category term="JPA" /><category term="ORM" /><summary type="html"><![CDATA[자바 ORM 표준 JPA 프로그래밍 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍]]></summary></entry><entry><title type="html">📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</title><link href="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지" /><published>2023-01-09T00:00:00+09:00</published><updated>2023-01-09T00:00:00+09:00</updated><id>http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/etc/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
 
 <hr />
 
@@ -1380,10 +1632,10 @@ M-N 연관은 개념적으로 양쪽 애그리거트에 컬렉션으로 연관�
   <li>잠금 유효시간</li>
 </ul>
 
-<p>…생략…</p>
+<p>구현 코드는 <a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">책</a>에서 확인해주세요. 🔎</p>
 
 <h3 id="842-db를-이용한-lockmanager-구현">8.4.2 DB를 이용한 LockManager 구현</h3>
-<p>…생략…</p>
+<p>구현 코드는 <a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">책</a>에서 확인해주세요. 🔎</p>
 
 <p><br />
 <br />
@@ -1868,7 +2120,57 @@ M-N 연관은 개념적으로 양쪽 애그리거트에 컬렉션으로 연관�
 <ul>
   <li><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a></li>
   <li><a href="https://github.com/madvirus/ddd-start2" target="_blank">예제 코드</a></li>
-</ul>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="books" /><category term="books" /><category term="DDD" /><summary type="html"><![CDATA[도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
+</ul>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="books" /><category term="books" /><category term="DDD" /><summary type="html"><![CDATA[도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍]]></summary></entry><entry><title type="html">MAC 단축키 모음 💻</title><link href="http://localhost:4000/os/mac/hotkey/" rel="alternate" type="text/html" title="MAC 단축키 모음 💻" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/os/mac/hotkey</id><content type="html" xml:base="http://localhost:4000/os/mac/hotkey/"><![CDATA[<h2 id="-일반-단축키">⌨ 일반 단축키</h2>
+<ul>
+  <li>화면 잠금: <strong>Control + Command + Q</strong></li>
+  <li>복제: <strong>Command + x</strong></li>
+  <li>다시찾기: <strong>Command + G</strong></li>
+  <li>윈도우 최소화: <strong>Command + M</strong></li>
+  <li>프린트: <strong>Command + P</strong></li>
+  <li>붙여넣기: <strong>Command + V</strong></li>
+  <li>모두선택: <strong>Command + A</strong></li>
+  <li>복사: <strong>Command + C</strong></li>
+  <li>숨기기: <strong>Command + H</strong></li>
+  <li>선택항목 열기: <strong>Command + O</strong></li>
+  <li>문서 저장: <strong>Command + S</strong></li>
+  <li>이전명령: <strong>Command + Z</strong></li>
+  <li>항목찾기: <strong>Command + F</strong></li>
+  <li>새 탭 열기: <strong>Command + T</strong></li>
+  <li>창 닫기: <strong>Command + W</strong></li>
+  <li>강제 종료: <strong>Option + Command + Esc</strong></li>
+  <li>Spotlight 표시/숨기기: <strong>Command + Spacebar</strong></li>
+  <li>이모티콘 및 기타 기호: <strong>Ctrl + Command + Spacebar</strong></li>
+  <li>전체화면: <strong>Ctrl + Command + F</strong></li>
+  <li>스크린샷 및 화면 기록: <strong>Shift + Command + 5</strong></li>
+  <li>새폴더 생성: <strong>Shift + Command + N</strong></li>
+  <li>환경설정 열기: <strong>Command + ,</strong></li>
+  <li>최근 사용 앱으로 전환: <strong>Command + Tab</strong></li>
+  <li>훑어보기: <strong>Spacebar</strong></li>
+</ul>
+
+<h2 id="-finder-및-시스템-단축키">⌨ Finder 및 시스템 단축키</h2>
+<ul>
+  <li>선택 파일 복제: <strong>Command + D</strong></li>
+  <li>Finder 윈도우에서 Spotlight 검색 시작: <strong>Command + F</strong></li>
+  <li>선택 디스크 또는 볼륨 추출: <strong>Command + E</strong></li>
+  <li>선택 파일의 정보 가져오기: <strong>Command + I</strong></li>
+  <li>가상본의 원본 파일이 형성: <strong>Command + R</strong></li>
+  <li>컴퓨터 윈도우 열기: <strong>Shift + Command + C</strong></li>
+  <li>최근 윈도우/파일 표시: <strong>Shift + Command + F</strong></li>
+  <li>현재 macOS 사용자 계정 폴더 열기: <strong>Shift + Command + H</strong></li>
+  <li>데스크탑 폴더 열기: <strong>Shift + Command + D</strong></li>
+  <li>폴더로 이동 윈도우 열기: <strong>Shift + Command + G</strong></li>
+  <li>iCloud Drive 열기: <strong>Shift + Command + I</strong></li>
+  <li>네트위크 윈도우 열기: <strong>Shift + Command K</strong></li>
+  <li>새 폴더 생성: <strong>Shift + Command + N</strong></li>
+  <li>Finder 미리보기 패널 표시/가리기: <strong>Shift + Command + P</strong></li>
+  <li>다운로드 폴더 열기: <strong>Shift + Command + L</strong></li>
+  <li>문서 폴더 열기: <strong>Shift + Command + O</strong></li>
+  <li>AirDrop 윈도우 열기: <strong>Shift + Command + R</strong></li>
+</ul>
+
+<h2 id="-참고-사이트">🔎 참고 사이트</h2>
+<p><a href="https://www.invaiz.com/blog/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;bmode=view&amp;idx=12577409&amp;t=board" target="_blank">invaiz 블로그</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="os" /><category term="mac" /><category term="mac" /><category term="단축키" /><summary type="html"><![CDATA[⌨ 일반 단축키 화면 잠금: Control + Command + Q 복제: Command + x 다시찾기: Command + G 윈도우 최소화: Command + M 프린트: Command + P 붙여넣기: Command + V 모두선택: Command + A 복사: Command + C 숨기기: Command + H 선택항목 열기: Command + O 문서 저장: Command + S 이전명령: Command + Z 항목찾기: Command + F 새 탭 열기: Command + T 창 닫기: Command + W 강제 종료: Option + Command + Esc Spotlight 표시/숨기기: Command + Spacebar 이모티콘 및 기타 기호: Ctrl + Command + Spacebar 전체화면: Ctrl + Command + F 스크린샷 및 화면 기록: Shift + Command + 5 새폴더 생성: Shift + Command + N 환경설정 열기: Command + , 최근 사용 앱으로 전환: Command + Tab 훑어보기: Spacebar]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
 
 <h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
@@ -1962,57 +2264,7 @@ M-N 연관은 개념적으로 양쪽 애그리거트에 컬렉션으로 연관�
 <p>위 문제점을 개선하기 위해 DDD관련 글을 읽고 공부, 연습을 많이 해봐야 할거같고, 테스트 코드 작성시에도 의존관계를 생각해야할 것 같다(TestFixtures등을 이용)</p>
 
 <h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/jwp-refactoring/tree/step4" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">MAC 단축키 모음 💻</title><link href="http://localhost:4000/os/mac/hotkey/" rel="alternate" type="text/html" title="MAC 단축키 모음 💻" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/os/mac/hotkey</id><content type="html" xml:base="http://localhost:4000/os/mac/hotkey/"><![CDATA[<h2 id="-일반-단축키">⌨ 일반 단축키</h2>
-<ul>
-  <li>화면 잠금: <strong>Control + Command + Q</strong></li>
-  <li>복제: <strong>Command + x</strong></li>
-  <li>다시찾기: <strong>Command + G</strong></li>
-  <li>윈도우 최소화: <strong>Command + M</strong></li>
-  <li>프린트: <strong>Command + P</strong></li>
-  <li>붙여넣기: <strong>Command + V</strong></li>
-  <li>모두선택: <strong>Command + A</strong></li>
-  <li>복사: <strong>Command + C</strong></li>
-  <li>숨기기: <strong>Command + H</strong></li>
-  <li>선택항목 열기: <strong>Command + O</strong></li>
-  <li>문서 저장: <strong>Command + S</strong></li>
-  <li>이전명령: <strong>Command + Z</strong></li>
-  <li>항목찾기: <strong>Command + F</strong></li>
-  <li>새 탭 열기: <strong>Command + T</strong></li>
-  <li>창 닫기: <strong>Command + W</strong></li>
-  <li>강제 종료: <strong>Option + Command + Esc</strong></li>
-  <li>Spotlight 표시/숨기기: <strong>Command + Spacebar</strong></li>
-  <li>이모티콘 및 기타 기호: <strong>Ctrl + Command + Spacebar</strong></li>
-  <li>전체화면: <strong>Ctrl + Command + F</strong></li>
-  <li>스크린샷 및 화면 기록: <strong>Shift + Command + 5</strong></li>
-  <li>새폴더 생성: <strong>Shift + Command + N</strong></li>
-  <li>환경설정 열기: <strong>Command + ,</strong></li>
-  <li>최근 사용 앱으로 전환: <strong>Command + Tab</strong></li>
-  <li>훑어보기: <strong>Spacebar</strong></li>
-</ul>
-
-<h2 id="-finder-및-시스템-단축키">⌨ Finder 및 시스템 단축키</h2>
-<ul>
-  <li>선택 파일 복제: <strong>Command + D</strong></li>
-  <li>Finder 윈도우에서 Spotlight 검색 시작: <strong>Command + F</strong></li>
-  <li>선택 디스크 또는 볼륨 추출: <strong>Command + E</strong></li>
-  <li>선택 파일의 정보 가져오기: <strong>Command + I</strong></li>
-  <li>가상본의 원본 파일이 형성: <strong>Command + R</strong></li>
-  <li>컴퓨터 윈도우 열기: <strong>Shift + Command + C</strong></li>
-  <li>최근 윈도우/파일 표시: <strong>Shift + Command + F</strong></li>
-  <li>현재 macOS 사용자 계정 폴더 열기: <strong>Shift + Command + H</strong></li>
-  <li>데스크탑 폴더 열기: <strong>Shift + Command + D</strong></li>
-  <li>폴더로 이동 윈도우 열기: <strong>Shift + Command + G</strong></li>
-  <li>iCloud Drive 열기: <strong>Shift + Command + I</strong></li>
-  <li>네트위크 윈도우 열기: <strong>Shift + Command K</strong></li>
-  <li>새 폴더 생성: <strong>Shift + Command + N</strong></li>
-  <li>Finder 미리보기 패널 표시/가리기: <strong>Shift + Command + P</strong></li>
-  <li>다운로드 폴더 열기: <strong>Shift + Command + L</strong></li>
-  <li>문서 폴더 열기: <strong>Shift + Command + O</strong></li>
-  <li>AirDrop 윈도우 열기: <strong>Shift + Command + R</strong></li>
-</ul>
-
-<h2 id="-참고-사이트">🔎 참고 사이트</h2>
-<p><a href="https://www.invaiz.com/blog/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;bmode=view&amp;idx=12577409&amp;t=board" target="_blank">invaiz 블로그</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="os" /><category term="mac" /><category term="mac" /><category term="단축키" /><summary type="html"><![CDATA[⌨ 일반 단축키 화면 잠금: Control + Command + Q 복제: Command + x 다시찾기: Command + G 윈도우 최소화: Command + M 프린트: Command + P 붙여넣기: Command + V 모두선택: Command + A 복사: Command + C 숨기기: Command + H 선택항목 열기: Command + O 문서 저장: Command + S 이전명령: Command + Z 항목찾기: Command + F 새 탭 열기: Command + T 창 닫기: Command + W 강제 종료: Option + Command + Esc Spotlight 표시/숨기기: Command + Spacebar 이모티콘 및 기타 기호: Ctrl + Command + Spacebar 전체화면: Ctrl + Command + F 스크린샷 및 화면 기록: Shift + Command + 5 새폴더 생성: Shift + Command + N 환경설정 열기: Command + , 최근 사용 앱으로 전환: Command + Tab 훑어보기: Spacebar]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 6주차 (서비스 진단하기)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 6주차 (서비스 진단하기)" /><published>2023-01-07T00:00:00+09:00</published><updated>2023-01-07T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
+<p><a href="https://github.com/sangjaeoh/jwp-refactoring/tree/step4" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 6주차 (서비스 진단하기)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 6주차 (서비스 진단하기)" /><published>2023-01-07T00:00:00+09:00</published><updated>2023-01-07T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
 
 <h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
@@ -2480,68 +2732,4 @@ VUser = (목표 rps * T) / R
 <p>로또 미션을 하며 나의 문제점은 테스트코드를 작성할 때 설명의 가독성이 떨어진다는 것이었다.<em>(예: 로또 구매 가능 갯수 계산 -&gt; 5000원으로 구매 가능한 로또의 개수를 계산하면 5개 이다.)</em> 이를 개선하기 위해서 피드백 받은것 처럼 파라미터와 리턴값도 정확히 테스트코드 설명에 추가 하는식으로 작성하면 좋을 것 같다. <del>독서를 통해 글을 잘 쓰는 능력을 키우는 것도…</del></p>
 
 <h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/java-lotto-pro/tree/step5" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 2주차 (JPA)</title><link href="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 2주차 (JPA)" /><published>2023-01-03T00:00:00+09:00</published><updated>2023-01-03T00:00:00+09:00</updated><id>http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/etc/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
-우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
-
-<h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
-<p>QnA 저장소를 기반으로 JPA를 사용하여 엔티티 매핑, 연관 관계 매핑, 서비스 레이어 리팩터링을 진행하는 미션</p>
-
-<h2 id="-학습-목표">🎯 학습 목표</h2>
-<ul>
-  <li>JPA 학습 테스트를 통한 <strong>JPA 학습</strong></li>
-  <li>Q&amp;A 서비스를 JPA로 매핑</li>
-</ul>
-
-<h2 id="-강의-내용">📖 강의 내용</h2>
-<p>JPA에 대해 전반적인 내용을 설명합니다. 강의 내용이 많아 여기서 다 설명할 수 없고 아래의 링크를 통해 학습하거나 <a href="https://edu.nextstep.camp/">NEXTSTEP</a> 강의를 통해 학습할 수 있습니다. 😆<br />
-- <a href="https://www.youtube.com/playlist?list=PL9mhQYIlKEhfpMVndI23RwWTL9-VL-B7U" target="_blank">JPA 프로그래밍 기본기 다지기 | T아카데미</a><br />
-- <a href="https://www.slideshare.net/ssusere4d67c/jpa-56081624" target="_blank">영속성 컨텍스트로 보는 JPA</a><br />
-- <a href="https://youtu.be/mezbxKGu68Y" target="_blank">ORM vs SQL Mapper vs JDBC</a><br />
-- <a href="http://www.yes24.com/Product/Goods/19040233" target="_blank">자바 ORM 표준 JPA 프로그래밍</a></p>
-
-<p><strong>JPA 설정</strong><br />
-- Spring Data JPA 사용 시 아래 옵션은 동작 쿼리를 로그로 확인할 수 있게 해준다.</p>
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spring.jpa.properties.hibernate.format_sql=true
-spring.jpa.show-sql=true
-</code></pre></div></div>
-
-<p>- H2 데이터베이스를 사용한다면 아래의 프로퍼티를 추가하여 MySQL Dialect을 사용할 수 있다.</p>
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spring.datasource.url=jdbc:h2:~/test;MODE=MySQL
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL57Dialect
-</code></pre></div></div>
-
-<p><strong>엔티티 비교</strong><br />
-- 엔티티의 <code class="language-plaintext highlighter-rouge">equals()</code>와 <code class="language-plaintext highlighter-rouge">hashCode()</code>를 구현할 때는 엔티티의 식별자만 있어도 충분하다.</p>
-
-<p><strong>@ManyToOne vs @OneToOne</strong><br />
-- 생성되는 DDL은 똑같을 수 있다.<br />
-- 관념적으로 차이가 발생한다.</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Address</span> <span class="n">address</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Address</span><span class="o">();</span>
-<span class="nc">Order</span> <span class="n">order1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Order</span><span class="o">();</span>
-<span class="n">order1</span><span class="o">.</span><span class="na">setAddress</span><span class="o">(</span><span class="n">address</span><span class="o">);</span>
-<span class="nc">Order</span> <span class="n">order2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Order</span><span class="o">();</span>
-<span class="n">order2</span><span class="o">.</span><span class="na">setAddress</span><span class="o">(</span><span class="n">address</span><span class="o">);</span>
-<span class="n">save</span><span class="o">();</span>
-</code></pre></div></div>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@OneToOne</span> <span class="k">case</span><span class="o">:</span>
-<span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">HibernateException</span><span class="o">:</span> <span class="nc">More</span> <span class="n">than</span> <span class="n">one</span> <span class="n">row</span> <span class="n">with</span> <span class="n">the</span> <span class="n">given</span> <span class="n">identifier</span> <span class="n">was</span> <span class="nl">found:</span> <span class="mi">1</span>
-
-<span class="nd">@ManyToOne</span> <span class="k">case</span><span class="o">:</span>
-<span class="no">SUCCESS</span>
-</code></pre></div></div>
-
-<h2 id="-미션-후기">📝 미션 후기</h2>
-<p>JPA 미션을 시작하기 전에 바로 코딩을 하기 보다는 부족한 JPA지식을 쌓고 미션을 시작하는게 좋다고 판단하여 예전에 샀던 <strong>자바 ORM 표준 JPA 프로그래밍</strong> 책을 다시한번 읽으며 JPA에 대해 공부를 먼저 하였다. 처음 읽었을 때는 이해 안가는 부분이 많았지만 <del>(mappedBy)</del> 두 번째 읽으니 한 번 읽은 경험이 있어서 그런지 처음보다는 빠르게 이해가 되었다.</p>
-
-<p>우테캠 Pro 진행하는 사람들끼리 모여 JPA 스터디그룹도 만드는것 같았지만 내가 스터디를 병행하기에는 시간이 부족할거 같아 혼자 공부하는 방법을 택했다. <del>좀 아쉽다…</del></p>
-
-<p>주말을 투자해 책을 읽으니 대략적으로 내용을 이해할 수 있었고, 미션을 시작하였다.</p>
-
-<p>엔티티 매핑, 연관 관계 매핑의 경우 크게 복잡한 요구사항이 아니라 수월하게 진행할 수 있었고, 질문 삭제하기 리팩터링(서비스 레이어 리팩터링) 경우에는 강의 내용을 참고하여 도메인으로 로직을 분리하고 서비스에서는 도메인을 호출하는 식으로 리팩터링을 진행하며 미션을 마무리할 수 있었다.</p>
-
-<p>JPA 미션을 하며 나의 문제점은 JPA에 사용에 대한 문제라기 보다는<del>(물론 JPA 이해도가 높다고 할 수 없으며 공부 필요!)</del> 이전 미션에서도 지적 받은 테스트 코드의 미숙함으로 <strong>설명의 가독성</strong>, <strong>테스트의 독립성을 최대로 보장하는 습관</strong>이 부족하였다.</p>
-
-<p>이를 개선하기 위해서 테스트설명은 파라미터와 리턴값도 작성하며 상세하게 작성하고, <code class="language-plaintext highlighter-rouge">@BeforeEach</code>는 정말 필요할 때만 사용하며 리뷰어님께 피드백 받은 것처럼 <code class="language-plaintext highlighter-rouge">TextFixture</code>를 활용하는 방법도 찾아서 적용해 봐야겠다. 그리고 제일 중요한 것은 반복 숙달을 통한 연습이 필요할 것 같다. 😂</p>
-
-<h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/jwp-qna/tree/step3" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry></feed>
+<p><a href="https://github.com/sangjaeoh/java-lotto-pro/tree/step5" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="etc" /><category term="education" /><category term="우아한테크캠프 pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry></feed>
