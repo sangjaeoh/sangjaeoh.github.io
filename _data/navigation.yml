@@ -21,12 +21,13 @@ docs:
     url: /categories/etc
     category: "etc"
     children:
-      - title: "교육"
-        url: /categories/etc/education
-        category: "education"
       - title: "책"
         url: /categories/etc/books
         category: "books"
+      - title: "교육"
+        url: /categories/etc/education
+        category: "education"
+      
       
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
