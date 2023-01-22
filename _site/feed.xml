@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-22T19:33:20+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">📖 자바 ORM 표준 JPA 프로그래밍</title><link href="http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" rel="alternate" type="text/html" title="📖 자바 ORM 표준 JPA 프로그래밍" /><published>2023-01-16T00:00:00+09:00</published><updated>2023-01-16T00:00:00+09:00</updated><id>http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D</id><content type="html" xml:base="http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000000935744" target="_blank">자바 ORM 표준 JPA 프로그래밍</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-22T23:29:18+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">📖 자바 ORM 표준 JPA 프로그래밍</title><link href="http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" rel="alternate" type="text/html" title="📖 자바 ORM 표준 JPA 프로그래밍" /><published>2023-01-16T00:00:00+09:00</published><updated>2023-01-16T00:00:00+09:00</updated><id>http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D</id><content type="html" xml:base="http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000000935744" target="_blank">자바 ORM 표준 JPA 프로그래밍</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
 
 <hr />
 
@@ -1785,18 +1785,18 @@ TABLE 전략은 값을 조회하면서 SELECT 쿼리를 사용하고, 다음 값
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSave</span><span class="o">()</span> <span class="o">{</span>
 
-    <span class="c1">//팀1 저장</span>
+    <span class="c1">// 팀1 저장</span>
     <span class="nc">Team</span> <span class="n">team1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Team</span><span class="o">(</span><span class="s">"team1"</span><span class="o">,</span> <span class="s">"팀1"</span><span class="o">);</span>
     <span class="n">em</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">team1</span><span class="o">);</span>
 
-    <span class="c1">//회원1 저장</span>
-    <span class="nc">Member</span> <span class="n">member1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">(</span><span class="mi">100L</span><span class="o">,</span> <span class="s">"회원1"</span><span class="o">);</span>
-    <span class="n">member1</span><span class="o">.</span><span class="na">setTeam</span><span class="o">(</span><span class="n">team1</span><span class="o">);</span> <span class="c1">// 연관관계 설정 member1 -&gt; team1</span>
+    <span class="c1">// 회원1 저장</span>
+    <span class="nc">Member</span> <span class="n">member1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">(</span><span class="s">"member1"</span><span class="o">,</span> <span class="s">"회원1"</span><span class="o">);</span>
+    <span class="n">member1</span><span class="o">.</span><span class="na">setTeam</span><span class="o">(</span><span class="n">team1</span><span class="o">);</span> <span class="c1">//연관관계 설정 member1 -&gt; team1</span>
     <span class="n">em</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">member1</span><span class="o">);</span>
 
-    <span class="c1">//회원2 저장</span>
-    <span class="nc">Member</span> <span class="n">member2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">(</span><span class="mi">101L</span><span class="o">,</span> <span class="s">"회원2"</span><span class="o">);</span>
-    <span class="n">member2</span><span class="o">.</span><span class="na">setTeam</span><span class="o">(</span><span class="n">team1</span><span class="o">);</span> <span class="c1">// 연관관계 설정 member2 -&gt; team1</span>
+    <span class="c1">// 회원2 저장</span>
+    <span class="nc">Member</span> <span class="n">member2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">(</span><span class="s">"member2"</span><span class="o">,</span> <span class="s">"회원2"</span><span class="o">);</span>
+    <span class="n">member2</span><span class="o">.</span><span class="na">setTeam</span><span class="o">(</span><span class="n">team1</span><span class="o">);</span> <span class="c1">//연관관계 설정 member2 -&gt; team1</span>
     <span class="n">em</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">member2</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -1912,6 +1912,382 @@ TABLE 전략은 값을 조회하면서 SELECT 쿼리를 사용하고, 다음 값
 <ul>
   <li>데이터베이스 테이블은 외래 키 하나로 양방향 조회</li>
 </ul>
+
+<p><br /></p>
+
+<h3 id="531-양방항-연관관계-매핑">5.3.1 양방항 연관관계 매핑</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Member</span> <span class="o">{</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+
+    <span class="c1">// 연관 관계 매핑</span>
+    <span class="nd">@ManyToOne</span>
+    <span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">"TEAM_ID"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Team</span> <span class="n">team</span><span class="o">;</span>
+
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Team</span> <span class="o">{</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+
+    <span class="c1">// @OneToMany 매핑 정보를 사용했다.</span>
+    <span class="c1">// mappedBy 속성은 양방향 매핑일 때 사용하는데 반대쪽 매핑의 필드 이름을 값으로 주면 된다.</span>
+    <span class="nd">@OneToMany</span><span class="o">(</span><span class="n">mappedBy</span> <span class="o">=</span> <span class="s">"team"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="n">members</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;();</span>
+    
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>  
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<h2 id="54-연관관계-주인">5.4 연관관계 주인</h2>
+<ul>
+  <li>객체에는 양방향 연관관계라는 것이 없다.</li>
+  <li>서로 다른 단방향 연관관계 2개를 양방향인 것처럼 보이게 할 뿐이다.</li>
+  <li>엔티티를 양방향 연관관계로 설정하면 객체의 참조는 둘인데 왜래 키는 하나다.</li>
+  <li>JPA에서는 <strong>두 객체 연관관계 중 하나를 정해서 테이블의 외래 키를 관리해야 하는데 이것을 연관관계의 주인</strong>이라 한다.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="541-양방향-매핑의-규칙-연관관계의-주인">5.4.1 양방향 매핑의 규칙: 연관관계의 주인</h3>
+<ul>
+  <li>두 연관관계 중 하나를 연관관계 주인으로 정해야 한다.</li>
+  <li>연관관계의 주인만이 데이터베이스 연관관계와 매핑되고 왜래 키를 관리(등록,수정,삭제)할 수 있다.</li>
+  <li>주인이 아닌 쪽은 읽기만 할 수 있다.</li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>mappedBy</strong></p>
+<ul>
+  <li>주인은 <code class="language-plaintext highlighter-rouge">mappedBy</code> 속성을 사용하지 않는다.</li>
+  <li>주인이 아니면 <code class="language-plaintext highlighter-rouge">mappedBy</code> 속성을 사용해서 속성의 값으로 연관관계 주인을 지정한다.</li>
+  <li>(상대편에게 매핑된다라고 이해하면 편하다. 실제로 그런 뜻 😂)</li>
+</ul>
+
+<p><strong>연관관계 주인을 정한다는 것은 외래 키 관리자를 선택하는 것이다.</strong></p>
+
+<p><br />
+<br /></p>
+
+<h3 id="542-연관관계의-주인은-외래-키가-있는-곳">5.4.2 연관관계의 주인은 외래 키가 있는 곳</h3>
+<center><img src="/assets/images/posts/books/2/5_4_연관관계의주인과반대편.png " width="100%" height="100%" /></center>
+
+<ul>
+  <li>연관관계의 주인은 테이블에 외래 키가 있는 곳으로 정해야 한다.</li>
+  <li>다대일, 일대다 관계에서는 <strong>항상 다 쪽이 외래 키를 가진다</strong>.</li>
+  <li>다 쪽인 <code class="language-plaintext highlighter-rouge">@ManyToOne</code>은 항상 연관관계의 주인이 되므로 mappedBy를 설정할 수 없다.</li>
+  <li>따라서 <code class="language-plaintext highlighter-rouge">@ManyToOne</code>에는 <code class="language-plaintext highlighter-rouge">mappedBy</code> 속성이 없다.</li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<h2 id="55-양방향-연관관계-저장">5.5 양방향 연관관계 저장</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSave</span><span class="o">()</span> <span class="o">{</span>
+
+    <span class="c1">// 팀1 저장</span>
+    <span class="nc">Team</span> <span class="n">team1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Team</span><span class="o">(</span><span class="s">"team1"</span><span class="o">,</span> <span class="s">"팀1"</span><span class="o">);</span>
+    <span class="n">em</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">team1</span><span class="o">);</span>
+
+    <span class="c1">// 회원1 저장</span>
+    <span class="nc">Member</span> <span class="n">member1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">(</span><span class="s">"member1"</span><span class="o">,</span> <span class="s">"회원1"</span><span class="o">);</span>
+    <span class="n">member1</span><span class="o">.</span><span class="na">setTeam</span><span class="o">(</span><span class="n">team1</span><span class="o">);</span> <span class="c1">//연관관계 설정 member1 -&gt; team1</span>
+    <span class="n">em</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">member1</span><span class="o">);</span>
+
+    <span class="c1">// 회원2 저장</span>
+    <span class="nc">Member</span> <span class="n">member2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">(</span><span class="s">"member2"</span><span class="o">,</span> <span class="s">"회원2"</span><span class="o">);</span>
+    <span class="n">member2</span><span class="o">.</span><span class="na">setTeam</span><span class="o">(</span><span class="n">team1</span><span class="o">);</span> <span class="c1">//연관관계 설정 member2 -&gt; team1</span>
+    <span class="n">em</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">member2</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 주인이 아닌 곳에 입력된 값은 외래 키에 영향을 주지 않는다. </span>
+<span class="n">team1</span><span class="o">.</span><span class="na">getMembers</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="n">member1</span><span class="o">);</span> <span class="c1">//무시(연관관계의 주인이 아님)</span>
+<span class="n">team1</span><span class="o">.</span><span class="na">getMembers</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="n">member2</span><span class="o">);</span> <span class="c1">//무시(연관관계의 주인이 아님)</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Member.team은 연관관계의 주인이다.</span>
+<span class="c1">// 엔티티 매니저는 이곳에 입력된 값을 사용해 외래 키 관리한다.</span>
+<span class="n">member1</span><span class="o">.</span><span class="na">setTeam</span><span class="o">(</span><span class="n">team1</span><span class="o">);</span> <span class="c1">//연관관계 설정(연관관계의 주인)</span>
+<span class="n">member2</span><span class="o">.</span><span class="na">setTeam</span><span class="o">(</span><span class="n">team1</span><span class="o">);</span> <span class="c1">//연관관계 설정(연관관계의 주인)</span>
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<h2 id="56-양방향-연관관계의-주의점">5.6 양방향 연관관계의 주의점</h2>
+<p>가장 흔한 실수는 연관관계 주인에는 값을 입력하지 않고, 주인이 아닌 곳에만 값을 입력하는 것</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSaveNonOwner</span><span class="o">()</span> <span class="o">{</span>
+
+    <span class="c1">// 회원1 저장</span>
+    <span class="nc">Member</span> <span class="n">member1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">(</span><span class="s">"member1"</span><span class="o">,</span> <span class="s">"회원1"</span><span class="o">);</span>
+    <span class="n">em</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">member1</span><span class="o">);</span>
+
+    <span class="c1">// 회원2 저장</span>
+    <span class="nc">Member</span> <span class="n">member2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Member</span><span class="o">(</span><span class="s">"member2"</span><span class="o">,</span> <span class="s">"회원2"</span><span class="o">);</span>
+    <span class="n">em</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">member2</span><span class="o">);</span>
+
+    <span class="nc">Team</span> <span class="n">team1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Team</span><span class="o">(</span><span class="s">"team1"</span><span class="o">,</span> <span class="s">"팀1"</span><span class="o">);</span>
+
+    <span class="c1">// 주인이 아닌 곳에 연관관계 설정</span>
+    <span class="n">team1</span><span class="o">.</span><span class="na">getMembers</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="n">member1</span><span class="o">);</span>
+    <span class="n">team2</span><span class="o">.</span><span class="na">getMembers</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="n">member2</span><span class="o">);</span>
+
+    <span class="n">em</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">team1</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>조회 결과는 다음과 같다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>MEMBER_ID</strong></th>
+      <th><strong>USERNAME</strong></th>
+      <th><strong>TEAM_ID</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>member1</td>
+      <td>회원1</td>
+      <td>null</td>
+    </tr>
+    <tr>
+      <td>member2</td>
+      <td>회원2</td>
+      <td>null</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h3 id="561-순수한-객체까지-고려한-양방향-연관관계">5.6.1 순수한 객체까지 고려한 양방향 연관관계</h3>
+<p>그렇다면 정말 연관관계의 주인에만 값을 저장하고 주인이 아닌 곳에는 값을 저장하지 않아도 될까? <strong>객체 관점에서는 양쪽 방향 모두 값을 입력해주는 것이 가장 안전하다.</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">member1</span><span class="o">.</span><span class="na">setTeam</span><span class="o">(</span><span class="n">team1</span><span class="o">);</span> <span class="c1">// 회원 -&gt; 팀</span>
+<span class="n">team1</span><span class="o">.</span><span class="na">getMembers</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="n">member1</span><span class="o">);</span> <span class="c1">// 팀 -&gt; 회원</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="562-연관관계-편의-메소드">5.6.2 연관관계 편의 메소드</h3>
+<p>한 번에 양방향 관계를 설정하는 메소드를 연관관계 편의 메소드라 한다. 이렇게 하면 실수도 줄어들고 좀 더 편하게 양방향 연관관계를 설정할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Member</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">Team</span> <span class="n">team</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setTeam</span><span class="o">(</span><span class="nc">Team</span> <span class="n">team</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">team</span> <span class="o">=</span> <span class="n">team</span><span class="o">;</span>
+        <span class="n">team</span><span class="o">.</span><span class="na">getMembers</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="563-연관관계-편의-메소드-작성-시-주의사항">5.6.3 연관관계 편의 메소드 작성 시 주의사항</h3>
+<p>연관관계를 변경할 때는 기존 팀이 있으면 기존 팀과 회원의 연관관계를 작제하는 코드를 추가해야 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">member1</span><span class="o">.</span><span class="na">setTeam</span><span class="o">(</span><span class="n">teamA</span><span class="o">);</span> <span class="c1">// 1</span>
+<span class="n">member1</span><span class="o">.</span><span class="na">setTeam</span><span class="o">(</span><span class="n">teamB</span><span class="o">);</span> <span class="c1">// 2</span>
+<span class="nc">Member</span> <span class="n">findMember</span> <span class="o">=</span> <span class="n">teamA</span><span class="o">.</span><span class="na">getMember</span><span class="o">();</span> <span class="c1">// member1이 여전히 조회된다.</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">setTeam</span><span class="o">(</span><span class="nc">Team</span> <span class="n">team</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="c1">// 기존 팀과 관계를 제거</span>
+    <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">team</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">team</span><span class="o">.</span><span class="na">getMembers</span><span class="o">().</span><span class="na">remove</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="o">}</span>    
+    <span class="k">this</span><span class="o">.</span><span class="na">team</span> <span class="o">=</span> <span class="n">team</span><span class="o">;</span>
+    <span class="n">team</span><span class="o">.</span><span class="na">getMembers</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<h2 id="57-정리">5.7 정리</h2>
+<ul>
+  <li>단방향 매핑은 언제나 연관관계 주인이다.</li>
+  <li>양방향은 단방향에 주인이 아닌 연관관계를 하나 추가했을 뿐이다.</li>
+  <li>양방향의 장점은 반대방향으로 객체 그래프 탐색 기능이 추가된 것 뿐이다.</li>
+  <li>주인의 반대편은 <code class="language-plaintext highlighter-rouge">mappedBy</code>로 주인을 지정해야 한다.</li>
+  <li>주인의 반대편은 단순히 보여주는 일만 할 수 있다.</li>
+  <li>연관관계 주인은 외래 키의 위치와 관련해서 정해야지 비즈니스 중요도로 접근하면 안된다.</li>
+</ul>
+
+<p><br />
+<br />
+<br /></p>
+
+<h1 id="6-다양한-연관관계-매핑">6. 다양한 연관관계 매핑</h1>
+<p>엔티티 연관관계를 매핑할 때 고려사항</p>
+
+<ul>
+  <li><strong>다중성</strong>
+    <ul>
+      <li>다대일(@ManyToOne)</li>
+      <li>일대다(@OneToMany)</li>
+      <li>일대일(@OneToOne)</li>
+      <li>다대다(@ManyToMany)</li>
+    </ul>
+  </li>
+  <li><strong>단방향, 양방향</strong>
+    <ul>
+      <li>단방향: 한쪽만 참조하는 것</li>
+      <li>양방향: 양쪽이 서로 참조하는 것</li>
+    </ul>
+  </li>
+  <li><strong>연관관계 주인</strong></li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="61-다대일">6.1 다대일</h2>
+<p>데이터베이스 테이블의 일대다 관계에서 외래 키는 항상 다쪽에 있다. 따라서 객체 양방향 관계에서 연관관계의 주인은 항상 다쪽이다.</p>
+
+<h3 id="611-다대일-단방향-n1">6.1.1 다대일 단방향 [N:1]</h3>
+<center><img src="/assets/images/posts/books/2/6_1_다대일단방향.png" width="100%" height="100%" /></center>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">@ManyToOne</code> 어노테이션을 사용해서 다대일 관계를 매핑한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">@JoinColumn</code>은 필드를 외래 키와 매핑할 때 사용한다.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Member</span> <span class="o">{</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+    <span class="nd">@ManyToOne</span>
+    <span class="nd">@JoinCoulmn</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">"TEAM_ID"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Team</span> <span class="n">team</span><span class="o">;</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="612-다대일-양방향-n1-1n">6.1.2 다대일 양방향 [N:1, 1:N]</h3>
+<center><img src="/assets/images/posts/books/2/6_1_다대일양방향.png" width="100%" height="100%" /></center>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Member</span> <span class="o">{</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+    <span class="nd">@ManyToOne</span>
+    <span class="nd">@JoinCoulmn</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">"TEAM_ID"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Team</span> <span class="n">team</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setTeam</span><span class="o">(</span><span class="nc">Team</span> <span class="n">team</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">team</span> <span class="o">=</span> <span class="n">team</span><span class="o">;</span>
+
+        <span class="c1">// 무한루프에 빠지지 않도록 체크</span>
+        <span class="k">if</span><span class="o">(!</span><span class="n">team</span><span class="o">.</span><span class="na">getMembers</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="k">this</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">team</span><span class="o">.</span><span class="na">getMembers</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Team</span> <span class="o">{</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+    <span class="nd">@OneToMany</span><span class="o">(</span><span class="n">mappedBy</span> <span class="o">=</span> <span class="s">"team"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="n">members</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addMember</span><span class="o">(</span><span class="nc">Member</span> <span class="n">member</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">members</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>
+
+        <span class="c1">// 무한루프에 빠지지 않도록 체크</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">member</span><span class="o">.</span><span class="na">getTeam</span><span class="o">()</span> <span class="o">!=</span> <span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">member</span><span class="o">.</span><span class="na">setTeam</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<ul>
+  <li>양방향은 외래 키가 있는 쪽이 연관관계 주인이다.</li>
+  <li>양방향 연관관계는 항상 서로를 참조해야 한다.</li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<h2 id="62-일대다">6.2 일대다</h2>
+<p>일대다 관계는 엔티티를 하나 이상 참조할 수 있으므로 자바 컬렉션인 Collection, List, Set, Map 중에 하나를 사용해야 한다.</p>
+
+<h3 id="621-일대다-단방향-1n">6.2.1 일대다 단방향 [1:N]</h3>
+<center><img src="/assets/images/posts/books/2/6_1_일대다단방향.png" width="100%" height="100%" /></center>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Team</span> <span class="o">{</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+    <span class="nd">@OneToMany</span><span class="o">(</span><span class="n">mappedBy</span> <span class="o">=</span> <span class="s">"team"</span><span class="o">)</span>
+    <span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"TEAM_ID"</span><span class="o">)</span> <span class="c1">// MEMBER 테이블의 TEAM_ID (FK)</span>
+    <span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="n">members</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<ul>
+  <li>일대다 관계에서는 일이 연관관계의 주인이다.</li>
+  <li>일 쪽에서 외래키를 관리하겠다는 의미가 된다.</li>
+  <li>일대 다 단방향 관계를 매핑할 때는 <code class="language-plaintext highlighter-rouge">@JoinColumn</code>을 명시해야 한다.</li>
+  <li>그렇지 않으면 JPA는 연결 테이블을 중간에 두고 연관관계를 관리하는 조인 테이블 전략을 기본으로 사용한다.</li>
+</ul>
+
+<p><strong>문제점</strong></p>
+<ul>
+  <li>엔티티를 매핑한 테이블이 아닌 다을 테이블의 외래 키를 관리해야 한다.</li>
+  <li>성능 문제</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Member</span> <span class="n">member1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Memeber</span><span class="o">(</span><span class="s">"member1"</span><span class="o">);</span>
+<span class="nc">Member</span> <span class="n">member2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Memeber</span><span class="o">(</span><span class="s">"member2"</span><span class="o">);</span>
+
+<span class="nc">Team</span> <span class="n">team1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Team</span><span class="o">(</span><span class="s">"team1"</span><span class="o">);</span>
+<span class="n">team1</span><span class="o">.</span><span class="na">getMembers</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="n">member1</span><span class="o">);</span>
+<span class="n">team1</span><span class="o">.</span><span class="na">getMembers</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="n">member2</span><span class="o">);</span>
+
+<span class="n">em</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">member1</span><span class="o">);</span> <span class="c1">// INSERT MEMBER1</span>
+<span class="n">em</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">member2</span><span class="o">);</span> <span class="c1">// INSERT MEMBER2</span>
+<span class="n">em</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">team1</span><span class="o">);</span> <span class="c1">// INSERT TEAM, UPDATE MEMBER1, UPDATE MEMBER2</span>
+
+<span class="n">tx</span><span class="o">.</span><span class="na">commit</span><span class="o">();</span>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 업데이트 쿼리가 추가된다.</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">Member</span> <span class="p">(</span><span class="n">MEMBER_ID</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span> <span class="k">values</span> <span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="o">?</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">Team</span> <span class="p">(</span><span class="n">TEAM_ID</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">values</span> <span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="o">?</span><span class="p">);</span>
+<span class="k">update</span> <span class="n">Member</span> <span class="k">set</span> <span class="n">TEAM_ID</span><span class="o">=?</span> <span class="k">where</span> <span class="n">MEMBER_ID</span><span class="o">=?</span>
+</code></pre></div></div>
+
+<p><strong>일대다 단방향 매핑보다는 다대일 양방향 매핑을 사용하자</strong></p>
+
+<p><br /></p>
+
+<h3 id="622-일대다-양방향-1n-n1">6.2.2 일대다 양방향 [1:N, N:1]</h3>
+<center><img src="/assets/images/posts/books/2/6_2_일대다양방향.png" width="100%" height="100%" /></center>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Team</span> <span class="o">{</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+    <span class="nd">@OneToMany</span>
+    <span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"TEAM_ID"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="n">members</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Member</span> <span class="o">{</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+    <span class="nd">@ManyToOne</span>
+    <span class="nd">@JoinCoulmn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"TEAM_ID"</span><span class="o">,</span>
+        <span class="n">insertable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">updatable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span> <span class="c1">// 읽기 전용 매핑</span>
+    <span class="kd">private</span> <span class="nc">Team</span> <span class="n">team</span><span class="o">;</span>
+    <span class="o">...</span><span class="na">생략</span><span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>될 수 있으면 <strong>일대다 단방향 매핑을 사용하지 말고, 다대일 양방향 매핑을 사용하자.</strong></p>
 
 <p><br />
 <br />
