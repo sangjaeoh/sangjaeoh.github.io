@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-29T23:26:49+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">📖 자바 ORM 표준 JPA 프로그래밍</title><link href="http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" rel="alternate" type="text/html" title="📖 자바 ORM 표준 JPA 프로그래밍" /><published>2023-01-16T00:00:00+09:00</published><updated>2023-01-16T00:00:00+09:00</updated><id>http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D</id><content type="html" xml:base="http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000000935744" target="_blank">자바 ORM 표준 JPA 프로그래밍</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-30T22:56:16+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">📖 자바 ORM 표준 JPA 프로그래밍</title><link href="http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" rel="alternate" type="text/html" title="📖 자바 ORM 표준 JPA 프로그래밍" /><published>2023-01-16T00:00:00+09:00</published><updated>2023-01-16T00:00:00+09:00</updated><id>http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D</id><content type="html" xml:base="http://localhost:4000/etc/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000000935744" target="_blank">자바 ORM 표준 JPA 프로그래밍</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
 
 <hr />
 
@@ -7021,6 +7021,200 @@ QueryDslPredicateExecutor는 기능의 한계가 있다. 예를 들어 join, fet
 <p><strong>참고</strong><br />
 OSIV는 하이버네이트에서 사용하는 용어다. JPA에서는 OEIV(Open EntityManager In View)라고 한다. 하지만 관례상 모두 OSIV로 부른다.</p>
 </div>
+<p><br />
+<br /></p>
+
+<h3 id="1331-과거-osiv-요청-당-트랜잭션">13.3.1 과거 OSIV: 요청 당 트랜잭션</h3>
+<p>클라이언트의 요청이 들어오자마자 서블릿 필터나 스프링 인터셉터에서 트랜잭션을 시작하고 요청이 끝날 때 트랜잭션도 끝내는 것을 요청 당 트랜잭션 방식의 OSIV라 한다.</p>
+
+<center><img src="/assets/images/posts/books/2/13_3_OSIV요청당트랜잭션.png" width="100%" height="100%" /></center>
+<p><br /></p>
+
+<p><strong>요청 당 트랜잭션 방식의 OSIV 문제점</strong></p>
+<ul>
+  <li>프리젠테이션 계층이 엔티티를 변경할 수도 있다.</li>
+  <li>엔티티를 변경하면 영속성 컨텍스트의 변경 감지 기능이 작동해 데이터베이스에 반영해 버린다.</li>
+</ul>
+
+<p><strong>프리젠테이션 계층에서 엔티티를 수정하지 못하게 막는 방법</strong></p>
+<ul>
+  <li>엔티티를 읽기 전용 인터페이스로 제공</li>
+  <li>읽기 전용 메소드만 가지고 있도록 엔티티 래핑</li>
+  <li>DTO만 반환</li>
+</ul>
+
+<p><strong>하지만 코드량이 상당히 증가하는 단점이 있다.</strong><br />
+<br />
+<br /></p>
+
+<h3 id="1332-스프링-osiv-비즈니스-계층-트랜잭션">13.3.2 스프링 OSIV: 비즈니스 계층 트랜잭션</h3>
+<p>스프링 프레임워크가 제공하는 OSIV는 <strong>비즈니스 계층에서 트랜잭션을 사용하는 OSIV다.</strong></p>
+
+<center><img src="/assets/images/posts/books/2/13_3_OSIV비즈니스트랜잭션.png" width="100%" height="100%" /></center>
+<p><br /></p>
+
+<p><strong>비즈니스 계층 트랜잭션 OSIV 특징</strong></p>
+<ul>
+  <li>영속성 컨텍스트를 프리젠테이션 계층까지 유지한다.</li>
+  <li>프리젠테이션 계층에는 트랜잭션이 없으므로 엔티티를 수정할 수 없다.</li>
+  <li>프리젠테이션 계층에는 트랜잭션이 없지만 읽을 수는 있어서(트랜잭션 없이 읽기) 지연 로딩을 할 수 있다.<br />
+<br /></li>
+</ul>
+
+<p><strong>스프링 OSIV 주의사항</strong><br />
+프리젠테이션 계층에서 엔티티를 수정한 직후에 트랜잭션을 시작하는 서비스 계층을 호출하면 영속성 컨텍스트를 플러시한다. 이 때 <strong>프리젠테이션 계층에서의 엔티티 수정 사항을 데이터베이스에 반영하는 문제가 발생한다.</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MemberController</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">viewMember</span><span class="o">(</span><span class="nc">Long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">.</span><span class="na">getMember</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+        <span class="n">member</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"변경"</span><span class="o">);</span> <span class="c1">// 변경</span>
+
+        <span class="n">memberService</span><span class="o">.</span><span class="na">biz</span><span class="o">();</span> <span class="c1">// 비스니스 로직 호출</span>
+        <span class="k">return</span> <span class="s">"view"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">MemberService</span> <span class="o">{</span>
+    
+    <span class="nd">@Transactional</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">biz</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// ...비즈니스 로직 실행</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<center><img src="/assets/images/posts/books/2/13_3_OSIV주의사항.png" width="100%" height="100%" /></center>
+<p><br /></p>
+
+<p><strong>해결방법</strong><br />
+비즈니스 로직을 먼저 수행한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MemberController</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">viewMember</span><span class="o">(</span><span class="nc">Long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">memberService</span><span class="o">.</span><span class="na">biz</span><span class="o">();</span> <span class="c1">// 비스니스 로직 먼저 호출</span>
+
+        <span class="nc">Member</span> <span class="n">member</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">.</span><span class="na">getMember</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+        <span class="n">member</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"변경"</span><span class="o">);</span> <span class="c1">// 변경을 나중에 수행</span>
+        <span class="k">return</span> <span class="s">"view"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h3 id="1333-osiv-정리">13.3.3 OSIV 정리</h3>
+
+<p><strong>스프링 OSIV의 특징</strong></p>
+<ul>
+  <li>OSIV는 클라이언트의 요청이 들어올 때 영속성 컨텍스트를 생성해서 요청이 끝날 때까지 같은 영속성 컨텍스트를 유지한다.</li>
+  <li>엔티티 수정은 트랜잭션이 있는 계층에서만 동작한다.</li>
+  <li>트랜잭션이 없는 프리젠테이션 계층은 지연 로딩을 포함해서 조회만 할 수 있다.<br />
+<br /></li>
+</ul>
+
+<p><strong>스프링 OSIV의 단점</strong></p>
+<ul>
+  <li>OSIV를 적용하면 같은 영속성 컨텍스트를 여러 트랜잭션이 공유할 수 있다는 점을 주의해야 한다. 특히 롤백 주의</li>
+  <li>프리젠테이션 계층에서 엔티티를 수정 후 비즈니스 로직을 수행하면 엔티티 수정사항이 반영될 수 있다.</li>
+  <li>지연 로딩에 의한 성능 튜닝시에 확인해야 할 부분이 넓다.<br />
+<br /></li>
+</ul>
+
+<p><strong>OSIV vs FACADE vs DTO</strong><br />
+FACADE든 DTO든 OSIV를 사용하는 것과 비교해서 지루한 코드를 많이 작성해야 한다.<br />
+<br /></p>
+
+<p><strong>OSIV를 사용하는 방법이 만능은 아니다</strong><br />
+복잡한 화면에서는 처음부터 화면에 맞는 JPQL로 필요한 데이터들만 조회해서 DTO로 반환하는 것이 더 나은 해결책일 수 있다.<br />
+<br /></p>
+
+<p><strong>OSIV는 같은 JVM을 벗어난 원격 상황에서는 사용할 수 없다</strong><br />
+원격지에서 엔티티를 지연 로딩하는 것은 불가능하다. 그리고 엔티티는 생각보다 자주 변경된다. 따라서 외부 API는 엔티티를 직접 노출하기보다는 완충 역할을 할 수 있는 DTO로 변환해서 노출하는 것이 안전하다.<br />
+<br />
+<br /></p>
+
+<h2 id="134-너무-엄격한-계층">13.4 너무 엄격한 계층</h2>
+<p>OSIV를 사용하면 영속성 컨텍스트가 프리젠테이션 계층까지 살아있으므로 미리 초기화할 필요가 없다. 따라서 <strong>단순한 엔티티 조회는 컨트롤러에서 리포지토리를 직접 호출해도 문제가 없다.</strong></p>
+<center><img src="/assets/images/posts/books/2/13_3_OSIV리파지토리직접호출.png" width="100%" height="100%" /></center>
+<p><br />
+<br />
+<br />
+<br /></p>
+
+<h1 id="14-컬렉션과-부가-기능">14. 컬렉션과 부가 기능</h1>
+<p>이 장에서 다룰 내용</p>
+<ul>
+  <li>컬렉션: 다양한 컬렉션과 특징을 설명한다.</li>
+  <li>컨버터: 엔티티의 데이터를 변환해서 데이터베이스에 저장한다.</li>
+  <li>리스너: 엔티티에서 발생한 이벤트를 처리한다.</li>
+  <li>엔티티 그래프: 엔티티를 조회할 때 연관된 엔티티들을 선택해서 함께 조회한다.</li>
+</ul>
+
+<h2 id="14-컬렉션">14. 컬렉션</h2>
+<h3 id="1411-list--ordercolumn">14.1.1 List + @OrderColumn</h3>
+<p><code class="language-plaintext highlighter-rouge">List</code> 인터페이스에 <code class="language-plaintext highlighter-rouge">@OrderColumn</code>을 추가하면 순서가 있는 특수한 컬렉션으로 인식한다. 데이터베이스에 순서 값을 저장해서 조회할 때 사용한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Board</span> <span class="o">{</span>
+    <span class="o">...</span>
+    <span class="nd">@OneToMany</span><span class="o">(</span><span class="n">mappedBy</span> <span class="o">=</span> <span class="s">"board"</span><span class="o">)</span>
+    <span class="nd">@OrderColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"POSITION"</span><span class="o">)</span> <span class="c1">// 추가</span>
+    <span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Comment</span><span class="o">&gt;</span> <span class="n">comments</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Comment</span><span class="o">&gt;();</span>
+<span class="o">}</span>
+
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Comment</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">comment</span><span class="o">;</span>
+
+    <span class="nd">@ManyToOne</span>
+    <span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"BOARD_ID"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Board</span> <span class="n">board</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>순서가 있는 컬렉션은 데이터베이스에 순서 값도 함께 관리한다.</p>
+<center><img src="/assets/images/posts/books/2/14_1_ordercolumnTable.png" width="100%" height="100%" /></center>
+<p><br /></p>
+
+<p><strong>@OrderColumn의 단점</strong><br />
+@OrderColumn은 다음과 같은 단점들 때문에 실무에서 잘 사용하지 않는다.</p>
+<ul>
+  <li>@OrderColumn을 Board 엔티티에 매핑하므로 Comment는 POSITION의 값을 알 수 없다.</li>
+  <li>Comment를 INSERT할 때 Board.comments의 위치 값을 사용해서 POSITION의 값을 UPDATE 하는 SQL이 추가로 발생한다.</li>
+  <li>List를 변경하면 연관된 위치 값을 다 변경해야 한다. 예를 들어 댓글 2를 삭제하면 댓글 3, 댓글 4의 POSITION 값을 변경하는 UPDATE SQL이 2번 추가로 발생한다.</li>
+  <li>데이터베이스에서 강제로 삭제하고 다른 댓글 들의 POSITION 값을 수정하지 않으면 컬렉션을 순회할 때 NullPointException이 발생한다.<br />
+<br />
+<br /></li>
+</ul>
+
+<h3 id="1412-orderby">14.1.2 @OrderBy</h3>
+<p>@OrderBy는 데이터베이스의 ORDER BY절을 사용해서 컬렉션을 정렬한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Team</span> <span class="o">{</span>
+    <span class="o">...</span>
+    <span class="nd">@OneToMany</span><span class="o">(</span><span class="n">mappedBy</span> <span class="o">=</span> <span class="s">"team"</span><span class="o">)</span>
+    <span class="nd">@OrderBy</span><span class="o">(</span><span class="s">"username desc, id asc"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;</span> <span class="n">members</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">&gt;();</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>초기화할 때 실행된 SQL를 보면 ORDER BY가 사용된다.</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">M</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="n">MEMBER</span> <span class="n">M</span>
+<span class="k">WHERE</span> <span class="n">M</span><span class="p">.</span><span class="n">TEAM_ID</span> <span class="o">=</span> <span class="o">?</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">M</span><span class="p">.</span><span class="n">MEMBER_NAME</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">M</span><span class="p">.</span><span class="n">ID</span> <span class="k">ASC</span>
+</code></pre></div></div>
+
+<div class="notice--info">
+<p><strong>참고</strong><br />
+하이버네이트는 <code class="language-plaintext highlighter-rouge">Set</code>에 <code class="language-plaintext highlighter-rouge">@OrderBy</code>를 적용해서 결과를 조회하면 순서를 유지하기 위해 <code class="language-plaintext highlighter-rouge">LinkedHashSet</code>을 내부에서 사용한다.</p>
+</div>
+<p><br />
+<br /></p>
+
+<h2 id="142-converter">14.2 @Converter</h2>
+<p>컨버터를 사용하면 엔티티의 데이터를 변환해서 데이터베이스에 저장할 수 있다.</p>
+
+<p><a href="http://localhost:4000/etc/books/도메인주도개발시작하기/#434-attributeconverter를-이용한-밸류-매핑-처리" target="_blank">AttributeConverter를 이용한 밸류 매핑 처리</a> 참고</p>
 
 <p><br />
 <br />
