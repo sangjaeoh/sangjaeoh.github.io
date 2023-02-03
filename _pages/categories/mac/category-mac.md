@@ -1,7 +1,7 @@
 ---
-title: "mac"
+title: "Mac"
 layout: archive
-permalink: categories/os/mac
+permalink: categories/mac
 author_profile: true
 sidebar_main: true
 sidebar:
@@ -9,5 +9,5 @@ sidebar:
 ---
 
 
-{% assign posts = site.categories['mac'] %}
+{% assign posts = site.categories['Mac'] %}
 {% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}

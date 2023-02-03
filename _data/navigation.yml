@@ -9,14 +9,15 @@ main:
 
 
 docs:
-  - title: "os"
-    url: /categories/os
-    category: "os"
+  - title: "개발"
     children:
-      - title: "mac"
-        url: /categories/os/mac
-        category: "mac"
+      - title: "DDD"
+        url: /categories/ddd
+      - title: "Mac"
+        url: /categories/mac
+        category: "Mac"
 
+  
   - title: "기타"
     url: /categories/etc
     category: "etc"
@@ -27,7 +28,8 @@ docs:
       - title: "교육"
         url: /categories/etc/education
         category: "education"
-      
+
+
       
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
