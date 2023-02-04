@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-04T19:20:31+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">📖 자바 ORM 표준 JPA 프로그래밍</title><link href="http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" rel="alternate" type="text/html" title="📖 자바 ORM 표준 JPA 프로그래밍" /><published>2023-01-16T00:00:00+09:00</published><updated>2023-01-16T00:00:00+09:00</updated><id>http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D</id><content type="html" xml:base="http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000000935744" target="_blank">자바 ORM 표준 JPA 프로그래밍</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-04T23:16:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">📖 자바 ORM 표준 JPA 프로그래밍</title><link href="http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" rel="alternate" type="text/html" title="📖 자바 ORM 표준 JPA 프로그래밍" /><published>2023-01-16T00:00:00+09:00</published><updated>2023-01-16T00:00:00+09:00</updated><id>http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D</id><content type="html" xml:base="http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000000935744" target="_blank">자바 ORM 표준 JPA 프로그래밍</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
 
 <hr />
 
@@ -10,7 +10,7 @@
 </ul>
 
 <h3 id="111-반복-반복-그리고-반복">1.1.1 반복, 반복 그리고 반복</h3>
-<p>객체를 데이터 베이스에 CURD 하려먼 너무많은 SQL과 JDBC API를 코드로 작성해야 한다. 테이블이 여러개라면 무수히 많은 SQL을 작성해야 한다.</p>
+<p>객체를 데이터 베이스에 CURD 하려면 너무많은 SQL과 JDBC API를 코드로 작성해야 한다. 테이블이 여러개라면 무수히 많은 SQL을 작성해야 한다.</p>
 
 <h3 id="112-sql에-의존적인-개발">1.1.2 SQL에 의존적인 개발</h3>
 <p>애플리케이션에서 SQL을 직접 다룰 때 발생하는 문제점</p>
@@ -8346,18 +8346,370 @@ JPA를 사용할 때 추천하는 전략은 <code class="language-plaintext high
 <ul>
   <li>2차 캐시는 영속성 유닛 범위의 캐시다</li>
   <li>2차 캐시는 조회한 객체를 그대로 반환하는 것이 아니라 복사본을 만들어서 반환한다.</li>
-  <li>2차 캐시는 데이터베이스 기본 키를 기준으로 캐시하지만 영속성 컨텍스트가 다르면 객체 <code class="language-plaintext highlighter-rouge">동일성(a==b)</code>을 보장하지 않는다.</li>
+  <li>2차 캐시는 데이터베이스 기본 키를 기준으로 캐시하지만 영속성 컨텍스트가 다르면 객체 <code class="language-plaintext highlighter-rouge">동일성(a==b)</code>을 보장하지 않는다.<br />
+<br />
+<br /></li>
+</ul>
+
+<h3 id="1622-jpa-2차-캐시-기능">16.2.2 JPA 2차 캐시 기능</h3>
+
+<p><strong>캐시 모드 설정</strong><br />
+2차 캐시를 사용하려면 <code class="language-plaintext highlighter-rouge">javax.persistence.Cacheable</code> 어노테이션을 사용하면 된다. <code class="language-plaintext highlighter-rouge">@Cacheable</code>은 <code class="language-plaintext highlighter-rouge">@Cacheable(true)</code>, <code class="language-plaintext highlighter-rouge">@Cacheable(false)</code>를 설정할 수 있는데 기본값은 <code class="language-plaintext highlighter-rouge">true</code>다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Cacheable</span>
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Member</span> <span class="o">{</span>
+
+	<span class="nd">@Id</span> <span class="nd">@GeneratedValue</span>
+	<span class="kd">private</span> <span class="nc">Long</span> <span class="n">id</span><span class="o">;</span>
+	<span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">shared-cache-mode</code>를 설정해서 애플리케이션 전체(정확히는 영속성 유닛 단위)에 캐시를 어떻게 적용할지 옵션을 설정해야 한다.</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- 스프링 프레임워크 캐시 모드 설정 --&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"entityManagerFactory"</span> <span class="na">class=</span><span class="s">"org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"sharedCacheMode"</span> <span class="na">value=</span><span class="s">"ENABLE_SELECTIVE"</span><span class="nt">&gt;</span>
+    ...
+</code></pre></div></div>
+<p>캐시 모드는 <code class="language-plaintext highlighter-rouge">javax.persistence.SharedCacheMode</code>에 정의되어 있다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>캐시 모드</strong></th>
+      <th><strong>설명</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ALL</td>
+      <td>모든 엔티티를 캐시한다.</td>
+    </tr>
+    <tr>
+      <td>NONE</td>
+      <td>캐시를 사용하지 않는다.</td>
+    </tr>
+    <tr>
+      <td>ENABLE_SELECTIVE</td>
+      <td>Cacheable(true)로 설정된 엔티티만 캐시를 적용한다.</td>
+    </tr>
+    <tr>
+      <td>DISABLE_SELECTIVE</td>
+      <td>모든 엔티티를 캐시하는데 Cacheable(false)로 명시된 엔티티는 캐시하지 않는다.</td>
+    </tr>
+    <tr>
+      <td>UNSPECIFIED</td>
+      <td>JPA 구현체가 정의한 설정을 따른다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+<br /></p>
+
+<h3 id="1623-하이버네이트와-ehcache-적용">16.2.3 하이버네이트와 EHCACHE 적용</h3>
+<p>하이버네이트가 지원하는 캐시는 크게 3가지가 있다.</p>
+<ul>
+  <li>엔티티 캐시: 엔티티 단위로 캐시한다. 식별자로 엔티티를 조회하거나 컬렉션이 아닌 연관된 엔티티를 로딩할 때 사용한다.</li>
+  <li>컬렉션 캐시: 엔티티와 연관된 컬렉션을 캐시한다. 컬렉션이 엔티티를 담고 있으면 식별자 값만 캐시한다(하이버네이트 기능)</li>
+  <li>쿼리 캐시: 쿼리와 파라미터 정보를 키로 사용해서 캐시한다. 결과가 엔티티면 식별자 값만 캐시한다.(하이버네이트 기능)<br />
+<br /></li>
+</ul>
+
+<p><strong>환경설정</strong><br />
+라이브러리 추가</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>hibernate-ehcache<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>4.3.10.Final<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<p>캐시 정책 설정</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- src/main/resources/ehcache.xml --&gt;</span>
+<span class="nt">&lt;ehcache&gt;</span>
+    <span class="nt">&lt;defaultCache</span>
+        <span class="na">maxElementsInMemory=</span><span class="s">"10000"</span>
+        <span class="na">eternal=</span><span class="s">"false"</span>
+        <span class="na">timeToIdleSeconds=</span><span class="s">"1200"</span>
+        <span class="na">timeToLiveSeconds=</span><span class="s">"1200"</span>
+        <span class="na">diskExpiryThreadIntervalSeconds=</span><span class="s">"1200"</span>
+        <span class="na">memoryStoreEvictionPolicy=</span><span class="s">"LRU"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/ehcache&gt;</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<p>하이버네이트 캐시 사용 정보를 정의</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># application.yml</span>
+<span class="na">spring</span><span class="pi">:</span>
+  <span class="na">jpa</span><span class="pi">:</span>
+    <span class="na">properties</span><span class="pi">:</span>
+      <span class="na">hibernate</span><span class="pi">:</span>
+        <span class="na">generate_statistics</span><span class="pi">:</span> <span class="no">true</span>
+        <span class="na">format_sql</span><span class="pi">:</span> <span class="no">true</span>
+
+        <span class="na">cache</span><span class="pi">:</span>
+          <span class="na">use_second_level_cache</span><span class="pi">:</span> <span class="no">true</span>
+          <span class="na">region</span><span class="pi">:</span>
+            <span class="na">factory_class</span><span class="pi">:</span> <span class="s">org.hibernate.cache.ehcache.EhCacheRegionFactory // EHCACHE</span>
+
+      <span class="na">javax</span><span class="pi">:</span>
+        <span class="na">persistence</span><span class="pi">:</span>
+          <span class="na">sharedCache</span><span class="pi">:</span>
+            <span class="na">mode</span><span class="pi">:</span> <span class="s">ENABLE_SELECTIVE</span>
+</code></pre></div></div>
+<ul>
+  <li>hibernate.cache.use_second_level_cache: 2차 캐시를 활성화 한다. 엔티티 캐시와 컬렉션 캐시를 사용할 수 있다.</li>
+  <li>hibernate.cache.use_query_cach: 쿼리 캐시를 활성화 한다.</li>
+  <li>hibernate.cache.region.factory_class: 2차 캐시를 처리할 클래스를 지정한다.</li>
+  <li>hibernate.generate_statistics: 이 속성을 true로 설정하면 하이버네이트가 여러 통계정보를 출력해주는데 캐시 적용 여부를 확인할 수 있다.(성능에 영향을 주므로 개발 환경에서만 적용하는 것이 좋다)<br />
+<br />
+<br /></li>
+</ul>
+
+<p><strong>@Cache</strong><br />
+하이버네이트 전용인 <code class="language-plaintext highlighter-rouge">@Cache</code> 어노테이션을 사용하면 세밀한 캐시 설정이 가능하다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Cacheable</span> <span class="c1">// 엔티티 캐시</span>
+<span class="nd">@Cache</span><span class="o">(</span><span class="n">usage</span> <span class="o">=</span> <span class="nc">CacheConcurrencyStrategy</span><span class="o">.</span><span class="na">READ_WRITE</span><span class="o">)</span> <span class="c1">// 하이버네이트 전용, 캐시와 관련된 더 세밀할 설정 가능</span>
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ParentMember</span> <span class="o">{</span>
+
+	<span class="nd">@Id</span> <span class="nd">@GeneratedValue</span>
+	<span class="kd">private</span> <span class="nc">Long</span> <span class="n">id</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+
+	<span class="nd">@Cache</span><span class="o">(</span><span class="n">usage</span> <span class="o">=</span> <span class="nc">CacheConcurrencyStrategy</span><span class="o">.</span><span class="na">READ_WRITE</span><span class="o">)</span> <span class="c1">// 컬렉션도 캐시 적용 가능</span>
+	<span class="nd">@OneToMany</span><span class="o">(</span><span class="n">mappedBy</span> <span class="o">=</span> <span class="s">"parentMember"</span><span class="o">,</span> <span class="n">cascade</span> <span class="o">=</span> <span class="nc">CascadeType</span><span class="o">.</span><span class="na">ALL</span><span class="o">)</span>
+	<span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">ChildMember</span><span class="o">&gt;</span> <span class="n">childMembers</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>하이버네이트 <code class="language-plaintext highlighter-rouge">@Cache</code> 속성</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>속성</strong></th>
+      <th><strong>설명</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>usage</td>
+      <td>CacheConcurrencyStrategy를 사용해서 캐시 동시성 전략을 설정한다.</td>
+    </tr>
+    <tr>
+      <td>region</td>
+      <td>캐시 지역 설정</td>
+    </tr>
+    <tr>
+      <td>include</td>
+      <td>연관 객체를 캐시에 포함할지 선택한다. all, non-laze 옵션을 선택할 수 있다.(기본값 all)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">CacheConcurrencyStrategy</code> 속성</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>속성</strong></th>
+      <th><strong>설명</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NONE</td>
+      <td>캐시를 설정하지 않는다.</td>
+    </tr>
+    <tr>
+      <td>READ_ONLY</td>
+      <td>읽기 전용으로 설정한다. 등록, 삭제는 가능하지만 수정은 불가능하다. 참고로 읽기 전용인 불변 객체는 수정되지 않으므로 하이버네이트는 2차 캐시를 조회할 때 객체를 복사하지 않고 원본 객체를 반환한다.</td>
+    </tr>
+    <tr>
+      <td>NONSTRICT_READ_WRITE</td>
+      <td>엄격하지 않은 읽고 쓰기 전략이다. 동시에 같은 엔티티를 수정하면 데이터 일관성이 깨질 수 있다. EHCACHE는 데이터를 수정하면 캐시 데이터를 무효화한다.</td>
+    </tr>
+    <tr>
+      <td>READ_WRITE</td>
+      <td>읽기 쓰기가 가능하고 READ COMMITTED 정도의 격리 수준을 보장한다.</td>
+    </tr>
+    <tr>
+      <td>TRANSACTIONAL</td>
+      <td>컨테이너 관리 환경에서 사용할 수 있다. 설정에 따라 REPEATABLE READ 정도의 격리 수준을 보장받을 수 있다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>캐시 동시성 전략 지원 여부</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Cache</strong></th>
+      <th><strong>read-only</strong></th>
+      <th><strong>nonstrict-read-write</strong></th>
+      <th><strong>nonstrict-read-write</strong></th>
+      <th><strong>transactional</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ConcurrentHashMap</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>EHCache</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>Infinispan</td>
+      <td>yes</td>
+      <td> </td>
+      <td> </td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+<br /></p>
+
+<p><strong>캐시 영역</strong><br />
+위에서 캐시를 적용한 코드(엔티티 코드)는 다음 캐시 영역에 저장된다.</p>
+<ul>
+  <li>엔티티 캐시 영역
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">jpabook.jpashop.domain.test.cache.ParentMember</code></li>
+      <li>기본값으로 [패키지 명 + 클래스 명]을 사용</li>
+    </ul>
+  </li>
+  <li>컬렉션 캐시 영역
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">jpabook.jpashop.domain.test.cache.ParentMember.childMembers</code></li>
+      <li>엔티티 캐시 영역 이름 + 캐시한 컬렉션의 필드 명</li>
+    </ul>
+  </li>
+</ul>
+
+<p>필요하다면 <code class="language-plaintext highlighter-rouge">@Cache(region = "customRegion", ...)</code> 처럼 <code class="language-plaintext highlighter-rouge">region</code> 속성을 사용해서 캐시 영역을 직접 지정할 수 있다.<br />
+<br /></p>
+
+<p>캐시 영역이 정해져 있으면 영역별로 세부 설정을 할 수 있다.</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ehcache&gt;</span>
+    <span class="nt">&lt;defaultCache</span>
+        <span class="na">maxElementsInMemory=</span><span class="s">"10000"</span>
+        <span class="na">eternal=</span><span class="s">"false"</span>
+        <span class="na">timeToIdleSeconds=</span><span class="s">"1200"</span>
+        <span class="na">timeToLiveSeconds=</span><span class="s">"1200"</span>
+        <span class="na">diskExpiryThreadIntervalSeconds=</span><span class="s">"1200"</span>
+        <span class="na">memoryStoreEvictionPolicy=</span><span class="s">"LRU"</span> <span class="nt">/&gt;</span>
+    
+    <span class="c">&lt;!-- ParentMember를 600초 마다 캐시에서 제거 --&gt;</span>
+    <span class="nt">&lt;cache</span>
+        <span class="na">name=</span><span class="s">"jpabook.jpashop.domain.test.cache.ParentMember"</span>
+        <span class="na">maxElementsInMemory=</span><span class="s">"10000"</span>
+        <span class="na">eternal=</span><span class="s">"false"</span>
+        <span class="na">timeToIdleSeconds=</span><span class="s">"600"</span>
+        <span class="na">timeToLiveSeconds=</span><span class="s">"600"</span>
+        <span class="na">overflowToDisk=</span><span class="s">"false"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/ehcache&gt;</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<p><strong>쿼리 캐시</strong></p>
+<ul>
+  <li>쿼리 캐시는 쿼리와 파라미터 정보를 키로 사용해서 쿼리 결과를 캐시하는 방법이다.</li>
+  <li>쿼리 캐시를 적용하려면 영속성 유닛 설정에 <code class="language-plaintext highlighter-rouge">hibernate.cache.use_query_cache</code> 옵션을 꼭 <code class="language-plaintext highlighter-rouge">true</code>로 설정해야 한다.</li>
+  <li>그리고 쿼리 캐시를 적용하려는 쿼리마다 <code class="language-plaintext highlighter-rouge">org.hibernate.cacheable</code>을 <code class="language-plaintext highlighter-rouge">true</code>로 설정하는 힌트를 주면 된다</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 쿼리 캐시 사용</span>
+<span class="n">em</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="s">"select i from Item i"</span><span class="o">,</span> <span class="nc">Item</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">setHint</span><span class="o">(</span><span class="s">"org.hibernate.cacheable"</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">getResultList</span><span class="o">();</span>
+ 
+<span class="c1">// @NamedQuery에 쿼리 캐시 적용</span>
+<span class="nd">@Entity</span>
+<span class="nd">@NamedQuery</span><span class="o">(</span>
+    <span class="n">hints</span> <span class="o">=</span> <span class="nd">@QueryHint</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"org.hibernate.cacheable"</span><span class="o">,</span> <span class="n">value</span> <span class="o">=</span> <span class="s">"true"</span><span class="o">),</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"Member.findByUsername"</span><span class="o">,</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s">"select m.address from Member m where m.name = :username"</span>
+<span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Member</span> <span class="o">{...}</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<p><strong>쿼리 캐시 영역</strong><br />
+<code class="language-plaintext highlighter-rouge">hibernate.cache.use_query_cache</code> 옵션을 <code class="language-plaintext highlighter-rouge">true</code>로 설정해서 쿼리 캐시를 활성화 하면 다음 두 캐시 영역이 추가된다.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">org.hibernate.cache.internal.StandardQueryCache</code>: 쿼리 캐시를 저장하는 영역이다. 이곳에는 쿼리, 쿼리 결과 집합, 쿼리를 실행한 시점의 타임스탬프를 보관한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">org.hibernate.cache.spi.UpdateTimestampsCache</code>: 쿼리 캐시가 유효한지 확인하기 위해 쿼리 대상 테이블의 가장 최근 변경(등록, 수정, 삭제) 시간을 저장하는 영역이다. 이곳에는 테이블 명과 해당 테이블의 최근 변경된 타임스탬프를 보관한다.</li>
+</ul>
+
+<p>쿼리 캐시는 캐시한 데이터 집합을 최신 데이터로 유지하려고 쿼리 캐시를 실행하는 시간과 쿼리 캐시가 사용하는 테이블들이 가장 최근에 변경된 시간을 비교한다. <strong>쿼리 캐시를 적용하고 난 후에 쿼리 캐시가 사용하는 테이블에 조금이라도 변경이 있으면 데이터베이스에서 데이터를 읽어와서 쿼리 결과를 다시 캐시한다.</strong></p>
+
+<p><strong>쿼리 캐시를 잘 활용하면 극적인 성능 향상이 있지만 빈번하게 변경이 있는 테이블에 사용하면 오히려 성능이 더 저하된다.</strong> 따라서 수정이 거의 일어나지 않는 테이블에 사용해야 효과를 볼 수 있다.</p>
+
+<div class="notice--warning">
+<p><strong>주의</strong><br />
+<code class="language-plaintext highlighter-rouge">org.hibernate.cache.spi.UpdateTimestampsCache</code> 쿼리 캐시 영역은 만료되지 않도록 설정해야 한다. 해당 영역이 만료되면 모든 쿼리 캐시가 무효화된다. <code class="language-plaintext highlighter-rouge">EHCACHE</code>의 <code class="language-plaintext highlighter-rouge">eternal="true"</code> 옵션을 사용하면 캐시에서 삭제되지 않는다.</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;cache</span>
+    <span class="na">name=</span><span class="s">"org.hibernate.cache.spi.UpdateTimestampsCache"</span>
+    <span class="na">maxElementsInMemory=</span><span class="s">"10000"</span>
+    <span class="na">eternal=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+</div>
+<p><br /></p>
+
+<p><strong>쿼리 캐시와 컬렉션 캐시의 주의점</strong><br />
+엔티티 캐시를 사용해서 엔티티를 캐시하면 엔티티 정보를 모두 캐시하지만 <strong>쿼리 캐시와 컬렉션 캐시는 결과 집합의 식별자 값만 캐시한다.</strong> 그리고 이 식별자 값을 한나씩 엔티티 캐시에 조회해서 실제 엔티티를 찾는다.</p>
+
+<p><strong>문제는 쿼리 캐시나 컬렉션 캐시만 사용하고 대상 엔티티에 엔티티 캐시를 적용하지 않으면 성능상 심각한 문제가 발생할 수 있다.</strong></p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">select m from Member m</code> 쿼리를 실행했는데 쿼리 캐시가 적용되어 있다. 조회 결과는 100건이다.</li>
+  <li>결과 집합에는 식별자만 있르므로 한 건씩 엔티티 캐시 영역에서 조회한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">Member</code> 엔티티는 엔티티 캐시를 사용하지 않으므로 한 건씩 데이터베이스에서 조회한다.</li>
+  <li>100건의 SQL이 실행된다.</li>
+</ol>
+
+<p>따라서 <strong>쿼리 캐시나 컬렉션 캐시를 사용하면 결과 대상 엔티티에는 꼭 엔티티 캐시를 적용해야 한다.</strong></p>
+
+<p><br />
+<br /></p>
+
+<h2 id="163-정리">16.3 정리</h2>
+<ul>
+  <li>트랜잭션의 격리 수준은 4단계가 있다. 격리 수준이 낮을수록 동시성은 증가하지만 격리 수준에 따른 다양한 문제가 발생한다.</li>
+  <li>영속성 컨텍스트는 데이터베이스 트랜잭션이 <code class="language-plaintext highlighter-rouge">READ COMMITTED</code> 격리 수준이어도 애플리케이션 레벨에서 반복 가능한 읽기(<code class="language-plaintext highlighter-rouge">REPEATABLE READ</code>)를 제공한다.</li>
+  <li>JPA는 낙관적 락과 비관적 락을 지원한다. 낙관적 락은 애플리케이션이 지원하는 락이고, 비관적 락은 데이터베이스 트랜잭션 락 메커니즘에 의존한다.</li>
+  <li>2차 캐시를 사용하면 애플리케이션의 조회 성능 극적으로 끌어올릴 수 있다.</li>
 </ul>
 
 <p><br />
 <br />
 <br />
-<br />
-<br />
-<br />
 <br /></p>
 
-<p><strong>…작성중…</strong> 📝</p>]]></content><author><name>Sangjae Oh</name></author><category term="Books" /><category term="Books" /><category term="JPA" /><category term="ORM" /><summary type="html"><![CDATA[자바 ORM 표준 JPA 프로그래밍 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍]]></summary></entry><entry><title type="html">📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</title><link href="http://localhost:4000/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지" /><published>2023-01-09T00:00:00+09:00</published><updated>2023-01-09T00:00:00+09:00</updated><id>http://localhost:4000/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
+<p><strong>감사합니다</strong> 🙇🏻‍♂️</p>
+
+<p><a href="https://product.kyobobook.co.kr/detail/S000000935744" target="_blank">자바 ORM 표준 JPA 프로그래밍</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="Books" /><category term="Books" /><category term="JPA" /><category term="ORM" /><summary type="html"><![CDATA[자바 ORM 표준 JPA 프로그래밍 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍]]></summary></entry><entry><title type="html">📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</title><link href="http://localhost:4000/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지" /><published>2023-01-09T00:00:00+09:00</published><updated>2023-01-09T00:00:00+09:00</updated><id>http://localhost:4000/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
 
 <hr />
 
