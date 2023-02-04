@@ -9,25 +9,30 @@ main:
 
 
 docs:
-  - title: "개발"
+  - title: "Stack"
     children:
       - title: "DDD"
         url: /categories/ddd
+        category: "DDD"
+      - title: "Insight"
+        url: /categories/insight
+        category: "Insight"
       - title: "Mac"
         url: /categories/mac
         category: "Mac"
+      - title: "Markdown"
+        url: /categories/markdown
+        category: "Markdown"
 
   
-  - title: "기타"
-    url: /categories/etc
-    category: "etc"
+  - title: "ETC"
     children:
       - title: "책"
-        url: /categories/etc/books
-        category: "books"
+        url: /categories/books
+        category: "Books"
       - title: "교육"
-        url: /categories/etc/education
-        category: "education"
+        url: /categories/education
+        category: "Education"
 
 
       

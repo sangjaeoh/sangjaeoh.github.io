@@ -1,7 +1,7 @@
 ---
 title: "책"
 layout: archive
-permalink: categories/etc/books
+permalink: categories/books
 author_profile: true
 sidebar_main: true
 sidebar:
@@ -9,5 +9,5 @@ sidebar:
 ---
 
 
-{% assign posts = site.categories['books'] %}
+{% assign posts = site.categories['Books'] %}
 {% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}

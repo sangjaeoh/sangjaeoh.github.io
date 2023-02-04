@@ -1,0 +1,1094 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>마크다운 작성방법 | Stack O Flow</title>
+<meta name="description" content="마크다운이란? 마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어다. 일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며, 일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다. HTML과 리치 텍스트(RTF) 등 서식 문서로 쉽게 변환되기 때문에 응용 소프트웨어와 함께 배포되는 README 파일이나 온라인 게시물 등에 많이 사용된다. - 위키백과">
+
+
+  <meta name="author" content="Sangjae Oh">
+  
+  <meta property="article:author" content="Sangjae Oh">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Stack O Flow">
+<meta property="og:title" content="마크다운 작성방법">
+<meta property="og:url" content="http://localhost:4000/markdown/markdown-guide/">
+
+
+  <meta property="og:description" content="마크다운이란? 마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어다. 일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며, 일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다. HTML과 리치 텍스트(RTF) 등 서식 문서로 쉽게 변환되기 때문에 응용 소프트웨어와 함께 배포되는 README 파일이나 온라인 게시물 등에 많이 사용된다. - 위키백과">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-09-26T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/markdown/markdown-guide/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Sangjae Oh",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Stack O Flow Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
+<!-- <link rel="manifest" href="/assets/logo.ico/site.webmanifest"> -->
+<link rel="mask-icon" href="/assets/images/favicon.png" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt="Stack O Flow"></a>
+        
+        <a class="site-title" href="/">
+          Stack O Flow
+          <span class="site-subtitle">복붙노트</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">카테고리</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">태그</a>
+            </li><li class="masthead__menu-item">
+              <a href="/search/">🔎</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Sangjae Oh</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>안녕하세요~🙇🏻‍♂️</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:sangjaeoh91.gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/sangjaeoh" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  
+  <ul class="nav__items">
+    
+    <!-- <li>
+      <a href="http://localhost:4000/categories/"><span class="nav__sub-title" style="border-bottom: 0px;">전체 (14)</span></a>
+    </li> -->
+
+    
+      <li>
+        
+          <span class="nav__sub-title">Stack </span>
+        
+
+        
+        <ul>
+          
+          
+            <li><a href="/categories/ddd">DDD (0)</a></li>
+          
+          
+            <li><a href="/categories/insight">Insight (1)</a></li>
+          
+          
+            <li><a href="/categories/mac">Mac (1)</a></li>
+          
+          
+            <li><a href="/categories/markdown">Markdown (1)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">ETC </span>
+        
+
+        
+        <ul>
+          
+          
+            <li><a href="/categories/books">책 (2)</a></li>
+          
+          
+            <li><a href="/categories/education">교육 (9)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="마크다운 작성방법">
+    <meta itemprop="description" content="마크다운이란?마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어다. 일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며, 일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다. HTML과 리치 텍스트(RTF) 등 서식 문서로 쉽게 변환되기 때문에 응용 소프트웨어와 함께 배포되는 README 파일이나 온라인 게시물 등에 많이 사용된다.- 위키백과">
+    <meta itemprop="datePublished" content="2022-09-26T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/markdown/markdown-guide/" class="u-url" itemprop="url">마크다운 작성방법
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-09-26T00:00:00+09:00">2022-09-26</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#마크다운이란">마크다운이란?</a></li><li><a href="#마크다운-문법">마크다운 문법</a><ul><li><a href="#제목">제목</a></li><li><a href="#줄바꿈">줄바꿈</a></li><li><a href="#강조">강조</a></li><li><a href="#인용구">인용구</a></li><li><a href="#리스트">리스트</a></li><li><a href="#코드">코드</a></li><li><a href="#코드-블록">코드 블록</a></li><li><a href="#가로줄">가로줄</a></li><li><a href="#링크">링크</a></li><li><a href="#이미지">이미지</a></li><li><a href="#이미지-링크">이미지 링크</a></li><li><a href="#이스케이프-문자">이스케이프 문자</a></li><li><a href="#html">HTML</a></li><li><a href="#cheat-sheet">Cheat Sheet</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="마크다운이란">마크다운이란?</h1>
+<p>마크다운(Markdown)은 일반 텍스트 기반의 경량 마크업 언어다. 일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며, 일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다. HTML과 리치 텍스트(RTF) 등 서식 문서로 쉽게 변환되기 때문에 응용 소프트웨어와 함께 배포되는 README 파일이나 온라인 게시물 등에 많이 사용된다.<br />
+- 위키백과</p>
+
+<p><br /></p>
+
+<h1 id="마크다운-문법">마크다운 문법</h1>
+<p><a href="https://www.markdownguide.org/basic-syntax/" target="_black">마크다운 기본 가이드</a>,
+<a href="https://www.markdownguide.org/extended-syntax/" target="_black">마크다운 확장 가이드</a>
+을 참고하였습니다.</p>
+
+<h2 id="제목">제목</h2>
+<p>제목을 만들려면 단어 앞에 기호(#)를 추가합니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Heading h1
+## Heading h2
+### Heading h3
+#### Heading h4
+##### Heading h5
+###### Heading h6
+</code></pre></div></div>
+<h1>Heading h1</h1>
+<h2>Heading h2</h2>
+<h3>Heading h3</h3>
+<h4>Heading h4</h4>
+<h5>Heading h5</h5>
+<h6>Heading h6</h6>
+
+<p><br />
+<br /></p>
+
+<h2 id="줄바꿈">줄바꿈</h2>
+<p>줄바꿈을 하려면 &lt;br/&gt;을 사용하거나, 두개 이상의 공백(spaces)를 입력하세요.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>첫번째 줄  
+두분째 줄&lt;br/&gt;
+세번째 줄
+</code></pre></div></div>
+<p>첫번째 줄<br />
+두분째 줄<br />
+세번째 줄</p>
+
+<p><br />
+<br /></p>
+
+<h2 id="강조">강조</h2>
+<p>텍스트를 굵게 또는 기울임꼴로 지정하여 강조를 표현할 수 있습니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>굵은 글씨
+**bold text**
+__bold text__
+
+기울인 글씨
+*italic text*
+_italic text_
+
+굵게 + 기울인 글씨
+***bold + italic text***
+___bold + italic text___
+</code></pre></div></div>
+<p>굵은 글씨<br />
+<strong>bold text</strong><br />
+<strong>bold text</strong><br /></p>
+
+<p>기울인 글씨<br />
+<em>italic text</em><br />
+<em>italic text</em><br /></p>
+
+<p>굵게 + 기울인 글씨<br />
+<strong><em>bold + italic text</em></strong><br />
+<strong><em>bold + italic text</em></strong><br /></p>
+
+<p><br />
+<br /></p>
+
+<h2 id="인용구">인용구</h2>
+<p>인용구 내용을 작성할때는 ‘&gt;’를 사용합니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; 마크다운을 활용한 글쓰기
+&gt;
+&gt; 여러줄도 가능하죠.
+&gt;&gt; 들여쓰기도 되고요.
+</code></pre></div></div>
+<blockquote>
+  <p>마크다운을 활용한 글쓰기</p>
+
+  <p>여러줄도 가능하죠.</p>
+  <blockquote>
+    <p>들여쓰기도 되고요.</p>
+  </blockquote>
+</blockquote>
+
+<p><br />
+<br /></p>
+
+<h2 id="리스트">리스트</h2>
+<p>정렬된 목록을 사용하려면 숫자를 적어줍니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 첫 번째 아이템
+2. 두 번째 아이템
+3. 세 번째 아이템
+</code></pre></div></div>
+<ol>
+  <li>첫 번째 아이템</li>
+  <li>두 번째 아이템</li>
+  <li>세 번째 아이템</li>
+</ol>
+
+<p><br /></p>
+
+<p>정렬이 필요없는 리스트는 - 또는 *을 사용합니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 첫 번째 아이템
+- 두 번째 아이템
+- 세 번째 아이템
+</code></pre></div></div>
+<ul>
+  <li>첫 번째 아이템</li>
+  <li>두 번째 아이템</li>
+  <li>세 번째 아이템</li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<h2 id="코드">코드</h2>
+<p>코드를 표현하려면 백틱(`)으로 단어를 묶습니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`String` 자료형
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">String</code> 자료형</p>
+
+<p><br />
+<br /></p>
+
+<h2 id="코드-블록">코드 블록</h2>
+<p>코드 블록을 사용하려면 백틱 3개를(```)을 사용합니다.</p>
+
+<p>```html<br />
+코드 블록 안에 원하는 내용을 입력, 백틱 뒤에 서식을 입력할 수도 있습니다.<br />
+```</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>코드 블록 안에 원하는 내용을 입력, 백틱 뒤에 서식을 입력할 수도 있습니다.
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<h2 id="가로줄">가로줄</h2>
+<p>가로줄을 만들려면 세 개 이상의 별표(***), 대시(—) 또는 밑줄(___)을 한 줄에 단독으로 사용합니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>***
+---
+_________________
+</code></pre></div></div>
+<hr />
+<hr />
+<hr />
+
+<p><br />
+<br /></p>
+
+<h2 id="링크">링크</h2>
+<p>링크를 만드려면 링크 텍스트를 <code class="language-plaintext highlighter-rouge">[]</code>로 묶고 URL을 <code class="language-plaintext highlighter-rouge">()</code>로 묶습니다. <code class="language-plaintext highlighter-rouge">""</code>을 사용하여 링크에 마우스를 올릴시 타이틀을 추가할 수도 있습니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Stack O Flow](https://sangjaeoh.github.io/)
+[Stack O Flow](https://sangjaeoh.github.io/ "타이틀 추가 가능")
+</code></pre></div></div>
+<p><a href="https://sangjaeoh.github.io/" title="타이틀 추가 가능">Stack O Flow</a></p>
+
+<p><br />
+<br /></p>
+
+<h2 id="이미지">이미지</h2>
+<p>이미지를 첨부하려면 <code class="language-plaintext highlighter-rouge">!</code>를 앞에 붙이고, 대체 타이틀을 <code class="language-plaintext highlighter-rouge">[]</code>로 묶고 이미지 경로를 <code class="language-plaintext highlighter-rouge">()</code>로 묶습니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![스마일](/assets/images/logo.png)
+</code></pre></div></div>
+<p>이미지 크기를 조절하려면 HTML을 사용합니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;img src="/assets/images/logo.png" alt="스마일" width="100px" height="100px"&gt;
+</code></pre></div></div>
+<p><img src="/assets/images/logo.png" alt="스마일" width="100px" height="100px" /></p>
+
+<p><br />
+<br /></p>
+
+<h2 id="이미지-링크">이미지 링크</h2>
+<p>링크의 <code class="language-plaintext highlighter-rouge">[]</code>안에 이미지 첨부를 합니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[![스마일](/assets/images/logo.png)](https://sangjaeoh.github.io/)
+[&lt;img src="/assets/images/logo.png" alt="스마일" width="100px" height="100px"&gt;](https://sangjaeoh.github.io/)
+</code></pre></div></div>
+<p><a href="https://sangjaeoh.github.io/"><img src="/assets/images/logo.png" alt="스마일" width="100px" height="100px" /></a></p>
+
+<p><br />
+<br /></p>
+
+<h2 id="이스케이프-문자">이스케이프 문자</h2>
+<p>이스케이프 문자는 백슬래쉬 <code class="language-plaintext highlighter-rouge">\</code>를 사용합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\* 백슬래쉬가 없다면 리스트가 표현됨.
+</code></pre></div></div>
+<p>* 백슬래쉬가 없다면 리스트가 표현됨.</p>
+
+<p><br />
+<br /></p>
+
+<h2 id="html">HTML</h2>
+<p>마크다운은 HTML 표현 태그를 지원합니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>마크다운 **강조** 사용, HTML &lt;strong&gt;강조&lt;/strong&gt; 사용
+</code></pre></div></div>
+<p>마크다운 <strong>강조</strong> 사용, HTML <strong>강조</strong> 사용</p>
+
+<h2 id="cheat-sheet">Cheat Sheet</h2>
+<p><strong>기본 문법</strong></p>
+<table>
+    <thead>
+        <tr>
+            <th>Element</th>
+            <th>Markdown Syntax</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Heading</td>
+            <td>
+                <code># H1 <br /> ## H2 <br /> ### H3 </code>
+            </td>
+        </tr>
+        <tr>
+            <td> Bold </td>
+            <td>
+                <code>**bold text**</code>
+            </td>
+        </tr>
+        <tr>
+            <td> Italic </td>
+            <td>
+                <code>*italicized text*</code>
+            </td>
+        </tr>
+        <tr>
+            <td> Blockquote </td>
+            <td>
+                <code>&gt; blockquote</code>
+            </td>
+        </tr>
+        <tr>
+            <td> Ordered List </td>
+            <td><code>
+                1. First item<br />
+                2. Second item<br />
+                3. Third item
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td> Unordered List </td>
+            <td><code>
+                - First item <br />
+                - Second item <br />
+                - Third item
+            </code></td>
+        </tr>
+        <tr>
+            <td> Code </td>
+            <td>
+                <code>`code`</code>
+            </td>
+        </tr>
+        <tr>
+            <td> Horizontal Rule </td>
+            <td>
+                <code>---</code>
+            </td>
+        </tr>
+        <tr>
+            <td> Link </td>
+            <td>
+                <code>[title](https://www.example.com)</code>
+            </td>
+        </tr>
+        <tr>
+            <td> Image </td>
+            <td>
+                <code>![alt text](image.jpg)</code>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<p><br /></p>
+
+<p><strong>확장 문법</strong></p>
+<table>
+    <thead>
+        <tr>
+            <th>Element</th>
+            <th>Markdown Syntax</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Table</td>
+            <td><code>
+                | Syntax      | Description |<br />
+                | ----------- | ----------- |<br />
+                | Header      | Title       |<br />
+                | Paragraph   | Text        |
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>Fenced Code Block</td>
+            <td><code>```<br />
+                {<br />
+                &nbsp;&nbsp;"firstName": "John",<br />
+                &nbsp;&nbsp;"lastName": "Smith",<br />
+                &nbsp;&nbsp;"age": 25<br />
+                }<br />
+                ```
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>Footnote</td>
+            <td><code>
+                Here's a sentence with a footnote. [^1]<br /><br />
+                [^1]: This is the footnote.
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>Heading ID</td>
+            <td>
+                <code>### My Great Heading {#custom-id}</code>
+            </td>
+        </tr>
+        <tr>
+            <td>Definition List</td>
+            <td><code>
+                term<br />
+                : definition
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>Strikethrough</td>
+            <td><code>~~The world is flat.~~</code></td>
+        </tr>
+        <tr>
+            <td>Task List</td>
+            <td><code>
+                - [x] Write the press release<br />
+                - [ ] Update the website<br />
+                - [ ] Contact the media
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>Emoji</td>
+            <td><code>
+                That is so funny! :joy:
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>Highlight</td>
+            <td><code>
+                I need to highlight these ==very important words==.
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>Subscript</td>
+            <td><code>
+                H~2~O
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>Superscript</td>
+            <td><code>
+                X^2^
+                </code>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#markdown" class="page__taxonomy-item p-category" rel="tag">Markdown</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#markdown" class="page__taxonomy-item p-category" rel="tag">Markdown</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-09-26T00:00:00+09:00">2022-09-26</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4+%EC%9E%91%EC%84%B1%EB%B0%A9%EB%B2%95%20http%3A%2F%2Flocalhost%3A4000%2Fmarkdown%2Fmarkdown-guide%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fmarkdown%2Fmarkdown-guide%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fmarkdown%2Fmarkdown-guide%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">이전</a>
+    
+    
+      <a href="/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-%EC%86%8C%EA%B0%9C/" class="pagination--pager" title="우아한테크캠프 Pro 5기 - 소개 및 커리큘럼
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">다른 읽을거리</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" rel="permalink">📖 자바 ORM 표준 JPA 프로그래밍
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-16T00:00:00+09:00">2023-01-16</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">자바 ORM 표준 JPA 프로그래밍 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="permalink">📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-09T00:00:00+09:00">2023-01-09</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/mac/%EB%8B%A8%EC%B6%95%ED%82%A4/" rel="permalink">MAC 단축키 모음 💻
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-08T00:00:00+09:00">2023-01-08</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">⌨ 일반 단축키
+
+  화면 잠금: Control + Command + Q
+  복제: Command + x
+  다시찾기: Command + G
+  윈도우 최소화: Command + M
+  프린트: Command + P
+  붙여넣기: Command + V
+  모두선택: Command ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="permalink">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-08T00:00:00+09:00">2023-01-08</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">2022년 10월 24일 ~ 2022년 12월 23일
+우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/sangjaeoh" rel="nofollow noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Sangjae Oh. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/markdown/markdown-guide/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/markdown/markdown-guide"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://stack-o-flow.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+
+    <aside class="sidebar__home">
+      <a href="/">
+        <div style="font-size: 0.5rem;"><i class="fas fa-h-square fa-5x"></i></div>
+      </a>
+    </aside>
+
+    <aside class="sidebar__top">
+      <a href="#site-nav">
+        <div style="font-size: 0.5rem;"><i class="fas fa-caret-square-up fa-5x"></i></div>
+      </a>
+    </aside>
+
+    <aside class="sidebar__bottom">
+      <a href="#footer">
+        <div style="font-size: 0.5rem;"><i class="fas fa-caret-square-down fa-5x"></i></div>
+      </a>
+    </aside>
+
+  </body>
+</html>

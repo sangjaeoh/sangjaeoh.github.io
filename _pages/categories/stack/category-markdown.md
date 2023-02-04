@@ -1,7 +1,7 @@
 ---
-title: "교육"
+title: "Markdown"
 layout: archive
-permalink: categories/education
+permalink: categories/markdown
 author_profile: true
 sidebar_main: true
 sidebar:
@@ -9,5 +9,5 @@ sidebar:
 ---
 
 
-{% assign posts = site.categories['Education'] %}
+{% assign posts = site.categories['Markdown'] %}
 {% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}
