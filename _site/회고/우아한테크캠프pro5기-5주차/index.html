@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>우아한테크캠프 Pro 5기 - 1주차 (로또 TDD) | Stack O Flow</title>
+<!-- begin _includes/seo.html --><title>우아한테크캠프 Pro 5기 - 5주차 (인수 테스트 기반 TDD) | Stack O Flow</title>
 <meta name="description" content="2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.">
 
 
@@ -22,8 +22,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Stack O Flow">
-<meta property="og:title" content="우아한테크캠프 Pro 5기 - 1주차 (로또 TDD)">
-<meta property="og:url" content="http://localhost:4000/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8/">
+<meta property="og:title" content="우아한테크캠프 Pro 5기 - 5주차 (인수 테스트 기반 TDD)">
+<meta property="og:url" content="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-5%EC%A3%BC%EC%B0%A8/">
 
 
   <meta property="og:description" content="2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.">
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-01-03T00:00:00+09:00">
+  <meta property="article:published_time" content="2023-01-05T00:00:00+09:00">
 
 
 
@@ -45,7 +45,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8/">
+<link rel="canonical" href="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-5%EC%A3%BC%EC%B0%A8/">
 
 
 
@@ -290,9 +290,6 @@
         <ul>
           
           
-            <li><a href="/categories/ddd">DDD (0)</a></li>
-          
-          
             <li><a href="/categories/insight">Insight (1)</a></li>
           
           
@@ -317,7 +314,7 @@
             <li><a href="/categories/books">책 (2)</a></li>
           
           
-            <li><a href="/categories/education">교육 (9)</a></li>
+            <li><a href="/categories/%ED%9A%8C%EA%B3%A0">회고 (9)</a></li>
           
         </ul>
         
@@ -333,16 +330,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="우아한테크캠프 Pro 5기 - 1주차 (로또 TDD)">
+    <meta itemprop="headline" content="우아한테크캠프 Pro 5기 - 5주차 (인수 테스트 기반 TDD)">
     <meta itemprop="description" content="2022년 10월 24일 ~ 2022년 12월 23일우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.">
-    <meta itemprop="datePublished" content="2023-01-03T00:00:00+09:00">
+    <meta itemprop="datePublished" content="2023-01-05T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8/" class="u-url" itemprop="url">우아한테크캠프 Pro 5기 - 1주차 (로또 TDD)
+            <a href="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-5%EC%A3%BC%EC%B0%A8/" class="u-url" itemprop="url">우아한테크캠프 Pro 5기 - 5주차 (인수 테스트 기반 TDD)
 </a>
           </h1>
           
@@ -353,7 +350,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2023-01-03T00:00:00+09:00">2023-01-03</time>
+        <time datetime="2023-01-05T00:00:00+09:00">2023-01-05</time>
       </span>
     
 
@@ -380,76 +377,127 @@
 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
 
 <h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
-<p>로또 구입 금액을 입력하면, 구입 금액에 해당하는 로또를 발급하는 애플리케이션을 만드는 미션</p>
+<p>지하철 노선도 서비스을 구현하면서 인수 테스트 기반 TDD를 진행하는 미션</p>
 
 <h2 id="-학습-목표">🎯 학습 목표</h2>
 <ul>
-  <li><strong>TDD 기반으로 프로그래밍하는 경험</strong></li>
-  <li>메소드 분리 + 클래스를 분리하는 리팩토링 경험</li>
-  <li>점진적으로 리팩토링하는 경험</li>
-  <li>객체지향 생활 체조 원칙 경험</li>
-  <li>Clean Code 경험</li>
+  <li>인수 테스트 기반의 TDD 경험</li>
+  <li>로그인 상태 인수 테스트</li>
 </ul>
 
 <h2 id="-강의-내용">📖 강의 내용</h2>
-<p>강의 내용은 TDD란 무엇이고, 하는 이유, TDD로 프로그래밍 하는 방법, TDD 원칙을 설명합니다.</p>
+<p>인수 테스트 기반으로 TDD를 진행하는 방법을 설명하고, 단위테스트와 통합테스트 설명, 인수 테스트 기반으로 리팩터링 방법, 인증기반 인수 테스트 방법을 설명</p>
 
-<p><strong>TDD란?</strong></p>
+<p><strong>단위 테스트란?</strong></p>
 <ul>
-  <li>TDD = TFD(Test First Development) + 리팩토링</li>
-  <li>TDD란 프로그래밍 의사결정과 피드백 사이의 간극을 의식하고 이를 제어하는 기술이다.</li>
-  <li>TDD의 아이러니 중 하나는 테스트 기술이 아니라는 점이다. TDD는 분석 기술이며, 설계 기술이기도 하다.</li>
+  <li>작은 코드 조각(단위)을 검증</li>
+  <li>빠르게 수행 가능</li>
+  <li>격리된 방식으로 처리</li>
 </ul>
 
-<p><strong>TDD를 하는 이유</strong></p>
+<p><strong>통합과 고립(Sociable and Solitary)</strong></p>
 <ul>
-  <li>디버깅 시간을 줄여준다.</li>
-  <li>동작하는 문서 역할을 한다.</li>
-  <li>변화에 대한 두려움을 줄여준다.</li>
+  <li>단위 테스트 작성 시 관계를 맺고 있는 대상(협력 객체)이 있는 경우를 고려해야 함</li>
+  <li>협력 객체를 실제 객체로 사용하는지 Mock(가짜) 객체로 사용하는지에 따라 테스트 구현이 달라짐
+<img src="/assets/images/posts/sociable_and_solitary.png" alt="sociable_and_solitary" /></li>
 </ul>
 
-<p><strong>TDD 사이클</strong>
-<img src="/assets/images/posts/tdd_cycle.png" alt="tdd_cycle" /></p>
+<p><strong>Test Double</strong></p>
 <ul>
-  <li>실패하는 테스트를 구현한다.</li>
-  <li>테스트가 성공하도록 프로덕션 코드를 구현한다.</li>
-  <li>프로덕션 코드와 테스트코드를 리팩토링한다.</li>
+  <li>실제 객체 대신 사용되는 모든 종류의 객체에 대한 일반 용어</li>
+  <li>즉, 실제 (예 : 클래스, 모듈 또는 함수)를 가짜 버전으로 대체한다는 의미
+<img src="/assets/images/posts/test_double.png" alt="test_double" /></li>
+  <li>Dummy: 객체는 전달되지만, 실제로 사용하지 않는다. 종종 파라미터 리스트를 채우기 위해 사용</li>
+  <li>Fake: 동작의 구현을 가지고 있지만, 프로덕션에 적합하지 않은 간결한을 제공</li>
+  <li>Stub: 테스트 진행 중에 호출에 대한 미리 준비된 응답을 제공하고, 준비된 응답 이외(일반적인 테스트를 위한 프로그래밍 구현)의 항목에는 전혀 응답하지 않는다.</li>
+  <li>Spy: 어떻게 호출됐는지에 따라 특정 정보를 표현하는 스파이도 스텁이다.</li>
+  <li>Mock: 기대된 호출의 구체적인 형식을 기대하는 미리 프로그래밍된 객체이다.</li>
 </ul>
 
-<p><strong>TDD 원칙</strong></p>
-<ul>
-  <li>실패하는 단위 테스트를 작성할 때까지 프로덕션 코드(production code)를 작성하지 않는다.</li>
-  <li>컴파일은 실패하지 않으면서 실행이 실패하는 정도로만 단위 테스트를 작성한다.</li>
-  <li>현재 실패하는 테스트를 통과할 정도로만 실제 코드를 작성한다.</li>
-</ul>
+<p><br /></p>
 
-<p><strong>TDD가 막막할 때 팁</strong></p>
-<ol>
-  <li>우선 <strong>구현할 기능 목록을 작성</strong>한 후에 TDD로 도전.</li>
-  <li>그래도 막막하다면 <strong>지금까지 익숙한 방식으로 일단 구현</strong></li>
-  <li>구현하려는 프로그래밍의 <strong>도메인 지식을 쌓는다.</strong></li>
-  <li><strong>구현한 모든 코드를 버린다.</strong></li>
-  <li>구현할 기능 목록 작성 또는 간단한 도메인 설계</li>
-  <li>기능 목록 중 가장 만만한 녀석부터 TDD로 구현 시작</li>
-  <li>복잡도가 높아져 리팩토링하기 힘든 상태가 되면 다시 버린다.</li>
-  <li>다시 도전</li>
-</ol>
+<p><strong>Stub</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">calculates_grades_average_for_student</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">when</span><span class="o">(</span><span class="n">gradebook</span><span class="o">.</span><span class="na">gradesFor</span><span class="o">(</span><span class="n">student</span><span class="o">)).</span><span class="na">thenReturn</span><span class="o">(</span><span class="n">grades</span><span class="o">(</span><span class="mi">8</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">10</span><span class="o">));</span> <span class="c1">// stubbing</span>
+
+    <span class="kt">double</span> <span class="n">averageGrades</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GradesService</span><span class="o">(</span><span class="n">gradebook</span><span class="o">).</span><span class="na">averageGrades</span><span class="o">(</span><span class="n">student</span><span class="o">);</span>
+
+    <span class="n">assertThat</span><span class="o">(</span><span class="n">averageGrades</span><span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="mf">8.0</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>Mock</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Window</span> <span class="n">windowMock</span> <span class="o">=</span> <span class="n">mock</span><span class="o">(</span><span class="nc">Window</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="nc">Door</span> <span class="n">doorMock</span> <span class="o">=</span> <span class="n">mock</span><span class="o">(</span><span class="nc">Door</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">enabling_security_locks_windows_and_doors</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">SecurityCentral</span> <span class="n">securityCentral</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SecurityCentral</span><span class="o">(</span><span class="n">windowMock</span><span class="o">,</span> <span class="n">doorMock</span><span class="o">);</span>
+
+    <span class="n">securityCentral</span><span class="o">.</span><span class="na">securityOn</span><span class="o">();</span>
+
+    <span class="n">verify</span><span class="o">(</span><span class="n">doorMock</span><span class="o">).</span><span class="na">close</span><span class="o">();</span>
+    <span class="n">verify</span><span class="o">(</span><span class="n">windowMock</span><span class="o">).</span><span class="na">close</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>통합 vs 고립</strong></p>
+<ul>
+  <li>협력 객체를 실제 객체로? 가짜 객체로?
+    <ul>
+      <li>실제 객체를 사용하면 협력 객체의 행위를 협력 객체 스스로가 정의</li>
+      <li>가짜 객체를 사용하면 협력 객체의 행위를 테스트가 정의</li>
+    </ul>
+  </li>
+  <li>가짜 객체(테스트 더블)를 사용할 경우
+    <ul>
+      <li>테스트 대상을 검증할 때 외부 요인(협력 객체)으로 부터 철저히 격리</li>
+      <li>하지만 테스트가 협력 객체의 상세 구현을 알아야 함</li>
+    </ul>
+  </li>
+  <li>실제 객체를 사용할 경우
+    <ul>
+      <li>실제 객체를 사용 할 경우 협력 객체의 상세 구현에 대해서 알 필요가 없음</li>
+      <li>하지만 협력 객체의 정상 동작 여부에 영향을 받음</li>
+    </ul>
+  </li>
+  <li>테스트 코드를 작성할 때
+    <ul>
+      <li>가짜 객체를 활용하면 실제 객체를 사용할 때 보다 조금 더 편하게 테스트를 작성할 수 있음</li>
+      <li>하지만 상세 구현에 의존하는 테스트가 될 수 있음</li>
+    </ul>
+  </li>
+  <li>추천하는 방법
+    <ul>
+      <li>TDD를 연습할 때는 가급적이면 실제 객체를 활용하는 것을 우선으로 진행</li>
+      <li>테스트 작성이 어렵거나 흐름이 잘 이어지지 않는다면 테스트 더블을 활용하는 방법으로 접근하시는 것을 추천</li>
+    </ul>
+  </li>
+</ul>
 
 <h2 id="-미션-후기">📝 미션 후기</h2>
-<p>기존에 TDD가 무엇인지는 알고 있었지만 실제로 써본 것은 처음이여서 어떻게 시작해야 할 지 막막하였다. 그래서 일단 키보드에서 손을 떼고 로또 애플리케이션을 만들기 위해서 어떤 도메인이 필요한지부터 생각하였다.</p>
+<p>미션이 진행될수록 점점 어려워졌고, 시간이 부족해지기 시작했다. 평소에 잘 마시지 않던 커피를 미션을 진행하는 동안 매일 마시게 되었다.</p>
 
-<p>물론 TDD만 처음 접한 것 뿐만 아니라 도메인 설계 지식도 부족하여 이 또한 막막하였다.</p>
+<p>이번 미션은 리팩터링, 경로 조회 기능, 인증을 통한 기능, 요금 조회 등을 구현하면서 인수 테스트와 TDD를 심화하는 과정이었다.</p>
 
-<p>도메인을 설계를 어떻게 해야 하나 고민하며 내가 내린 결론은, 실 생활에서 로또를 구매한다면 어떤 주체들이 필요한지를 떠올리는 것이었다. 실 생활에 대입해 보니 어느정도 도메인 윤곽이 잡혔고, 구현 기능 목록을 작성을 시작으로 TDD 사이클을 지키도록 노력하며 애플리케이션 개발을 하였다.</p>
+<p>이번 미션 같은 경우 인수 테스트 만들고, 도메인 단위 테스트를 하고, 서비스 통합 테스트를 하는 식으로 Outside In과 Inside Out 방식의 테스트를 섞어가면서 진행하였다. 이렇게 진행을 하니 요구사항과 기능 이해에 도움이 되었고, 복잡한 설계를 한번에 만들려고 하지않고 쪼개서 생각하게 되어 기능 구현에 도움이 되었다.</p>
 
-<p>TDD를 진행하며 처음 테스트코드를 작성할 때 어떤 기능부터 작성해야 하는지 잘 몰라서 답답했는데, 포비님의 가르침 대로 일단 생성을 테스트하는 것부터 만들며 시작하였다. 그렇게 물꼬를 트면서 시작하니까 조금은 수월하게 테스트코드를 작성할 수 있었다.</p>
+<p>하지만 처음부터 완벽할 수는 없었고 메서드명, 빌더패턴 적용, Optional 활용, 인터페이스 활용 등 피드백 받은 것들이 많았다. 기능 구현하랴 피드백 반영하랴… 정말 시간이 너무 부족했다. 😭</p>
 
-<p>TDD를 진행하면서 처음에는 어색했지만 조금씩 익숙해 졌고, 그 다음에는 객체지향 생활 체조 원칙을 지키며 프로그래밍 하려고 노력하며 프로그래밍을 하였고 미션을 잘 마무리할 수 있었다.</p>
+<p>이번 미션을 하면서 인수 테스트, 단위 테스트, 통합 테스트에 좀 더 익숙해질 수 있었고, 프로그래밍에 대한 피드백으로 실력 향상에 도움이 되었다.</p>
 
-<p>로또 미션을 하며 나의 문제점은 테스트코드를 작성할 때 설명의 가독성이 떨어진다는 것이었다.<em>(예: 로또 구매 가능 갯수 계산 -&gt; 5000원으로 구매 가능한 로또의 개수를 계산하면 5개 이다.)</em> 이를 개선하기 위해서 피드백 받은것 처럼 파라미터와 리턴값도 정확히 테스트코드 설명에 추가 하는식으로 작성하면 좋을 것 같다. <del>독서를 통해 글을 잘 쓰는 능력을 키우는 것도…</del></p>
+<p>뒤로 갈수록 미션 난이도가 높아지면서, 미션 한 단계 한 단계 Merge 될 때마다 정말 감격(?)스러웠다… 😭</p>
+
+<p>이번 미션에서의 나의 문제점은 피드백의 내용에서 알 수 있듯이 프로그래밍 실력 부족이었다… 😭<br />
+책만 쌓여간다… 📖📖📖</p>
 
 <h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/java-lotto-pro/tree/step5" target="_blank">깃허브 저장소 링크</a></p>
+<p><a href="https://github.com/sangjaeoh/atdd-subway-service/tree/step4" target="_blank">깃허브 저장소 링크</a></p>
 
         
       </section>
@@ -466,9 +514,11 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#education" class="page__taxonomy-item p-category" rel="tag">Education</a><span class="sep">, </span>
+      <a href="/tags/#%EA%B5%90%EC%9C%A1" class="page__taxonomy-item p-category" rel="tag">교육</a><span class="sep">, </span>
     
-      <a href="/tags/#%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84-pro-5%EA%B8%B0" class="page__taxonomy-item p-category" rel="tag">우아한테크캠프 Pro 5기</a>
+      <a href="/tags/#%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84-pro-5%EA%B8%B0" class="page__taxonomy-item p-category" rel="tag">우아한테크캠프 Pro 5기</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%9A%8C%EA%B3%A0" class="page__taxonomy-item p-category" rel="tag">회고</a>
     
     </span>
   </p>
@@ -485,7 +535,7 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#education" class="page__taxonomy-item p-category" rel="tag">Education</a>
+      <a href="/categories/#%ED%9A%8C%EA%B3%A0" class="page__taxonomy-item p-category" rel="tag">회고</a>
     
     </span>
   </p>
@@ -493,7 +543,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-03T00:00:00+09:00">2023-01-03</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-05T00:00:00+09:00">2023-01-05</time></p>
 
       </footer>
 
@@ -502,22 +552,22 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84+Pro+5%EA%B8%B0+-+1%EC%A3%BC%EC%B0%A8+%28%EB%A1%9C%EB%98%90+TDD%29%20http%3A%2F%2Flocalhost%3A4000%2Feducation%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-1%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84+Pro+5%EA%B8%B0+-+5%EC%A3%BC%EC%B0%A8+%28%EC%9D%B8%EC%88%98+%ED%85%8C%EC%8A%A4%ED%8A%B8+%EA%B8%B0%EB%B0%98+TDD%29%20http%3A%2F%2Flocalhost%3A4000%2F%25ED%259A%258C%25EA%25B3%25A0%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-5%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Feducation%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-1%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25ED%259A%258C%25EA%25B3%25A0%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-5%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Feducation%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-1%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F%25ED%259A%258C%25EA%25B3%25A0%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-5%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/insight/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%83%9D%ED%99%9C%EC%B2%B4%EC%A1%B0-%EC%9B%90%EC%B9%99/" class="pagination--pager" title="객체지향 생활체조 원칙
+      <a href="/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-4%EC%A3%BC%EC%B0%A8/" class="pagination--pager" title="우아한테크캠프 Pro 5기 - 4주차 (그럴듯한 서비스 만들기)
 ">이전</a>
     
     
-      <a href="/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8/" class="pagination--pager" title="우아한테크캠프 Pro 5기 - 2주차 (JPA)
+      <a href="/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8/" class="pagination--pager" title="우아한테크캠프 Pro 5기 - 6주차 (서비스 진단하기)
 ">다음</a>
     
   </nav>
@@ -616,7 +666,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/mac/%EB%8B%A8%EC%B6%95%ED%82%A4/" rel="permalink">MAC 단축키 모음 💻
+        <a href="/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="permalink">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)
 </a>
       
     </h2>
@@ -638,15 +688,9 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">⌨ 일반 단축키
-
-  화면 잠금: Control + Command + Q
-  복제: Command + x
-  다시찾기: Command + G
-  윈도우 최소화: Command + M
-  프린트: Command + P
-  붙여넣기: Command + V
-  모두선택: Command ...</p>
+    <p class="archive__item-excerpt" itemprop="description">2022년 10월 24일 ~ 2022년 12월 23일
+우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.
+</p>
   </article>
 </div>
 
@@ -660,7 +704,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="permalink">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)
+        <a href="/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-7%EC%A3%BC%EC%B0%A8/" rel="permalink">우아한테크캠프 Pro 5기 - 7주차 (레거시 코드 리팩터링)
 </a>
       
     </h2>
@@ -751,8 +795,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/education/우아한테크캠프pro5기-1주차"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-5%EC%A3%BC%EC%B0%A8/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/%ED%9A%8C%EA%B3%A0/우아한테크캠프pro5기-5주차"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

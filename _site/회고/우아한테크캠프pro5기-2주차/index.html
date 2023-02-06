@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>우아한테크캠프 Pro 5기 - 4주차 (그럴듯한 서비스 만들기) | Stack O Flow</title>
+<!-- begin _includes/seo.html --><title>우아한테크캠프 Pro 5기 - 2주차 (JPA) | Stack O Flow</title>
 <meta name="description" content="2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.">
 
 
@@ -22,8 +22,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Stack O Flow">
-<meta property="og:title" content="우아한테크캠프 Pro 5기 - 4주차 (그럴듯한 서비스 만들기)">
-<meta property="og:url" content="http://localhost:4000/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-4%EC%A3%BC%EC%B0%A8/">
+<meta property="og:title" content="우아한테크캠프 Pro 5기 - 2주차 (JPA)">
+<meta property="og:url" content="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8/">
 
 
   <meta property="og:description" content="2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.">
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-01-04T00:00:00+09:00">
+  <meta property="article:published_time" content="2023-01-03T00:00:00+09:00">
 
 
 
@@ -45,7 +45,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-4%EC%A3%BC%EC%B0%A8/">
+<link rel="canonical" href="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8/">
 
 
 
@@ -290,9 +290,6 @@
         <ul>
           
           
-            <li><a href="/categories/ddd">DDD (0)</a></li>
-          
-          
             <li><a href="/categories/insight">Insight (1)</a></li>
           
           
@@ -317,7 +314,7 @@
             <li><a href="/categories/books">책 (2)</a></li>
           
           
-            <li><a href="/categories/education">교육 (9)</a></li>
+            <li><a href="/categories/%ED%9A%8C%EA%B3%A0">회고 (9)</a></li>
           
         </ul>
         
@@ -333,16 +330,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="우아한테크캠프 Pro 5기 - 4주차 (그럴듯한 서비스 만들기)">
+    <meta itemprop="headline" content="우아한테크캠프 Pro 5기 - 2주차 (JPA)">
     <meta itemprop="description" content="2022년 10월 24일 ~ 2022년 12월 23일우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.">
-    <meta itemprop="datePublished" content="2023-01-04T00:00:00+09:00">
+    <meta itemprop="datePublished" content="2023-01-03T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-4%EC%A3%BC%EC%B0%A8/" class="u-url" itemprop="url">우아한테크캠프 Pro 5기 - 4주차 (그럴듯한 서비스 만들기)
+            <a href="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8/" class="u-url" itemprop="url">우아한테크캠프 Pro 5기 - 2주차 (JPA)
 </a>
           </h1>
           
@@ -353,7 +350,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2023-01-04T00:00:00+09:00">2023-01-04</time>
+        <time datetime="2023-01-03T00:00:00+09:00">2023-01-03</time>
       </span>
     
 
@@ -380,47 +377,67 @@
 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
 
 <h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
-<p>AWS에서 네트워크를 구성해보고 서비스를 배포하며 네트워크에 대한 기본적인 개념을 학습해보는 미션</p>
+<p>QnA 저장소를 기반으로 JPA를 사용하여 엔티티 매핑, 연관 관계 매핑, 서비스 레이어 리팩터링을 진행하는 미션</p>
 
 <h2 id="-학습-목표">🎯 학습 목표</h2>
 <ul>
-  <li>AWS 상에서 네트워크를 구성하며, 네트워크 기본 개념들을 학습</li>
-  <li>도커 컨테이너를 학습</li>
-  <li>개발 환경을 구성해보고 지속적 통합을 경험</li>
+  <li>JPA 학습 테스트를 통한 <strong>JPA 학습</strong></li>
+  <li>Q&amp;A 서비스를 JPA로 매핑</li>
 </ul>
 
 <h2 id="-강의-내용">📖 강의 내용</h2>
-<p>AWS 네트워크 구성, 네트워크 통신 설명, 도커 컨테이너 설명과 함께 직접 AWS에서 네트워크 망을 구성하고, 서비스를 배포할 수 있도록 가이드</p>
+<p>JPA에 대해 전반적인 내용을 설명합니다. 강의 내용이 많아 여기서 다 설명할 수 없고 아래의 링크를 통해 학습하거나 <a href="https://edu.nextstep.camp/">NEXTSTEP</a> 강의를 통해 학습할 수 있습니다. 😆<br />
+- <a href="https://www.youtube.com/playlist?list=PL9mhQYIlKEhfpMVndI23RwWTL9-VL-B7U" target="_blank">JPA 프로그래밍 기본기 다지기 | T아카데미</a><br />
+- <a href="https://www.slideshare.net/ssusere4d67c/jpa-56081624" target="_blank">영속성 컨텍스트로 보는 JPA</a><br />
+- <a href="https://youtu.be/mezbxKGu68Y" target="_blank">ORM vs SQL Mapper vs JDBC</a><br />
+- <a href="http://www.yes24.com/Product/Goods/19040233" target="_blank">자바 ORM 표준 JPA 프로그래밍</a></p>
 
-<p><strong>Cloud?</strong><br />
-인터넷을 통해 원격으로 접근할 수 있는 모든 것을 의미합니다.</p>
+<p><strong>JPA 설정</strong><br />
+- Spring Data JPA 사용 시 아래 옵션은 동작 쿼리를 로그로 확인할 수 있게 해준다.</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.show-sql=true
+</code></pre></div></div>
 
-<p><strong>Cloud Computing?</strong><br />
-서버, 데이터베이스, 네트워킹 등 컴퓨팅 리소스를
-인터넷을 통해 관리하는 것을 의미합니다</p>
+<p>- H2 데이터베이스를 사용한다면 아래의 프로퍼티를 추가하여 MySQL Dialect을 사용할 수 있다.</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spring.datasource.url=jdbc:h2:~/test;MODE=MySQL
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL57Dialect
+</code></pre></div></div>
 
-<p><strong>Cloud를 사용하는 이유</strong><br />
-클라우드를 사용한다는 것은 단순히 컴퓨팅 리소스를 인터넷을 통해 관리하는 것만을 의미하지 않습니다. <strong>관심사를 분리하여 우리가 집중할 대상에 보다 집중하기 위함</strong>입니다.</p>
+<p><strong>엔티티 비교</strong><br />
+- 엔티티의 <code class="language-plaintext highlighter-rouge">equals()</code>와 <code class="language-plaintext highlighter-rouge">hashCode()</code>를 구현할 때는 엔티티의 식별자만 있어도 충분하다.</p>
 
-<p><strong>AWS 네트워크 구성</strong>
-<img src="/assets/images/posts/aws_network.png" alt="aws_network" /></p>
+<p><strong>@ManyToOne vs @OneToOne</strong><br />
+- 생성되는 DDL은 똑같을 수 있다.<br />
+- 관념적으로 차이가 발생한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Address</span> <span class="n">address</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Address</span><span class="o">();</span>
+<span class="nc">Order</span> <span class="n">order1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Order</span><span class="o">();</span>
+<span class="n">order1</span><span class="o">.</span><span class="na">setAddress</span><span class="o">(</span><span class="n">address</span><span class="o">);</span>
+<span class="nc">Order</span> <span class="n">order2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Order</span><span class="o">();</span>
+<span class="n">order2</span><span class="o">.</span><span class="na">setAddress</span><span class="o">(</span><span class="n">address</span><span class="o">);</span>
+<span class="n">save</span><span class="o">();</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@OneToOne</span> <span class="k">case</span><span class="o">:</span>
+<span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">HibernateException</span><span class="o">:</span> <span class="nc">More</span> <span class="n">than</span> <span class="n">one</span> <span class="n">row</span> <span class="n">with</span> <span class="n">the</span> <span class="n">given</span> <span class="n">identifier</span> <span class="n">was</span> <span class="nl">found:</span> <span class="mi">1</span>
 
-<p><strong>OSI 7 Layer</strong></p>
-
-<p><img src="/assets/images/posts/osi_7.jpeg" alt="osi_7" />
-<img src="/assets/images/posts/osi_7_description.png" alt="osi_7_description" /></p>
+<span class="nd">@ManyToOne</span> <span class="k">case</span><span class="o">:</span>
+<span class="no">SUCCESS</span>
+</code></pre></div></div>
 
 <h2 id="-미션-후기">📝 미션 후기</h2>
-<p>이번 미션에서는 네트워크의 대략적인 윤곽을 잡을 수 있다는 점과, 비용의 부담때문에 도전해보기 어려운 AWS를 경험할 수 있다는 점이 좋았다.</p>
+<p>JPA 미션을 시작하기 전에 바로 코딩을 하기 보다는 부족한 JPA지식을 쌓고 미션을 시작하는게 좋다고 판단하여 예전에 샀던 <strong>자바 ORM 표준 JPA 프로그래밍</strong> 책을 다시한번 읽으며 JPA에 대해 공부를 먼저 하였다. 처음 읽었을 때는 이해 안가는 부분이 많았지만 <del>(mappedBy)</del> 두 번째 읽으니 한 번 읽은 경험이 있어서 그런지 처음보다는 빠르게 이해가 되었다.</p>
 
-<p>도커 컨테이너와 쉘 스크립트 작성의 경우 기존에 사용해본 경험이 있어서 이번 미션에서 사용하는 것에 크게 어려움은 없었지만, 네트워크 개념과 AWS 구성하는 것에서 쪼금 애를 먹었다. 하지만 네트워크 구성에 필요한 부분을 하나부터 열까지 실행 커맨드와 함께 그림으로 설명해 주셔서 나름 수월하게 미션을 진행할 수 있었다. <del>만약 도커, 쉘 스크립트를 처음 접했다면 아마 애로사항이 많았을거 같다.😂</del></p>
+<p>우테캠 Pro 진행하는 사람들끼리 모여 JPA 스터디그룹도 만드는것 같았지만 내가 스터디를 병행하기에는 시간이 부족할거 같아 혼자 공부하는 방법을 택했다. <del>좀 아쉽다…</del></p>
 
-<p>이번 강의를 통해 네트워크 전반적인 내용을 알았다고는 절대 말할 수 없다. 단지 대략적인 윤곽만 잡았을 뿐이다.</p>
+<p>주말을 투자해 책을 읽으니 대략적으로 내용을 이해할 수 있었고, 미션을 시작하였다.</p>
 
-<p>네트워크는 파면 팔수록 알아야 하는 내용이 많기 때문에 반드시 따로 공부를 해봐야 할 것 같다. 📖🔎</p>
+<p>엔티티 매핑, 연관 관계 매핑의 경우 크게 복잡한 요구사항이 아니라 수월하게 진행할 수 있었고, 질문 삭제하기 리팩터링(서비스 레이어 리팩터링) 경우에는 강의 내용을 참고하여 도메인으로 로직을 분리하고 서비스에서는 도메인을 호출하는 식으로 리팩터링을 진행하며 미션을 마무리할 수 있었다.</p>
+
+<p>JPA 미션을 하며 나의 문제점은 JPA에 사용에 대한 문제라기 보다는<del>(물론 JPA 이해도가 높다고 할 수 없으며 공부 필요!)</del> 이전 미션에서도 지적 받은 테스트 코드의 미숙함으로 <strong>설명의 가독성</strong>, <strong>테스트의 독립성을 최대로 보장하는 습관</strong>이 부족하였다.</p>
+
+<p>이를 개선하기 위해서 테스트설명은 파라미터와 리턴값도 작성하며 상세하게 작성하고, <code class="language-plaintext highlighter-rouge">@BeforeEach</code>는 정말 필요할 때만 사용하며 리뷰어님께 피드백 받은 것처럼 <code class="language-plaintext highlighter-rouge">TextFixture</code>를 활용하는 방법도 찾아서 적용해 봐야겠다. 그리고 제일 중요한 것은 반복 숙달을 통한 연습이 필요할 것 같다. 😂</p>
 
 <h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/infra-subway-deploy/tree/step3" target="_blank">깃허브 저장소 링크</a></p>
+<p><a href="https://github.com/sangjaeoh/jwp-qna/tree/step3" target="_blank">깃허브 저장소 링크</a></p>
 
         
       </section>
@@ -437,9 +454,11 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#education" class="page__taxonomy-item p-category" rel="tag">Education</a><span class="sep">, </span>
+      <a href="/tags/#%EA%B5%90%EC%9C%A1" class="page__taxonomy-item p-category" rel="tag">교육</a><span class="sep">, </span>
     
-      <a href="/tags/#%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84-pro-5%EA%B8%B0" class="page__taxonomy-item p-category" rel="tag">우아한테크캠프 Pro 5기</a>
+      <a href="/tags/#%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84-pro-5%EA%B8%B0" class="page__taxonomy-item p-category" rel="tag">우아한테크캠프 Pro 5기</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%9A%8C%EA%B3%A0" class="page__taxonomy-item p-category" rel="tag">회고</a>
     
     </span>
   </p>
@@ -456,7 +475,7 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#education" class="page__taxonomy-item p-category" rel="tag">Education</a>
+      <a href="/categories/#%ED%9A%8C%EA%B3%A0" class="page__taxonomy-item p-category" rel="tag">회고</a>
     
     </span>
   </p>
@@ -464,7 +483,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-04T00:00:00+09:00">2023-01-04</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-03T00:00:00+09:00">2023-01-03</time></p>
 
       </footer>
 
@@ -473,22 +492,22 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84+Pro+5%EA%B8%B0+-+4%EC%A3%BC%EC%B0%A8+%28%EA%B7%B8%EB%9F%B4%EB%93%AF%ED%95%9C+%EC%84%9C%EB%B9%84%EC%8A%A4+%EB%A7%8C%EB%93%A4%EA%B8%B0%29%20http%3A%2F%2Flocalhost%3A4000%2Feducation%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-4%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84+Pro+5%EA%B8%B0+-+2%EC%A3%BC%EC%B0%A8+%28JPA%29%20http%3A%2F%2Flocalhost%3A4000%2F%25ED%259A%258C%25EA%25B3%25A0%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-2%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Feducation%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-4%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25ED%259A%258C%25EA%25B3%25A0%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-2%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Feducation%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-4%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F%25ED%259A%258C%25EA%25B3%25A0%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-2%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-3%EC%A3%BC%EC%B0%A8/" class="pagination--pager" title="우아한테크캠프 Pro 5기 - 3주차 (인수 테스트 주도 개발 - ATDD)
+      <a href="/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8/" class="pagination--pager" title="우아한테크캠프 Pro 5기 - 1주차 (로또 TDD)
 ">이전</a>
     
     
-      <a href="/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-5%EC%A3%BC%EC%B0%A8/" class="pagination--pager" title="우아한테크캠프 Pro 5기 - 5주차 (인수 테스트 기반 TDD)
+      <a href="/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-3%EC%A3%BC%EC%B0%A8/" class="pagination--pager" title="우아한테크캠프 Pro 5기 - 3주차 (인수 테스트 주도 개발 - ATDD)
 ">다음</a>
     
   </nav>
@@ -587,7 +606,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/mac/%EB%8B%A8%EC%B6%95%ED%82%A4/" rel="permalink">MAC 단축키 모음 💻
+        <a href="/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="permalink">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)
 </a>
       
     </h2>
@@ -609,15 +628,9 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">⌨ 일반 단축키
-
-  화면 잠금: Control + Command + Q
-  복제: Command + x
-  다시찾기: Command + G
-  윈도우 최소화: Command + M
-  프린트: Command + P
-  붙여넣기: Command + V
-  모두선택: Command ...</p>
+    <p class="archive__item-excerpt" itemprop="description">2022년 10월 24일 ~ 2022년 12월 23일
+우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.
+</p>
   </article>
 </div>
 
@@ -631,7 +644,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="permalink">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)
+        <a href="/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-7%EC%A3%BC%EC%B0%A8/" rel="permalink">우아한테크캠프 Pro 5기 - 7주차 (레거시 코드 리팩터링)
 </a>
       
     </h2>
@@ -722,8 +735,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-4%EC%A3%BC%EC%B0%A8/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/education/우아한테크캠프pro5기-4주차"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/%ED%9A%8C%EA%B3%A0/우아한테크캠프pro5기-2주차"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

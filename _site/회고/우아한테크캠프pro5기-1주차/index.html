@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기) | Stack O Flow</title>
+<!-- begin _includes/seo.html --><title>우아한테크캠프 Pro 5기 - 1주차 (로또 TDD) | Stack O Flow</title>
 <meta name="description" content="2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.">
 
 
@@ -22,8 +22,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Stack O Flow">
-<meta property="og:title" content="우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)">
-<meta property="og:url" content="http://localhost:4000/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/">
+<meta property="og:title" content="우아한테크캠프 Pro 5기 - 1주차 (로또 TDD)">
+<meta property="og:url" content="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8/">
 
 
   <meta property="og:description" content="2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.">
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-01-08T00:00:00+09:00">
+  <meta property="article:published_time" content="2023-01-03T00:00:00+09:00">
 
 
 
@@ -45,7 +45,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/">
+<link rel="canonical" href="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8/">
 
 
 
@@ -290,9 +290,6 @@
         <ul>
           
           
-            <li><a href="/categories/ddd">DDD (0)</a></li>
-          
-          
             <li><a href="/categories/insight">Insight (1)</a></li>
           
           
@@ -317,7 +314,7 @@
             <li><a href="/categories/books">책 (2)</a></li>
           
           
-            <li><a href="/categories/education">교육 (9)</a></li>
+            <li><a href="/categories/%ED%9A%8C%EA%B3%A0">회고 (9)</a></li>
           
         </ul>
         
@@ -333,16 +330,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)">
+    <meta itemprop="headline" content="우아한테크캠프 Pro 5기 - 1주차 (로또 TDD)">
     <meta itemprop="description" content="2022년 10월 24일 ~ 2022년 12월 23일우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.">
-    <meta itemprop="datePublished" content="2023-01-08T00:00:00+09:00">
+    <meta itemprop="datePublished" content="2023-01-03T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" class="u-url" itemprop="url">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)
+            <a href="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8/" class="u-url" itemprop="url">우아한테크캠프 Pro 5기 - 1주차 (로또 TDD)
 </a>
           </h1>
           
@@ -353,7 +350,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2023-01-08T00:00:00+09:00">2023-01-08</time>
+        <time datetime="2023-01-03T00:00:00+09:00">2023-01-03</time>
       </span>
     
 
@@ -380,34 +377,76 @@
 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
 
 <h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
-<p>안정적인 서비스를 위한 성능개선, 스케일 아웃, 쿼리 최적화 등을 직접 해보는 미션</p>
+<p>로또 구입 금액을 입력하면, 구입 금액에 해당하는 로또를 발급하는 애플리케이션을 만드는 미션</p>
 
 <h2 id="-학습-목표">🎯 학습 목표</h2>
 <ul>
-  <li>HTTP 개선에 따른 차이를 이해하고 Reverse Proxy 성능 개선</li>
-  <li>HTTP Cache 전략을 이해하여 적절한 정책을 설정</li>
-  <li>쿼리를 최적화하여 조회 성능을 개선</li>
-  <li>인덱스를 설정하여 조회 성능을 개선</li>
+  <li><strong>TDD 기반으로 프로그래밍하는 경험</strong></li>
+  <li>메소드 분리 + 클래스를 분리하는 리팩토링 경험</li>
+  <li>점진적으로 리팩토링하는 경험</li>
+  <li>객체지향 생활 체조 원칙 경험</li>
+  <li>Clean Code 경험</li>
 </ul>
 
 <h2 id="-강의-내용">📖 강의 내용</h2>
-<p>화면 응답 개선을 위한 Nginx 설정, AWS Auto Scaling Group를 이용한 스케일아웃, MySql 쿼리 최적화 및 인덱스 설계 설명</p>
+<p>강의 내용은 TDD란 무엇이고, 하는 이유, TDD로 프로그래밍 하는 방법, TDD 원칙을 설명합니다.</p>
+
+<p><strong>TDD란?</strong></p>
+<ul>
+  <li>TDD = TFD(Test First Development) + 리팩토링</li>
+  <li>TDD란 프로그래밍 의사결정과 피드백 사이의 간극을 의식하고 이를 제어하는 기술이다.</li>
+  <li>TDD의 아이러니 중 하나는 테스트 기술이 아니라는 점이다. TDD는 분석 기술이며, 설계 기술이기도 하다.</li>
+</ul>
+
+<p><strong>TDD를 하는 이유</strong></p>
+<ul>
+  <li>디버깅 시간을 줄여준다.</li>
+  <li>동작하는 문서 역할을 한다.</li>
+  <li>변화에 대한 두려움을 줄여준다.</li>
+</ul>
+
+<p><strong>TDD 사이클</strong>
+<img src="/assets/images/posts/tdd_cycle.png" alt="tdd_cycle" /></p>
+<ul>
+  <li>실패하는 테스트를 구현한다.</li>
+  <li>테스트가 성공하도록 프로덕션 코드를 구현한다.</li>
+  <li>프로덕션 코드와 테스트코드를 리팩토링한다.</li>
+</ul>
+
+<p><strong>TDD 원칙</strong></p>
+<ul>
+  <li>실패하는 단위 테스트를 작성할 때까지 프로덕션 코드(production code)를 작성하지 않는다.</li>
+  <li>컴파일은 실패하지 않으면서 실행이 실패하는 정도로만 단위 테스트를 작성한다.</li>
+  <li>현재 실패하는 테스트를 통과할 정도로만 실제 코드를 작성한다.</li>
+</ul>
+
+<p><strong>TDD가 막막할 때 팁</strong></p>
+<ol>
+  <li>우선 <strong>구현할 기능 목록을 작성</strong>한 후에 TDD로 도전.</li>
+  <li>그래도 막막하다면 <strong>지금까지 익숙한 방식으로 일단 구현</strong></li>
+  <li>구현하려는 프로그래밍의 <strong>도메인 지식을 쌓는다.</strong></li>
+  <li><strong>구현한 모든 코드를 버린다.</strong></li>
+  <li>구현할 기능 목록 작성 또는 간단한 도메인 설계</li>
+  <li>기능 목록 중 가장 만만한 녀석부터 TDD로 구현 시작</li>
+  <li>복잡도가 높아져 리팩토링하기 힘든 상태가 되면 다시 버린다.</li>
+  <li>다시 도전</li>
+</ol>
 
 <h2 id="-미션-후기">📝 미션 후기</h2>
-<p>이번 미션은 시간 부족으로 7주차 미션과 병행하면 진행하였다 😭</p>
+<p>기존에 TDD가 무엇인지는 알고 있었지만 실제로 써본 것은 처음이여서 어떻게 시작해야 할 지 막막하였다. 그래서 일단 키보드에서 손을 떼고 로또 애플리케이션을 만들기 위해서 어떤 도메인이 필요한지부터 생각하였다.</p>
 
-<p>강의를 통해서 배운 Nginx 설정, AWS Auto Scaling Group를 이용한 스케일아웃 등은 직접 하나하나 검색해보면서 적용 해보려면 엄청 힘들고 오래는 작업인데 강의를 통해 바로 배울 수 있어서 좋았고, MySql 쿼리 최적화 및 인덱스 설계는 앞으로 DB조회를 할 때 어떤점을 주의하면서 query를 만들어야 하는지 알 수 있어서 좋았다.</p>
+<p>물론 TDD만 처음 접한 것 뿐만 아니라 도메인 설계 지식도 부족하여 이 또한 막막하였다.</p>
 
-<p>Auto Scaling Group을 설정할 때 인스턴스의 Health Check가 안되서 왜 안되지 하며 몇 시간을 고민했는데 강의 설명에 함정카드가 존재 했었다. 그 이유는 Health Check가 되게 하려면 인스턴스에 퍼블릭 IP를 할당해주어야 하는데 강의 설명에는 그 내용이 없었다. 😱<br />
-<strong>아래 설정들은 자신의 상황에 맞게 세팅합니다. 이미지의 정보는 단순 예시입니다.</strong> 라는 강의 설명 문구의 의미를 잘 확인 했어야 했다. 
-아마 나같이 무작정 따라하는 교육생들은 꽤나 고생했을거 같다 🤣</p>
+<p>도메인을 설계를 어떻게 해야 하나 고민하며 내가 내린 결론은, 실 생활에서 로또를 구매한다면 어떤 주체들이 필요한지를 떠올리는 것이었다. 실 생활에 대입해 보니 어느정도 도메인 윤곽이 잡혔고, 구현 기능 목록을 작성을 시작으로 TDD 사이클을 지키도록 노력하며 애플리케이션 개발을 하였다.</p>
 
-<p>MySql 쿼리 최적화 및 인덱스 설계의 경우 어떻게 하면 좀 더 조회가 빨라질까 하면서 ID, 참조 컬럼외의 컬럼에도 인덱싱 해 보았다. 그런데 오히려 조회 속도가 느려지는 경우도 발생하였다.😱  인덱스가 많은 경우 오히려 쿼리 성능이 떨어진다는 것을 확인할 수 있었다.</p>
+<p>TDD를 진행하며 처음 테스트코드를 작성할 때 어떤 기능부터 작성해야 하는지 잘 몰라서 답답했는데, 포비님의 가르침 대로 일단 생성을 테스트하는 것부터 만들며 시작하였다. 그렇게 물꼬를 트면서 시작하니까 조금은 수월하게 테스트코드를 작성할 수 있었다.</p>
 
-<p>이번 강의를 통해 느낀 점은 인프라 설정은 정말 많은 부분은 신경써야 하면서 구성하기도 힘들다는 점과 테이블 인덱스 설정같은 경우 특수한 경우가 아니라면 ID, 참조 컬럼에만 인덱싱 하면 좋을거같다는 점이다.</p>
+<p>TDD를 진행하면서 처음에는 어색했지만 조금씩 익숙해 졌고, 그 다음에는 객체지향 생활 체조 원칙을 지키며 프로그래밍 하려고 노력하며 프로그래밍을 하였고 미션을 잘 마무리할 수 있었다.</p>
+
+<p>로또 미션을 하며 나의 문제점은 테스트코드를 작성할 때 설명의 가독성이 떨어진다는 것이었다.<em>(예: 로또 구매 가능 갯수 계산 -&gt; 5000원으로 구매 가능한 로또의 개수를 계산하면 5개 이다.)</em> 이를 개선하기 위해서 피드백 받은것 처럼 파라미터와 리턴값도 정확히 테스트코드 설명에 추가 하는식으로 작성하면 좋을 것 같다. <del>독서를 통해 글을 잘 쓰는 능력을 키우는 것도…</del></p>
 
 <h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/infra-subway-performance/tree/step4" target="_blank">깃허브 저장소 링크</a></p>
+<p><a href="https://github.com/sangjaeoh/java-lotto-pro/tree/step5" target="_blank">깃허브 저장소 링크</a></p>
 
         
       </section>
@@ -424,9 +463,11 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#education" class="page__taxonomy-item p-category" rel="tag">Education</a><span class="sep">, </span>
+      <a href="/tags/#%EA%B5%90%EC%9C%A1" class="page__taxonomy-item p-category" rel="tag">교육</a><span class="sep">, </span>
     
-      <a href="/tags/#%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84-pro-5%EA%B8%B0" class="page__taxonomy-item p-category" rel="tag">우아한테크캠프 Pro 5기</a>
+      <a href="/tags/#%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84-pro-5%EA%B8%B0" class="page__taxonomy-item p-category" rel="tag">우아한테크캠프 Pro 5기</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%9A%8C%EA%B3%A0" class="page__taxonomy-item p-category" rel="tag">회고</a>
     
     </span>
   </p>
@@ -443,7 +484,7 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#education" class="page__taxonomy-item p-category" rel="tag">Education</a>
+      <a href="/categories/#%ED%9A%8C%EA%B3%A0" class="page__taxonomy-item p-category" rel="tag">회고</a>
     
     </span>
   </p>
@@ -451,7 +492,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-08T00:00:00+09:00">2023-01-08</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-03T00:00:00+09:00">2023-01-03</time></p>
 
       </footer>
 
@@ -460,22 +501,22 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84+Pro+5%EA%B8%B0+-+8%EC%A3%BC%EC%B0%A8+%28%EC%95%88%EC%A0%95%EC%A0%81%EC%9D%B8+%EC%84%9C%EB%B9%84%EC%8A%A4+%EB%A7%8C%EB%93%A4%EA%B8%B0%29%20http%3A%2F%2Flocalhost%3A4000%2Feducation%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-8%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84+Pro+5%EA%B8%B0+-+1%EC%A3%BC%EC%B0%A8+%28%EB%A1%9C%EB%98%90+TDD%29%20http%3A%2F%2Flocalhost%3A4000%2F%25ED%259A%258C%25EA%25B3%25A0%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-1%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Feducation%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-8%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25ED%259A%258C%25EA%25B3%25A0%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-1%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Feducation%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-8%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F%25ED%259A%258C%25EA%25B3%25A0%2F%25EC%259A%25B0%25EC%2595%2584%25ED%2595%259C%25ED%2585%258C%25ED%2581%25AC%25EC%25BA%25A0%25ED%2594%2584pro5%25EA%25B8%25B0-1%25EC%25A3%25BC%25EC%25B0%25A8%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-7%EC%A3%BC%EC%B0%A8/" class="pagination--pager" title="우아한테크캠프 Pro 5기 - 7주차 (레거시 코드 리팩터링)
+      <a href="/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-%EC%86%8C%EA%B0%9C/" class="pagination--pager" title="우아한테크캠프 Pro 5기 - 소개 및 커리큘럼
 ">이전</a>
     
     
-      <a href="/mac/%EB%8B%A8%EC%B6%95%ED%82%A4/" class="pagination--pager" title="MAC 단축키 모음 💻
+      <a href="/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-2%EC%A3%BC%EC%B0%A8/" class="pagination--pager" title="우아한테크캠프 Pro 5기 - 2주차 (JPA)
 ">다음</a>
     
   </nav>
@@ -574,7 +615,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/mac/%EB%8B%A8%EC%B6%95%ED%82%A4/" rel="permalink">MAC 단축키 모음 💻
+        <a href="/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="permalink">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)
 </a>
       
     </h2>
@@ -596,15 +637,9 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">⌨ 일반 단축키
-
-  화면 잠금: Control + Command + Q
-  복제: Command + x
-  다시찾기: Command + G
-  윈도우 최소화: Command + M
-  프린트: Command + P
-  붙여넣기: Command + V
-  모두선택: Command ...</p>
+    <p class="archive__item-excerpt" itemprop="description">2022년 10월 24일 ~ 2022년 12월 23일
+우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.
+</p>
   </article>
 </div>
 
@@ -618,7 +653,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-7%EC%A3%BC%EC%B0%A8/" rel="permalink">우아한테크캠프 Pro 5기 - 7주차 (레거시 코드 리팩터링)
+        <a href="/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-7%EC%A3%BC%EC%B0%A8/" rel="permalink">우아한테크캠프 Pro 5기 - 7주차 (레거시 코드 리팩터링)
 </a>
       
     </h2>
@@ -709,8 +744,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/education/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/education/우아한테크캠프pro5기-8주차"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-1%EC%A3%BC%EC%B0%A8/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/%ED%9A%8C%EA%B3%A0/우아한테크캠프pro5기-1주차"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

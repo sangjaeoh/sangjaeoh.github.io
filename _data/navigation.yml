@@ -11,9 +11,6 @@ main:
 docs:
   - title: "Stack"
     children:
-      - title: "DDD"
-        url: /categories/ddd
-        category: "DDD"
       - title: "Insight"
         url: /categories/insight
         category: "Insight"
@@ -30,9 +27,9 @@ docs:
       - title: "책"
         url: /categories/books
         category: "Books"
-      - title: "교육"
-        url: /categories/education
-        category: "Education"
+      - title: "회고"
+        url: /categories/회고
+        category: "회고"
 
 
       
