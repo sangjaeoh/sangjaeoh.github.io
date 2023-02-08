@@ -1,4 +1,686 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-08T00:33:52+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">TDD(Test Driven Development) - 테스트 주도 개발</title><link href="http://localhost:4000/insight/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/" rel="alternate" type="text/html" title="TDD(Test Driven Development) - 테스트 주도 개발" /><published>2023-02-07T00:00:00+09:00</published><updated>2023-02-07T00:00:00+09:00</updated><id>http://localhost:4000/insight/TDD(Test%20Driven%20Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C</id><content type="html" xml:base="http://localhost:4000/insight/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/"><![CDATA[<p><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-08T23:36:00+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">JUnit 5, AssertJ Cheat Sheet</title><link href="http://localhost:4000/java/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/" rel="alternate" type="text/html" title="JUnit 5, AssertJ Cheat Sheet" /><published>2023-02-07T00:00:00+09:00</published><updated>2023-02-07T00:00:00+09:00</updated><id>http://localhost:4000/java/TDD(Test%20Driven%20Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C</id><content type="html" xml:base="http://localhost:4000/java/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/"><![CDATA[<p>JUnit 5, AssertJ의 사용법을 간단하게 정리하였습니다. 😁</p>
+<ul>
+  <li><a href="https://junit.org/junit5/docs/current/user-guide/#overview-what-is-junit-5" target="_blank">jUnit 5 가이드 링크</a></li>
+  <li><a href="https://assertj.github.io/doc/" target="_blank">AssertJ 가이드 링크</a>
+<br />
+<br />
+<br /></li>
+</ul>
+
+<h1 id="-junit-이란">🤔 JUnit 이란?</h1>
+<ul>
+  <li>Java 진영의 대표적인 Test Framework</li>
+  <li>단위 테스트(Unit Test)를 위한 도구를 제공
+    <ul>
+      <li>단위 테스트란?
+        <ul>
+          <li>코드의 특정 모듈이 의도된 대로 동작하는지 테스트하는 절차를 의미</li>
+          <li>모든 함수와 메소드에 대해 각각의 테스트 케이스를 작성하는 것</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>어노테이션(Annotation)을 기반으로 테스트를 지원</li>
+  <li>단정문(Assert)으로 테스트 케이스의 기대값에 대해 수행 결과를 확인 할 수 있다</li>
+  <li>Spring Boot 2.2 버전 부터 JUnit 5 버전을 사용</li>
+  <li>JUnit은 크게 Jupiter, Platform, Vintage 모듈로 구성<br />
+<br />
+<br />
+<br />
+<br /></li>
+</ul>
+
+<h1 id="-junit-5-모듈-설명">📖 JUnit 5 모듈 설명</h1>
+<p><strong>JUnit Jupiter</strong></p>
+<ul>
+  <li>TestEngine API 구현체로 JUnit 5를 구현하고 있다.</li>
+  <li>테스트의 실제 구현체는 별도 모듈 역할을 수행하는데, 그 모듈 중 하나가 Jupiter-Engine이다.</li>
+  <li>이 모듈은 Jupiter-API를 사용하여 작성한 테스트 코드를 발견하고 실행하는 역할을 수행한다.</li>
+  <li>개발자가 테스트 코드를 작성할 때 사용된다.</li>
+</ul>
+
+<p><strong>JUnit Platform</strong></p>
+<ul>
+  <li>Test를 실행하기 위한 뼈대</li>
+  <li>Test를 발견하고 테스트 계획을 생성하는 TestEngine 인터페이스를 가지고 있다.</li>
+  <li>TestEngine을 통해 Test를 발견하고, 수행 및 결과를 보고한다. 그리고 각종 IDE 연동을 보조하는 역할을 수행한다.(콘솔 출력 등)</li>
+  <li>Platform = TestEngine API + Console Launcher + JUnit 4 Based Runner 등</li>
+</ul>
+
+<p><strong>JUnit Vintage</strong></p>
+<ul>
+  <li>TestEngine API 구현체로 JUnit 3, 4를 구현하고 있다.</li>
+  <li>기존 JUnit 3, 4버전으로 작성된 테스트 코드를 실행할 때 사용된다.</li>
+  <li>Vintage-Engine 모듈을 포함하고 있다.</li>
+</ul>
+
+<p><img src="/assets/images/posts/java/junit5/3b581de9-e2a5-4f19-afe8-098b61a9e370.png" alt="jUnit Module" />
+<br />
+<br />
+<br />
+<br /></p>
+
+<h1 id="-junit-5-어노테이션">📖 JUnit 5 어노테이션</h1>
+<p><a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations" target="_blank">어노테이션 가이드 링크</a></p>
+
+<h2 id="라이프사이클-어노테이션">라이프사이클 어노테이션</h2>
+<p>JUnit 5는 아래와 같은 테스트 라이프 사이클을 가지고 있습니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Annotation</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>@Test</td>
+      <td>테스트용 메소드를 표현하는 어노테이션</td>
+    </tr>
+    <tr>
+      <td>@BeforeEach</td>
+      <td>각 테스트 메소드가 시작되기 전에 실행되어야 하는 메소드를 표현</td>
+    </tr>
+    <tr>
+      <td>@AfterEach</td>
+      <td>각 테스트 메소드가 시작된 후 실행되어야 하는 메소드를 표현</td>
+    </tr>
+    <tr>
+      <td>@BeforeAll</td>
+      <td>테스트 시적 전에 실행되어야 하는 메소드를 표현 (static 처리 필요)</td>
+    </tr>
+    <tr>
+      <td>@AfterAll</td>
+      <td>테스트 종료 후에 실행되어야 하는 메소드를 표현 (static 처리 필요)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h2 id="parameterizedtest">@ParameterizedTest</h2>
+<p>파라미터 테스트를 할 수 있게 도와주는 어노테이션으로, <code class="language-plaintext highlighter-rouge">@ValueSource</code>, <code class="language-plaintext highlighter-rouge">@CsvSource</code>,<code class="language-plaintext highlighter-rouge">@MethodSource</code> 등을 통해 매개변수를 지정할 수 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ParameterizedTest</span>
+<span class="nd">@ValueSource</span><span class="o">(</span><span class="n">ints</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">5</span> <span class="o">})</span>
+<span class="kt">void</span> <span class="nf">isPositive</span><span class="o">(</span><span class="kt">int</span> <span class="n">number</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">assertTrue</span><span class="o">(</span><span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ParameterizedTest</span>
+<span class="nd">@CsvSource</span><span class="o">({</span>
+    <span class="s">"apple,         1"</span><span class="o">,</span>
+    <span class="s">"banana,        2"</span><span class="o">,</span>
+    <span class="s">"'lemon, lime', 0xF1"</span><span class="o">,</span>
+    <span class="s">"strawberry,    700_000"</span>
+<span class="o">})</span>
+<span class="kt">void</span> <span class="nf">testWithCsvSource</span><span class="o">(</span><span class="nc">String</span> <span class="n">fruit</span><span class="o">,</span> <span class="kt">int</span> <span class="n">rank</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">assertNotNull</span><span class="o">(</span><span class="n">fruit</span><span class="o">);</span>
+    <span class="n">assertNotEquals</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">rank</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ParameterizedTest</span>
+<span class="nd">@MethodSource</span><span class="o">(</span><span class="s">"stringProvider"</span><span class="o">)</span>
+<span class="kt">void</span> <span class="nf">testWithExplicitLocalMethodSource</span><span class="o">(</span><span class="nc">String</span> <span class="n">argument</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">assertNotNull</span><span class="o">(</span><span class="n">argument</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">static</span> <span class="nc">Stream</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="nf">stringProvider</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nc">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">"apple"</span><span class="o">,</span> <span class="s">"banana"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="repeatedtest">@RepeatedTest</h2>
+<p>반복 테스트를 위해 사용되는 어노테이션</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@RepeatedTest</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span>
+<span class="kt">void</span> <span class="nf">repeatedTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"테스트 반복!"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="testmethodorder">@TestMethodOrder</h2>
+<p>우선 순위에 따라 테스트를 실행할 수 있도록 도와주는 어노테이션. <code class="language-plaintext highlighter-rouge">@Order</code> 를 통해 우선순위를 지정할 수 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@TestMethodOrder</span><span class="o">(</span><span class="nc">OrderAnnotation</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">OrderedTestsDemo</span> <span class="o">{</span>
+  <span class="nd">@Test</span>
+  <span class="nd">@Order</span><span class="o">(</span><span class="mi">2</span><span class="o">)</span>
+  <span class="kt">void</span> <span class="nf">secondTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"2"</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="nd">@Order</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+  <span class="kt">void</span> <span class="nf">firstTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"1"</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="testinstance">@TestInstance</h2>
+<p>생명주기를 지정할 수 있는 어노테이션</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@TestInstance</span><span class="o">(</span><span class="nc">Lifecycle</span><span class="o">.</span><span class="na">PER_CLASS</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">OrderedTestsDemo</span> <span class="o">{...}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="displayname">@DisplayName</h2>
+<p>테스트 이름을 지정할 수 있는 어노테이션</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"기본 산수를 검증하는 테스트"</span><span class="o">)</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">basic</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">assertEquals</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="nested">@Nested</h2>
+<p>중첩 클래스 테스트라는 것을 명시하는 어노테이션 <code class="language-plaintext highlighter-rouge">@BeforeAll</code> 또는 <code class="language-plaintext highlighter-rouge">@AfterAll</code> 를 사용하려면 생명 주기를 명시해야한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NestedTests</span> <span class="o">{</span>
+
+  <span class="nd">@TestInstance</span><span class="o">(</span><span class="nc">Lifecycle</span><span class="o">.</span><span class="na">PER_CLASS</span><span class="o">)</span>
+  <span class="nd">@Nested</span>
+  <span class="kd">class</span> <span class="nc">Positive</span> <span class="o">{</span>
+
+    <span class="nd">@BeforeAll</span>
+    <span class="kt">void</span> <span class="nf">startTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"테스트 시작"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">isPositive</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertTrue</span><span class="o">(</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Nested</span>
+  <span class="kd">class</span> <span class="nc">Negative</span> <span class="o">{</span>
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">isNegative</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertTrue</span><span class="o">(-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="tag">@Tag</h2>
+<p>태그를 선언하는 어노테이션. 추후에 구성 설정 파일을 통해 테스트에 포함 시킬 태그를 선택하거나, 제외시킬 태그를 선택할 수 있다. JUnit4의 <code class="language-plaintext highlighter-rouge">@Category</code>가 이 어노테이션으로 대체됨</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Tag</span><span class="o">(</span><span class="s">"number"</span><span class="o">)</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">basic</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">assertEquals</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">junitPlatform</span> <span class="o">{</span>
+  <span class="n">filters</span> <span class="o">{</span>
+      <span class="n">tags</span> <span class="o">{</span>
+          <span class="n">include</span> <span class="s1">'number'</span><span class="o">,</span> <span class="s1">'korean'</span>
+          <span class="n">exclude</span> <span class="s1">'english'</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="disabled">@Disabled</h2>
+<p>테스트에서 제외시키는 어노테이션. JUnit4의 <code class="language-plaintext highlighter-rouge">@Ingore</code>와 같은 기능이다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Disabled</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">ignoredTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"테스트 하지 않습니다!"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="timeout">@Timeout</h2>
+<p>실행 시간 제한을 걸어두는 어노테이션. 시간이 초과되면 <code class="language-plaintext highlighter-rouge">TimeoutException</code>이 발생하며 테스트가 실패</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Timeout</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">mustRunIn1SecondTest</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+	<span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1500</span><span class="o">);</span> <span class="c1">// 실패</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="nd">@Timeout</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="mi">500</span><span class="o">,</span> <span class="n">unit</span> <span class="o">=</span> <span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">)</span>
+<span class="kt">void</span> <span class="nf">failsIfExecutionTimeExceeds500Milliseconds</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// fails if execution time exceeds 500 milliseconds</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+<br />
+<br />
+<br /></p>
+
+<h1 id="-junit-assertions">📖 JUnit Assertions</h1>
+<p><a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations" target="_blank">Assertions 가이드 링크</a></p>
+
+<h2 id="asserttrue--assertfalse">assertTrue &amp;&amp; assertFalse</h2>
+<p>참 거짓 여부 판단. 2번째 인자가 존재하면 실패 시 2번째 인자를 메시지로 출력해준다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertTrue</span><span class="o">(</span><span class="sc">'a'</span> <span class="o">&lt;</span> <span class="sc">'b'</span><span class="o">);</span>
+<span class="n">assertTrue</span><span class="o">(</span><span class="sc">'a'</span> <span class="o">&lt;</span> <span class="sc">'b'</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="s">"message"</span><span class="o">);</span>
+
+<span class="n">assertFalse</span><span class="o">(</span><span class="sc">'a'</span> <span class="o">&lt;</span> <span class="sc">'b'</span><span class="o">);</span>
+<span class="n">assertFalse</span><span class="o">(</span><span class="sc">'a'</span> <span class="o">&lt;</span> <span class="sc">'b'</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="s">"message"</span><span class="o">);</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="assertnull--assertnotnull">assertNull &amp;&amp; assertNotNull</h2>
+<p>객체의 null 여부 판단</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertNull</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"my.prop"</span><span class="o">));</span>
+<span class="n">assertNotNull</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"my.prop"</span><span class="o">));</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="assertequals--assertnotequals">assertEquals &amp;&amp; assertNotEquals</h2>
+<p>두 값을 비교하여 일치 여부 판단. 3번째 인자가 존재하면 실패 시 3번째 인자를 메시지로 출력해준다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertEquals</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">calculator</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">));</span>
+<span class="n">assertEquals</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="n">calculator</span><span class="o">.</span><span class="na">multiply</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">),</span> <span class="s">"message"</span><span class="o">);</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="assertarrayequals">assertArrayEquals</h2>
+<p>두 배열을 비교하여 일치 여부 판단. 두 배열이 모두 null이어도 동일한 것으로 간주한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span><span class="o">[]</span> <span class="n">expected</span> <span class="o">=</span> <span class="o">{</span><span class="sc">'J'</span><span class="o">,</span><span class="sc">'u'</span><span class="o">,</span><span class="sc">'n'</span><span class="o">,</span><span class="sc">'i'</span><span class="o">,</span><span class="sc">'t'</span><span class="o">};</span>
+<span class="kt">char</span><span class="o">[]</span> <span class="n">actual</span> <span class="o">=</span> <span class="s">"Junit"</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+<span class="n">assertArrayEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="assertall">assertAll</h2>
+<p>여러 개의 <code class="language-plaintext highlighter-rouge">assertions</code>가 만족할 경우에만 테스를 통과하였다고 판단하고 싶을 경우에는 <code class="language-plaintext highlighter-rouge">assertAll()</code>을 사용한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertAll</span><span class="o">(</span>
+      <span class="s">"heading"</span><span class="o">,</span>
+      <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">assertEquals</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span><span class="o">,</span> <span class="s">"4 is 2 times 2"</span><span class="o">),</span>
+      <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">assertEquals</span><span class="o">(</span><span class="s">"java"</span><span class="o">,</span> <span class="s">"JAVA"</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">()),</span>
+      <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">assertEquals</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="s">"null is equal to null"</span><span class="o">)</span>
+    <span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">dependentAssertions</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertAll</span><span class="o">(</span><span class="s">"properties"</span><span class="o">,</span>
+        <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="nc">String</span> <span class="n">firstName</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="na">getFirstName</span><span class="o">();</span>
+            <span class="n">assertNotNull</span><span class="o">(</span><span class="n">firstName</span><span class="o">);</span>
+            <span class="n">assertAll</span><span class="o">(</span><span class="s">"first name"</span><span class="o">,</span>
+                <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">assertTrue</span><span class="o">(</span><span class="n">firstName</span><span class="o">.</span><span class="na">startsWith</span><span class="o">(</span><span class="s">"J"</span><span class="o">)),</span>
+                <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">assertTrue</span><span class="o">(</span><span class="n">firstName</span><span class="o">.</span><span class="na">endsWith</span><span class="o">(</span><span class="s">"e"</span><span class="o">))</span>
+            <span class="o">);</span>
+        <span class="o">},</span>
+        <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="nc">String</span> <span class="n">lastName</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="na">getLastName</span><span class="o">();</span>
+            <span class="n">assertNotNull</span><span class="o">(</span><span class="n">lastName</span><span class="o">);</span>
+            <span class="n">assertAll</span><span class="o">(</span><span class="s">"last name"</span><span class="o">,</span>
+                <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">assertTrue</span><span class="o">(</span><span class="n">lastName</span><span class="o">.</span><span class="na">startsWith</span><span class="o">(</span><span class="s">"D"</span><span class="o">)),</span>
+                <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">assertTrue</span><span class="o">(</span><span class="n">lastName</span><span class="o">.</span><span class="na">endsWith</span><span class="o">(</span><span class="s">"e"</span><span class="o">))</span>
+            <span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="assertsame--assertnotsame">assertSame &amp;&amp; assertNotSame</h2>
+<p>예상되는 값과 실제 값이 동일한 객체를 참조하는지 확인</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">language</span> <span class="o">=</span> <span class="s">"Java"</span><span class="o">;</span>
+<span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">optional</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">language</span><span class="o">);</span>
+
+<span class="n">assertSame</span><span class="o">(</span><span class="n">language</span><span class="o">,</span> <span class="n">optional</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+<span class="n">assertNotSame</span><span class="o">(</span><span class="n">language</span><span class="o">,</span> <span class="n">optional</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="assertthrows">assertThrows</h2>
+<p>특정 예외가 발생하였는지 확인. 첫 번째 인자는 확인할 예외 클래스, 두 번째 인자는 테스트하려는 코드</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">exceptionTesting</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">Exception</span> <span class="n">exception</span> <span class="o">=</span> <span class="n">assertThrows</span><span class="o">(</span><span class="nc">ArithmeticException</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span>
+        <span class="n">calculator</span><span class="o">.</span><span class="na">divide</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">));</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="s">"/ by zero"</span><span class="o">,</span> <span class="n">exception</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="asserttimeout--asserttimeoutpreemptively">assertTimeout &amp; assertTimeoutPreemptively</h2>
+<p>특정 시간 안에 실행이 끝나는지 확인</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">assertTimeout</code>: 시간 내 실행이 끝나는지 여부 확인 시</li>
+  <li><code class="language-plaintext highlighter-rouge">assertTimeoutPreemptively</code>: 지정한 시간 내 끝나지 않으면 바로 종료</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">timeoutNotExceeded</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// 시간안에 성공</span>
+    <span class="n">assertTimeout</span><span class="o">(</span><span class="n">ofMinutes</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="c1">// 2분 안에 끝나는 테스트 작성...</span>
+    <span class="o">});</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">timeoutNotExceededWithResult</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// 시간 안에 성공, 그리고 supplied object 리턴</span>
+    <span class="nc">String</span> <span class="n">actualResult</span> <span class="o">=</span> <span class="n">assertTimeout</span><span class="o">(</span><span class="n">ofMinutes</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"a result"</span><span class="o">;</span>
+    <span class="o">});</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="s">"a result"</span><span class="o">,</span> <span class="n">actualResult</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">timeoutExceeded</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// 시간안에 테스트가 성공하지 못한다면 다음과 비슷한 오류 메시지 출력</span>
+    <span class="c1">// execution exceeded timeout of 10 ms by 91 ms</span>
+    <span class="n">assertTimeout</span><span class="o">(</span><span class="n">ofMillis</span><span class="o">(</span><span class="mi">10</span><span class="o">),</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+    <span class="o">});</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">timeoutExceededWithPreemptiveTermination</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// 시간안에 테스트가 성공하지 못한다면 다음과 비슷한 오류 메시지 출력</span>
+    <span class="c1">// execution timed out after 10 ms</span>
+    <span class="n">assertTimeoutPreemptively</span><span class="o">(</span><span class="n">ofMillis</span><span class="o">(</span><span class="mi">10</span><span class="o">),</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="c1">// 10ms 이상 소요되는 작업...</span>
+        <span class="k">new</span> <span class="nf">CountDownLatch</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">await</span><span class="o">();</span>
+    <span class="o">});</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+<br />
+<br />
+<br /></p>
+
+<h1 id="-assertj-assertions">📖 AssertJ Assertions</h1>
+<ul>
+  <li><a href="https://assertj.github.io/doc/" target="_blank">AssertJ 가이드 링크</a></li>
+  <li><a href="https://www.baeldung.com/introduction-to-assertj" target="_blank">Spring AssertJ 가이드 링크</a></li>
+</ul>
+
+<div class="notice--info">
+<p><strong>참고</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">AssertJ</code>에서 모든 테스트 코드는 <code class="language-plaintext highlighter-rouge">assertThat()</code>으로 시작한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="n">타겟</span><span class="o">).</span><span class="na">메소드1</span><span class="o">().</span><span class="na">메소드2</span><span class="o">();</span>
+</code></pre></div></div>
+</div>
+<p><br /></p>
+
+<h2 id="object-assertions">Object Assertions</h2>
+<p>Objects는 두 객체의 동등성이나 객체의 필드를 검사하기 위해 다양한 방법으로 비교할 수 있습니다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dog</span> <span class="o">{</span> 
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span> 
+    <span class="kd">private</span> <span class="nc">Float</span> <span class="n">weight</span><span class="o">;</span>
+    
+    <span class="c1">// Getters, Setters...</span>
+<span class="o">}</span>
+
+<span class="nc">Dog</span> <span class="n">fido</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Dog</span><span class="o">(</span><span class="s">"Fido"</span><span class="o">,</span> <span class="mf">5.25</span><span class="o">);</span>
+<span class="nc">Dog</span> <span class="n">fidosClone</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Dog</span><span class="o">(</span><span class="s">"Fido"</span><span class="o">,</span> <span class="mf">5.25</span><span class="o">)</span>
+</code></pre></div></div>
+
+<h3 id="isequalto">isEqualTo()</h3>
+<p>참조 비교</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="n">fido</span><span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="n">fidosClone</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="isequaltocomparingfieldbyfieldrecursively">isEqualToComparingFieldByFieldRecursively()</h3>
+<p>내용 비교</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="n">fido</span><span class="o">).</span><span class="na">isEqualToComparingFieldByFieldRecursively</span><span class="o">(</span><span class="n">fidosClone</span><span class="o">);</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="boolean-assertions">Boolean Assertions</h2>
+<p>참, 거짓 확인</p>
+
+<h3 id="istrue--isfalse">isTrue() &amp;&amp; isFalse()</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="s">""</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()).</span><span class="na">isTrue</span><span class="o">();</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="iterablearray-assertions">Iterable/Array Assertions</h2>
+<p><a href="https://joel-costigliola.github.io/assertj/core-8/api/org/assertj/core/api/AbstractIterableAssert.html" target="_blank">Iterable/Array 가이드 링크</a><br />
+<code class="language-plaintext highlighter-rouge">Iterable/Array</code>에 특정 요소가 존재하는지 다양한 방법으로 알 수 있다.</p>
+
+<h3 id="contains">contains()</h3>
+<p>요소 포함 확인</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"1"</span><span class="o">,</span> <span class="s">"2"</span><span class="o">,</span> <span class="s">"3"</span><span class="o">);</span>
+<span class="n">assertThat</span><span class="o">(</span><span class="n">list</span><span class="o">).</span><span class="na">contains</span><span class="o">(</span><span class="s">"1"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="doesnotcontain">doesNotContain()</h3>
+<p>요소가 포함되지 않았는지 확인</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="n">list</span><span class="o">).</span><span class="na">doesNotContain</span><span class="o">(</span><span class="s">"4"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="containsexactly">containsExactly()</h3>
+<p>실제 그룹에 지정된 값이 순서대로 정확히 포함되어 있는지 확인한다. 일관된 반복 순서가 있는 그룹에만 사용해야 한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nc">Iterable</span><span class="o">&lt;</span><span class="nc">Ring</span><span class="o">&gt;</span> <span class="n">elvesRings</span> <span class="o">=</span> <span class="n">newArrayList</span><span class="o">(</span><span class="n">vilya</span><span class="o">,</span> <span class="n">nenya</span><span class="o">,</span> <span class="n">narya</span><span class="o">);</span>
+
+ <span class="c1">// 성공</span>
+ <span class="n">assertThat</span><span class="o">(</span><span class="n">elvesRings</span><span class="o">).</span><span class="na">containsExactly</span><span class="o">(</span><span class="n">vilya</span><span class="o">,</span> <span class="n">nenya</span><span class="o">,</span> <span class="n">narya</span><span class="o">);</span>
+
+ <span class="c1">// 실패</span>
+ <span class="n">assertThat</span><span class="o">(</span><span class="n">elvesRings</span><span class="o">).</span><span class="na">containsExactly</span><span class="o">(</span><span class="n">nenya</span><span class="o">,</span> <span class="n">vilya</span><span class="o">,</span> <span class="n">narya</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="containsall">containsAll()</h3>
+<p>실제 그룹에 지정된 <code class="language-plaintext highlighter-rouge">Iterable</code>의 모든 요소가 임의의 순서로 포함되어 있는지 확인한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Iterable</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">abc</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"a"</span><span class="o">,</span> <span class="s">"b"</span><span class="o">,</span> <span class="s">"c"</span><span class="o">);</span>
+
+ <span class="c1">// 성공</span>
+ <span class="n">assertThat</span><span class="o">(</span><span class="n">abc</span><span class="o">).</span><span class="na">containsAll</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"b"</span><span class="o">,</span> <span class="s">"c"</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">containsAll</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"a"</span><span class="o">,</span> <span class="s">"b"</span><span class="o">,</span> <span class="s">"c"</span><span class="o">));</span>
+
+ <span class="c1">// 실패</span>
+ <span class="n">assertThat</span><span class="o">(</span><span class="n">abc</span><span class="o">).</span><span class="na">containsAll</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"d"</span><span class="o">));</span>
+ <span class="n">assertThat</span><span class="o">(</span><span class="n">abc</span><span class="o">).</span><span class="na">containsAll</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"a"</span><span class="o">,</span> <span class="s">"b"</span><span class="o">,</span> <span class="s">"c"</span><span class="o">,</span> <span class="s">"d"</span><span class="o">));</span>
+</code></pre></div></div>
+
+<h3 id="isnotempty">isNotEmpty()</h3>
+<p>비어있지 않았는지 확인</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="n">list</span><span class="o">).</span><span class="na">isNotEmpty</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="startswith">startsWith()</h3>
+<p>주어진 값으로 시작하는지 확인</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="n">list</span><span class="o">).</span><span class="na">startsWith</span><span class="o">(</span><span class="s">"1"</span><span class="o">);</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="character-assertions">Character Assertions</h2>
+<p><a href="https://joel-costigliola.github.io/assertj/core-8/api/org/assertj/core/api/AbstractCharacterAssert.html" target="_blank">Character 가이드 링크</a><br />
+Character에 대한 비교</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="n">someCharacter</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">isNotEqualTo</span><span class="o">(</span><span class="sc">'a'</span><span class="o">)</span>             <span class="c1">// a 가 아니고</span>
+  <span class="o">.</span><span class="na">inUnicode</span><span class="o">()</span>                   <span class="c1">// 유니코드 테이블에 있고</span>
+  <span class="o">.</span><span class="na">isGreaterThanOrEqualTo</span><span class="o">(</span><span class="sc">'b'</span><span class="o">)</span>   <span class="c1">// b보다 크고</span>
+  <span class="o">.</span><span class="na">isLowerCase</span><span class="o">();</span>                <span class="c1">// 소문자 인지 확인</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="class-assertions">Class Assertions</h2>
+<p><a href="https://joel-costigliola.github.io/assertj/core-8/api/org/assertj/core/api/AbstractClassAssert.html" target="_blank">Class 가이드 링크</a><br />
+클래스에 관한 비교</p>
+
+<h3 id="isinterface">isInterface()</h3>
+<p>인터페이스인지 확인</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="nc">Runnable</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">isInterface</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="isassignablefrom">isAssignableFrom()</h3>
+<p>할당 가능한지 확인</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="nc">Exception</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="nc">NoSuchElementException</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="file-assertions">File Assertions</h2>
+<p><a href="https://joel-costigliola.github.io/assertj/core-8/api/org/assertj/core/api/AbstractFileAssert.html" target="_blank">File 가이드 링크</a><br />
+파일에 관련된 비교</p>
+
+<h3 id="exists">exists()</h3>
+<p>존재 여부</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="n">someFile</span><span class="o">).</span><span class="na">exists</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="isfile">isFile()</h3>
+<p>파일유형인지 확인</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="n">someFile</span><span class="o">).</span><span class="na">isFile</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="canread">canRead()</h3>
+<p>읽을 수 있는지 확인</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="n">someFile</span><span class="o">).</span><span class="na">canRead</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="canwrite">canWrite()</h3>
+<p>쓸 수 있는지 확인</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="n">someFile</span><span class="o">).</span><span class="na">canWrite</span><span class="o">();</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="doublefloatintegerassertions">Double/Float/Integer Assertions</h2>
+<p><a href="https://joel-costigliola.github.io/assertj/core-8/api/org/assertj/core/api/AbstractDoubleAssert.html" target="_blank">Double/Float/Integer 가이드 링크</a><br />
+숫자에 대한 비교</p>
+
+<h3 id="isbetween">isBetween()</h3>
+<p>값이 두 값 사이에 존재하는지 확인 (start, end 포함)</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">isBetween</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="isstrictlybetween">isStrictlyBetween()</h3>
+<p>값이 두 값 사이에 존재하는지 확인 (start, end 미포함)</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">isStrictlyBetween</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="ispositive">isPositive()</h3>
+<p>양수인지 확인</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">isPositive</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="isnegative">isNegative()</h3>
+<p>음수인지 확인</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(-</span><span class="mi">1</span><span class="o">).</span><span class="na">isNegative</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="iszero">isZero()</h3>
+<p>값이 0인지 확인</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">isZero</span><span class="o">();</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="mapassertions">Map Assertions</h2>
+<p><a href="https://joel-costigliola.github.io/assertj/core-8/api/org/assertj/core/api/AbstractMapAssert.html" target="_blank">Map 가이드 링크</a><br />
+맵에 특정 항목, entry, key/value 값이 포함되어 있는지 확인한다.</p>
+
+<h3 id="containskey">containsKey()</h3>
+<p>키가 존재하지는 확인</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="n">map</span><span class="o">).</span><span class="na">containsKey</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="doesnotcontainkeys">doesNotContainKeys()</h3>
+<p>키가 존재하지 않는지 확인</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="n">map</span><span class="o">).</span><span class="na">doesNotContainKeys</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="entry">entry()</h3>
+<p>map의 키, 값을 확인</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="n">map</span><span class="o">).</span><span class="na">contains</span><span class="o">(</span><span class="n">entry</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">"a"</span><span class="o">));</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="throwable-assertions">Throwable Assertions</h2>
+<p><a href="https://joel-costigliola.github.io/assertj/core-8/api/org/assertj/core/api/AbstractThrowableAssert.html" target="_blank">Throwable 가이드 링크</a><br />
+예외 메시지, 스택 추적 검사, 예외 발생했는지 확인</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Throwable</span> <span class="n">thrown</span> <span class="o">=</span> <span class="n">catchThrowable</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">Exception</span><span class="o">(</span><span class="s">"boom!"</span><span class="o">);</span>
+<span class="o">});</span>
+
+<span class="n">assertThat</span><span class="o">(</span><span class="n">thrown</span><span class="o">).</span><span class="na">isInstanceOf</span><span class="o">(</span><span class="nc">Exception</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">hasMessageContaining</span><span class="o">(</span><span class="s">"boom"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="assertthatthrownby">assertThatThrownBy()</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThatThrownBy</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span><span class="k">throw</span> <span class="k">new</span> <span class="nc">Exception</span><span class="o">(</span><span class="s">"boom!"</span><span class="o">);})</span>
+<span class="o">.</span><span class="na">isInstanceOf</span><span class="o">(</span><span class="nc">Exception</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="o">.</span><span class="na">hasMessageContaining</span><span class="o">(</span><span class="s">"boom"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="assertthatexceptionoftype">assertThatExceptionOfType()</h3>
+<p>특정 타입으로 검사</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThatExceptionOfType</span><span class="o">(</span><span class="nc">IOException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="o">.</span><span class="na">isThrownBy</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="k">throw</span> <span class="k">new</span> <span class="nc">IOException</span><span class="o">(</span><span class="s">"boom!"</span><span class="o">);</span> <span class="o">})</span>
+<span class="o">.</span><span class="na">withMessage</span><span class="o">(</span><span class="s">"%s!"</span><span class="o">,</span> <span class="s">"boom"</span><span class="o">)</span>
+<span class="o">.</span><span class="na">withMessageContaining</span><span class="o">(</span><span class="s">"boom"</span><span class="o">)</span>
+<span class="o">.</span><span class="na">withNoCause</span><span class="o">();</span>
+</code></pre></div></div>
+<p>그 밖에 특정 타입을 검사하는 <code class="language-plaintext highlighter-rouge">exceptions</code>를 이용할 수 있다.</p>
+<ul>
+  <li>assertThatNullPointerException</li>
+  <li>assertThatIllegalArgumentException</li>
+  <li>assertThatIllegalStateException</li>
+  <li>assertThatIOException<br />
+<br /></li>
+</ul>
+
+<h2 id="describing-assertions">Describing Assertions</h2>
+
+<h3 id="as">as()</h3>
+<p>테스트의 설명 작성</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertThat</span><span class="o">(</span><span class="n">person</span><span class="o">.</span><span class="na">getAge</span><span class="o">())</span>
+    <span class="o">.</span><span class="na">as</span><span class="o">(</span><span class="s">"%s's age should be equal to 100"</span><span class="o">,</span> <span class="n">person</span><span class="o">.</span><span class="na">getName</span><span class="o">())</span>
+    <span class="o">.</span><span class="na">isEqualTo</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+
+<span class="c1">// 출력</span>
+<span class="c1">// [Alex's age should be equal to 100] expected:&lt;100&gt; but was:&lt;34&gt;</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="junit-assumptions">JUnit Assumptions</h2>
+<p>특정 환경일 때만 테스트를 진행하도록 하고 싶을 때 사용</p>
+
+<h3 id="assumetrue--assumefalse">assumeTrue() &amp;&amp; assumeFalse()</h3>
+<p>테스트가 성공, 실패일 때 계속 진행</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">trueAssumption</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assumeTrue</span><span class="o">(</span><span class="s">"PRD"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">getenv</span><span class="o">(</span><span class="s">"ENV"</span><span class="o">)));</span>
+    <span class="c1">// 계속 진행...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">falseAssumption</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assumeFalse</span><span class="o">(</span><span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="c1">// 계속 진행...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="assumingthat">assumingThat()</h3>
+<p>첫번째 인자 성공시, 두번째 인자 실행</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">assumptionThat</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assumingThat</span><span class="o">(</span><span class="s">"CI"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">getenv</span><span class="o">(</span><span class="s">"ENV"</span><span class="o">)),</span>
+        <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="c1">// CI서버에서만 이 테스트를 실행한다.</span>
+            <span class="n">assertEquals</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">calculator</span><span class="o">.</span><span class="na">divide</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">));</span>
+        <span class="o">});</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">7</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+<br />
+<br />
+<br /></p>
+
+<h1 id="-junit-import-static">📖 JUnit import static</h1>
+<p>기본 import static 해놓으면 좋은 것들을 정리</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">hamcrest</span><span class="o">.</span><span class="na">Matchers</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">jupiter</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">Assertions</span><span class="o">.*;</span>
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">assertj</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">Assertions</span><span class="o">.*;</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>]]></content><author><name>Sangjae Oh</name></author><category term="Java" /><category term="Java" /><category term="JUnit 5" /><category term="AssertJ" /><category term="CheatSheet" /><summary type="html"><![CDATA[JUnit 5, AssertJ의 사용법을 간단하게 정리하였습니다. 😁 jUnit 5 가이드 링크 AssertJ 가이드 링크]]></summary></entry><entry><title type="html">TDD(Test Driven Development) - 테스트 주도 개발</title><link href="http://localhost:4000/insight/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/" rel="alternate" type="text/html" title="TDD(Test Driven Development) - 테스트 주도 개발" /><published>2023-02-07T00:00:00+09:00</published><updated>2023-02-07T00:00:00+09:00</updated><id>http://localhost:4000/insight/TDD(Test%20Driven%20Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C</id><content type="html" xml:base="http://localhost:4000/insight/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/"><![CDATA[<p><br /></p>
 
 <h1 id="-tddtest-driven-development란">🤔 TDD(Test Driven Development)란?</h1>
 <ul>
@@ -11093,48 +11775,4 @@ VUser = (목표 rps * T) / R
 <p>이를 개선하기 위해서 객체 지향 설계에 대해 더 공부, 연습을 하고 메소드, 변수의 의미를 바로알 수 있도록 축약하지 않고 자세히 설명하는 이름을 짓는 노력을 해야할 것 같다. 😅😂</p>
 
 <h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/atdd-subway-admin/tree/step4" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="회고" /><category term="회고" /><category term="교육" /><category term="우아한테크캠프 Pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 4주차 (그럴듯한 서비스 만들기)</title><link href="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-4%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 4주차 (그럴듯한 서비스 만들기)" /><published>2023-01-04T00:00:00+09:00</published><updated>2023-01-04T00:00:00+09:00</updated><id>http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-4%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-4%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
-우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
-
-<h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
-<p>AWS에서 네트워크를 구성해보고 서비스를 배포하며 네트워크에 대한 기본적인 개념을 학습해보는 미션</p>
-
-<h2 id="-학습-목표">🎯 학습 목표</h2>
-<ul>
-  <li>AWS 상에서 네트워크를 구성하며, 네트워크 기본 개념들을 학습</li>
-  <li>도커 컨테이너를 학습</li>
-  <li>개발 환경을 구성해보고 지속적 통합을 경험</li>
-</ul>
-
-<h2 id="-강의-내용">📖 강의 내용</h2>
-<p>AWS 네트워크 구성, 네트워크 통신 설명, 도커 컨테이너 설명과 함께 직접 AWS에서 네트워크 망을 구성하고, 서비스를 배포할 수 있도록 가이드</p>
-
-<p><strong>Cloud?</strong><br />
-인터넷을 통해 원격으로 접근할 수 있는 모든 것을 의미합니다.</p>
-
-<p><strong>Cloud Computing?</strong><br />
-서버, 데이터베이스, 네트워킹 등 컴퓨팅 리소스를
-인터넷을 통해 관리하는 것을 의미합니다</p>
-
-<p><strong>Cloud를 사용하는 이유</strong><br />
-클라우드를 사용한다는 것은 단순히 컴퓨팅 리소스를 인터넷을 통해 관리하는 것만을 의미하지 않습니다. <strong>관심사를 분리하여 우리가 집중할 대상에 보다 집중하기 위함</strong>입니다.</p>
-
-<p><strong>AWS 네트워크 구성</strong>
-<img src="/assets/images/posts/aws_network.png" alt="aws_network" /></p>
-
-<p><strong>OSI 7 Layer</strong></p>
-
-<p><img src="/assets/images/posts/osi_7.jpeg" alt="osi_7" />
-<img src="/assets/images/posts/osi_7_description.png" alt="osi_7_description" /></p>
-
-<h2 id="-미션-후기">📝 미션 후기</h2>
-<p>이번 미션에서는 네트워크의 대략적인 윤곽을 잡을 수 있다는 점과, 비용의 부담때문에 도전해보기 어려운 AWS를 경험할 수 있다는 점이 좋았다.</p>
-
-<p>도커 컨테이너와 쉘 스크립트 작성의 경우 기존에 사용해본 경험이 있어서 이번 미션에서 사용하는 것에 크게 어려움은 없었지만, 네트워크 개념과 AWS 구성하는 것에서 쪼금 애를 먹었다. 하지만 네트워크 구성에 필요한 부분을 하나부터 열까지 실행 커맨드와 함께 그림으로 설명해 주셔서 나름 수월하게 미션을 진행할 수 있었다. <del>만약 도커, 쉘 스크립트를 처음 접했다면 아마 애로사항이 많았을거 같다.😂</del></p>
-
-<p>이번 강의를 통해 네트워크 전반적인 내용을 알았다고는 절대 말할 수 없다. 단지 대략적인 윤곽만 잡았을 뿐이다.</p>
-
-<p>네트워크는 파면 팔수록 알아야 하는 내용이 많기 때문에 반드시 따로 공부를 해봐야 할 것 같다. 📖🔎</p>
-
-<h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/infra-subway-deploy/tree/step3" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="회고" /><category term="회고" /><category term="교육" /><category term="우아한테크캠프 Pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry></feed>
+<p><a href="https://github.com/sangjaeoh/atdd-subway-admin/tree/step4" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="회고" /><category term="회고" /><category term="교육" /><category term="우아한테크캠프 Pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry></feed>
