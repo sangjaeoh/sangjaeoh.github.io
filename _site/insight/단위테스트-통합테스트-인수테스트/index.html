@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>TDD(Test Driven Development) - 테스트 주도 개발 | Stack O Flow</title>
-<meta name="description" content="">
+<!-- begin _includes/seo.html --><title>단위 테스트, 통합 테스트, 인수 테스트 | Stack O Flow</title>
+<meta name="description" content="단위 테스트, 통합 테스트, 인수  테스트에 대해 설명합니다.">
 
 
   <meta name="author" content="Sangjae Oh">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Stack O Flow">
-<meta property="og:title" content="TDD(Test Driven Development) - 테스트 주도 개발">
-<meta property="og:url" content="http://localhost:4000/insight/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/">
+<meta property="og:title" content="단위 테스트, 통합 테스트, 인수 테스트">
+<meta property="og:url" content="http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8/">
 
 
-  <meta property="og:description" content="">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2023-02-07T00:00:00+09:00">
+  <meta property="og:description" content="단위 테스트, 통합 테스트, 인수  테스트에 대해 설명합니다.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2023-02-09T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/insight/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/">
+
+<link rel="canonical" href="http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8/">
 
 
 
@@ -333,16 +333,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="TDD(Test Driven Development) - 테스트 주도 개발">
-    <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2023-02-07T00:00:00+09:00">
+    <meta itemprop="headline" content="단위 테스트, 통합 테스트, 인수 테스트">
+    <meta itemprop="description" content="단위 테스트, 통합 테스트, 인수  테스트에 대해 설명합니다.">
+    <meta itemprop="datePublished" content="2023-02-09T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/insight/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/" class="u-url" itemprop="url">TDD(Test Driven Development) - 테스트 주도 개발
+            <a href="http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8/" class="u-url" itemprop="url">단위 테스트, 통합 테스트, 인수 테스트
 </a>
           </h1>
           
@@ -353,7 +353,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2023-02-07T00:00:00+09:00">2023-02-07</time>
+        <time datetime="2023-02-09T00:00:00+09:00">2023-02-09</time>
       </span>
     
 
@@ -371,106 +371,95 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#-tddtest-driven-development란">🤔 TDD(Test Driven Development)란?</a></li><li><a href="#️️-tdd-개발-방법">⛹️‍♀️ TDD 개발 방법</a></li><li><a href="#-tdd-원칙">🎯 TDD 원칙</a></li><li><a href="#-tdd의-효과">🎯 TDD의 효과</a></li><li><a href="#-tdd의-한계">😓 TDD의 한계</a></li><li><a href="#-tdd-필요한가">🤔 TDD 필요한가?</a></li></ul>
+              <ul class="toc__menu"><li><a href="#-단위-테스트란">🤔 단위 테스트란?</a></li><li><a href="#️-참고사이트">🙇🏻‍♂️ 참고사이트</a></li></ul>
 
             </nav>
           </aside>
         
-        <p><br /></p>
+        <p>단위 테스트, 통합 테스트, 인수  테스트에 대해 설명합니다.</p>
 
-<h1 id="-tddtest-driven-development란">🤔 TDD(Test Driven Development)란?</h1>
+<p><br /></p>
+
+<h1 id="-단위-테스트란">🤔 단위 테스트란?</h1>
 <ul>
-  <li>TDD란 Test Driven Development의 약자로 테스트 주도 개발이라 합니다.</li>
-  <li>TDD는 소프트웨어 개발 방법론 중의 하나로 <strong>자동화된 테스트 코드를 작성한 후, 테스트를 통과하기 위한 코드를 개선하는 방식의 개발 방식</strong>을 말합니다. <br />
-<br />
+  <li>Unit Test라고 한다.</li>
+  <li>개발자 관점에서 테스트한다.</li>
+  <li>구현한 부분, 단위를 검증한다.</li>
+  <li>단위 기능을 중심으로 다른 외부 영향을 배제하고 테스트 하는 것이 목적이다.</li>
+  <li>협력 객체가 존재하는 경우에는 협력 객체가 원하는 결과를 응답하도록 모킹한다.<br />
 <br /></li>
 </ul>
 
-<h1 id="️️-tdd-개발-방법">⛹️‍♀️ TDD 개발 방법</h1>
-<p><img src="/assets/images/posts/insight/tdd/9d2d7f30-25c2-4ef7-ae08-e67eb8cf2bb5.png" alt="TDD lifecycle" /></p>
-
-<ol>
-  <li>테스트 작성, 기능이 아직 구현되지 않았기 때문에 테스트가 실패한다.</li>
-  <li>테스트를 성공하도록 프로덕션 코드 작성</li>
-  <li>프로덕션 코드와 테스트 코드를 리팩토링</li>
-</ol>
-
-<p>위 3단계를 반복하며, 더 간단하고 개선된 디자인 패턴과 높은 품질의 코드를 작성하게 됩니다.
-<br />
-<br /></p>
-
-<h1 id="-tdd-원칙">🎯 TDD 원칙</h1>
-<ol>
-  <li>실패하는 단위 테스트를 작성할 때까지 프로덕션 코드(production code)를 작성하지 않는다.</li>
-  <li>컴파일은 실패하지 않으면서 실행이 실패하는 정도로만 단위 테스트를 작성한다.</li>
-  <li>현재 실패하는 테스트를 통과할 정도로만 실제 코드를 작성한다.
-<br />
+<p><strong>단위 테스트 범위</strong></p>
+<ul>
+  <li>단위의 크기를 정확히 제시하기는 어렵다.</li>
+  <li>일반적으로 특정한 책임을 수행하면서, 고립될 수 있는 최소 단위<br />
 <br /></li>
-</ol>
+</ul>
 
-<h1 id="-tdd의-효과">🎯 TDD의 효과</h1>
+<p><strong>단위 테스트 예</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">UnitTest</span> <span class="o">{</span>
 
-<ol>
-  <li>
-    <p><strong>빠르게 피드백 받을 수 있다.</strong><br />
-TDD를 통해 시스템 구현(<em>“시스템이 동작하는가?”</em>)과 설계의 품질(<em>“시스템이 잘 구조화 되있는가?”</em>)에 관한 피드백을 받을 수 있습니다.</p>
-  </li>
-  <li>
-    <p><strong>디버깅 시간을 단축 할 수 있다.</strong><br />
-TDD의 경우 자동화 된 유닛테스팅을 전재하므로 특정 버그를 손 쉽게 찾아낼 수 있습니다.</p>
-  </li>
-  <li>
-    <p><strong>객체 지향적인 코드가 된다.</strong><br />
-TDD를 사용하면 자연스럽게 단순한 단위로 작업을 진행하게 됩니다. 그러다 보면 기능별로 모듈화가 이루어집니다. 즉 강렬한 디자인 사고 때문이 아니라 상호 연결된 많은 작은 모듈의 상호 작용으로 복잡한 기능을 처리하기 때문에 더 나은 코드를 갖게 됩니다.</p>
-  </li>
-  <li>
-    <p><strong>프로그래머의 오버 엔지니어링을 방지한다.</strong><br />
-프로그래머들은 간혹 계획하지 않았던 코드를 추가하여 오버 엔지니어링하는 경우가 있습니다. 하지만 TDD의 원칙 중 하나는, 테스트를 통과하기 위한 최소한의 코드만 작성 및 개선해야 한다는 것입니다. 기능 단위로 테스트를 진행하기 때문에, 문제가 발견되지 않은 코드에 영향을 줄 수 있는 오버 코딩은 하지 않습니다.</p>
-  </li>
-  <li>
-    <p><strong>문서의 역할을 한다.</strong><br />
-TDD를 사용하면, 테스트 코드를 작성하는 과정에서 히스토리가 남습니다. TDD를 통해 작성한 테스트 코드를 트래킹하면서 과거에 어떤 인과관계로 의사결정을 했는지 확인하기 쉽습니다.</p>
-  </li>
-  <li>
-    <p><strong>유지보수(리팩토링)이 용이하다.</strong><br />
-TDD의 경우 단위 테스트 기반의 테스트 코드를 작성하기 때문에 추후 문제가 발생하였을 때 각각의 모듈별로 테스트를 진행해보면 문제의 지점을 쉽게 찾을 수 있습니다.</p>
-  </li>
-  <li>
-    <p><strong>변화, 추가 구현이 용이하다.</strong><br />
-개발이 완료된 소프트웨어에 어떤 기능을 추가할 때 가장 우려되는 점은 해당 기능이 기존 코드에 어떤 영향을 미칠지 알지 못한다는 것입니다. 하지만 TDD의 경우 자동화된 유닛 테스팅을 전제하므로 테스트 기간을 획기적으로 단축시킬 수 있습니다.<br />
-<br />
-<br /></p>
-  </li>
-</ol>
+    <span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"이름을 받아 자동차 생성"</span><span class="o">)</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">createCar</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// given</span>
+        <span class="nc">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"Boong-Boong"</span><span class="o">;</span>
 
-<h1 id="-tdd의-한계">😓 TDD의 한계</h1>
-<p>이론적으로, 그리고 실제로 많은 경우에 TDD는 소프트웨어 개발에 많은 장점이 있습니다. 그러나 대부분은 이상적인 TDD 환경이 아닐 수 있습니다.</p>
+        <span class="c1">// when</span>
+        <span class="nc">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
 
-<ol>
-  <li>
-    <p><strong>레거시 코드</strong><br />
-코드가 이미 작성되었기 때문에 TDD는 레거시 코드에 적용되지 않습니다.</p>
-  </li>
-  <li>
-    <p><strong>생산성의 저하</strong><br />
-장기적으로 보면 생산성이 증가합니다. 하지만 이는 <strong>“급하지 않은 환경”</strong>에서의 경우입니다. 납기인 준수가 중요한 SI프로젝트 같은 경우 이러한 조건과 모순됩니다.</p>
-  </li>
-  <li>
-    <p><strong>불완전한 테스트 사례</strong><br />
-프로그래머가 테스트 시나리오를 누락한다면, TDD는 사용자를 보호하지 않습니다.<br />
-<br />
-<br /></p>
-  </li>
-</ol>
+        <span class="c1">// then</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">car</span><span class="o">).</span><span class="na">isNotNull</span><span class="o">();</span>
+    <span class="o">}</span>
 
-<h1 id="-tdd-필요한가">🤔 TDD 필요한가?</h1>
-<p>점점 더 많은 개발자들이 TDD로 전환하고 있습니다. 하지만 일부는 TDD가 실제 코딩 대신 테스트를 작성하는 데 시간을 소비하는 비용이 있다고 주장합니다.</p>
+    <span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"숫자 4를 받으면 자동차가 1 전진한다."</span><span class="o">)</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">moveCar</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// given</span>
+        <span class="nc">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="s">"Boong-Boong"</span><span class="o">);</span>
 
-<p>프로토타입을 빠르게 코딩하고 빠르게 제품을 만들어야 하는 스타트업 개발자와 같이 시간이 제한된 개발자에게는 이러한 시간 소비가 치명적일 수 있습니다. 또한 관리자와 고객의 TDD의 장점에 대한 이해 부족, 개발자 교육의 투자 비용은 TDD를 사용하지 않게 합니다.</p>
+        <span class="c1">// when</span>
+        <span class="n">car</span><span class="o">.</span><span class="na">move</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
 
-<p>하지만 리소스를 보유하고 있으며 코드 품질이 가장 중요한 기업은 TDD로 전환을 하는 것이 좋습니다.
-<br />
-<br /></p>
+        <span class="c1">// then</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">car</span><span class="o">.</span><span class="na">getPosition</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<p><strong>협력 객체의 단위 테스트 예</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ExtendWith</span><span class="o">(</span><span class="nc">MockitoExtension</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">ServiceTest</span> <span class="o">{</span>
+
+    <span class="nd">@Mock</span>
+    <span class="kd">private</span> <span class="nc">CarRepository</span> <span class="n">carRepository</span><span class="o">;</span>
+
+    <span class="nd">@InjectMocks</span>
+    <span class="kd">private</span> <span class="nc">CarService</span> <span class="n">carService</span><span class="o">;</span>
+
+    <span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"이름을 받아 자동차를 저장한다."</span><span class="o">)</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="o">(){</span>
+        <span class="c1">// given</span>
+        <span class="kd">final</span> <span class="nc">String</span> <span class="no">NAME</span> <span class="o">=</span> <span class="s">"Boong-Boong"</span><span class="o">;</span>
+        <span class="n">when</span><span class="o">(</span><span class="n">carRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">any</span><span class="o">())).</span><span class="na">thenReturn</span><span class="o">(</span><span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="no">NAME</span><span class="o">)));</span>
+        
+        <span class="c1">// when</span>
+        <span class="nc">CarResponse</span> <span class="n">car</span> <span class="o">=</span> <span class="n">carService</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="no">NAME</span><span class="o">);</span>
+
+        <span class="c1">// then</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">car</span><span class="o">.</span><span class="na">getName</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="no">NAME</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h1 id="️-참고사이트">🙇🏻‍♂️ 참고사이트</h1>
+<ul>
+  <li><a href="https://jerry92k.tistory.com/m/77" target="_blank">https://jerry92k.tistory.com/</a></li>
+  <li><a href="https://tecoble.techcourse.co.kr/post/2021-05-25-unit-test-vs-integration-test-vs-acceptance-test/" target="_blank">https://tecoble.techcourse.co.kr</a></li>
+</ul>
 
         
       </section>
@@ -488,8 +477,6 @@ TDD의 경우 단위 테스트 기반의 테스트 코드를 작성하기 때문
     <span itemprop="keywords">
     
       <a href="/tags/#insight" class="page__taxonomy-item p-category" rel="tag">Insight</a><span class="sep">, </span>
-    
-      <a href="/tags/#tdd" class="page__taxonomy-item p-category" rel="tag">TDD</a><span class="sep">, </span>
     
       <a href="/tags/#test" class="page__taxonomy-item p-category" rel="tag">TEST</a>
     
@@ -516,7 +503,7 @@ TDD의 경우 단위 테스트 기반의 테스트 코드를 작성하기 때문
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-02-07T00:00:00+09:00">2023-02-07</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-02-09T00:00:00+09:00">2023-02-09</time></p>
 
       </footer>
 
@@ -525,23 +512,22 @@ TDD의 경우 단위 테스트 기반의 테스트 코드를 작성하기 때문
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=TDD%28Test+Driven+Development%29+-+%ED%85%8C%EC%8A%A4%ED%8A%B8+%EC%A3%BC%EB%8F%84+%EA%B0%9C%EB%B0%9C%20http%3A%2F%2Flocalhost%3A4000%2Finsight%2FTDD%28Test-Driven-Development%29-%25ED%2585%258C%25EC%258A%25A4%25ED%258A%25B8-%25EC%25A3%25BC%25EB%258F%2584-%25EA%25B0%259C%25EB%25B0%259C%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%EB%8B%A8%EC%9C%84+%ED%85%8C%EC%8A%A4%ED%8A%B8%2C+%ED%86%B5%ED%95%A9+%ED%85%8C%EC%8A%A4%ED%8A%B8%2C+%EC%9D%B8%EC%88%98+%ED%85%8C%EC%8A%A4%ED%8A%B8%20http%3A%2F%2Flocalhost%3A4000%2Finsight%2F%25EB%258B%25A8%25EC%259C%2584%25ED%2585%258C%25EC%258A%25A4%25ED%258A%25B8-%25ED%2586%25B5%25ED%2595%25A9%25ED%2585%258C%25EC%258A%25A4%25ED%258A%25B8-%25EC%259D%25B8%25EC%2588%2598%25ED%2585%258C%25EC%258A%25A4%25ED%258A%25B8%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Finsight%2FTDD%28Test-Driven-Development%29-%25ED%2585%258C%25EC%258A%25A4%25ED%258A%25B8-%25EC%25A3%25BC%25EB%258F%2584-%25EA%25B0%259C%25EB%25B0%259C%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Finsight%2F%25EB%258B%25A8%25EC%259C%2584%25ED%2585%258C%25EC%258A%25A4%25ED%258A%25B8-%25ED%2586%25B5%25ED%2595%25A9%25ED%2585%258C%25EC%258A%25A4%25ED%258A%25B8-%25EC%259D%25B8%25EC%2588%2598%25ED%2585%258C%25EC%258A%25A4%25ED%258A%25B8%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Finsight%2FTDD%28Test-Driven-Development%29-%25ED%2585%258C%25EC%258A%25A4%25ED%258A%25B8-%25EC%25A3%25BC%25EB%258F%2584-%25EA%25B0%259C%25EB%25B0%259C%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Finsight%2F%25EB%258B%25A8%25EC%259C%2584%25ED%2585%258C%25EC%258A%25A4%25ED%258A%25B8-%25ED%2586%25B5%25ED%2595%25A9%25ED%2585%258C%25EC%258A%25A4%25ED%258A%25B8-%25EC%259D%25B8%25EC%2588%2598%25ED%2585%258C%25EC%258A%25A4%25ED%258A%25B8%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="pagination--pager" title="📖 자바 ORM 표준 JPA 프로그래밍
+      <a href="/java/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/" class="pagination--pager" title="JUnit 5, AssertJ Cheat Sheet
 ">이전</a>
     
     
-      <a href="/java/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/" class="pagination--pager" title="JUnit 5, AssertJ Cheat Sheet
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -555,43 +541,6 @@ TDD의 경우 단위 테스트 기반의 테스트 코드를 작성하기 때문
     <div class="page__related">
       <h2 class="page__related-title">다른 읽을거리</h2>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8/" rel="permalink">단위 테스트, 통합 테스트, 인수 테스트
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2023-02-09T00:00:00+09:00">2023-02-09</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">단위 테스트, 통합 테스트, 인수  테스트에 대해 설명합니다.
-</p>
-  </article>
-</div>
-
         
           
 
@@ -632,6 +581,43 @@ TDD의 경우 단위 테스트 기반의 테스트 코드를 작성하기 때문
 
 
 
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/insight/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/" rel="permalink">TDD(Test Driven Development) - 테스트 주도 개발
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-07T00:00:00+09:00">2023-02-07</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
 </p>
   </article>
 </div>
@@ -773,8 +759,8 @@ TDD의 경우 단위 테스트 기반의 테스트 코드를 작성하기 때문
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/insight/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/insight/TDD(Test Driven Development)-테스트-주도-개발"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/insight/단위테스트-통합테스트-인수테스트"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
