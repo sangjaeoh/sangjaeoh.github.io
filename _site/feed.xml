@@ -1,4 +1,221 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-12T16:19:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">단위 테스트, 통합 테스트, 인수 테스트</title><link href="http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8/" rel="alternate" type="text/html" title="단위 테스트, 통합 테스트, 인수 테스트" /><published>2023-02-09T00:00:00+09:00</published><updated>2023-02-09T00:00:00+09:00</updated><id>http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8</id><content type="html" xml:base="http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8/"><![CDATA[<p>단위 테스트, 통합 테스트, 인수  테스트에 대해 설명합니다.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-12T19:53:36+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">Test Double</title><link href="http://localhost:4000/insight/Test-Double/" rel="alternate" type="text/html" title="Test Double" /><published>2023-02-12T00:00:00+09:00</published><updated>2023-02-12T00:00:00+09:00</updated><id>http://localhost:4000/insight/Test-Double</id><content type="html" xml:base="http://localhost:4000/insight/Test-Double/"><![CDATA[<p>테스트 더블(Test Dobule)에 대해 설명합니다.</p>
+
+<p><br /></p>
+
+<h1 id="-테스트-더블이란">🤔 테스트 더블이란?</h1>
+<ul>
+  <li>Test Dobule이라 한다.</li>
+  <li>테스트를 진행하기 어려운 경우 이를 <strong>대신해 테스트를 진행할 수 있도록 만들어주는 객체를 말한다.</strong></li>
+  <li>제라드 메스자로스(Gerard Meszaros)가 만든 용어로,  스턴트 더블(영화 촬영에서 말하는 스턴트 대역 배우)에서 아이디어를 얻어서 만든 용어이다.</li>
+</ul>
+
+<div class="notice--info">
+<p>예를 들어 우리가 데이터베이스로부터 조회한 값을 연산하는 로직을 구현했다고 하자. 해당 로직을 테스트하기 위해선 항상 데이터베이스의 영향을 받을 것이고, 이는 데이터베이스의 상태에 따라 다른 결과를 유발할 수도 있다.</p>
+
+<p>이때 <strong>테스트하려는 객체와 연관된 객체를 사용하기가 어렵고 모호할 때 대신해 줄 수 있는 객체를 테스트 더블이라 한다.</strong></p>
+</div>
+<p><br /></p>
+
+<h1 id="-테스트-더블-종류">📖 테스트 더블 종류</h1>
+<p><img src="/assets/images/posts/insight/20230212/e7604428-37a2-4e06-9dd4-35e3dc4e7d77.png" alt="TestDouble" />
+테스트 더블은 크게 <code class="language-plaintext highlighter-rouge">Dummy</code>, <code class="language-plaintext highlighter-rouge">Fake</code>, <code class="language-plaintext highlighter-rouge">Stub</code>, <code class="language-plaintext highlighter-rouge">Spy</code>, <code class="language-plaintext highlighter-rouge">Mock</code>으로 나눈다.</p>
+
+<h2 id="-dummy">🎯 Dummy</h2>
+<ul>
+  <li>가장 기본적인 테스트 더블이다.</li>
+  <li>인스턴스화 된 객체가 필요하지만 기능은 필요하지 않은 경우에 사용한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">Dummy</code> 객체의 메서드가 호출되었을 때 정상 동작은 보장하지 않는다.</li>
+  <li>객체는 전달되지만 사용되지 않는 객체이다.<br />
+<br /></li>
+</ul>
+
+<p><strong>Dummy 예</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">PringWarning</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">print</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PrintWarningDummy</span> <span class="kd">implements</span> <span class="nc">PrintWarning</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// 아무런 동작을 하지 않는다.</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>실제 객체는 PrintWarning 인터페이스의 구현체를 필요하지만, 특정 테스트에서는 해당 구현체의 동작이 전혀 필요하지 않을 수 있다. 실제 객체가 로그용 경고만 출력한다면 테스트 환경에서는 전혀 필요 없기 때문이다.</p>
+
+<p>이처럼 동작하지 않아도 테스트에는 영향을 미치지 않는 객체를 <code class="language-plaintext highlighter-rouge">Dummy</code> 객체라고 한다.
+<br />
+<br /></p>
+
+<h2 id="-fake">🎯 Fake</h2>
+<ul>
+  <li>복잡한 로직이나 객체 내부에서 필요로 하는 다른 외부 객체들의 동작을 단순화하여 구현한 객체이다.</li>
+  <li>동작의 구현을 가지고 있지만 실제 프로덕션에는 적합하지 않은 객체이다.</li>
+  <li>즉, <strong>동작은 하지만 실제 사용되는 객체처럼 정교하게 동작하지는 않는 객체를 말한다.</strong><br />
+<br /></li>
+</ul>
+
+<p><strong>Fake 예</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserRepository</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">save</span><span class="o">(</span><span class="nc">User</span> <span class="n">user</span><span class="o">);</span>
+    <span class="nc">User</span> <span class="nf">findById</span><span class="o">(</span><span class="kt">long</span> <span class="n">id</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FakeUserRepository</span> <span class="kd">implements</span> <span class="nc">UserRepository</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Collection</span><span class="o">&lt;</span><span class="nc">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="o">(</span><span class="nc">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">findById</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getId</span><span class="o">())</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">user</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">User</span> <span class="nf">findById</span><span class="o">(</span><span class="kt">long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">User</span> <span class="n">user</span> <span class="o">:</span> <span class="n">users</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getId</span><span class="o">()</span> <span class="o">==</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="n">user</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>실제 데이터베이스를 연결해서 테스트해야 하지만, 실제 데이터베이스 대신 가짜 데이터베이스 역할을 하는 FakeUserRepository를 만들어 테스트 객체에 주입한다. 이렇게 하면 테스트 객체는 데이터베이스에 의존하지 않으면서도 동일하게 동작을 하는 가짜 데이터베이스를 가지게 된다.</p>
+
+<p>이처럼 실제 객체와 동일한 역할을 하도록 만들어 사용하는 객체가 <code class="language-plaintext highlighter-rouge">Fake</code>이다.<br />
+<br />
+<br /></p>
+
+<h2 id="-stub">🎯 Stub</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Dummy</code> 객체가 실제로 동작하는 것 처럼 보이게 만들어 놓은 객체이다.</li>
+  <li>테스트에서 호출된 요청에 대해 미리 준비해둔 결과를 제공한다.</li>
+  <li><strong>상태를 검증한다.</strong></li>
+  <li>즉, <strong>테스트를 위해 프로그래밍된 내용에 대해서만 준비된 결과를 제공하는 객체이다.</strong></li>
+</ul>
+
+<p><strong>Stub 예</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GradeServiceTest</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">Student</span> <span class="n">student</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Gradebook</span> <span class="n">gradebook</span><span class="o">;</span>
+
+    <span class="nd">@Before</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+        <span class="n">gradebook</span> <span class="o">=</span> <span class="n">mock</span><span class="o">(</span><span class="nc">Gradebook</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">student</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Student</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">calculates_grades_average_for_student</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">when</span><span class="o">(</span><span class="n">gradebook</span><span class="o">.</span><span class="na">gradesFor</span><span class="o">(</span><span class="n">student</span><span class="o">)).</span><span class="na">thenReturn</span><span class="o">(</span><span class="n">grades</span><span class="o">(</span><span class="mi">8</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">10</span><span class="o">));</span> <span class="c1">//stubbing gradebook</span>
+
+        <span class="kt">double</span> <span class="n">averageGrades</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GradesService</span><span class="o">(</span><span class="n">gradebook</span><span class="o">).</span><span class="na">averageGrades</span><span class="o">(</span><span class="n">student</span><span class="o">);</span>
+
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">averageGrades</span><span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="mf">8.0</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>우리가 테스트에서 자주 사용하는 <code class="language-plaintext highlighter-rouge">Mockito</code> 프레임워크도 <code class="language-plaintext highlighter-rouge">Stub</code>와 같은 역할을 해준다.</p>
+
+<p>이처럼 테스트를 위해 의도한 결과만 반환되도록 하기 위한 객체가 <code class="language-plaintext highlighter-rouge">Stub</code>이다.<br />
+<br />
+<br /></p>
+
+<h2 id="-spy">🎯 Spy</h2>
+<ul>
+  <li>Stub의 역할을 가지면서 호출된 내용에 대해 약간의 정보를 기록한다.</li>
+  <li>실제 객체처럼 동작시킬 수도 있고, 필요한 부분에 대해서는 Stub로 만들어서 동작을 지정할 수도 있다.</li>
+  <li>즉, <strong>실제 기능을 사용하면서 선택적으로 Stub하는 객체이다.</strong></li>
+</ul>
+
+<p><strong>Spy 예</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ExtendWith</span><span class="o">(</span><span class="nc">MockitoExtension</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpyTests</span> <span class="o">{</span>
+
+    <span class="nd">@Spy</span>
+    <span class="kd">private</span> <span class="nc">OrderRepository</span> <span class="n">orderRepository</span><span class="o">;</span>
+    <span class="nd">@Spy</span>
+    <span class="kd">private</span> <span class="nc">NotificationClient</span> <span class="n">notificationClient</span><span class="o">;</span>
+    <span class="nd">@InjectMocks</span>
+    <span class="kd">private</span> <span class="nc">OrderService</span> <span class="n">orderService</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">createOrderTest_basic</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// given</span>
+        <span class="c1">// Spy 객체의 orderRepository의 createOrder()만 Stub하고 나머지 기능은 그대로 사용</span>
+        <span class="nc">Mockito</span><span class="o">.</span><span class="na">doAnswer</span><span class="o">(</span><span class="n">invocation</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"I'm spy orderRepository createOrder"</span><span class="o">);</span>
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}).</span><span class="na">when</span><span class="o">(</span><span class="n">orderRepository</span><span class="o">).</span><span class="na">createOrder</span><span class="o">();</span>
+        <span class="nc">Mockito</span><span class="o">.</span><span class="na">doAnswer</span><span class="o">(</span><span class="n">invocation</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"I'm spy notificationclient"</span><span class="o">);</span>
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}).</span><span class="na">when</span><span class="o">(</span><span class="n">notificationClient</span><span class="o">).</span><span class="na">notifyToMobile</span><span class="o">();</span>
+
+
+        <span class="c1">// when</span>
+        <span class="n">orderService</span><span class="o">.</span><span class="na">createOrder</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+
+        <span class="c1">// then</span>
+        <span class="nc">Mockito</span><span class="o">.</span><span class="na">verify</span><span class="o">(</span><span class="n">orderRepository</span><span class="o">,</span> <span class="nc">Mockito</span><span class="o">.</span><span class="na">times</span><span class="o">(</span><span class="mi">1</span><span class="o">)).</span><span class="na">createOrder</span><span class="o">();</span>
+        <span class="nc">Mockito</span><span class="o">.</span><span class="na">verify</span><span class="o">(</span><span class="n">notificationClient</span><span class="o">,</span> <span class="nc">Mockito</span><span class="o">.</span><span class="na">times</span><span class="o">(</span><span class="mi">1</span><span class="o">)).</span><span class="na">notifyToMobile</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="-mock">🎯 Mock</h2>
+<ul>
+  <li>Mock은 행위를 검증하기 위해 가짜 객체를 만들고 테스트하는 방법이다.</li>
+  <li>테스트가 정상적으로 호출되었는지, <strong>행위를 검증한다.</strong><br />
+<br /></li>
+</ul>
+
+<p><strong>Mock 예</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SecurityCentral</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Window</span> <span class="n">window</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Door</span> <span class="n">door</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">SecurityCentral</span><span class="o">(</span><span class="nc">Window</span> <span class="n">window</span><span class="o">,</span> <span class="nc">Door</span> <span class="n">door</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">window</span> <span class="o">=</span> <span class="n">window</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">door</span> <span class="o">=</span> <span class="n">door</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kt">void</span> <span class="nf">securityOn</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">window</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">door</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SecurityCentralTest</span> <span class="o">{</span>
+    <span class="nc">Window</span> <span class="n">windowMock</span> <span class="o">=</span> <span class="n">mock</span><span class="o">(</span><span class="nc">Window</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="nc">Door</span> <span class="n">doorMock</span> <span class="o">=</span> <span class="n">mock</span><span class="o">(</span><span class="nc">Door</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enabling_security_locks_windows_ans_doors</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">SecurityCentral</span> <span class="n">securityCentral</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SecurityCentral</span><span class="o">(</span><span class="n">windowMock</span><span class="o">,</span> <span class="n">doorMock</span><span class="o">);</span>
+
+        <span class="n">securityCentral</span><span class="o">.</span><span class="na">securityOn</span><span class="o">();</span>
+
+        <span class="c1">// 행위 검증</span>
+        <span class="n">verify</span><span class="o">(</span><span class="n">windowMock</span><span class="o">).</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">verify</span><span class="o">(</span><span class="n">doorMock</span><span class="o">).</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+<br />
+<br /></p>
+
+<h1 id="️-참고사이트">🙇🏻‍♂️ 참고사이트</h1>
+<ul>
+  <li><a href="https://tecoble.techcourse.co.kr/post/2020-09-19-what-is-test-double/" target="_blank">https://tecoble.techcourse.co.kr</a></li>
+  <li><a href="https://cobbybb.tistory.com/16" target="_blank">https://cobbybb.tistory.com/16</a></li>
+</ul>]]></content><author><name>Sangjae Oh</name></author><category term="Insight" /><category term="Insight" /><category term="Test" /><category term="TestDobule" /><summary type="html"><![CDATA[테스트 더블(Test Dobule)에 대해 설명합니다.]]></summary></entry><entry><title type="html">단위 테스트, 통합 테스트, 인수 테스트</title><link href="http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8/" rel="alternate" type="text/html" title="단위 테스트, 통합 테스트, 인수 테스트" /><published>2023-02-09T00:00:00+09:00</published><updated>2023-02-09T00:00:00+09:00</updated><id>http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8</id><content type="html" xml:base="http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8/"><![CDATA[<p>단위 테스트, 통합 테스트, 인수  테스트에 대해 설명합니다.</p>
 
 <p><br /></p>
 
@@ -11792,128 +12009,4 @@ VUser = (목표 rps * T) / R
 <p>이번 강의를 통해 k6와 부하테스트의 방법을 배웠으니, 앞으로 API를 개발할 때마다 간단하게 테스트 해보면 좋을것 같다. 👍</p>
 
 <h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/infra-subway-monitoring/tree/step3" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="회고" /><category term="회고" /><category term="교육" /><category term="우아한테크캠프 Pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 5주차 (인수 테스트 기반 TDD)</title><link href="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-5%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 5주차 (인수 테스트 기반 TDD)" /><published>2023-01-05T00:00:00+09:00</published><updated>2023-01-05T00:00:00+09:00</updated><id>http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-5%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-5%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
-우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
-
-<h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
-<p>지하철 노선도 서비스을 구현하면서 인수 테스트 기반 TDD를 진행하는 미션</p>
-
-<h2 id="-학습-목표">🎯 학습 목표</h2>
-<ul>
-  <li>인수 테스트 기반의 TDD 경험</li>
-  <li>로그인 상태 인수 테스트</li>
-</ul>
-
-<h2 id="-강의-내용">📖 강의 내용</h2>
-<p>인수 테스트 기반으로 TDD를 진행하는 방법을 설명하고, 단위테스트와 통합테스트 설명, 인수 테스트 기반으로 리팩터링 방법, 인증기반 인수 테스트 방법을 설명</p>
-
-<p><strong>단위 테스트란?</strong></p>
-<ul>
-  <li>작은 코드 조각(단위)을 검증</li>
-  <li>빠르게 수행 가능</li>
-  <li>격리된 방식으로 처리</li>
-</ul>
-
-<p><strong>통합과 고립(Sociable and Solitary)</strong></p>
-<ul>
-  <li>단위 테스트 작성 시 관계를 맺고 있는 대상(협력 객체)이 있는 경우를 고려해야 함</li>
-  <li>협력 객체를 실제 객체로 사용하는지 Mock(가짜) 객체로 사용하는지에 따라 테스트 구현이 달라짐
-<img src="/assets/images/posts/sociable_and_solitary.png" alt="sociable_and_solitary" /></li>
-</ul>
-
-<p><strong>Test Double</strong></p>
-<ul>
-  <li>실제 객체 대신 사용되는 모든 종류의 객체에 대한 일반 용어</li>
-  <li>즉, 실제 (예 : 클래스, 모듈 또는 함수)를 가짜 버전으로 대체한다는 의미
-<img src="/assets/images/posts/test_double.png" alt="test_double" /></li>
-  <li>Dummy: 객체는 전달되지만, 실제로 사용하지 않는다. 종종 파라미터 리스트를 채우기 위해 사용</li>
-  <li>Fake: 동작의 구현을 가지고 있지만, 프로덕션에 적합하지 않은 간결한을 제공</li>
-  <li>Stub: 테스트 진행 중에 호출에 대한 미리 준비된 응답을 제공하고, 준비된 응답 이외(일반적인 테스트를 위한 프로그래밍 구현)의 항목에는 전혀 응답하지 않는다.</li>
-  <li>Spy: 어떻게 호출됐는지에 따라 특정 정보를 표현하는 스파이도 스텁이다.</li>
-  <li>Mock: 기대된 호출의 구체적인 형식을 기대하는 미리 프로그래밍된 객체이다.</li>
-</ul>
-
-<p><br /></p>
-
-<p><strong>Stub</strong></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">calculates_grades_average_for_student</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">when</span><span class="o">(</span><span class="n">gradebook</span><span class="o">.</span><span class="na">gradesFor</span><span class="o">(</span><span class="n">student</span><span class="o">)).</span><span class="na">thenReturn</span><span class="o">(</span><span class="n">grades</span><span class="o">(</span><span class="mi">8</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">10</span><span class="o">));</span> <span class="c1">// stubbing</span>
-
-    <span class="kt">double</span> <span class="n">averageGrades</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GradesService</span><span class="o">(</span><span class="n">gradebook</span><span class="o">).</span><span class="na">averageGrades</span><span class="o">(</span><span class="n">student</span><span class="o">);</span>
-
-    <span class="n">assertThat</span><span class="o">(</span><span class="n">averageGrades</span><span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="mf">8.0</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<p><strong>Mock</strong></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Window</span> <span class="n">windowMock</span> <span class="o">=</span> <span class="n">mock</span><span class="o">(</span><span class="nc">Window</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-<span class="nc">Door</span> <span class="n">doorMock</span> <span class="o">=</span> <span class="n">mock</span><span class="o">(</span><span class="nc">Door</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">enabling_security_locks_windows_and_doors</span><span class="o">()</span> <span class="o">{</span>
-    <span class="nc">SecurityCentral</span> <span class="n">securityCentral</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SecurityCentral</span><span class="o">(</span><span class="n">windowMock</span><span class="o">,</span> <span class="n">doorMock</span><span class="o">);</span>
-
-    <span class="n">securityCentral</span><span class="o">.</span><span class="na">securityOn</span><span class="o">();</span>
-
-    <span class="n">verify</span><span class="o">(</span><span class="n">doorMock</span><span class="o">).</span><span class="na">close</span><span class="o">();</span>
-    <span class="n">verify</span><span class="o">(</span><span class="n">windowMock</span><span class="o">).</span><span class="na">close</span><span class="o">();</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<p><strong>통합 vs 고립</strong></p>
-<ul>
-  <li>협력 객체를 실제 객체로? 가짜 객체로?
-    <ul>
-      <li>실제 객체를 사용하면 협력 객체의 행위를 협력 객체 스스로가 정의</li>
-      <li>가짜 객체를 사용하면 협력 객체의 행위를 테스트가 정의</li>
-    </ul>
-  </li>
-  <li>가짜 객체(테스트 더블)를 사용할 경우
-    <ul>
-      <li>테스트 대상을 검증할 때 외부 요인(협력 객체)으로 부터 철저히 격리</li>
-      <li>하지만 테스트가 협력 객체의 상세 구현을 알아야 함</li>
-    </ul>
-  </li>
-  <li>실제 객체를 사용할 경우
-    <ul>
-      <li>실제 객체를 사용 할 경우 협력 객체의 상세 구현에 대해서 알 필요가 없음</li>
-      <li>하지만 협력 객체의 정상 동작 여부에 영향을 받음</li>
-    </ul>
-  </li>
-  <li>테스트 코드를 작성할 때
-    <ul>
-      <li>가짜 객체를 활용하면 실제 객체를 사용할 때 보다 조금 더 편하게 테스트를 작성할 수 있음</li>
-      <li>하지만 상세 구현에 의존하는 테스트가 될 수 있음</li>
-    </ul>
-  </li>
-  <li>추천하는 방법
-    <ul>
-      <li>TDD를 연습할 때는 가급적이면 실제 객체를 활용하는 것을 우선으로 진행</li>
-      <li>테스트 작성이 어렵거나 흐름이 잘 이어지지 않는다면 테스트 더블을 활용하는 방법으로 접근하시는 것을 추천</li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="-미션-후기">📝 미션 후기</h2>
-<p>미션이 진행될수록 점점 어려워졌고, 시간이 부족해지기 시작했다. 평소에 잘 마시지 않던 커피를 미션을 진행하는 동안 매일 마시게 되었다.</p>
-
-<p>이번 미션은 리팩터링, 경로 조회 기능, 인증을 통한 기능, 요금 조회 등을 구현하면서 인수 테스트와 TDD를 심화하는 과정이었다.</p>
-
-<p>이번 미션 같은 경우 인수 테스트 만들고, 도메인 단위 테스트를 하고, 서비스 통합 테스트를 하는 식으로 Outside In과 Inside Out 방식의 테스트를 섞어가면서 진행하였다. 이렇게 진행을 하니 요구사항과 기능 이해에 도움이 되었고, 복잡한 설계를 한번에 만들려고 하지않고 쪼개서 생각하게 되어 기능 구현에 도움이 되었다.</p>
-
-<p>하지만 처음부터 완벽할 수는 없었고 메서드명, 빌더패턴 적용, Optional 활용, 인터페이스 활용 등 피드백 받은 것들이 많았다. 기능 구현하랴 피드백 반영하랴… 정말 시간이 너무 부족했다. 😭</p>
-
-<p>이번 미션을 하면서 인수 테스트, 단위 테스트, 통합 테스트에 좀 더 익숙해질 수 있었고, 프로그래밍에 대한 피드백으로 실력 향상에 도움이 되었다.</p>
-
-<p>뒤로 갈수록 미션 난이도가 높아지면서, 미션 한 단계 한 단계 Merge 될 때마다 정말 감격(?)스러웠다… 😭</p>
-
-<p>이번 미션에서의 나의 문제점은 피드백의 내용에서 알 수 있듯이 프로그래밍 실력 부족이었다… 😭<br />
-책만 쌓여간다… 📖📖📖</p>
-
-<h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/atdd-subway-service/tree/step4" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="회고" /><category term="회고" /><category term="교육" /><category term="우아한테크캠프 Pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry></feed>
+<p><a href="https://github.com/sangjaeoh/infra-subway-monitoring/tree/step3" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="회고" /><category term="회고" /><category term="교육" /><category term="우아한테크캠프 Pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry></feed>
