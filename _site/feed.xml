@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-09T23:02:07+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">단위 테스트, 통합 테스트, 인수 테스트</title><link href="http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8/" rel="alternate" type="text/html" title="단위 테스트, 통합 테스트, 인수 테스트" /><published>2023-02-09T00:00:00+09:00</published><updated>2023-02-09T00:00:00+09:00</updated><id>http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8</id><content type="html" xml:base="http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8/"><![CDATA[<p>단위 테스트, 통합 테스트, 인수  테스트에 대해 설명합니다.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-12T16:19:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">단위 테스트, 통합 테스트, 인수 테스트</title><link href="http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8/" rel="alternate" type="text/html" title="단위 테스트, 통합 테스트, 인수 테스트" /><published>2023-02-09T00:00:00+09:00</published><updated>2023-02-09T00:00:00+09:00</updated><id>http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8</id><content type="html" xml:base="http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8/"><![CDATA[<p>단위 테스트, 통합 테스트, 인수  테스트에 대해 설명합니다.</p>
 
 <p><br /></p>
 
@@ -69,6 +69,72 @@
         <span class="n">when</span><span class="o">(</span><span class="n">carRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">any</span><span class="o">())).</span><span class="na">thenReturn</span><span class="o">(</span><span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="no">NAME</span><span class="o">)));</span>
         
         <span class="c1">// when</span>
+        <span class="nc">CarResponse</span> <span class="n">carResponse</span> <span class="o">=</span> <span class="n">carService</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="no">NAME</span><span class="o">);</span>
+
+        <span class="c1">// then</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">carResponse</span><span class="o">.</span><span class="na">getName</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="no">NAME</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@WebMvcTest</span><span class="o">(</span><span class="nc">CarController</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CarControllerTest</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">API_BASE_PATH</span> <span class="o">=</span> <span class="s">"/api/car"</span><span class="o">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">MockMvc</span> <span class="n">mockMvc</span><span class="o">;</span>
+
+    <span class="nd">@MockBean</span>
+    <span class="kd">private</span> <span class="nc">CarService</span> <span class="n">carService</span><span class="o">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">ObjectMapper</span> <span class="n">objectMapper</span><span class="o">;</span>
+
+    <span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"자동차를 생성한다."</span><span class="o">)</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">createCar</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+        <span class="c1">//given</span>
+        <span class="nc">CarRequest</span> <span class="n">carRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="n">carRequest</span><span class="o">(</span><span class="s">"Boong-Boong"</span><span class="o">);</span>
+        <span class="nc">CarResponse</span> <span class="n">carResponse</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CarResponse</span><span class="o">(</span><span class="mi">1L</span><span class="o">,</span> <span class="n">carRequest</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+        <span class="n">given</span><span class="o">(</span><span class="n">carService</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">any</span><span class="o">())).</span><span class="na">willReturn</span><span class="o">(</span><span class="n">carResponse</span><span class="o">);</span>
+
+        <span class="c1">//when, then</span>
+        <span class="n">mockMvc</span><span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">post</span><span class="o">(</span><span class="no">API_BASE_PATH</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">content</span><span class="o">(</span><span class="n">objectMapper</span><span class="o">.</span><span class="na">writeValueAsString</span><span class="o">(</span><span class="n">carRequest</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">contentType</span><span class="o">(</span><span class="nc">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">andExpect</span><span class="o">(</span><span class="n">status</span><span class="o">().</span><span class="na">isCreated</span><span class="o">())</span>
+            <span class="o">.</span><span class="na">andExpect</span><span class="o">(</span><span class="n">jsonPath</span><span class="o">(</span><span class="s">"$.id"</span><span class="o">).</span><span class="na">value</span><span class="o">(</span><span class="n">carResponse</span><span class="o">.</span><span class="na">getId</span><span class="o">()));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+<br />
+<br /></p>
+
+<h1 id="-통합-테스트란">🤔 통합 테스트란?</h1>
+<ul>
+  <li>Integration Test라고 한다.</li>
+  <li>개발자 관점에서 테스트한다.</li>
+  <li>여러 기능을 조합하여 전체 비지니스 로직이 제대로 동작하는지 확인하는 것을 의미한다.</li>
+  <li>단위 기능 간의 의존성을 포함하여 테스트한다.</li>
+  <li>단위 테스트와 달리 개발자가 변경할 수 없는 부분(예: 외부 라이브러리)까지 묶어 검증할 때 사용한다.<br />
+<br /></li>
+</ul>
+
+<p><strong>통합 테스트 예</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@SpringBootTest</span><span class="o">(</span><span class="n">webEnvironment</span> <span class="o">=</span> <span class="nc">SpringBootTest</span><span class="o">.</span><span class="na">WebEnvironment</span><span class="o">.</span><span class="na">MOCK</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">CarServiceTest</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">CarService</span> <span class="n">carService</span><span class="o">;</span>
+
+    <span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"이름을 받아 자동차를 저장한다."</span><span class="o">)</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="o">(){</span>
+        <span class="c1">// given</span>
+        <span class="kd">final</span> <span class="nc">String</span> <span class="no">NAME</span> <span class="o">=</span> <span class="s">"Boong-Boong"</span><span class="o">;</span>
+        
+        <span class="c1">// when</span>
         <span class="nc">CarResponse</span> <span class="n">car</span> <span class="o">=</span> <span class="n">carService</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="no">NAME</span><span class="o">);</span>
 
         <span class="c1">// then</span>
@@ -76,12 +142,134 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
+<p><br />
+<br />
+<br /></p>
+
+<h1 id="-인수-테스트란">🤔 인수 테스트란?</h1>
+<ul>
+  <li>Acceptance Test라고 한다.</li>
+  <li>사용자 관점에서 테스트한다.</li>
+  <li>사용자 스토리(시나리오)에 맞춰 수행하는 테스트이다.</li>
+  <li>요구사항을 만족하는지를 검증한다.</li>
+  <li>다른 의사소통집단으로부터 시나리오를 받아(인수) 개발한다는 의미를 가지고 있다.<br />
+<br /></li>
+</ul>
+
+<p><strong>인수 테스트 예: MockMvc</strong></p>
+
+<div class="notice--info">
+<ul>
+  <li>실제로 서버를 구동하진 않고 모킹한 Spring MVC 환경을 구현</li>
+  <li>MVC 서버와 요청을 날리는 곳의 스레드가 분리되므로 <code class="language-plaintext highlighter-rouge">@Transaction</code>을 선언하여도 <code class="language-plaintext highlighter-rouge">Rollback</code>되지 않음.
+    <ul>
+      <li>데이터를 직접 삭제해야함</li>
+    </ul>
+  </li>
+</ul>
+</div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@SpringBootTest</span>
+<span class="nd">@AutoConfigureMockMvc</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CarControllerMockTest</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">API_BASE_PATH</span> <span class="o">=</span> <span class="s">"/api/car"</span><span class="o">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">MockMvc</span> <span class="n">mockMvc</span><span class="o">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">ObjectMapper</span> <span class="n">objectMapper</span><span class="o">;</span>
+
+    <span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"자동차를 생성한다."</span><span class="o">)</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">createCar</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+        <span class="c1">//given</span>
+        <span class="nc">CarRequest</span> <span class="n">carRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="n">carRequest</span><span class="o">(</span><span class="s">"Boong-Boong"</span><span class="o">);</span>
+        <span class="nc">CarResponse</span> <span class="n">carResponse</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CarResponse</span><span class="o">(</span><span class="mi">1L</span><span class="o">,</span> <span class="n">carRequest</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+
+        <span class="c1">//when, then</span>
+        <span class="n">mockMvc</span><span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">post</span><span class="o">(</span><span class="no">API_BASE_PATH</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">content</span><span class="o">(</span><span class="n">objectMapper</span><span class="o">.</span><span class="na">writeValueAsString</span><span class="o">(</span><span class="n">carRequest</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">contentType</span><span class="o">(</span><span class="nc">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">andExpect</span><span class="o">(</span><span class="n">status</span><span class="o">().</span><span class="na">isCreated</span><span class="o">())</span>
+            <span class="o">.</span><span class="na">andExpect</span><span class="o">(</span><span class="n">jsonPath</span><span class="o">(</span><span class="s">"$.id"</span><span class="o">).</span><span class="na">value</span><span class="o">(</span><span class="n">carResponse</span><span class="o">.</span><span class="na">getId</span><span class="o">()));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<p><strong>인수 테스트 예: RestAssured</strong></p>
+
+<div class="notice--info">
+<ul>
+  <li>실제 서버를 구동하여 실제와 동일한 환경에서 테스트를 지원</li>
+  <li>MockMvc와 마찬가지로 MVC 서버와 요청을 날리는 곳의 스레드가 분리되므로 <code class="language-plaintext highlighter-rouge">@Transaction</code>을 선언하여도 <code class="language-plaintext highlighter-rouge">Rollback</code>되지 않음.
+    <ul>
+      <li>데이터를 직접 삭제해야함</li>
+    </ul>
+  </li>
+</ul>
+</div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@SpringBootTest</span><span class="o">(</span><span class="n">webEnvironment</span> <span class="o">=</span> <span class="nc">SpringBootTest</span><span class="o">.</span><span class="na">WebEnvironment</span><span class="o">.</span><span class="na">RANDOM_PORT</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AcceptanceTest</span> <span class="o">{</span>
+
+    <span class="nd">@LocalServerPort</span>
+    <span class="kt">int</span> <span class="n">port</span><span class="o">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">DatabaseCleanup</span> <span class="n">databaseCleanup</span><span class="o">;</span> <span class="c1">// 애플리케이션에 등록된 엔티티를 테이블을 비워주는 클래스를 만들어 (임의로 만든 클레스)</span>
+
+    <span class="nd">@BeforeEach</span> <span class="c1">// 매 테스트 실행 전에</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">RestAssured</span><span class="o">.</span><span class="na">port</span> <span class="o">=</span> <span class="n">port</span><span class="o">;</span>
+        <span class="n">databaseCleanup</span><span class="o">.</span><span class="na">execute</span><span class="o">();</span>  <span class="c1">// 테이블을 비워준다.</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CarAcceptanceTest</span> <span class="kd">extends</span> <span class="nc">AcceptanceTest</span><span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">API_BASE_PATH</span> <span class="o">=</span> <span class="s">"/api/car"</span><span class="o">;</span>
+
+    <span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"자동차를 생성한다."</span><span class="o">)</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">createCar</span><span class="o">(){</span>
+        <span class="c1">//give</span>
+        <span class="nc">CarRequest</span> <span class="n">자동차</span> <span class="o">=</span> <span class="k">new</span> <span class="n">carRequest</span><span class="o">(</span><span class="s">"Boong-Boong"</span><span class="o">);</span>
+
+        <span class="c1">//when</span>
+        <span class="nc">ExtractableResponse</span><span class="o">&lt;</span><span class="nc">Response</span><span class="o">&gt;</span> <span class="n">자동차_생성_결과</span> <span class="o">=</span> <span class="n">자동차_생성_요청</span><span class="o">(</span><span class="n">자동차</span><span class="o">);</span>
+
+        <span class="c1">//then</span>
+        <span class="n">자동차_생성_완료됨</span><span class="o">(</span><span class="n">자동차_생성_결과</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">ExtractableResponse</span><span class="o">&lt;</span><span class="nc">Response</span><span class="o">&gt;</span> <span class="n">자동차_생성_요청</span><span class="o">(</span><span class="nc">CarRequest</span> <span class="n">request</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nc">RestAssured</span>
+            <span class="o">.</span><span class="na">given</span><span class="o">().</span><span class="na">log</span><span class="o">().</span><span class="na">all</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">contentType</span><span class="o">(</span><span class="nc">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON_VALUE</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="n">request</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">when</span><span class="o">().</span><span class="na">post</span><span class="o">(</span><span class="no">API_BASE_PATH</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">then</span><span class="o">().</span><span class="na">log</span><span class="o">().</span><span class="na">all</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">extract</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="n">자동차_생성_완료됨</span><span class="o">(</span><span class="nc">ExtractableResponse</span><span class="o">&lt;</span><span class="nc">Response</span><span class="o">&gt;</span> <span class="n">response</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">statusCode</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="nc">HttpStatus</span><span class="o">.</span><span class="na">OK</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br />
+<br />
+<br /></p>
 
 <h1 id="️-참고사이트">🙇🏻‍♂️ 참고사이트</h1>
 <ul>
   <li><a href="https://jerry92k.tistory.com/m/77" target="_blank">https://jerry92k.tistory.com/</a></li>
   <li><a href="https://tecoble.techcourse.co.kr/post/2021-05-25-unit-test-vs-integration-test-vs-acceptance-test/" target="_blank">https://tecoble.techcourse.co.kr</a></li>
-</ul>]]></content><author><name>Sangjae Oh</name></author><category term="Insight" /><category term="Insight" /><category term="TEST" /><summary type="html"><![CDATA[단위 테스트, 통합 테스트, 인수 테스트에 대해 설명합니다.]]></summary></entry><entry><title type="html">JUnit 5, AssertJ Cheat Sheet</title><link href="http://localhost:4000/java/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/" rel="alternate" type="text/html" title="JUnit 5, AssertJ Cheat Sheet" /><published>2023-02-08T00:00:00+09:00</published><updated>2023-02-08T00:00:00+09:00</updated><id>http://localhost:4000/java/TDD(Test%20Driven%20Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C</id><content type="html" xml:base="http://localhost:4000/java/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/"><![CDATA[<p>JUnit 5, AssertJ의 사용법을 간단하게 정리하였습니다. 😁</p>
+</ul>]]></content><author><name>Sangjae Oh</name></author><category term="Insight" /><category term="Insight" /><category term="Test" /><summary type="html"><![CDATA[단위 테스트, 통합 테스트, 인수 테스트에 대해 설명합니다.]]></summary></entry><entry><title type="html">JUnit 5, AssertJ Cheat Sheet</title><link href="http://localhost:4000/java/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/" rel="alternate" type="text/html" title="JUnit 5, AssertJ Cheat Sheet" /><published>2023-02-08T00:00:00+09:00</published><updated>2023-02-08T00:00:00+09:00</updated><id>http://localhost:4000/java/TDD(Test%20Driven%20Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C</id><content type="html" xml:base="http://localhost:4000/java/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/"><![CDATA[<p>JUnit 5, AssertJ의 사용법을 간단하게 정리하였습니다. 😁</p>
 <ul>
   <li><a href="https://junit.org/junit5/docs/current/user-guide/#overview-what-is-junit-5" target="_blank">jUnit 5 가이드 링크</a></li>
   <li><a href="https://assertj.github.io/doc/" target="_blank">AssertJ 가이드 링크</a>
@@ -763,7 +951,7 @@ Character에 대한 비교</p>
 <span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">assertj</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">Assertions</span><span class="o">.*;</span>
 </code></pre></div></div>
 <p><br />
-<br /></p>]]></content><author><name>Sangjae Oh</name></author><category term="Java" /><category term="Java" /><category term="JUnit 5" /><category term="AssertJ" /><category term="CheatSheet" /><summary type="html"><![CDATA[JUnit 5, AssertJ의 사용법을 간단하게 정리하였습니다. 😁 jUnit 5 가이드 링크 AssertJ 가이드 링크]]></summary></entry><entry><title type="html">TDD(Test Driven Development) - 테스트 주도 개발</title><link href="http://localhost:4000/insight/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/" rel="alternate" type="text/html" title="TDD(Test Driven Development) - 테스트 주도 개발" /><published>2023-02-07T00:00:00+09:00</published><updated>2023-02-07T00:00:00+09:00</updated><id>http://localhost:4000/insight/TDD(Test%20Driven%20Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C</id><content type="html" xml:base="http://localhost:4000/insight/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/"><![CDATA[<p><br /></p>
+<br /></p>]]></content><author><name>Sangjae Oh</name></author><category term="Java" /><category term="Java" /><category term="JUnit 5" /><category term="AssertJ" /><category term="Test" /><category term="CheatSheet" /><summary type="html"><![CDATA[JUnit 5, AssertJ의 사용법을 간단하게 정리하였습니다. 😁 jUnit 5 가이드 링크 AssertJ 가이드 링크]]></summary></entry><entry><title type="html">TDD(Test Driven Development) - 테스트 주도 개발</title><link href="http://localhost:4000/insight/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/" rel="alternate" type="text/html" title="TDD(Test Driven Development) - 테스트 주도 개발" /><published>2023-02-07T00:00:00+09:00</published><updated>2023-02-07T00:00:00+09:00</updated><id>http://localhost:4000/insight/TDD(Test%20Driven%20Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C</id><content type="html" xml:base="http://localhost:4000/insight/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/"><![CDATA[<p><br /></p>
 
 <h1 id="-tddtest-driven-development란">🤔 TDD(Test Driven Development)란?</h1>
 <ul>
@@ -831,16 +1019,16 @@ TDD의 경우 단위 테스트 기반의 테스트 코드를 작성하기 때문
 </ol>
 
 <h1 id="-tdd의-한계">😓 TDD의 한계</h1>
-<p>이론적으로, 그리고 실제로 많은 경우에 TDD는 소프트웨어 개발에 많은 장점이 있습니다. 그러나 대부분은 이상적인 TDD 환경이 아닐 수 있습니다.</p>
+<p>이론적으로, 그리고 실제로 많은 경우에 TDD는 소프트웨어 개발에 많은 장점이 있습니다. 그러나 아래와 같은 한계도 존재합니다.</p>
 
 <ol>
   <li>
     <p><strong>레거시 코드</strong><br />
-코드가 이미 작성되었기 때문에 TDD는 레거시 코드에 적용되지 않습니다.</p>
+코드가 이미 작성되었기 때문에 레거시 코드에 적용되지 않습니다.</p>
   </li>
   <li>
     <p><strong>생산성의 저하</strong><br />
-장기적으로 보면 생산성이 증가합니다. 하지만 이는 <strong>“급하지 않은 환경”</strong>에서의 경우입니다. 납기인 준수가 중요한 SI프로젝트 같은 경우 이러한 조건과 모순됩니다.</p>
+장기적으로 보면 생산성이 증가합니다. 하지만 이는 <strong>“급하지 않은 환경”</strong>에서의 경우입니다. 납기일 준수가 중요한 SI프로젝트 같은 경우 이러한 조건과 모순됩니다.</p>
   </li>
   <li>
     <p><strong>불완전한 테스트 사례</strong><br />
@@ -851,13 +1039,13 @@ TDD의 경우 단위 테스트 기반의 테스트 코드를 작성하기 때문
 </ol>
 
 <h1 id="-tdd-필요한가">🤔 TDD 필요한가?</h1>
-<p>점점 더 많은 개발자들이 TDD로 전환하고 있습니다. 하지만 일부는 TDD가 실제 코딩 대신 테스트를 작성하는 데 시간을 소비하는 비용이 있다고 주장합니다.</p>
+<p>점점 더 많은 개발자들이 TDD로 전환하고 있습니다. 하지만 일부는 TDD가 실제 코딩 대신 테스트를 작성하는 데 시간을 더 소비한다고 주장합니다.</p>
 
-<p>프로토타입을 빠르게 코딩하고 빠르게 제품을 만들어야 하는 스타트업 개발자와 같이 시간이 제한된 개발자에게는 이러한 시간 소비가 치명적일 수 있습니다. 또한 관리자와 고객의 TDD의 장점에 대한 이해 부족, 개발자 교육의 투자 비용은 TDD를 사용하지 않게 합니다.</p>
+<p>빠르게 코딩하고 빠르게 제품을 만들어야 하는 스타트업 개발자와 같이 시간이 제한된 개발자에게는 이러한 시간 소비가 치명적일 수 있습니다. 또한 관리자와 고객의 TDD의 장점에 대한 이해 부족과 개발자 교육의 투자 비용은 TDD를 사용하지 않게 합니다.</p>
 
 <p>하지만 리소스를 보유하고 있으며 코드 품질이 가장 중요한 기업은 TDD로 전환을 하는 것이 좋습니다.
 <br />
-<br /></p>]]></content><author><name>Sangjae Oh</name></author><category term="Insight" /><category term="Insight" /><category term="TEST" /><category term="TDD" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">📖 자바 ORM 표준 JPA 프로그래밍</title><link href="http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" rel="alternate" type="text/html" title="📖 자바 ORM 표준 JPA 프로그래밍" /><published>2023-01-16T00:00:00+09:00</published><updated>2023-01-16T00:00:00+09:00</updated><id>http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D</id><content type="html" xml:base="http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000000935744" target="_blank">자바 ORM 표준 JPA 프로그래밍</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
+<br /></p>]]></content><author><name>Sangjae Oh</name></author><category term="Insight" /><category term="Insight" /><category term="Test" /><category term="TDD" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">📖 자바 ORM 표준 JPA 프로그래밍</title><link href="http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" rel="alternate" type="text/html" title="📖 자바 ORM 표준 JPA 프로그래밍" /><published>2023-01-16T00:00:00+09:00</published><updated>2023-01-16T00:00:00+09:00</updated><id>http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D</id><content type="html" xml:base="http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000000935744" target="_blank">자바 ORM 표준 JPA 프로그래밍</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
 
 <hr />
 

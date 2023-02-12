@@ -2,7 +2,7 @@
 layout: single
 title: "JUnit 5, AssertJ Cheat Sheet"
 categories: [Java]
-tag: [Java, JUnit 5, AssertJ, CheatSheet]
+tag: [Java, JUnit 5, AssertJ, Test, CheatSheet]
 author_profile: true
 toc: true
 toc_sticky: true
