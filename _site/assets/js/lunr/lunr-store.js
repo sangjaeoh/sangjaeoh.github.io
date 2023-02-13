@@ -106,4 +106,10 @@ var store = [{
         "tags": ["Insight","Test","TestDobule"],
         "url": "/insight/Test-Double/",
         "teaser": null
+      },{
+        "title": "Spring Boot Test Cheat Sheet",
+        "excerpt":"Spring Boot Test Cheat Sheet 입니다. 📝       ","categories": ["Spring"],
+        "tags": ["Spring","Java","Test","CheatSheet"],
+        "url": "/spring/spring-boot-test-cheat-sheet/",
+        "teaser": null
       }]

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-12T19:53:36+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">Test Double</title><link href="http://localhost:4000/insight/Test-Double/" rel="alternate" type="text/html" title="Test Double" /><published>2023-02-12T00:00:00+09:00</published><updated>2023-02-12T00:00:00+09:00</updated><id>http://localhost:4000/insight/Test-Double</id><content type="html" xml:base="http://localhost:4000/insight/Test-Double/"><![CDATA[<p>테스트 더블(Test Dobule)에 대해 설명합니다.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-13T21:38:58+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">Spring Boot Test Cheat Sheet</title><link href="http://localhost:4000/spring/spring-boot-test-cheat-sheet/" rel="alternate" type="text/html" title="Spring Boot Test Cheat Sheet" /><published>2023-02-13T00:00:00+09:00</published><updated>2023-02-13T00:00:00+09:00</updated><id>http://localhost:4000/spring/spring-boot-test-cheat-sheet</id><content type="html" xml:base="http://localhost:4000/spring/spring-boot-test-cheat-sheet/"><![CDATA[<p>Spring Boot Test Cheat Sheet 입니다. 📝</p>
+
+<p><br /></p>]]></content><author><name>Sangjae Oh</name></author><category term="Spring" /><category term="Spring" /><category term="Java" /><category term="Test" /><category term="CheatSheet" /><summary type="html"><![CDATA[Spring Boot Test Cheat Sheet 입니다. 📝]]></summary></entry><entry><title type="html">Test Double</title><link href="http://localhost:4000/insight/Test-Double/" rel="alternate" type="text/html" title="Test Double" /><published>2023-02-12T00:00:00+09:00</published><updated>2023-02-12T00:00:00+09:00</updated><id>http://localhost:4000/insight/Test-Double</id><content type="html" xml:base="http://localhost:4000/insight/Test-Double/"><![CDATA[<p>테스트 더블(Test Dobule)에 대해 설명합니다.</p>
 
 <p><br /></p>
 
@@ -11768,38 +11770,7 @@ M-N 연관은 개념적으로 양쪽 애그리거트에 컬렉션으로 연관�
 <ul>
   <li><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a></li>
   <li><a href="https://github.com/madvirus/ddd-start2" target="_blank">예제 코드</a></li>
-</ul>]]></content><author><name>Sangjae Oh</name></author><category term="Books" /><category term="Books" /><category term="DDD" /><summary type="html"><![CDATA[도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)</title><link href="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
-우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
-
-<h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
-<p>안정적인 서비스를 위한 성능개선, 스케일 아웃, 쿼리 최적화 등을 직접 해보는 미션</p>
-
-<h2 id="-학습-목표">🎯 학습 목표</h2>
-<ul>
-  <li>HTTP 개선에 따른 차이를 이해하고 Reverse Proxy 성능 개선</li>
-  <li>HTTP Cache 전략을 이해하여 적절한 정책을 설정</li>
-  <li>쿼리를 최적화하여 조회 성능을 개선</li>
-  <li>인덱스를 설정하여 조회 성능을 개선</li>
-</ul>
-
-<h2 id="-강의-내용">📖 강의 내용</h2>
-<p>화면 응답 개선을 위한 Nginx 설정, AWS Auto Scaling Group를 이용한 스케일아웃, MySql 쿼리 최적화 및 인덱스 설계 설명</p>
-
-<h2 id="-미션-후기">📝 미션 후기</h2>
-<p>이번 미션은 시간 부족으로 7주차 미션과 병행하면 진행하였다 😭</p>
-
-<p>강의를 통해서 배운 Nginx 설정, AWS Auto Scaling Group를 이용한 스케일아웃 등은 직접 하나하나 검색해보면서 적용 해보려면 엄청 힘들고 오래는 작업인데 강의를 통해 바로 배울 수 있어서 좋았고, MySql 쿼리 최적화 및 인덱스 설계는 앞으로 DB조회를 할 때 어떤점을 주의하면서 query를 만들어야 하는지 알 수 있어서 좋았다.</p>
-
-<p>Auto Scaling Group을 설정할 때 인스턴스의 Health Check가 안되서 왜 안되지 하며 몇 시간을 고민했는데 강의 설명에 함정카드가 존재 했었다. 그 이유는 Health Check가 되게 하려면 인스턴스에 퍼블릭 IP를 할당해주어야 하는데 강의 설명에는 그 내용이 없었다. 😱<br />
-<strong>아래 설정들은 자신의 상황에 맞게 세팅합니다. 이미지의 정보는 단순 예시입니다.</strong> 라는 강의 설명 문구의 의미를 잘 확인 했어야 했다. 
-아마 나같이 무작정 따라하는 교육생들은 꽤나 고생했을거 같다 🤣</p>
-
-<p>MySql 쿼리 최적화 및 인덱스 설계의 경우 어떻게 하면 좀 더 조회가 빨라질까 하면서 ID, 참조 컬럼외의 컬럼에도 인덱싱 해 보았다. 그런데 오히려 조회 속도가 느려지는 경우도 발생하였다.😱  인덱스가 많은 경우 오히려 쿼리 성능이 떨어진다는 것을 확인할 수 있었다.</p>
-
-<p>이번 강의를 통해 느낀 점은 인프라 설정은 정말 많은 부분은 신경써야 하면서 구성하기도 힘들다는 점과 테이블 인덱스 설정같은 경우 특수한 경우가 아니라면 ID, 참조 컬럼에만 인덱싱 하면 좋을거같다는 점이다.</p>
-
-<h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/infra-subway-performance/tree/step4" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="회고" /><category term="회고" /><category term="교육" /><category term="우아한테크캠프 Pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 7주차 (레거시 코드 리팩터링)</title><link href="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-7%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 7주차 (레거시 코드 리팩터링)" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-7%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-7%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
+</ul>]]></content><author><name>Sangjae Oh</name></author><category term="Books" /><category term="Books" /><category term="DDD" /><summary type="html"><![CDATA[도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 7주차 (레거시 코드 리팩터링)</title><link href="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-7%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 7주차 (레거시 코드 리팩터링)" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-7%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-7%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
 
 <h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
@@ -11862,7 +11833,38 @@ M-N 연관은 개념적으로 양쪽 애그리거트에 컬렉션으로 연관�
 <p>위 문제점을 개선하기 위해 DDD관련 글을 읽고 공부, 연습을 많이 해봐야 할거같고, 테스트 코드 작성시에도 의존관계를 생각해야할 것 같다(TestFixtures등을 이용)</p>
 
 <h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/jwp-refactoring/tree/step4" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="회고" /><category term="회고" /><category term="교육" /><category term="우아한테크캠프 Pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">MAC 단축키 모음 💻</title><link href="http://localhost:4000/mac/%EB%8B%A8%EC%B6%95%ED%82%A4/" rel="alternate" type="text/html" title="MAC 단축키 모음 💻" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/mac/%EB%8B%A8%EC%B6%95%ED%82%A4</id><content type="html" xml:base="http://localhost:4000/mac/%EB%8B%A8%EC%B6%95%ED%82%A4/"><![CDATA[<h2 id="-일반-단축키">⌨ 일반 단축키</h2>
+<p><a href="https://github.com/sangjaeoh/jwp-refactoring/tree/step4" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="회고" /><category term="회고" /><category term="교육" /><category term="우아한테크캠프 Pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)</title><link href="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
+우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
+
+<h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
+<p>안정적인 서비스를 위한 성능개선, 스케일 아웃, 쿼리 최적화 등을 직접 해보는 미션</p>
+
+<h2 id="-학습-목표">🎯 학습 목표</h2>
+<ul>
+  <li>HTTP 개선에 따른 차이를 이해하고 Reverse Proxy 성능 개선</li>
+  <li>HTTP Cache 전략을 이해하여 적절한 정책을 설정</li>
+  <li>쿼리를 최적화하여 조회 성능을 개선</li>
+  <li>인덱스를 설정하여 조회 성능을 개선</li>
+</ul>
+
+<h2 id="-강의-내용">📖 강의 내용</h2>
+<p>화면 응답 개선을 위한 Nginx 설정, AWS Auto Scaling Group를 이용한 스케일아웃, MySql 쿼리 최적화 및 인덱스 설계 설명</p>
+
+<h2 id="-미션-후기">📝 미션 후기</h2>
+<p>이번 미션은 시간 부족으로 7주차 미션과 병행하면 진행하였다 😭</p>
+
+<p>강의를 통해서 배운 Nginx 설정, AWS Auto Scaling Group를 이용한 스케일아웃 등은 직접 하나하나 검색해보면서 적용 해보려면 엄청 힘들고 오래는 작업인데 강의를 통해 바로 배울 수 있어서 좋았고, MySql 쿼리 최적화 및 인덱스 설계는 앞으로 DB조회를 할 때 어떤점을 주의하면서 query를 만들어야 하는지 알 수 있어서 좋았다.</p>
+
+<p>Auto Scaling Group을 설정할 때 인스턴스의 Health Check가 안되서 왜 안되지 하며 몇 시간을 고민했는데 강의 설명에 함정카드가 존재 했었다. 그 이유는 Health Check가 되게 하려면 인스턴스에 퍼블릭 IP를 할당해주어야 하는데 강의 설명에는 그 내용이 없었다. 😱<br />
+<strong>아래 설정들은 자신의 상황에 맞게 세팅합니다. 이미지의 정보는 단순 예시입니다.</strong> 라는 강의 설명 문구의 의미를 잘 확인 했어야 했다. 
+아마 나같이 무작정 따라하는 교육생들은 꽤나 고생했을거 같다 🤣</p>
+
+<p>MySql 쿼리 최적화 및 인덱스 설계의 경우 어떻게 하면 좀 더 조회가 빨라질까 하면서 ID, 참조 컬럼외의 컬럼에도 인덱싱 해 보았다. 그런데 오히려 조회 속도가 느려지는 경우도 발생하였다.😱  인덱스가 많은 경우 오히려 쿼리 성능이 떨어진다는 것을 확인할 수 있었다.</p>
+
+<p>이번 강의를 통해 느낀 점은 인프라 설정은 정말 많은 부분은 신경써야 하면서 구성하기도 힘들다는 점과 테이블 인덱스 설정같은 경우 특수한 경우가 아니라면 ID, 참조 컬럼에만 인덱싱 하면 좋을거같다는 점이다.</p>
+
+<h2 id="-저장소">💾 저장소</h2>
+<p><a href="https://github.com/sangjaeoh/infra-subway-performance/tree/step4" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="회고" /><category term="회고" /><category term="교육" /><category term="우아한테크캠프 Pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">MAC 단축키 모음 💻</title><link href="http://localhost:4000/mac/%EB%8B%A8%EC%B6%95%ED%82%A4/" rel="alternate" type="text/html" title="MAC 단축키 모음 💻" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/mac/%EB%8B%A8%EC%B6%95%ED%82%A4</id><content type="html" xml:base="http://localhost:4000/mac/%EB%8B%A8%EC%B6%95%ED%82%A4/"><![CDATA[<h2 id="-일반-단축키">⌨ 일반 단축키</h2>
 <ul>
   <li>화면 잠금: <strong>Control + Command + Q</strong></li>
   <li>복제: <strong>Command + x</strong></li>
@@ -11912,101 +11914,4 @@ M-N 연관은 개념적으로 양쪽 애그리거트에 컬렉션으로 연관�
 </ul>
 
 <h2 id="-참고-사이트">🔎 참고 사이트</h2>
-<p><a href="https://www.invaiz.com/blog/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;bmode=view&amp;idx=12577409&amp;t=board" target="_blank">invaiz 블로그</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="Mac" /><category term="Mac" /><category term="단축키" /><summary type="html"><![CDATA[⌨ 일반 단축키 화면 잠금: Control + Command + Q 복제: Command + x 다시찾기: Command + G 윈도우 최소화: Command + M 프린트: Command + P 붙여넣기: Command + V 모두선택: Command + A 복사: Command + C 숨기기: Command + H 선택항목 열기: Command + O 문서 저장: Command + S 이전명령: Command + Z 항목찾기: Command + F 새 탭 열기: Command + T 창 닫기: Command + W 강제 종료: Option + Command + Esc Spotlight 표시/숨기기: Command + Spacebar 이모티콘 및 기타 기호: Ctrl + Command + Spacebar 전체화면: Ctrl + Command + F 스크린샷 및 화면 기록: Shift + Command + 5 새폴더 생성: Shift + Command + N 환경설정 열기: Command + , 최근 사용 앱으로 전환: Command + Tab 훑어보기: Spacebar]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 6주차 (서비스 진단하기)</title><link href="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 6주차 (서비스 진단하기)" /><published>2023-01-07T00:00:00+09:00</published><updated>2023-01-07T00:00:00+09:00</updated><id>http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-6%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
-우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
-
-<h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
-<p>웹 성능 테스트, 부하 테스트 및 성능 모니터링을 직접 해보는 미션</p>
-
-<h2 id="-학습-목표">🎯 학습 목표</h2>
-<ul>
-  <li>웹 성능테스트</li>
-  <li>부하테스트</li>
-  <li>모니터링</li>
-</ul>
-
-<h2 id="-강의-내용">📖 강의 내용</h2>
-<p>웹 성능테스트, 부하 테스트 및 모니터링의 설명과 함께 PageSpeed, k6, Cloudwatch 등을 이용해 직접 테스트할 수 있도록 설명</p>
-
-<p><strong>부하 테스트</strong><br />
-<em>1. 목표 rps 구하기</em></p>
-<ul>
-  <li>우선 예상 1일 사용자 수(DAU)를 정해봅니다.</li>
-  <li>피크 시간대의 집중률을 예상해봅니다. (최대 트개픽 / 평소 트래픽)</li>
-  <li>1명당 1일 평균 접속 혹은 요청수를 예상해봅니다.</li>
-  <li>이를 바탕으로 Throughput을 계산합니다.
-    <ul>
-      <li>Throughput : 1일 평균 rps ~ 1일 최대 rps
-        <ul>
-          <li>1일 사용자 수(DAU) x 1명당 1일 평균 접속 수 = 1일 총 접속 수</li>
-          <li>1일 총 접속 수 / 86,400 (초/일) = 1일 평균 rps</li>
-          <li>1일 평균 rps x (최대 트래픽 / 평소 트래픽) = 1일 최대 rps</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p><em>2. VUser 구하기</em></p>
-<ul>
-  <li>Request Rate: measured by the number of requests per second (RPS)</li>
-  <li>VU: the number of virtual users</li>
-  <li>R: the number of requests per VU iteration</li>
-  <li>T: a value larger than the time needed to complete a VU iteration
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>T = (R * http_req_duration) (+ 1s)
-VUser = (목표 rps * T) / R
-</code></pre></div>    </div>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<p><strong>로깅 주의점</strong></p>
-<ul>
-  <li>Avoid side effects
-    <ul>
-      <li>logging으로 인해 애플리케이션 기능의 동작에 영향을 미치지 않아야 합니다.</li>
-      <li>예를 들어 logging하는 시점에 NullPointerException이 발생해 프로그램이 정상적으로 동작하지 않는 상황이 발생하면 안됩니다.</li>
-    </ul>
-  </li>
-  <li>Be concise and descriptive
-    <ul>
-      <li>각 Logging에는 데이터와 설명이 모두 포함되어야 합니다.</li>
-    </ul>
-  </li>
-  <li>Log method arguments and return values
-    <ul>
-      <li>메소드의 input과 output을 로그로 남기면 debugger를 사용해 디버깅하지 않아도 됩니다.</li>
-      <li>AOP를 활용할 수 있습니다.</li>
-    </ul>
-  </li>
-  <li>Delete personal information
-    <ul>
-      <li>로그에 사용자의 전화번호, 계좌번호, 패스워드, 주소, 전화번호와 같은 개인정보를 남기지 않습니다.</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<p><strong>로깅 레벨</strong></p>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">ERROR</code>: 예상하지 못한 심각한 문제가 발생하여 즉시 조사해야 함</li>
-  <li><code class="language-plaintext highlighter-rouge">WARN</code>: 로직상 유효성 확인, 예상 가능한 문제로 인한 예외처리 등을 남김, 서비스는 운영될 수 있지만, 주의해야 함</li>
-  <li><code class="language-plaintext highlighter-rouge">INFO</code>: 운영에 참고할만한 사항으로, 중요한 비즈니스 프로세스가 완료됨</li>
-  <li><code class="language-plaintext highlighter-rouge">DEBUG</code> / <code class="language-plaintext highlighter-rouge">TRACE</code>: 개발 단계에서만 사용하고 운영 단계에서는 사용하지 않음</li>
-</ul>
-
-<h2 id="-미션-후기">📝 미션 후기</h2>
-<p>이번 미션에서는 새로운 부하테스트 방법과 서버, 애플리케이션 로깅을 해볼 수 있어서 좋았다.</p>
-
-<p>기존에 부하테스트 할 때는 JMeter를 사용했었는데, 이번에 k6라는 것을 처음 알았고 실제로 사용해보니까 JMeter보다 훨씬 사용하기가 편했다.
-또 grafana와 연계해서 데이터를 시각화 해보니 JMeter보다 훨씬 이쁘게 나와서 더욱 마음에 들었다. 😁</p>
-
-<p>로깅, 모니터링 같은 경우는 AWS에서 Cloudwatch를 활용해서 어떻게 ec2 access log, metric log를 수집하는지, 대시보드에 어떻게 표현하는지 알 수 있었다.
-다만 개인적으로는 Cloudwatch가 좀 덜 이쁘고, 약간 불편하다? 라는 느낌이 있었다. 😅</p>
-
-<p>이번 강의를 통해 k6와 부하테스트의 방법을 배웠으니, 앞으로 API를 개발할 때마다 간단하게 테스트 해보면 좋을것 같다. 👍</p>
-
-<h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/infra-subway-monitoring/tree/step3" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="회고" /><category term="회고" /><category term="교육" /><category term="우아한테크캠프 Pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry></feed>
+<p><a href="https://www.invaiz.com/blog/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;bmode=view&amp;idx=12577409&amp;t=board" target="_blank">invaiz 블로그</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="Mac" /><category term="Mac" /><category term="단축키" /><summary type="html"><![CDATA[⌨ 일반 단축키 화면 잠금: Control + Command + Q 복제: Command + x 다시찾기: Command + G 윈도우 최소화: Command + M 프린트: Command + P 붙여넣기: Command + V 모두선택: Command + A 복사: Command + C 숨기기: Command + H 선택항목 열기: Command + O 문서 저장: Command + S 이전명령: Command + Z 항목찾기: Command + F 새 탭 열기: Command + T 창 닫기: Command + W 강제 종료: Option + Command + Esc Spotlight 표시/숨기기: Command + Spacebar 이모티콘 및 기타 기호: Ctrl + Command + Spacebar 전체화면: Ctrl + Command + F 스크린샷 및 화면 기록: Shift + Command + 5 새폴더 생성: Shift + Command + N 환경설정 열기: Command + , 최근 사용 앱으로 전환: Command + Tab 훑어보기: Spacebar]]></summary></entry></feed>
