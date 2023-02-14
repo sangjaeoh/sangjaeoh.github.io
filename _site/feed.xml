@@ -1,6 +1,325 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-13T21:38:58+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">Spring Boot Test Cheat Sheet</title><link href="http://localhost:4000/spring/spring-boot-test-cheat-sheet/" rel="alternate" type="text/html" title="Spring Boot Test Cheat Sheet" /><published>2023-02-13T00:00:00+09:00</published><updated>2023-02-13T00:00:00+09:00</updated><id>http://localhost:4000/spring/spring-boot-test-cheat-sheet</id><content type="html" xml:base="http://localhost:4000/spring/spring-boot-test-cheat-sheet/"><![CDATA[<p>Spring Boot Test Cheat Sheet 입니다. 📝</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-14T22:09:42+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">Spring Boot Test Cheat Sheet</title><link href="http://localhost:4000/spring/spring-boot-test-cheat-sheet/" rel="alternate" type="text/html" title="Spring Boot Test Cheat Sheet" /><published>2023-02-13T00:00:00+09:00</published><updated>2023-02-13T00:00:00+09:00</updated><id>http://localhost:4000/spring/spring-boot-test-cheat-sheet</id><content type="html" xml:base="http://localhost:4000/spring/spring-boot-test-cheat-sheet/"><![CDATA[<p>📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 복붙용 입니다.</p>
+<ul>
+  <li><a href="/java/TDD(Test-Driven-Development)-테스트-주도-개발" target="_blank">JUnit 5, AssertJ Cheat Sheet</a></li>
+</ul>
 
-<p><br /></p>]]></content><author><name>Sangjae Oh</name></author><category term="Spring" /><category term="Spring" /><category term="Java" /><category term="Test" /><category term="CheatSheet" /><summary type="html"><![CDATA[Spring Boot Test Cheat Sheet 입니다. 📝]]></summary></entry><entry><title type="html">Test Double</title><link href="http://localhost:4000/insight/Test-Double/" rel="alternate" type="text/html" title="Test Double" /><published>2023-02-12T00:00:00+09:00</published><updated>2023-02-12T00:00:00+09:00</updated><id>http://localhost:4000/insight/Test-Double</id><content type="html" xml:base="http://localhost:4000/insight/Test-Double/"><![CDATA[<p>테스트 더블(Test Dobule)에 대해 설명합니다.</p>
+<p><br /></p>
+
+<h2 id="buildgradle">build.gradle</h2>
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">runtimeOnly</span> <span class="s1">'com.h2database:h2'</span>
+    <span class="n">implementation</span> <span class="s1">'com.google.guava:guava:31.1-jre'</span>
+    <span class="n">testImplementation</span> <span class="s1">'org.springframework.boot:spring-boot-starter-test'</span>
+    <span class="n">testImplementation</span> <span class="s1">'io.rest-assured:rest-assured'</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="application-testyml">application-test.yml</h2>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">spring</span><span class="pi">:</span>
+  <span class="na">datasource</span><span class="pi">:</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">jdbc:h2:mem:test</span>
+    <span class="na">username</span><span class="pi">:</span> <span class="s">sa</span>
+    <span class="na">password</span><span class="pi">:</span>
+    <span class="na">driver-class-name</span><span class="pi">:</span> <span class="s">org.h2.Driver</span>
+  <span class="na">jpa</span><span class="pi">:</span>
+    <span class="na">hibernate</span><span class="pi">:</span>
+      <span class="na">ddl-auto</span><span class="pi">:</span> <span class="s1">'</span><span class="s">create-drop'</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="import">import</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">hamcrest</span><span class="o">.</span><span class="na">Matchers</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">jupiter</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">Assertions</span><span class="o">.*;</span>
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">assertj</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">Assertions</span><span class="o">.*;</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="databasecleanup">DatabaseCleanup</h2>
+<p>JPA용, 애플리케이션 내 모든 엔티티 테이블 초기화 클래스</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Service</span>
+<span class="nd">@ActiveProfiles</span><span class="o">(</span><span class="s">"test"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DatabaseCleanup</span> <span class="kd">implements</span> <span class="nc">InitializingBean</span> <span class="o">{</span>
+    <span class="nd">@PersistenceContext</span>
+    <span class="kd">private</span> <span class="nc">EntityManager</span> <span class="n">entityManager</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">tableNames</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">afterPropertiesSet</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">tableNames</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">getMetamodel</span><span class="o">().</span><span class="na">getEntities</span><span class="o">().</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">e</span><span class="o">.</span><span class="na">getJavaType</span><span class="o">().</span><span class="na">getAnnotation</span><span class="o">(</span><span class="nc">Entity</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="nc">CaseFormat</span><span class="o">.</span><span class="na">UPPER_CAMEL</span><span class="o">.</span><span class="na">to</span><span class="o">(</span><span class="nc">CaseFormat</span><span class="o">.</span><span class="na">LOWER_UNDERSCORE</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">getName</span><span class="o">()))</span>
+                <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Transactional</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">execute</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">entityManager</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+        <span class="n">entityManager</span><span class="o">.</span><span class="na">createNativeQuery</span><span class="o">(</span><span class="s">"SET REFERENTIAL_INTEGRITY FALSE"</span><span class="o">).</span><span class="na">executeUpdate</span><span class="o">();</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">tableName</span> <span class="o">:</span> <span class="n">tableNames</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">entityManager</span><span class="o">.</span><span class="na">createNativeQuery</span><span class="o">(</span><span class="s">"TRUNCATE TABLE "</span> <span class="o">+</span> <span class="n">tableName</span><span class="o">).</span><span class="na">executeUpdate</span><span class="o">();</span>
+            <span class="n">entityManager</span><span class="o">.</span><span class="na">createNativeQuery</span><span class="o">(</span><span class="s">"ALTER TABLE "</span> <span class="o">+</span> <span class="n">tableName</span> <span class="o">+</span> <span class="s">" ALTER COLUMN ID RESTART WITH 1"</span><span class="o">).</span><span class="na">executeUpdate</span><span class="o">();</span>
+        <span class="o">}</span>
+
+        <span class="n">entityManager</span><span class="o">.</span><span class="na">createNativeQuery</span><span class="o">(</span><span class="s">"SET REFERENTIAL_INTEGRITY TRUE"</span><span class="o">).</span><span class="na">executeUpdate</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="acceptance-abstract">Acceptance Abstract</h2>
+<p>RestAssured 사용시 공통 부모 클래스. 랜덤포트와 테이블 초기화</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@SpringBootTest</span><span class="o">(</span><span class="n">webEnvironment</span> <span class="o">=</span> <span class="nc">SpringBootTest</span><span class="o">.</span><span class="na">WebEnvironment</span><span class="o">.</span><span class="na">RANDOM_PORT</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">AcceptanceTest</span> <span class="o">{</span>
+
+    <span class="nd">@LocalServerPort</span>
+    <span class="kt">int</span> <span class="n">port</span><span class="o">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">DatabaseCleanup</span> <span class="n">databaseCleanup</span><span class="o">;</span>
+
+    <span class="nd">@BeforeEach</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">RestAssured</span><span class="o">.</span><span class="na">port</span> <span class="o">=</span> <span class="n">port</span><span class="o">;</span>
+        <span class="n">databaseCleanup</span><span class="o">.</span><span class="na">execute</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="restassured">RestAssured</h2>
+<ul>
+  <li><a href="https://github.com/rest-assured/rest-assured/wiki/Usage" target="_blank">RestAssured 가이드</a></li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="nc">ExtractableResponse</span><span class="o">&lt;</span><span class="nc">Response</span><span class="o">&gt;</span> <span class="n">자동차_등록_요청</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Object</span><span class="o">&gt;</span> <span class="n">params</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+    <span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"name"</span><span class="o">,</span> <span class="n">name</span><span class="o">);</span>
+
+    <span class="k">return</span> <span class="nc">RestAssured</span>
+            <span class="o">.</span><span class="na">given</span><span class="o">().</span><span class="na">log</span><span class="o">().</span><span class="na">all</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="n">params</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">contentType</span><span class="o">(</span><span class="nc">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON_VALUE</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">when</span><span class="o">().</span><span class="na">post</span><span class="o">(</span><span class="s">"/api/cars"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">then</span><span class="o">().</span><span class="na">log</span><span class="o">().</span><span class="na">all</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">extract</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="n">자동차_등록됨</span><span class="o">(</span><span class="nc">ExtractableResponse</span><span class="o">&lt;</span><span class="nc">Response</span><span class="o">&gt;</span> <span class="n">response</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">assertThat</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">statusCode</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="nc">HttpStatus</span><span class="o">.</span><span class="na">CREATED</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+    <span class="n">assertThat</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">header</span><span class="o">(</span><span class="s">"Location"</span><span class="o">)).</span><span class="na">isNotBlank</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="nc">ExtractableResponse</span><span class="o">&lt;</span><span class="nc">Response</span><span class="o">&gt;</span> <span class="n">정보_조회_요청</span><span class="o">(</span><span class="nc">String</span> <span class="n">accessToken</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nc">RestAssured</span>
+            <span class="o">.</span><span class="na">given</span><span class="o">().</span><span class="na">log</span><span class="o">().</span><span class="na">all</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">auth</span><span class="o">().</span><span class="na">oauth2</span><span class="o">(</span><span class="n">accessToken</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">when</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"/members/me"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">then</span><span class="o">().</span><span class="na">log</span><span class="o">().</span><span class="na">all</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">extract</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="extendwithspringextensionclass-mockbean">@ExtendWith(SpringExtension.class), @MockBean</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ExtendWith</span><span class="o">(</span><span class="nc">SpringExtension</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpringExtensionTest</span> <span class="o">{</span>
+
+    <span class="nd">@MockBean</span>
+    <span class="kd">private</span> <span class="nc">LineRepository</span> <span class="n">lineRepository</span><span class="o">;</span>
+
+    <span class="nd">@MockBean</span>
+    <span class="kd">private</span> <span class="nc">StationService</span> <span class="n">stationService</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">findAllLines</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// given</span>
+        <span class="n">when</span><span class="o">(</span><span class="n">lineRepository</span><span class="o">.</span><span class="na">findAll</span><span class="o">()).</span><span class="na">thenReturn</span><span class="o">(</span><span class="nc">Lists</span><span class="o">.</span><span class="na">newArrayList</span><span class="o">(</span><span class="k">new</span> <span class="nc">Line</span><span class="o">()));</span>
+        <span class="nc">LineService</span> <span class="n">lineService</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LineService</span><span class="o">(</span><span class="n">lineRepository</span><span class="o">,</span> <span class="n">stationService</span><span class="o">);</span>
+
+        <span class="c1">// when</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">LineResponse</span><span class="o">&gt;</span> <span class="n">responses</span> <span class="o">=</span> <span class="n">lineService</span><span class="o">.</span><span class="na">findLineResponses</span><span class="o">();</span>
+
+        <span class="c1">// then</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">responses</span><span class="o">).</span><span class="na">hasSize</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="extendwithmockitoextensionclass-mock-injectmocks">@ExtendWith(MockitoExtension.class), @Mock, @InjectMocks</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ExtendWith</span><span class="o">(</span><span class="nc">MockitoExtension</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MockitoExtensionTest</span> <span class="o">{</span>
+
+    <span class="nd">@Mock</span>
+    <span class="kd">private</span> <span class="nc">CarRepository</span> <span class="n">carRepository</span><span class="o">;</span>
+
+    <span class="nd">@InjectMocks</span>
+    <span class="kd">private</span> <span class="nc">CarService</span> <span class="n">carService</span><span class="o">;</span>
+
+    <span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"이름을 받아 자동차를 저장한다."</span><span class="o">)</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="o">(){</span>
+        <span class="c1">// given</span>
+        <span class="kd">final</span> <span class="nc">String</span> <span class="no">NAME</span> <span class="o">=</span> <span class="s">"Boong-Boong"</span><span class="o">;</span>
+        <span class="n">when</span><span class="o">(</span><span class="n">carRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">any</span><span class="o">())).</span><span class="na">thenReturn</span><span class="o">(</span><span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="no">NAME</span><span class="o">)));</span>
+        
+        <span class="c1">// when</span>
+        <span class="nc">CarResponse</span> <span class="n">carResponse</span> <span class="o">=</span> <span class="n">carService</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="no">NAME</span><span class="o">);</span>
+
+        <span class="c1">// then</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">carResponse</span><span class="o">.</span><span class="na">getName</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="no">NAME</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="webmvctest-mockbean-mockmvc">@WebMvcTest, @MockBean, MockMvc</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@WebMvcTest</span><span class="o">(</span><span class="nc">CarController</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CarControllerTest</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">API_BASE_PATH</span> <span class="o">=</span> <span class="s">"/api/cars"</span><span class="o">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">MockMvc</span> <span class="n">mockMvc</span><span class="o">;</span>
+
+    <span class="nd">@MockBean</span>
+    <span class="kd">private</span> <span class="nc">CarService</span> <span class="n">carService</span><span class="o">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">ObjectMapper</span> <span class="n">objectMapper</span><span class="o">;</span>
+
+    <span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"자동차를 생성한다."</span><span class="o">)</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">createCar</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+        <span class="c1">//given</span>
+        <span class="nc">CarRequest</span> <span class="n">carRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="n">carRequest</span><span class="o">(</span><span class="s">"Boong-Boong"</span><span class="o">);</span>
+        <span class="nc">CarResponse</span> <span class="n">carResponse</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CarResponse</span><span class="o">(</span><span class="mi">1L</span><span class="o">,</span> <span class="n">carRequest</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+        <span class="n">given</span><span class="o">(</span><span class="n">carService</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">any</span><span class="o">())).</span><span class="na">willReturn</span><span class="o">(</span><span class="n">carResponse</span><span class="o">);</span>
+
+        <span class="c1">//when, then</span>
+        <span class="n">mockMvc</span><span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">post</span><span class="o">(</span><span class="no">API_BASE_PATH</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">content</span><span class="o">(</span><span class="n">objectMapper</span><span class="o">.</span><span class="na">writeValueAsString</span><span class="o">(</span><span class="n">carRequest</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">contentType</span><span class="o">(</span><span class="nc">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">andExpect</span><span class="o">(</span><span class="n">status</span><span class="o">().</span><span class="na">isCreated</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">andExpect</span><span class="o">(</span><span class="n">jsonPath</span><span class="o">(</span><span class="s">"$.id"</span><span class="o">).</span><span class="na">value</span><span class="o">(</span><span class="n">carResponse</span><span class="o">.</span><span class="na">getId</span><span class="o">()));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="springboottest-autoconfiguremockmvc-mockmvc">@SpringBootTest, @AutoConfigureMockMvc, MockMvc</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@SpringBootTest</span>
+<span class="nd">@AutoConfigureMockMvc</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CarControllerMockTest</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">API_BASE_PATH</span> <span class="o">=</span> <span class="s">"/api/cars"</span><span class="o">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">MockMvc</span> <span class="n">mockMvc</span><span class="o">;</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">ObjectMapper</span> <span class="n">objectMapper</span><span class="o">;</span>
+
+    <span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"자동차를 생성한다."</span><span class="o">)</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">createCar</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+        <span class="c1">//given</span>
+        <span class="nc">CarRequest</span> <span class="n">carRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="n">carRequest</span><span class="o">(</span><span class="s">"Boong-Boong"</span><span class="o">);</span>
+        <span class="nc">CarResponse</span> <span class="n">carResponse</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CarResponse</span><span class="o">(</span><span class="mi">1L</span><span class="o">,</span> <span class="n">carRequest</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+
+        <span class="c1">//when, then</span>
+        <span class="n">mockMvc</span><span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">post</span><span class="o">(</span><span class="no">API_BASE_PATH</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">content</span><span class="o">(</span><span class="n">objectMapper</span><span class="o">.</span><span class="na">writeValueAsString</span><span class="o">(</span><span class="n">carRequest</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">contentType</span><span class="o">(</span><span class="nc">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">andExpect</span><span class="o">(</span><span class="n">status</span><span class="o">().</span><span class="na">isCreated</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">andExpect</span><span class="o">(</span><span class="n">jsonPath</span><span class="o">(</span><span class="s">"$.id"</span><span class="o">).</span><span class="na">value</span><span class="o">(</span><span class="n">carResponse</span><span class="o">.</span><span class="na">getId</span><span class="o">()));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="datajpatest-persistencecontext">@DataJpaTest, @PersistenceContext</h2>
+<ul>
+  <li>JPA 관련 설정만 로드</li>
+  <li>데이터 소스, 엔티티 매니저 등 생성</li>
+  <li>@Entity 어노테이션이 붙은 클래스 및 Spring Data JPA 에 대한 설정들 적용</li>
+  <li>기본으로 in-memory database 사용</li>
+  <li>@AutoConfigureTestDatabase를 사용하여 어떤 database를 연결할지 선택할 수 있다.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@DataJpaTest</span>
+<span class="nd">@ActiveProfiles</span><span class="o">(</span><span class="s">"test"</span><span class="o">)</span>
+<span class="nd">@AutoConfigureTestDatabase</span><span class="o">(</span><span class="n">replace</span> <span class="o">=</span> <span class="nc">AutoConfigureTestDatabase</span><span class="o">.</span><span class="na">Replace</span><span class="o">.</span><span class="na">NONE</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">CarRepositoryTest</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">CarRepository</span> <span class="n">carRepository</span><span class="o">;</span>
+
+    <span class="nd">@PersistenceContext</span>
+    <span class="kd">private</span> <span class="nc">EntityManager</span> <span class="n">entityManager</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"자동차를 저장한다."</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="o">()</span> <span class="o">{</span>
+        
+        <span class="o">...</span>
+
+        <span class="nc">Car</span> <span class="n">savedCar</span> <span class="o">=</span> <span class="n">carRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="k">new</span> <span class="nc">Car</span><span class="o">(</span><span class="s">"Boong-Boong"</span><span class="o">));</span>
+
+        <span class="n">entityManager</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+        <span class="n">entityManager</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        
+        <span class="o">...</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="mybatistest">@MybatisTest</h2>
+<ul>
+  <li><a href="http://mybatis.org/spring-boot-starter/mybatis-spring-boot-test-autoconfigure/index.html" target="_blank">Mybatis 테스트 가이드</a></li>
+  <li>기본으로 in-memory database 사용</li>
+  <li>@AutoConfigureTestDatabase를 사용하여 어떤 database를 연결할지 선택할 수 있다.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ExtendWith</span><span class="o">(</span><span class="nc">SpringExtension</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="nd">@MybatisTest</span>
+<span class="nd">@ActiveProfiles</span><span class="o">(</span><span class="s">"test"</span><span class="o">)</span>
+<span class="nd">@AutoConfigureTestDatabase</span><span class="o">(</span><span class="n">replace</span> <span class="o">=</span> <span class="nc">AutoConfigureTestDatabase</span><span class="o">.</span><span class="na">Replace</span><span class="o">.</span><span class="na">NONE</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderTest</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">OrderMapper</span> <span class="n">orderMapper</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mybatis_test</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+
+        <span class="c1">// given</span>
+        <span class="nc">String</span> <span class="n">seq</span> <span class="o">=</span> <span class="s">"1"</span><span class="o">;</span>
+
+        <span class="c1">// when</span>
+        <span class="nc">OrderVO</span> <span class="n">vo</span> <span class="o">=</span> <span class="n">orderMapper</span><span class="o">.</span><span class="na">getOrder</span><span class="o">(</span><span class="n">seq</span><span class="o">);</span>
+
+        <span class="c1">// then</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">vo</span><span class="o">.</span><span class="na">getSeq</span><span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="s">"1"</span><span class="o">);</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name>Sangjae Oh</name></author><category term="Spring" /><category term="Spring" /><category term="Java" /><category term="Test" /><category term="CheatSheet" /><summary type="html"><![CDATA[📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 복붙용 입니다. JUnit 5, AssertJ Cheat Sheet]]></summary></entry><entry><title type="html">Test Double</title><link href="http://localhost:4000/insight/Test-Double/" rel="alternate" type="text/html" title="Test Double" /><published>2023-02-12T00:00:00+09:00</published><updated>2023-02-12T00:00:00+09:00</updated><id>http://localhost:4000/insight/Test-Double</id><content type="html" xml:base="http://localhost:4000/insight/Test-Double/"><![CDATA[<p>테스트 더블(Test Dobule)에 대해 설명합니다.</p>
 
 <p><br /></p>
 
@@ -298,7 +617,7 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@WebMvcTest</span><span class="o">(</span><span class="nc">CarController</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CarControllerTest</span> <span class="o">{</span>
 
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">API_BASE_PATH</span> <span class="o">=</span> <span class="s">"/api/car"</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">API_BASE_PATH</span> <span class="o">=</span> <span class="s">"/api/cars"</span><span class="o">;</span>
 
     <span class="nd">@Autowired</span>
     <span class="kd">private</span> <span class="nc">MockMvc</span> <span class="n">mockMvc</span><span class="o">;</span>
@@ -321,8 +640,8 @@
         <span class="n">mockMvc</span><span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">post</span><span class="o">(</span><span class="no">API_BASE_PATH</span><span class="o">)</span>
                 <span class="o">.</span><span class="na">content</span><span class="o">(</span><span class="n">objectMapper</span><span class="o">.</span><span class="na">writeValueAsString</span><span class="o">(</span><span class="n">carRequest</span><span class="o">))</span>
                 <span class="o">.</span><span class="na">contentType</span><span class="o">(</span><span class="nc">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">))</span>
-            <span class="o">.</span><span class="na">andExpect</span><span class="o">(</span><span class="n">status</span><span class="o">().</span><span class="na">isCreated</span><span class="o">())</span>
-            <span class="o">.</span><span class="na">andExpect</span><span class="o">(</span><span class="n">jsonPath</span><span class="o">(</span><span class="s">"$.id"</span><span class="o">).</span><span class="na">value</span><span class="o">(</span><span class="n">carResponse</span><span class="o">.</span><span class="na">getId</span><span class="o">()));</span>
+                <span class="o">.</span><span class="na">andExpect</span><span class="o">(</span><span class="n">status</span><span class="o">().</span><span class="na">isCreated</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">andExpect</span><span class="o">(</span><span class="n">jsonPath</span><span class="o">(</span><span class="s">"$.id"</span><span class="o">).</span><span class="na">value</span><span class="o">(</span><span class="n">carResponse</span><span class="o">.</span><span class="na">getId</span><span class="o">()));</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -392,7 +711,7 @@
 <span class="nd">@AutoConfigureMockMvc</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CarControllerMockTest</span> <span class="o">{</span>
 
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">API_BASE_PATH</span> <span class="o">=</span> <span class="s">"/api/car"</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">API_BASE_PATH</span> <span class="o">=</span> <span class="s">"/api/cars"</span><span class="o">;</span>
 
     <span class="nd">@Autowired</span>
     <span class="kd">private</span> <span class="nc">MockMvc</span> <span class="n">mockMvc</span><span class="o">;</span>
@@ -411,8 +730,8 @@
         <span class="n">mockMvc</span><span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">post</span><span class="o">(</span><span class="no">API_BASE_PATH</span><span class="o">)</span>
                 <span class="o">.</span><span class="na">content</span><span class="o">(</span><span class="n">objectMapper</span><span class="o">.</span><span class="na">writeValueAsString</span><span class="o">(</span><span class="n">carRequest</span><span class="o">))</span>
                 <span class="o">.</span><span class="na">contentType</span><span class="o">(</span><span class="nc">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">))</span>
-            <span class="o">.</span><span class="na">andExpect</span><span class="o">(</span><span class="n">status</span><span class="o">().</span><span class="na">isCreated</span><span class="o">())</span>
-            <span class="o">.</span><span class="na">andExpect</span><span class="o">(</span><span class="n">jsonPath</span><span class="o">(</span><span class="s">"$.id"</span><span class="o">).</span><span class="na">value</span><span class="o">(</span><span class="n">carResponse</span><span class="o">.</span><span class="na">getId</span><span class="o">()));</span>
+                <span class="o">.</span><span class="na">andExpect</span><span class="o">(</span><span class="n">status</span><span class="o">().</span><span class="na">isCreated</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">andExpect</span><span class="o">(</span><span class="n">jsonPath</span><span class="o">(</span><span class="s">"$.id"</span><span class="o">).</span><span class="na">value</span><span class="o">(</span><span class="n">carResponse</span><span class="o">.</span><span class="na">getId</span><span class="o">()));</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -449,7 +768,7 @@
 </code></pre></div></div>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CarAcceptanceTest</span> <span class="kd">extends</span> <span class="nc">AcceptanceTest</span><span class="o">{</span>
 
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">API_BASE_PATH</span> <span class="o">=</span> <span class="s">"/api/car"</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">API_BASE_PATH</span> <span class="o">=</span> <span class="s">"/api/cars"</span><span class="o">;</span>
 
     <span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"자동차를 생성한다."</span><span class="o">)</span>
     <span class="nd">@Test</span>
