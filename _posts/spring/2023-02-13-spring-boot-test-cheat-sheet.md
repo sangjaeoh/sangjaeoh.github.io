@@ -8,7 +8,7 @@ toc: true
 toc_sticky: true
 ---
 
-📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 복붙용 입니다.
+📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 참고용 입니다.
 - [JUnit 5, AssertJ Cheat Sheet](/java/TDD(Test-Driven-Development)-테스트-주도-개발){:target="_blank"}
 
 <br/>
