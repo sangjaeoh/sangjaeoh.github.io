@@ -259,6 +259,7 @@ public class CarControllerTest {
 
 
 
+
 ## @SpringBootTest, @AutoConfigureMockMvc, MockMvc
 ```java
 @SpringBootTest
@@ -363,9 +364,26 @@ public class OrderTest {
     }
 }
 ```
+<br/>
+<br/>
 
 
+## @Mock, @MockBean 차이점
 
+| Mock 종류 | 의존성 주입 대상 |
+|-----------|-----------------|
+| @Mock | @InjectMocks  |
+| @MockBean | Spring Context |
+
+- `@Mock`은 `@InjectMocks`에 대해서만 해당 클래스안에서 정의된 객체를 찾아서 의존성을 해결  
+- `@MockBean`은 `mock` 객체를 스프링 컨텍스트에 등록  
+<br/>
+<br/>
+
+
+## MockMVC 주입방법
+1. `@SpringBootTest` + `@AutoConfigureMockMvc` : MockMVC를 이용하여 통합테스트 할 때 사용
+2. `@WebMvcTest` : MVC만 슬라이스(slice) 테스트 할 때 사용
 
 
 

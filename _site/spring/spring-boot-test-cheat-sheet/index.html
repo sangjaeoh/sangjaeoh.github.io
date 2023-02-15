@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Spring Boot Test Cheat Sheet | Stack O Flow</title>
-<meta name="description" content="📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 복붙용 입니다.    JUnit 5, AssertJ Cheat Sheet">
+<meta name="description" content="📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 참고용 입니다.    JUnit 5, AssertJ Cheat Sheet">
 
 
   <meta name="author" content="Sangjae Oh">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="http://localhost:4000/spring/spring-boot-test-cheat-sheet/">
 
 
-  <meta property="og:description" content="📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 복붙용 입니다.    JUnit 5, AssertJ Cheat Sheet">
+  <meta property="og:description" content="📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 참고용 입니다.    JUnit 5, AssertJ Cheat Sheet">
 
 
 
@@ -337,7 +337,7 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Spring Boot Test Cheat Sheet">
-    <meta itemprop="description" content="📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 복붙용 입니다.  JUnit 5, AssertJ Cheat Sheet">
+    <meta itemprop="description" content="📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 참고용 입니다.  JUnit 5, AssertJ Cheat Sheet">
     <meta itemprop="datePublished" content="2023-02-13T00:00:00+09:00">
     
 
@@ -374,12 +374,12 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#buildgradle">build.gradle</a></li><li><a href="#application-testyml">application-test.yml</a></li><li><a href="#import">import</a></li><li><a href="#databasecleanup">DatabaseCleanup</a></li><li><a href="#acceptance-abstract">Acceptance Abstract</a></li><li><a href="#restassured">RestAssured</a></li><li><a href="#extendwithspringextensionclass-mockbean">@ExtendWith(SpringExtension.class), @MockBean</a></li><li><a href="#extendwithmockitoextensionclass-mock-injectmocks">@ExtendWith(MockitoExtension.class), @Mock, @InjectMocks</a></li><li><a href="#webmvctest-mockbean-mockmvc">@WebMvcTest, @MockBean, MockMvc</a></li><li><a href="#springboottest-autoconfiguremockmvc-mockmvc">@SpringBootTest, @AutoConfigureMockMvc, MockMvc</a></li><li><a href="#datajpatest-persistencecontext">@DataJpaTest, @PersistenceContext</a></li><li><a href="#mybatistest">@MybatisTest</a></li></ul>
+              <ul class="toc__menu"><li><a href="#buildgradle">build.gradle</a></li><li><a href="#application-testyml">application-test.yml</a></li><li><a href="#import">import</a></li><li><a href="#databasecleanup">DatabaseCleanup</a></li><li><a href="#acceptance-abstract">Acceptance Abstract</a></li><li><a href="#restassured">RestAssured</a></li><li><a href="#extendwithspringextensionclass-mockbean">@ExtendWith(SpringExtension.class), @MockBean</a></li><li><a href="#extendwithmockitoextensionclass-mock-injectmocks">@ExtendWith(MockitoExtension.class), @Mock, @InjectMocks</a></li><li><a href="#webmvctest-mockbean-mockmvc">@WebMvcTest, @MockBean, MockMvc</a></li><li><a href="#springboottest-autoconfiguremockmvc-mockmvc">@SpringBootTest, @AutoConfigureMockMvc, MockMvc</a></li><li><a href="#datajpatest-persistencecontext">@DataJpaTest, @PersistenceContext</a></li><li><a href="#mybatistest">@MybatisTest</a></li><li><a href="#mock-mockbean-차이점">@Mock, @MockBean 차이점</a></li><li><a href="#mockmvc-주입방법">MockMVC 주입방법</a></li></ul>
 
             </nav>
           </aside>
         
-        <p>📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 복붙용 입니다.</p>
+        <p>📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 참고용 입니다.</p>
 <ul>
   <li><a href="/java/TDD(Test-Driven-Development)-테스트-주도-개발" target="_blank">JUnit 5, AssertJ Cheat Sheet</a></li>
 </ul>
@@ -701,6 +701,42 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="mock-mockbean-차이점">@Mock, @MockBean 차이점</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mock 종류</th>
+      <th>의존성 주입 대상</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>@Mock</td>
+      <td>@InjectMocks</td>
+    </tr>
+    <tr>
+      <td>@MockBean</td>
+      <td>Spring Context</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">@Mock</code>은 <code class="language-plaintext highlighter-rouge">@InjectMocks</code>에 대해서만 해당 클래스안에서 정의된 객체를 찾아서 의존성을 해결</li>
+  <li><code class="language-plaintext highlighter-rouge">@MockBean</code>은 <code class="language-plaintext highlighter-rouge">mock</code> 객체를 스프링 컨텍스트에 등록<br />
+<br />
+<br /></li>
+</ul>
+
+<h2 id="mockmvc-주입방법">MockMVC 주입방법</h2>
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">@SpringBootTest</code> + <code class="language-plaintext highlighter-rouge">@AutoConfigureMockMvc</code> : MockMVC를 이용하여 통합테스트 할 때 사용</li>
+  <li><code class="language-plaintext highlighter-rouge">@WebMvcTest</code> : MVC만 슬라이스(slice) 테스트 할 때 사용</li>
+</ol>
 
 
         

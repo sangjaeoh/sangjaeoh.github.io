@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-14T22:09:42+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">Spring Boot Test Cheat Sheet</title><link href="http://localhost:4000/spring/spring-boot-test-cheat-sheet/" rel="alternate" type="text/html" title="Spring Boot Test Cheat Sheet" /><published>2023-02-13T00:00:00+09:00</published><updated>2023-02-13T00:00:00+09:00</updated><id>http://localhost:4000/spring/spring-boot-test-cheat-sheet</id><content type="html" xml:base="http://localhost:4000/spring/spring-boot-test-cheat-sheet/"><![CDATA[<p>📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 복붙용 입니다.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-15T21:05:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">Spring Boot Test Cheat Sheet</title><link href="http://localhost:4000/spring/spring-boot-test-cheat-sheet/" rel="alternate" type="text/html" title="Spring Boot Test Cheat Sheet" /><published>2023-02-13T00:00:00+09:00</published><updated>2023-02-13T00:00:00+09:00</updated><id>http://localhost:4000/spring/spring-boot-test-cheat-sheet</id><content type="html" xml:base="http://localhost:4000/spring/spring-boot-test-cheat-sheet/"><![CDATA[<p>📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 참고용 입니다.</p>
 <ul>
   <li><a href="/java/TDD(Test-Driven-Development)-테스트-주도-개발" target="_blank">JUnit 5, AssertJ Cheat Sheet</a></li>
 </ul>
@@ -319,7 +319,43 @@
 
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name>Sangjae Oh</name></author><category term="Spring" /><category term="Spring" /><category term="Java" /><category term="Test" /><category term="CheatSheet" /><summary type="html"><![CDATA[📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 복붙용 입니다. JUnit 5, AssertJ Cheat Sheet]]></summary></entry><entry><title type="html">Test Double</title><link href="http://localhost:4000/insight/Test-Double/" rel="alternate" type="text/html" title="Test Double" /><published>2023-02-12T00:00:00+09:00</published><updated>2023-02-12T00:00:00+09:00</updated><id>http://localhost:4000/insight/Test-Double</id><content type="html" xml:base="http://localhost:4000/insight/Test-Double/"><![CDATA[<p>테스트 더블(Test Dobule)에 대해 설명합니다.</p>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="mock-mockbean-차이점">@Mock, @MockBean 차이점</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mock 종류</th>
+      <th>의존성 주입 대상</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>@Mock</td>
+      <td>@InjectMocks</td>
+    </tr>
+    <tr>
+      <td>@MockBean</td>
+      <td>Spring Context</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">@Mock</code>은 <code class="language-plaintext highlighter-rouge">@InjectMocks</code>에 대해서만 해당 클래스안에서 정의된 객체를 찾아서 의존성을 해결</li>
+  <li><code class="language-plaintext highlighter-rouge">@MockBean</code>은 <code class="language-plaintext highlighter-rouge">mock</code> 객체를 스프링 컨텍스트에 등록<br />
+<br />
+<br /></li>
+</ul>
+
+<h2 id="mockmvc-주입방법">MockMVC 주입방법</h2>
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">@SpringBootTest</code> + <code class="language-plaintext highlighter-rouge">@AutoConfigureMockMvc</code> : MockMVC를 이용하여 통합테스트 할 때 사용</li>
+  <li><code class="language-plaintext highlighter-rouge">@WebMvcTest</code> : MVC만 슬라이스(slice) 테스트 할 때 사용</li>
+</ol>]]></content><author><name>Sangjae Oh</name></author><category term="Spring" /><category term="Spring" /><category term="Java" /><category term="Test" /><category term="CheatSheet" /><summary type="html"><![CDATA[📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 참고용 입니다. JUnit 5, AssertJ Cheat Sheet]]></summary></entry><entry><title type="html">Test Double</title><link href="http://localhost:4000/insight/Test-Double/" rel="alternate" type="text/html" title="Test Double" /><published>2023-02-12T00:00:00+09:00</published><updated>2023-02-12T00:00:00+09:00</updated><id>http://localhost:4000/insight/Test-Double</id><content type="html" xml:base="http://localhost:4000/insight/Test-Double/"><![CDATA[<p>테스트 더블(Test Dobule)에 대해 설명합니다.</p>
 
 <p><br /></p>
 
