@@ -11,6 +11,9 @@ main:
 docs:
   - title: "Stack"
     children:
+      - title: "Docker"
+        url: /categories/docker
+        category: "Docker"
       - title: "Insight"
         url: /categories/insight
         category: "Insight"

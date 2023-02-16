@@ -1,4 +1,165 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-15T21:05:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">Spring Boot Test Cheat Sheet</title><link href="http://localhost:4000/spring/spring-boot-test-cheat-sheet/" rel="alternate" type="text/html" title="Spring Boot Test Cheat Sheet" /><published>2023-02-13T00:00:00+09:00</published><updated>2023-02-13T00:00:00+09:00</updated><id>http://localhost:4000/spring/spring-boot-test-cheat-sheet</id><content type="html" xml:base="http://localhost:4000/spring/spring-boot-test-cheat-sheet/"><![CDATA[<p>📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 참고용 입니다.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-16T22:15:30+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">🐳 Docker 살펴보기</title><link href="http://localhost:4000/docker/docker/" rel="alternate" type="text/html" title="🐳 Docker 살펴보기" /><published>2023-02-16T00:00:00+09:00</published><updated>2023-02-16T00:00:00+09:00</updated><id>http://localhost:4000/docker/docker</id><content type="html" xml:base="http://localhost:4000/docker/docker/"><![CDATA[<p><br /></p>
+
+<h1 id="-도커란">🤔 도커란?</h1>
+<p>도커는 <span class="danger-color">컨테이너 기반의 오픈소스 가상화 플랫폼</span>입니다.</p>
+
+<h2 id="컨테이너container">컨테이너(Container)</h2>
+<p>컨테이너는 격리된 공간에서 프로세스가 동작하는 기술입니다. 가상화 기술의 하나지만 기존방식과는 차이가 있습니다.</p>
+
+<p>기존의 가상화 방식은 주로 <strong>OS를 가상화</strong> 하였습니다. <strong>VMware나 VirtualBox같은 가상머신은 호스트 OS위에 게스트 OS 전체를 가상화하여 사용하는 방식</strong>입니다. 이 방식은 여러가지 OS를 가상화(리눅스에서 윈도우를 돌린다던가) 할 수 있고 비교적 사용법이 간단하지만 <strong>무겁고 느려서</strong> 운영환경에선 사용할 수 없었습니다.</p>
+
+<p><img src="/assets/images/posts/docker/20230216/d1969bd2-2ec2-41d2-924e-38202359d727.png" alt="vm_docker" /></p>
+
+<p>OS 가상화는 성능문제가 있었고 이를 개선하기 위해 <strong>프로세스를 격리</strong> 하는 방식이 등장합니다.</p>
+
+<p><strong>리눅스에서는 이 방식을 리눅스 컨테이너라고 하고 단순히 프로세스를 격리시키기 때문에 가볍고 빠르게 동작합니다. CPU나 메모리는 딱 프로세스가 필요한 만큼만 추가로 사용하고 성능적으로도 거의 손실이 없습니다.</strong></p>
+
+<p>하나의 서버에 여러개의 컨테이너를 실행하면 서로 영향을 미치지 않고 독립적으로 실행되어 마치 가벼운 Virtual Machine을 사용하는 느낌을 줍니다.
+<br />
+<br />
+<br /></p>
+
+<h2 id="이미지image">이미지(Image)</h2>
+<p>도커에서 가장 중요한 개념은 컨테이너와 함께 이미지라는 개념입니다.</p>
+
+<p><img src="/assets/images/posts/docker/20230216/d1969bd2-2ec2-41d2-924e-38202359d722.png" alt="docker image" /></p>
+
+<p><strong>이미지는 컨테이너 실행에 필요한 파일과 설정값등을 포함하고 있는 것</strong>으로 상태값을 가지지 않고 변하지 않습니다.(Immutable)</p>
+
+<p>컨테이너는 이미지를 실행한 상태라고 볼 수 있고 추가되거나 변하는 값은 컨테이너에 저장됩니다. 같은 이미지에서 여러개의 컨테이너를 생성할 수 있고 컨테이너의 상태가 바뀌거나 컨테이너가 삭제되더라도 이미지는 변하지 않고 그대로 남아있습니다.</p>
+
+<p>ubuntu 이미지는 ubuntu를 실행하기 위한 모든 파일을 가지고 있고 MySQL 이미지는 debian을 기반으로 MySQL을 실행하는데 필요한 파일과 실행 명령어, 포트 정보등을 가지고 있습니다.</p>
+
+<p>말그대로 <strong>이미지는 컨테이너를 실행하기 위한 모든 정보를 가지고 있기 때문에 더 이상 의존성 파일을 컴파일하고 이것저것 설치할 필요가 없습니다.</strong> 이제 새로운 서버가 추가되면 미리 만들어 놓은 이미지를 다운받고 컨테이너를 생성만 하면 됩니다.</p>
+
+<p><strong>도커 이미지는 <a href="https://hub.docker.com/search?q=" target="_blank">Docker hub</a>에 등록하거나 Docker Registry 저장소를 직접 만들어 관리할 수 있습니다.</strong>
+<br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<h1 id="-특징">🎯 특징</h1>
+<h2 id="레이어layer-저장방식">레이어(Layer) 저장방식</h2>
+<p>도커 이미지는 컨테이너를 실행하기 위한 모든 정보를 가지고 있기 때문에 보통 용량이 수백MB에 이릅니다. 처음 이미지를 다운받을 땐 크게 부담이 안되지만 기존 이미지에 파일 하나 추가했다고 수백MB를 다시 다운받는다면 매우 비효율적일 수 밖에 없습니다.</p>
+
+<p><img src="/assets/images/posts/docker/20230216/d1969bd2-2ec2-41d2-924e-38202359d728.png" alt="docker layer" /></p>
+
+<p>도커는 이런 문제를 해결하기 위해 레이어라는 개념을 사용하고 유니온 파일 시스템을 이용하여 여러개의 레이어를 하나의 파일시스템으로 사용할 수 있게 해줍니다. 이미지는 여러개의 읽기 전용 레이어로 구성되고 파일이 추가되거나 수정되면 새로운 레이어가 생성됩니다.</p>
+
+<p>ubuntu 이미지가 A + B + C의 집합이라면, ubuntu 이미지를 베이스로 만든 nginx 이미지는 A + B + C + nginx가 됩니다.</p>
+
+<p>webapp 이미지를 nginx 이미지 기반으로 만들었다면 A + B + C + nginx + source 레이어로 구성됩니다.</p>
+
+<p>webapp 소스를 수정하면 A, B, C, nginx 레이어를 제외한 새로운 source(v2) 레이어만 다운받으면 되기 때문에 굉장히 효율적으로 이미지를 관리할 수 있습니다.
+<br />
+<br />
+<br /></p>
+
+<h2 id="이미지-경로">이미지 경로</h2>
+<p><img src="/assets/images/posts/docker/20230216/d1969bd2-2ec2-41d2-924e-38202359d729.png" alt="docker layer" /></p>
+
+<p>이미지는 url 방식으로 관리하며 태그를 붙일 수 있습니다.</p>
+
+<p>ubuntu 14.04 이미지는 <strong>docker.io/library/ubuntu:14.04</strong> 또는 <strong>docker.io/libray/ubuntu:trusty</strong> 이고 <strong>docker.io/library</strong> 는 <strong>생략 가능</strong>하며 <strong>ubuntu:14.04</strong>로 사용할 수 있습니다.</p>
+
+<p>이러한 방식은 이해하기 쉽고 편리하게 사용할 수 있으며 태그 기능을 잘 이용하면 테스트나 롤백도 쉽게 할 수 있습니다.
+<br />
+<br />
+<br /></p>
+
+<h2 id="dockerfile">Dockerfile</h2>
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> subicura/vertx3:3.3.1</span>
+<span class="k">MAINTAINER</span><span class="s"> chungsub.kim@purpleworks.co.kr</span>
+
+<span class="k">ADD</span><span class="s"> build/distributions/app-3.3.1.tar /</span>
+<span class="k">ADD</span><span class="s"> config.template.json /app-3.3.1/bin/config.json</span>
+<span class="k">ADD</span><span class="s"> docker/script/start.sh /usr/local/bin/</span>
+<span class="k">RUN </span><span class="nb">ln</span> <span class="nt">-s</span> /usr/local/bin/start.sh /start.sh
+
+<span class="k">EXPOSE</span><span class="s"> 8080</span>
+<span class="k">EXPOSE</span><span class="s"> 7000</span>
+
+<span class="k">CMD</span><span class="s"> ["start.sh"]</span>
+</code></pre></div></div>
+<p>도커는 이미지를 만들기 <code class="language-plaintext highlighter-rouge">위해 Dockerfile</code> 이라는 파일에 자체 <code class="language-plaintext highlighter-rouge">DSLDomain-specific language</code> 언어를 이용하여 이미지 생성 과정을 작성합니다.
+<br />
+<br />
+<br /></p>
+
+<h2 id="docker-hub">Docker Hub</h2>
+<p>도커 이미지의 용량은 보통 수백 MB이고, 수 GB가 넘는 경우도 흔합니다. 이렇게 큰 용량의 이미지를 서버에 저장하고 관리하는 것은 쉽지 않은데 도커는 <a href="https://hub.docker.com/search?q=" target="_blank">Docker hub</a>를 통해 공개 이미지를 무료로 관리해 줍니다. 
+<br />
+<br />
+<br /></p>
+
+<h2 id="command와-api">Command와 API</h2>
+<p>도커 클라이언트의 커맨드 명령어는 직관적이고 사용하기 쉬우며 컨테이너의 복잡한 시스템 구성을 이해하지 못하더라도 편하게 사용할 수 있습니다. 또한 http기반의 Rest API도 지원하여 확장성이 굉장히 좋습니다.
+<br />
+<br />
+<br /></p>
+
+<h2 id="훌륭한-생태계">훌륭한 생태계</h2>
+<p>도커는 굉장히 큰 생태계를 가지고 있고 커다란 기업과 협력하여 사실상 클라우드 컨테이너 세계의 기준이 되었습니다. 로깅, 모니터링, 스토리지, 네트워크, 컨테이너 관리, 배포등 다양한 분야에서 다양한 툴들이 존재합니다.
+<br />
+<br />
+<br /></p>
+
+<h2 id="커뮤니티-지원">커뮤니티 지원</h2>
+<p>도커는 홍보와 커뮤니티 관리에 굉장히 신경쓰고 있습니다. 홈페이지에서는 전세계에서 열리는 밋업 상황을 볼 수 있고 일주일마다 발송되는 뉴스레터에는 다양한 개발자들의 글이 실려있습니다.
+<br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<h1 id="-도커-구조">🎯 도커 구조</h1>
+<p>도커는 클라이언트-서버 구조를 사용합니다.
+<img src="/assets/images/posts/docker/20230216/d1969bd2-2ec2-41d2-924e-38202359d730.png" alt="도커 구조" /></p>
+
+<h2 id="docker-daemon">Docker Daemon</h2>
+<p>도커 데몬(<code class="language-plaintext highlighter-rouge">dockerd</code>)은 도커 REST API 요청을 듣고 도커 오브젝트들(이미지, 컨테이너, 네트워크, 볼륨)을 관리합니다. 또한 도커 데몬은 도커 서비스를 관리하는 다른 도커 데몬과 커뮤니케이션할 수 있습니다.
+<br />
+<br /></p>
+
+<h2 id="docker-client">Docker Client</h2>
+<p>도커 클라이언트(<code class="language-plaintext highlighter-rouge">docker</code>)는 도커 호스트와 통신하기 위한 기능을 수행합니다. 예를 들어, docker run 명령어를 실행하면 도커 클라이언트는 해당 명령어를 REST API Call으로 변환하여 도커 데몬(<code class="language-plaintext highlighter-rouge">dockerd</code>)으로 전송합니다.</p>
+
+<p>도커 클라이언트의 주요 목적은 직접 레지스트리에서 이미지를 받아 호스트에서 실행할 수 있게 하는 것입니다.
+<br />
+<br /></p>
+
+<h2 id="docker-registries">Docker Registries</h2>
+<p>Docker Registries는 도커 이미지 저장소 역할을 수행합니다.
+<br />
+<br /></p>
+
+<h2 id="docker-objects">Docker Objects</h2>
+<p>Docker Object는 Docker Daemon에 의해, 생성 및 관리되는 이미지, 컨테이너, 네트워크, 볼륨 등의 개체를 말합니다.
+<br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<h1 id="-도커-설치">🐳 도커 설치</h1>
+<p>각 OS별 설치 방법은 다음 링크에서 확인 가능합니다.</p>
+<ul>
+  <li><a href="https://docs.docker.com/desktop/mac/install/" target="_blank">MacOS에서 도커 설치</a></li>
+  <li><a href="https://docs.docker.com/desktop/linux/install/" target="_blank">Linux에서 도커 설치</a></li>
+  <li><a href="https://docs.docker.com/desktop/windows/install/" target="_blank">Windows에서 도커 설치</a>
+<br />
+<br />
+<br />
+<br />
+<br /></li>
+</ul>
+
+<h1 id="️-참고사이트">🙇🏻‍♂️ 참고사이트</h1>
+<ul>
+  <li><a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html" target="_blank">https://subicura.com</a></li>
+  <li><a href="https://www.daleseo.com/?tag=Docker" target="_blank">https://www.daleseo.com</a></li>
+</ul>]]></content><author><name>Sangjae Oh</name></author><category term="Docker" /><category term="Docker" /><category term="Container" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Spring Boot Test Cheat Sheet</title><link href="http://localhost:4000/spring/spring-boot-test-cheat-sheet/" rel="alternate" type="text/html" title="Spring Boot Test Cheat Sheet" /><published>2023-02-13T00:00:00+09:00</published><updated>2023-02-13T00:00:00+09:00</updated><id>http://localhost:4000/spring/spring-boot-test-cheat-sheet</id><content type="html" xml:base="http://localhost:4000/spring/spring-boot-test-cheat-sheet/"><![CDATA[<p>📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 참고용 입니다.</p>
 <ul>
   <li><a href="/java/TDD(Test-Driven-Development)-테스트-주도-개발" target="_blank">JUnit 5, AssertJ Cheat Sheet</a></li>
 </ul>
@@ -12219,54 +12380,4 @@ M-N 연관은 개념적으로 양쪽 애그리거트에 컬렉션으로 연관�
 <p>이번 강의를 통해 느낀 점은 인프라 설정은 정말 많은 부분은 신경써야 하면서 구성하기도 힘들다는 점과 테이블 인덱스 설정같은 경우 특수한 경우가 아니라면 ID, 참조 컬럼에만 인덱싱 하면 좋을거같다는 점이다.</p>
 
 <h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/infra-subway-performance/tree/step4" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="회고" /><category term="회고" /><category term="교육" /><category term="우아한테크캠프 Pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">MAC 단축키 모음 💻</title><link href="http://localhost:4000/mac/%EB%8B%A8%EC%B6%95%ED%82%A4/" rel="alternate" type="text/html" title="MAC 단축키 모음 💻" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/mac/%EB%8B%A8%EC%B6%95%ED%82%A4</id><content type="html" xml:base="http://localhost:4000/mac/%EB%8B%A8%EC%B6%95%ED%82%A4/"><![CDATA[<h2 id="-일반-단축키">⌨ 일반 단축키</h2>
-<ul>
-  <li>화면 잠금: <strong>Control + Command + Q</strong></li>
-  <li>복제: <strong>Command + x</strong></li>
-  <li>다시찾기: <strong>Command + G</strong></li>
-  <li>윈도우 최소화: <strong>Command + M</strong></li>
-  <li>프린트: <strong>Command + P</strong></li>
-  <li>붙여넣기: <strong>Command + V</strong></li>
-  <li>모두선택: <strong>Command + A</strong></li>
-  <li>복사: <strong>Command + C</strong></li>
-  <li>숨기기: <strong>Command + H</strong></li>
-  <li>선택항목 열기: <strong>Command + O</strong></li>
-  <li>문서 저장: <strong>Command + S</strong></li>
-  <li>이전명령: <strong>Command + Z</strong></li>
-  <li>항목찾기: <strong>Command + F</strong></li>
-  <li>새 탭 열기: <strong>Command + T</strong></li>
-  <li>창 닫기: <strong>Command + W</strong></li>
-  <li>강제 종료: <strong>Option + Command + Esc</strong></li>
-  <li>Spotlight 표시/숨기기: <strong>Command + Spacebar</strong></li>
-  <li>이모티콘 및 기타 기호: <strong>Ctrl + Command + Spacebar</strong></li>
-  <li>전체화면: <strong>Ctrl + Command + F</strong></li>
-  <li>스크린샷 및 화면 기록: <strong>Shift + Command + 5</strong></li>
-  <li>새폴더 생성: <strong>Shift + Command + N</strong></li>
-  <li>환경설정 열기: <strong>Command + ,</strong></li>
-  <li>최근 사용 앱으로 전환: <strong>Command + Tab</strong></li>
-  <li>훑어보기: <strong>Spacebar</strong></li>
-</ul>
-
-<h2 id="-finder-및-시스템-단축키">⌨ Finder 및 시스템 단축키</h2>
-<ul>
-  <li>선택 파일 복제: <strong>Command + D</strong></li>
-  <li>Finder 윈도우에서 Spotlight 검색 시작: <strong>Command + F</strong></li>
-  <li>선택 디스크 또는 볼륨 추출: <strong>Command + E</strong></li>
-  <li>선택 파일의 정보 가져오기: <strong>Command + I</strong></li>
-  <li>가상본의 원본 파일이 형성: <strong>Command + R</strong></li>
-  <li>컴퓨터 윈도우 열기: <strong>Shift + Command + C</strong></li>
-  <li>최근 윈도우/파일 표시: <strong>Shift + Command + F</strong></li>
-  <li>현재 macOS 사용자 계정 폴더 열기: <strong>Shift + Command + H</strong></li>
-  <li>데스크탑 폴더 열기: <strong>Shift + Command + D</strong></li>
-  <li>폴더로 이동 윈도우 열기: <strong>Shift + Command + G</strong></li>
-  <li>iCloud Drive 열기: <strong>Shift + Command + I</strong></li>
-  <li>네트위크 윈도우 열기: <strong>Shift + Command K</strong></li>
-  <li>새 폴더 생성: <strong>Shift + Command + N</strong></li>
-  <li>Finder 미리보기 패널 표시/가리기: <strong>Shift + Command + P</strong></li>
-  <li>다운로드 폴더 열기: <strong>Shift + Command + L</strong></li>
-  <li>문서 폴더 열기: <strong>Shift + Command + O</strong></li>
-  <li>AirDrop 윈도우 열기: <strong>Shift + Command + R</strong></li>
-</ul>
-
-<h2 id="-참고-사이트">🔎 참고 사이트</h2>
-<p><a href="https://www.invaiz.com/blog/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;bmode=view&amp;idx=12577409&amp;t=board" target="_blank">invaiz 블로그</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="Mac" /><category term="Mac" /><category term="단축키" /><summary type="html"><![CDATA[⌨ 일반 단축키 화면 잠금: Control + Command + Q 복제: Command + x 다시찾기: Command + G 윈도우 최소화: Command + M 프린트: Command + P 붙여넣기: Command + V 모두선택: Command + A 복사: Command + C 숨기기: Command + H 선택항목 열기: Command + O 문서 저장: Command + S 이전명령: Command + Z 항목찾기: Command + F 새 탭 열기: Command + T 창 닫기: Command + W 강제 종료: Option + Command + Esc Spotlight 표시/숨기기: Command + Spacebar 이모티콘 및 기타 기호: Ctrl + Command + Spacebar 전체화면: Ctrl + Command + F 스크린샷 및 화면 기록: Shift + Command + 5 새폴더 생성: Shift + Command + N 환경설정 열기: Command + , 최근 사용 앱으로 전환: Command + Tab 훑어보기: Spacebar]]></summary></entry></feed>
+<p><a href="https://github.com/sangjaeoh/infra-subway-performance/tree/step4" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="회고" /><category term="회고" /><category term="교육" /><category term="우아한테크캠프 Pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry></feed>
