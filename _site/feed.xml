@@ -1,4 +1,613 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-16T22:15:30+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Sangjae Oh</name></author><entry><title type="html">🐳 Docker 살펴보기</title><link href="http://localhost:4000/docker/docker/" rel="alternate" type="text/html" title="🐳 Docker 살펴보기" /><published>2023-02-16T00:00:00+09:00</published><updated>2023-02-16T00:00:00+09:00</updated><id>http://localhost:4000/docker/docker</id><content type="html" xml:base="http://localhost:4000/docker/docker/"><![CDATA[<p><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-20T22:04:42+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Oh</name></author><entry><title type="html">🐳 Docker 기본 명령어</title><link href="http://localhost:4000/docker/docker-2/" rel="alternate" type="text/html" title="🐳 Docker 기본 명령어" /><published>2023-02-20T00:00:00+09:00</published><updated>2023-02-20T00:00:00+09:00</updated><id>http://localhost:4000/docker/docker-2</id><content type="html" xml:base="http://localhost:4000/docker/docker-2/"><![CDATA[<p>💾 도커에서 자주 사용하는 명령어를 정리한 내용입니다.</p>
+
+<p><br /></p>
+
+<h1 id="-컨테이너-관련-명령어">🎯 컨테이너 관련 명령어</h1>
+<p>Docker CLI 도구는 Docker 컨테이너(container)의 효과적인 관리를 위해서 다양한 커맨드(command)를 제공합니다.</p>
+
+<h2 id="컨테이너-조회">컨테이너 조회</h2>
+<p><code class="language-plaintext highlighter-rouge">docker ps</code> 커맨드는 Docker 컨테이너를 조회를 위해 사용되며 기본적으로 실행 중인 컨테이너 목록이 출력됩니다.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 기본 조회</span>
+<span class="nv">$ </span>docker ps
+
+<span class="c"># -a 옵션</span>
+<span class="c"># 현재 중지되어 있는 컨테이너까지 함께 출력됩니다.</span>
+<span class="nv">$ </span>docker ps <span class="nt">-a</span>
+
+<span class="c"># -s 옵션</span>
+<span class="c"># 각 컨테이너의 디스크 사용량까지 볼 수 있습니다.</span>
+<span class="nv">$ </span>docker ps <span class="nt">-s</span>
+
+<span class="c"># -f 옵션</span>
+<span class="c"># 조회 결과를 특정 조건에 따라 필터링해서 볼 수 있습니다.</span>
+<span class="c"># 예를 들어, 특정 이미지로 부터 만들어진 컨테이어만 보고 싶다면 ancestor 필터를 사용하면 됩니다.</span>
+<span class="nv">$ </span>docker ps <span class="nt">-af</span> <span class="s2">"ancestor=python:alpine"</span>
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                         PORTS               NAMES
+b1bae952f7a6        python:alpine       <span class="s2">"python -m http.serv…"</span>   About an hour ago   Exited <span class="o">(</span>137<span class="o">)</span> 3 minutes ago                         amazing_chatelet
+518d8bb6afaf        python:alpine       <span class="s2">"python3"</span>                About an hour ago   Exited <span class="o">(</span>0<span class="o">)</span> About an hour ago                       focused_gauss
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="컨테이너-실행">컨테이너 실행</h2>
+<p><code class="language-plaintext highlighter-rouge">docker run</code> 커맨드는 상당히 여러가지 옵션을 통해 다양한 방식으로 컨테이너를 실행할 수 있도록 해줍니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 기본 실행</span>
+<span class="c"># $ docker run (&lt;옵션&gt;) &lt;이미지 식별자&gt; (&lt;명령어&gt;) (&lt;인자&gt;)</span>
+<span class="nv">$ </span>docker run hello-world
+
+<span class="c"># -d 옵션</span>
+<span class="c"># 컨테이너를 백그라운드에서 실행</span>
+<span class="c"># -d 옵션없이 실행했다면, 해당 터미널에서 Ctrl + C를 눌러서 빠져나오는 순간 해당 컨테이너는 종료될 것입니다.</span>
+<span class="nv">$ </span>docker run <span class="nt">-d</span> python:3.8-alpine python <span class="nt">-m</span> http.server
+
+<span class="c"># -it 옵션</span>
+<span class="c"># -i와 -t를 동시에 사용한 것으로 터미널 입력을 위한 옵션</span>
+<span class="nv">$ </span>docker run <span class="nt">-it</span> python:3.8-alpine
+<span class="nv">$ </span>docker run <span class="nt">-it</span> python:3.8-alpine /bin/sh
+
+<span class="c"># -name 옵션</span>
+<span class="c"># 컨테이너 이름 설정</span>
+<span class="nv">$ </span>docker run <span class="nt">-d</span> <span class="nt">--name</span> my-server python:3.8-alpine python <span class="nt">-m</span> http.server
+
+<span class="c"># -e 옵션</span>
+<span class="c"># 컨테이너 내에서 사용할 환경변수 설정</span>
+<span class="c">## Docker 컨테이너의 환경변수를 설정하기 위해서는 -e 옵션을 사용합니다.</span>
+<span class="c">## 또한, -e 옵션을 사용하면 Dockerfile의 ENV 설정도 덮어써지게 됩니다.</span>
+<span class="nv">$ </span>docker run <span class="nt">-e</span> <span class="nv">FOO</span><span class="o">=</span>bar python:3.8-alpine <span class="nb">env</span>
+
+<span class="c"># -p 옵션</span>
+<span class="c"># 호스트와 컨테이너의 포트를 연결 (포워딩)</span>
+<span class="nv">$ </span>docker run <span class="nt">-d</span> <span class="nt">-p</span> 80:8000 python:3.8-alpine python <span class="nt">-m</span> http.server
+
+<span class="c"># -v 옵션</span>
+<span class="c"># 호스트와 컨테이너의 디렉토리를 연결 (마운트)</span>
+<span class="nv">$ </span><span class="nb">echo </span>Hi <span class="o">&gt;</span> test.txt
+<span class="nv">$ </span>docker run <span class="nt">-v</span> <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/etc python:3.8-alpine <span class="nb">cat</span> /etc/test.txt
+Hi
+
+<span class="c"># -rm 옵션</span>
+<span class="c"># 컨테이너가 종료될 때 컨테이너와 관련된 리소스(파일 시스템, 볼륨)까지 깨끗이 제거해줍니다.</span>
+<span class="nv">$ </span>docker run <span class="nt">--rm</span> <span class="nt">-it</span> ubuntu:16.04 /bin/bash
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="컨테이너-중지">컨테이너 중지</h2>
+<p>실행 중인 Docker 컨테이너를 중지하려면 <code class="language-plaintext highlighter-rouge">docker stop</code> 커맨드를 사용합니다. 중지하고 싶은 컨테이너의 아이디나 이름을 인자로 넘깁니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 아이디나 이름을 인자로 컨테이너 중지</span>
+<span class="nv">$ </span>docker stop container_name
+container_name
+
+<span class="c"># 조회</span>
+<span class="nv">$ </span>docker ps <span class="nt">-af</span> <span class="s2">"name=container_name"</span>
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                        PORTS               NAMES
+b1bae952f7a6        python:alpine       <span class="s2">"python -m http.serv…"</span>   About an hour ago   Exited <span class="o">(</span>137<span class="o">)</span> 32 seconds ago                       container_name
+
+<span class="c"># 컨테이너 전체 중지</span>
+<span class="nv">$ </span>docker stop <span class="si">$(</span>docker ps <span class="nt">-a</span> <span class="nt">-q</span><span class="si">)</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="컨테이너-시작">컨테이너 시작</h2>
+<p>중지된 Docker 컨테이너를 다시 시작하려면 <code class="language-plaintext highlighter-rouge">docker start</code> 커맨드를 사용합니다. 마찬가지로 재시작하고 싶은 컨테이너의 아이디나 이름을 인자로 넘기면 됩니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 아이디나 이름을 인자로 컨테이너 시작</span>
+<span class="nv">$ </span>docker start b1bae952f7m1
+b1bae952f7m1
+
+<span class="nv">$ </span>docker ps <span class="nt">-af</span> <span class="s2">"id=b1bae952f7m1"</span>
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+b1bae952f7m1        python:alpine       <span class="s2">"python -m http.serv…"</span>   About an hour ago   Up About a minute                       amazing_chatelet
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="컨테이너-상대로-명령어-실행">컨테이너 상대로 명령어 실행</h2>
+<p>실행 중인 컨테이너 상대로 명령어를 날리고 싶다면 <code class="language-plaintext highlighter-rouge">docker exec</code> 커맨드를 사용합니다. 예를 들어, 어떤 컨테이너를 상대로 <code class="language-plaintext highlighter-rouge">ls</code> 커맨드를 실행하고 싶다면 다음과 같이 하면 됩니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker <span class="nb">exec </span>b1bae952f7a6 <span class="nb">ls
+</span>bin dev etc home lib media mnt ...생략...
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">-it</code> 옵션을 사용하면 해당 컨테이너의 쉘(shell)과 작접 상호작용하면서 연속으로 명령어를 실행할 수 있습니다.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker <span class="nb">exec</span> <span class="nt">-it</span> container_name /bin/sh
+
+<span class="nv">$ </span><span class="nb">ls
+</span>bin    etc    lib    mnt    proc   run    srv    tmp    var
+dev    home   media  opt    root   sbin   sys    usr
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="컨테이너-로그-확인">컨테이너 로그 확인</h2>
+<p>컨테이너의 로그를 확인하려면 <code class="language-plaintext highlighter-rouge">docker logs</code> 커맨드를 사용하면 됩니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker logs b1bae952f7a6
+
+<span class="c"># -f 옵션을 사용하면 실시간 로그를 확인할 수 있습니다.</span>
+<span class="nv">$ </span>docker logs <span class="nt">-f</span> container_name
+
+<span class="c"># 마지막 10줄만 출력</span>
+<span class="nv">$ </span>docker logs <span class="nt">--tail</span> 10 container_name
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="컨테이너-상세-정보">컨테이너 상세 정보</h2>
+<p>특정 컨테이너의 상세 정보를 확인하고 싶다면, <code class="language-plaintext highlighter-rouge">docker inspect</code> 커맨드를 사용합니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker inspect 8c27a672e23c
+<span class="o">[</span>
+    <span class="o">{</span>
+        <span class="s2">"Id"</span>: <span class="s2">"8c27a672e23c1c48aaaa0d2e65325aefb36db2934f724634dd4f5684397014ba"</span>,
+        <span class="s2">"Created"</span>: <span class="s2">"2020-04-25T18:23:24.651490253Z"</span>,
+        <span class="s2">"Path"</span>: <span class="s2">"/bin/sh"</span>,
+        <span class="s2">"Args"</span>: <span class="o">[]</span>,
+        <span class="s2">"State"</span>: <span class="o">{</span>
+            <span class="s2">"Status"</span>: <span class="s2">"exited"</span>,
+            <span class="s2">"Running"</span>: <span class="nb">false</span>,
+            <span class="s2">"Paused"</span>: <span class="nb">false</span>,
+            <span class="s2">"Restarting"</span>: <span class="nb">false</span>,
+            <span class="s2">"OOMKilled"</span>: <span class="nb">false</span>,
+            <span class="s2">"Dead"</span>: <span class="nb">false</span>,
+            <span class="s2">"Pid"</span>: 0,
+            <span class="s2">"ExitCode"</span>: 0,
+            <span class="s2">"Error"</span>: <span class="s2">""</span>,
+            <span class="s2">"StartedAt"</span>: <span class="s2">"2020-04-25T18:23:25.300618082Z"</span>,
+            <span class="s2">"FinishedAt"</span>: <span class="s2">"2020-04-25T18:23:25.347690066Z"</span>
+        <span class="o">}</span>,
+        <span class="s2">"Image"</span>: <span class="s2">"sha256:f70734b6a266dcb5f44c383274821207885b549b75c8e119404917a61335981a"</span>,
+        ...생략...
+    <span class="o">}</span>
+<span class="o">]</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="컨테이너-제거">컨테이너 제거</h2>
+<p>컨테이너를 제거하고 싶을 때는 <code class="language-plaintext highlighter-rouge">docker rm</code> 커맨드를 사용합니다. 중지되어 있는 컨테이너는 아무 옵션없이 제거할 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 컨테이너 제거</span>
+<span class="nv">$ </span>docker <span class="nb">rm </span>3722f14f4d2a
+3722f14f4d2a
+
+<span class="c"># 실행 중인 컨테이너는 다음과 같이 바로 제거가 허용되지 않습니다.</span>
+<span class="c"># 이 때는, -f 옵션을 사용하면 해당 컨테이너를 먼저 정지시킨 다음에 제거해줍니다.</span>
+<span class="nv">$ </span>docker <span class="nb">rm </span>d2f83048485e
+Error response from daemon: You cannot remove a running container d2f83048485e4fe694dac374be152906e4e20da400305e5095bbb476bcaf718d. Stop the container before attempting removal or force remove
+<span class="nv">$ </span>docker <span class="nb">rm</span> <span class="nt">-f</span> d2f83048485e
+
+<span class="c"># 실행 중인 컨테이너는 건들지 않고 중지되어 있는 모든 컨테이너를 제거하고 싶다면 다음과 같이 하면 됩니다.</span>
+<span class="nv">$ </span>docker <span class="nb">rm</span> <span class="si">$(</span>docker ps <span class="nt">-a</span> <span class="nt">-q</span><span class="si">)</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="컨테이너-레퍼런스-참고">컨테이너 레퍼런스 참고</h2>
+<ul>
+  <li><a href="https://docs.docker.com/engine/reference/run/" target="_blank">Docker run reference</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/run/" target="_blank">docker run</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/ps/" target="_blank">docker ps</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/stop/" target="_blank">docker stop</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/start/" target="_blank">docker start</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/exec/" target="_blank">docker exec</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/logs/" target="_blank">docker logs</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/attach/" target="_blank">docker attach</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/inspect/" target="_blank">docker inspect</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/rm/" target="_blank">docker rm</a>
+<br />
+<br />
+<br />
+<br />
+<br /></li>
+</ul>
+
+<h1 id="-볼륨바인드-마운트-관련-명령어">🎯 볼륨/바인드 마운트 관련 명령어</h1>
+<p>Docker 컨테이너(container)에 쓰여진 데이터는 기본적으로 컨테이너가 삭제될 때 함께 사라지게 됩니다. Docker에서 돌아가는 많은 애플리케이션이 컨테이너의 생명 주기와 관계없이 데이터를 영속적으로 저장을 해야하는 경우가 있습니다. 또한 여러 개의 Docker 컨테이너가 하나의 저장 공간을 공유해서 데이터를 읽거나 써야하는 경우도 있습니다.</p>
+
+<p>이렇게 Docker 컨테이너의 생명 주기와 관계없이 데이터를 영속적으로 저장할 수 있도록 Docker는 두가지 옵션을 제공합니다. 첫번째는 Docker 볼륨(volume), 두번째는 바인드 마운트(bind mount)입니다.</p>
+
+<p><img src="/assets/images/posts/docker/20230220/d1969bd2-2ec2-41d2-924e-38202359d740.png" alt="docker bind volume" />
+<br /></p>
+
+<h2 id="볼륨-생성">볼륨 생성</h2>
+<p><code class="language-plaintext highlighter-rouge">docker volume create</code> 커맨드를 이용해서 볼륨을 생성할 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker volume create our-vol
+our-vol
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="볼륨-조회">볼륨 조회</h2>
+<p><code class="language-plaintext highlighter-rouge">docker volume ls</code> 커맨드를 실행하면 볼륨을 확인할 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker volume <span class="nb">ls
+</span>DRIVER              VOLUME NAME
+<span class="nb">local               </span>our-vol
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="볼륨-상세-정보">볼륨 상세 정보</h2>
+<p><code class="language-plaintext highlighter-rouge">docker volume inspect</code> 커맨드를 통해 해당 볼륨을 좀 더 상세한 정보를 확인할 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker volume inspect our-vol
+<span class="o">[</span>
+    <span class="o">{</span>
+        <span class="s2">"CreatedAt"</span>: <span class="s2">"2020-05-09T17:03:46Z"</span>,
+        <span class="s2">"Driver"</span>: <span class="s2">"local"</span>,
+        <span class="s2">"Labels"</span>: <span class="o">{}</span>,
+        <span class="s2">"Mountpoint"</span>: <span class="s2">"/var/lib/docker/volumes/our-vol/_data"</span>,
+        <span class="s2">"Name"</span>: <span class="s2">"our-vol"</span>,
+        <span class="s2">"Options"</span>: <span class="o">{}</span>,
+        <span class="s2">"Scope"</span>: <span class="s2">"local"</span>
+    <span class="o">}</span>
+<span class="o">]</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">Mountpoint</code> 항목을 보면 해당 볼륨이 컴퓨터의 어느 경로에 생성되었는지를 알 수 있습니다.
+<br /></p>
+
+<h2 id="컨테이너에-볼륨-마운트">컨테이너에 볼륨 마운트</h2>
+<p>컨테이너가 볼륨을 사용하기 위해서는 볼륨을 컨테이너에 마운트(mount)해줘야 합니다. <code class="language-plaintext highlighter-rouge">docker run</code> 커맨드로 컨테이너를 실행할 때 <code class="language-plaintext highlighter-rouge">-v</code> 옵션을 사용하여 마운트합니다. 콜론(<code class="language-plaintext highlighter-rouge">:</code>)을 구분자로 해서 앞에는 마운트할 볼륨명 뒤에는 컨테이너 내의 경로를 명시해주면 됩니다.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># `our-vol` 볼륨을 `one` 컨테이너의 `/app` 경로에 마운트, touch 명령어로 파일 생성</span>
+<span class="nv">$ </span>docker run <span class="nt">-v</span> our-vol:/app <span class="nt">--name</span> one busybox <span class="nb">touch</span> /app/test.txt
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">touch /app/test.txt</code> 커맨드를 실행하였기 때문에, test.txt 파일이 our-vol 볼륨의 경로에도 남아있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> /var/lib/docker/volumes/our-vol/_data
+test.txt
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">docker inspect</code> 커맨드로 컨테이너의 상세 정보를 확인해보면 our-vol 볼륨이 volume 타입으로 마운트되어 있는 것을 확인할 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker inspect one
+...생략...
+    <span class="s2">"Mounts"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"Type"</span>: <span class="s2">"volume"</span>,
+            <span class="s2">"Name"</span>: <span class="s2">"our-vol"</span>,
+            <span class="s2">"Source"</span>: <span class="s2">"/var/lib/docker/volumes/our-vol/_data"</span>,
+            <span class="s2">"Destination"</span>: <span class="s2">"/app"</span>,
+            <span class="s2">"Driver"</span>: <span class="s2">"local"</span>,
+            <span class="s2">"Mode"</span>: <span class="s2">"z"</span>,
+            <span class="s2">"RW"</span>: <span class="nb">true</span>,
+            <span class="s2">"Propagation"</span>: <span class="s2">""</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+...생략...
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="다른-컨테이너에도-볼륨-마운트">다른 컨테이너에도 볼륨 마운트</h2>
+<p>같은 our-vol 볼륨을 two 컨테이너의 /app 경로에 마운트를 해보겠습니다. ls /app 커맨드를 실행해보니, one 컨테이너가 볼륨에 생성해놓은 파일이 그대로 보이는 것을 알 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">-v</span> our-vol:/app <span class="nt">--name</span> two busybox <span class="nb">ls</span> /app
+test.txt
+</code></pre></div></div>
+<p>이렇게 <strong>여러 개의 컨테이너가 하나의 볼륨에 접근할 수 있기 때문에 컨테이너 간 데이터 공유가 가능</strong>합니다.
+<br /></p>
+
+<h2 id="볼륨-삭제">볼륨 삭제</h2>
+<p><code class="language-plaintext highlighter-rouge">docker volume rm</code> 커맨드를 사용해서 볼륨을 제거할 수 있습니다. 만약 제거하려는 볼륨이 마운트되어 있는 컨테이너가 있을 때는 해당 볼륨이 제거가 되지가 않습니다. 그럴 때는 해당 볼륨이 마운트되어 있는 모든 컨테이너를 먼저 삭제하고, 볼륨을 삭제해야 합니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 컨테이너 삭제</span>
+<span class="nv">$ </span>docker <span class="nb">rm</span> <span class="nt">-f</span> one two
+one
+two
+
+<span class="c"># 볼륨 삭제</span>
+<span class="nv">$ </span>docker volume <span class="nb">rm </span>our-vol
+our-vol
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="볼륨-청소">볼륨 청소</h2>
+<p><code class="language-plaintext highlighter-rouge">docker volume prune</code> 커맨드를 이용해서 마운트되어 있지 않은 모든 볼륨을 한번에 제거할 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker volume prune
+WARNING! This will remove all <span class="nb">local </span>volumes not used by at least one container.
+Are you sure you want to <span class="k">continue</span>? <span class="o">[</span>y/N] y
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="바인드-마운트">바인드 마운트</h2>
+<p>Docker 컨테이너에 데이터를 저장하기 위한 다른 방법으로 바인드 마운트(bind mount)라는 것도 있습니다. 바인드 마운트를 사용하면 호스트 파일 시스템의 특정 경로를 컨테이너로 바로 마운트할 수 있습니다.</p>
+
+<p>바인드 마운트를 사용하는 방법은 <code class="language-plaintext highlighter-rouge">docker run</code> 커맨드를 실행할 때, <code class="language-plaintext highlighter-rouge">-v</code> 옵션의 콜론(<code class="language-plaintext highlighter-rouge">:</code>) 앞 부분에 마운트명 대신에 호스트의 경로를 지정해주는 것입니다.</p>
+
+<p>예를 들어, 현재 경로에 <code class="language-plaintext highlighter-rouge">test.txt</code> 파일을 생성하고, 해당 호스트 경로를 컨테이너의 <code class="language-plaintext highlighter-rouge">/app</code> 경로에 마운트합니다. 컨테이너에 터미널에 접속하여 <code class="language-plaintext highlighter-rouge">ls /app</code> 커맨드를 실행해보면 <code class="language-plaintext highlighter-rouge">test.txt</code> 파일이 존재하는 것을 확인할 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 파일 생성</span>
+<span class="nv">$ </span><span class="nb">touch </span>test.txt
+
+<span class="c"># 바인드 마운트, 컨테이너 쉘 접속</span>
+<span class="nv">$ </span>docker run <span class="nt">-v</span> <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/app <span class="nt">-it</span> <span class="nt">--name</span> one busybox /bin/bash
+
+<span class="c"># 조회</span>
+<span class="nv">$ </span><span class="nb">ls</span> /app
+test.txt
+</code></pre></div></div>
+<p>반대로 컨테이너의 /app 경로 상에서 test2.txt 파일을 실행해보면 호스트의 현재 경로에서도 해당 파일을 확인할 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 컨테이너 내에서 파일 생성</span>
+<span class="nv">$ </span><span class="nb">touch</span> /app/test2.txt
+
+<span class="c"># 컨테이너 쉘 종료</span>
+<span class="nv">$ </span><span class="nb">exit</span>
+
+<span class="c"># 호스트에서 조회</span>
+<span class="nv">$ </span><span class="nb">ls
+</span>test.txt   test2.txt
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="볼륨-vs-바인드-마운트">볼륨 VS 바인드 마운트</h2>
+<p>볼륨(volume)과 바인드 마운트(bind mount)의 가장 큰 차이점은 Docker의 해당 마운트 포인트 관리 여부입니다.</p>
+
+<p>볼륨을 사용할 때는 우리가 스스로 볼륨을 생성하거나 삭제해야하는 불편함이 있지만, 해당 볼륨은 Docker 상에서 이미지(image)나 컨테이너(container), 네트워크(network)와 비슷한 방식으로 관리가 되는 이점이 있습니다. 그래서 대부분의 상황에서는 볼륨을 사용하는 것이 권장되지만 컨테이너화된 로컬 개발 환경을 구성할 때는 바인드 마운트가 더 유리할 수 있습니다.</p>
+
+<p>로컬에서 개발을 할 때는 일반적으로 현재 작업 디렉터리에 프로젝트 저장소를 <code class="language-plaintext highlighter-rouge">git clone</code> 받아놓고 코드를 변경합니다. 따라서 바인드 마운트를 이용해서 해당 디렉터리를 컨테이너의 특정 경로에 마운트해주면 코드를 변경할 때 마다 변경 사항을 실시간으로 컨테이너를 통해 확인할 수 있습니다. 또한 컨테이너를 통해 변경된 부분도 현재 작업 디렉터리에서 바로 확인할 수 있기 때문에 편리합니다.
+<br /></p>
+
+<h2 id="볼륨-레퍼런스-참고">볼륨 레퍼런스 참고</h2>
+<ul>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/volume_create/" target="_blank">docker volume create</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/volume_ls/" target="_blank">docker volume ls</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/volume_inspect/" target="_blank">docker volume inspect</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/volume_rm/" target="_blank">docker volume rm</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/volume_prune/" target="_blank">docker volume prune</a>
+<br />
+<br />
+<br />
+<br />
+<br /></li>
+</ul>
+
+<h1 id="-네트워크-관련-명령어">🎯 네트워크 관련 명령어</h1>
+<p>Docker 컨테이너(container)는 격리된 환경에서 돌아가기 때문에 기본적으로 다른 컨테이너와의 통신이 불가능합니다. 하지만 여러 개의 컨테이너를 하나의 Docker 네트워크(network)에 연결시키면 서로 통신이 가능해집니다.</p>
+
+<h2 id="네트워크-종류">네트워크 종류</h2>
+<p>Docker 네트워크는 <code class="language-plaintext highlighter-rouge">bridge</code>, <code class="language-plaintext highlighter-rouge">host</code>, <code class="language-plaintext highlighter-rouge">overlay</code> 등 목적에 따라 다양한 종류의 네트워크 드라이버(driver)를 지원합니다.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">bridge</code> 네트워크는 하나의 호스트 컴퓨터 내에서 여러 컨테이너들이 서로 소통할 수 있도록 해줍니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">host</code> 네트워크는 컨테이너를 호스트 컴퓨터와 동일한 네트워크에서 컨테이너를 돌리기 위해서 사용됩니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">overlay</code> 네트워크는 여러 호스트에 분산되어 돌아가는 컨테이너들 간에 네트워킹을 위해서 사용됩니다.<br />
+<br /></li>
+</ul>
+
+<h2 id="네트워크-생성">네트워크 생성</h2>
+<p><code class="language-plaintext highlighter-rouge">docker network create</code> 커맨드를 사용해서 Docker 네트워크를 생성할 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker network create our-net
+e6dfe4a9a5ec85abcb484662c30a3a0fc76df217dde76d52fac39fae8412ca68
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="네트워크-조회">네트워크 조회</h2>
+<p><code class="language-plaintext highlighter-rouge">docker network ls</code> 커맨드를 사용하면 현재 생성되어 있는 Docker 네트워크 목록을 조회할 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker network <span class="nb">ls
+</span>NETWORK ID          NAME                DRIVER              SCOPE
+143496b94e57        bridge              bridge              <span class="nb">local
+</span>311d6534f79f        host                host                <span class="nb">local
+</span>aa89f58200a6        none                null                <span class="nb">local</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="네트워크-상세-정보">네트워크 상세 정보</h2>
+<p><code class="language-plaintext highlighter-rouge">docker network inspect</code> 커맨드로 네트워크의 상세 정보를 확인할 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker network inspect our-net
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="네트워크에-컨테이너-연결">네트워크에 컨테이너 연결</h2>
+<p>먼저 컨테이너 하나를 <code class="language-plaintext highlighter-rouge">one</code> 라는 이름으로 실행해보도록 하겠습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">-itd</span> <span class="nt">--name</span> one busybox
+660bafdce2996378cde070dfd894731bb90745e46d2ab10d6504c0cc9f4bdea9
+</code></pre></div></div>
+<p>컨테이너를 실행할 때 <code class="language-plaintext highlighter-rouge">--network</code> 옵션을 명시해주지 않으면, 기본적으로 <code class="language-plaintext highlighter-rouge">bride</code> 라는 이름의 디폴트 네트워크에 붙게 됩니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker network inspect bridge
+... 생략 ...
+        <span class="s2">"Containers"</span>: <span class="o">{</span>
+            <span class="s2">"660bafdce2996378cde070dfd894731bb90745e46d2ab10d6504c0cc9f4bdea9"</span>: <span class="o">{</span>
+                <span class="s2">"Name"</span>: <span class="s2">"one"</span>,
+                <span class="s2">"EndpointID"</span>: <span class="s2">"40b4bbd8385debf86eef2fc2136315e1a82fa1ef72877bfae25477d6e8e46726"</span>,
+                <span class="s2">"MacAddress"</span>: <span class="s2">"02:42:ac:11:00:04"</span>,
+                <span class="s2">"IPv4Address"</span>: <span class="s2">"172.17.0.4/16"</span>,
+                <span class="s2">"IPv6Address"</span>: <span class="s2">""</span>
+            <span class="o">}</span>,
+        <span class="o">}</span>,
+... 생략 ...
+</code></pre></div></div>
+<p><br /></p>
+
+<p>이제 <code class="language-plaintext highlighter-rouge">one</code> 컨테이너와 <code class="language-plaintext highlighter-rouge">our-net</code> 네트워크를 연결해보도록 하겠습니다.<br />
+Docker 네트워크에 컨테이너를 연결할 때는 <code class="language-plaintext highlighter-rouge">docker network connect</code> 커맨드를 사용합니다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker network connect our-net one
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">our-net</code> 네트워크의 상세 정보를 다시 확인해보면 <code class="language-plaintext highlighter-rouge">Containers</code> 항목에 <code class="language-plaintext highlighter-rouge">one</code> 컨테이너가 추가된 것을 볼 수 있습니다. <code class="language-plaintext highlighter-rouge">one</code> 컨테이너에 IP <code class="language-plaintext highlighter-rouge">172.19.0.2</code>가 할당된 것도 확인할 수 있습니다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker network inspect our-net
+<span class="o">[</span>
+    <span class="o">{</span>
+        <span class="s2">"Name"</span>: <span class="s2">"our-net"</span>,
+        <span class="s2">"Id"</span>: <span class="s2">"e6dfe4a9a5ec85abcb484662c30a3a0fc76df217dde76d52fac39fae8412ca68"</span>,
+        <span class="s2">"Created"</span>: <span class="s2">"2020-04-26T19:23:04.563643516Z"</span>,
+        <span class="s2">"Scope"</span>: <span class="s2">"local"</span>,
+        <span class="s2">"Driver"</span>: <span class="s2">"bridge"</span>,
+        <span class="s2">"EnableIPv6"</span>: <span class="nb">false</span>,
+        <span class="s2">"IPAM"</span>: <span class="o">{</span>
+            <span class="s2">"Driver"</span>: <span class="s2">"default"</span>,
+            <span class="s2">"Options"</span>: <span class="o">{}</span>,
+            <span class="s2">"Config"</span>: <span class="o">[</span>
+                <span class="o">{</span>
+                    <span class="s2">"Subnet"</span>: <span class="s2">"172.19.0.0/16"</span>,
+                    <span class="s2">"Gateway"</span>: <span class="s2">"172.19.0.1"</span>
+                <span class="o">}</span>
+            <span class="o">]</span>
+        <span class="o">}</span>,
+        <span class="s2">"Internal"</span>: <span class="nb">false</span>,
+        <span class="s2">"Attachable"</span>: <span class="nb">false</span>,
+        <span class="s2">"Ingress"</span>: <span class="nb">false</span>,
+        <span class="s2">"ConfigFrom"</span>: <span class="o">{</span>
+            <span class="s2">"Network"</span>: <span class="s2">""</span>
+        <span class="o">}</span>,
+        <span class="s2">"ConfigOnly"</span>: <span class="nb">false</span>,
+        <span class="s2">"Containers"</span>: <span class="o">{</span>
+            <span class="s2">"660bafdce2996378cde070dfd894731bb90745e46d2ab10d6504c0cc9f4bdea9"</span>: <span class="o">{</span>
+                <span class="s2">"Name"</span>: <span class="s2">"one"</span>,
+                <span class="s2">"EndpointID"</span>: <span class="s2">"cc490148a533d40b3aff33a421cc9a01c731c75a8deb70ab729a5358f2fd381c"</span>,
+                <span class="s2">"MacAddress"</span>: <span class="s2">"02:42:ac:13:00:02"</span>,
+                <span class="s2">"IPv4Address"</span>: <span class="s2">"172.19.0.2/16"</span>,
+                <span class="s2">"IPv6Address"</span>: <span class="s2">""</span>
+            <span class="o">}</span>
+        <span class="o">}</span>,
+        <span class="s2">"Options"</span>: <span class="o">{}</span>,
+        <span class="s2">"Labels"</span>: <span class="o">{}</span>
+    <span class="o">}</span>
+<span class="o">]</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="네트워크로부터-컨테이너-연결-해제">네트워크로부터 컨테이너 연결 해제</h2>
+<p>하나의 컨테이너는 여러 개의 네트워크에 동시에 연결할 수 있습니다. 최초에 <code class="language-plaintext highlighter-rouge">one</code> 컨테이너를 생성할 때 <code class="language-plaintext highlighter-rouge">bridge</code> 네트워크 붙었기 때문에, 현재 <code class="language-plaintext highlighter-rouge">one</code> 컨테이너는 <code class="language-plaintext highlighter-rouge">our-net</code> 네트워크와 <code class="language-plaintext highlighter-rouge">bridge</code> 네트워크에 동시에 붙어있게 됩니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">one</code> 컨테이너를 <code class="language-plaintext highlighter-rouge">bridge</code> 네트워크로부터 해제 하겠습니다. Docker 네트워크로부터 컨테이너의 연결을 끊을 때는 <code class="language-plaintext highlighter-rouge">docker network disconnect</code> 커맨드를 사용합니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker network disconnect bridge one
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="두번째-컨테이너-연결">두번째 컨테이너 연결</h2>
+<p>하나의 컨테이너를 더 <code class="language-plaintext highlighter-rouge">our-net</code> 네트워크에 연결합니다. 이번에는 <code class="language-plaintext highlighter-rouge">--network</code> 옵션을 사용해서 컨테이너를 실행하면서 바로 연결할 네트워크를 지정해주도록 하겠습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">-itd</span> <span class="nt">--name</span> two <span class="nt">--network</span> our-net busybox
+0e7fe8a59f9d3f8bd545d3e557ffd34100a09b8ebe92ae5a375f37a5d072873d
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="컨테이너-간-네트워킹">컨테이너 간 네트워킹</h2>
+<p>컨테이너 이름을 호스트네임(hostname)처럼 사용할 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker <span class="nb">exec </span>one ping two
+PING two <span class="o">(</span>172.19.0.3<span class="o">)</span>: 56 data bytes
+64 bytes from 172.19.0.3: <span class="nb">seq</span><span class="o">=</span>0 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.119 ms
+64 bytes from 172.19.0.3: <span class="nb">seq</span><span class="o">=</span>1 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.105 ms
+64 bytes from 172.19.0.3: <span class="nb">seq</span><span class="o">=</span>2 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.116 ms
+64 bytes from 172.19.0.3: <span class="nb">seq</span><span class="o">=</span>3 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.883 ms
+64 bytes from 172.19.0.3: <span class="nb">seq</span><span class="o">=</span>4 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.127 ms
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="네트워크-제거">네트워크 제거</h2>
+<p><code class="language-plaintext highlighter-rouge">docker network rm</code> 커맨드를 사용해서 our-net 네트워크를 제거할 수 있습니다.</p>
+
+<p>네트워크 상에서 실행중인 컨테이너가 있을 때는 제거가 되지 않습니다. 먼저 해당 네트워크에 연결되어 실행 중인 모든 컨테이너를 중지시키고, 네트워크를 삭제해야 합니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 컨테이너 중지</span>
+<span class="nv">$ </span>docker stop one two
+one
+two
+
+<span class="c"># 네트워크 삭제</span>
+<span class="nv">$ </span>docker network <span class="nb">rm </span>our-net
+our-net
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="네트워크-청소">네트워크 청소</h2>
+<p><code class="language-plaintext highlighter-rouge">docker network prune</code> 커맨드를 이용해서 불필요한 네트워크를 한번에 모두 제거할 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker network prune
+WARNING! This will remove all networks not used by at least one container.
+Are you sure you want to <span class="k">continue</span>? <span class="o">[</span>y/N] y
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="네트워크-레퍼런스-참고">네트워크 레퍼런스 참고</h2>
+<ul>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/network_ls/" target="_blank">docker network ls</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/network_create/" target="_blank">docker network create</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/network_inspect/" target="_blank">docker network inspect</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/network_connect/" target="_blank">docker network connect</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/network_disconnect/" target="_blank">docker network disconnect</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/network_rm/" target="_blank">docker network rm</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/network_prune/" target="_blank">docker network prune</a>
+<br />
+<br />
+<br />
+<br />
+<br /></li>
+</ul>
+
+<h1 id="-이미지-관련-명령어">🎯 이미지 관련 명령어</h1>
+<p>Docker CLI 도구는 Docker 이미지(image)의 효과적인 관리를 위해서 다양한 커맨드(command)를 제공합니다.
+<br /></p>
+
+<h2 id="이미지-조회">이미지 조회</h2>
+<p><code class="language-plaintext highlighter-rouge">docker images</code> 커맨드로 이미지를 조회할 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 이미지 조회</span>
+<span class="nv">$ </span>docker images
+
+<span class="c">## 특정 리파지토리(repository)에 해당하는 이미지만 필터링해서 보고 싶을 때는</span>
+<span class="c">## 리파지토리를 인자로 넘겨주면 됩니다.</span>
+<span class="nv">$ </span>docker images node
+node                10-alpine           34a10d47f150        2 weeks ago         83.5MB
+node                12-alpine           f77abbe89ac1        2 weeks ago         88.1MB
+
+<span class="c"># 태그까지 인자로 넘기면 특정 이미지가 조회됩니다.</span>
+<span class="nv">$ </span>docker images node:12-alpine
+node                12-alpine           f77abbe89ac1        2 weeks ago         88.1MB
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="이미지-다운로드">이미지 다운로드</h2>
+<p><code class="language-plaintext highlighter-rouge">docker pull</code> 커맨드를 이용하여 이미지를 다운로드 할 수 있습니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">run</code> 명령어를 입력하면 이미지가 없을 때 자동으로 다운받으니 <code class="language-plaintext highlighter-rouge">pull</code> 명령어를 언제 쓰는지 궁금할 수 있는데 <code class="language-plaintext highlighter-rouge">pull</code>은 이미지를 최신버전으로 다시 다운 받습니다. 같은 태그지만 이미지가 업데이트 된 경우는 <code class="language-plaintext highlighter-rouge">pull</code> 명령어를 통해 이미지를 새로 다운받을 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 이미지 다운</span>
+<span class="nv">$ </span>docker pull ubuntu:14.04
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="이미지-빌드">이미지 빌드</h2>
+<p><code class="language-plaintext highlighter-rouge">docker build</code> 커맨드는 Docker 이미지를 빌드(build)할 때 사용됩니다.</p>
+
+<p>Docker 데몬이 이미지를 빌드하려면 소위 컨텍스트(context)라고도 불리는 Dockerfile을 담고 있는 디렉터리가 필요합니다. Dockerfile은 보통 같은 디렉터리 안에 있는 설정 파일이나 소스 코드를 이용해서 이미지의 빌드 절차를 정의합니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 현재 작업 디렉터리 기준 이미지 빌드</span>
+<span class="nv">$ </span>docker build <span class="nb">.</span>
+
+<span class="c"># 네트워크 상의 Git repository 주소나 압축 파일 빌드</span>
+<span class="nv">$ </span>docker build github.com/creack/docker-firefox
+
+<span class="c"># -t 옵션을 사용하여 Docker 이미지에 태그(tag)를 설정</span>
+<span class="c">## 태그는 리파지토리(repository):태그(tag) 형태로 지정이 가능하며</span>
+<span class="c">## 태그 부분을 생략하면 latest가 태그가 됩니다.</span>
+<span class="nv">$ </span>docker build <span class="nt">-t</span> <span class="nb">test</span>:1.0 <span class="nb">.</span>
+
+<span class="c"># -f 옵션을 사용하면 디폴트인 Dockerfile 대신에 다른 파일로 부터 Docker 이미지를 빌드</span>
+<span class="nv">$ </span>docker build <span class="nt">-f</span> Dockerfile.dev <span class="nb">.</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="이미지-태깅">이미지 태깅</h2>
+<p>이미지 태깅은 이미지를 빌드 한 후에 별도로 해줄 수도 있는데, 이 때 <code class="language-plaintext highlighter-rouge">docker tag</code> 커맨드를 사용합니다. 첫번째 인자로 이미지ID, 두번째 인자로 리파지토리 또는 태그까지 넘겨주면 됩니다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker tag 8bae72379b48 <span class="nb">test</span>:2.0
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="이미지-삭제">이미지 삭제</h2>
+<p><code class="language-plaintext highlighter-rouge">docker rmi</code> 커맨드로 Docker 이미지를 삭제할 수 있습니다. 삭제하려는 이미지의 ID나 태그를 인자로 넘겨주면 해당 이미지가 삭제가 됩니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 이미지 삭제</span>
+<span class="nv">$ </span>docker rmi f77abbe89ac1
+<span class="nv">$ </span>docker rmi node:12-alpine
+
+<span class="c"># 이미지 조회</span>
+<span class="nv">$ </span>docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+test2               latest              8bae72379b48        56 minutes ago      5.6MB
+<span class="nb">test                </span>latest              8bae72379b48        56 minutes ago      5.6MB
+
+<span class="c"># -f 옵션을 주고 이미지 ID를 인자로 넘기면 이미지 삭제</span>
+<span class="nv">$ </span>docker rmi <span class="nt">-f</span> 8bae72379b48
+Untagged: test2:latest
+Untagged: <span class="nb">test</span>:latest
+Deleted: sha256:8bae72379b4
+
+<span class="c"># 사용하지 않는 이미지 전체 삭제</span>
+<span class="nv">$ </span>docker rmi <span class="si">$(</span>docker images <span class="nt">-q</span><span class="si">)</span> <span class="nt">-f</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="이미지-레퍼런스-참고">이미지 레퍼런스 참고</h2>
+<ul>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/images/" target="_blank">docker images</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/build/" target="_blank">docker build</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/rmi/" target="_blank">docker rmi</a>
+<br />
+<br />
+<br />
+<br />
+<br /></li>
+</ul>
+
+<h1 id="️-참고사이트">🙇🏻‍♂️ 참고사이트</h1>
+<ul>
+  <li><a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html" target="_blank">https://subicura.com</a></li>
+  <li><a href="https://www.daleseo.com/?tag=Docker" target="_blank">https://www.daleseo.com</a></li>
+</ul>]]></content><author><name>Oh</name></author><category term="Docker" /><category term="Docker" /><category term="Container" /><summary type="html"><![CDATA[💾 도커에서 자주 사용하는 명령어를 정리한 내용입니다.]]></summary></entry><entry><title type="html">🐳 Docker 살펴보기</title><link href="http://localhost:4000/docker/docker-1/" rel="alternate" type="text/html" title="🐳 Docker 살펴보기" /><published>2023-02-16T00:00:00+09:00</published><updated>2023-02-16T00:00:00+09:00</updated><id>http://localhost:4000/docker/docker-1</id><content type="html" xml:base="http://localhost:4000/docker/docker-1/"><![CDATA[<p>💾 도커 기본 개념을 정리한 내용입니다.</p>
+
+<p><br /></p>
 
 <h1 id="-도커란">🤔 도커란?</h1>
 <p>도커는 <span class="danger-color">컨테이너 기반의 오픈소스 가상화 플랫폼</span>입니다.</p>
@@ -159,7 +768,7 @@
 <ul>
   <li><a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html" target="_blank">https://subicura.com</a></li>
   <li><a href="https://www.daleseo.com/?tag=Docker" target="_blank">https://www.daleseo.com</a></li>
-</ul>]]></content><author><name>Sangjae Oh</name></author><category term="Docker" /><category term="Docker" /><category term="Container" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Spring Boot Test Cheat Sheet</title><link href="http://localhost:4000/spring/spring-boot-test-cheat-sheet/" rel="alternate" type="text/html" title="Spring Boot Test Cheat Sheet" /><published>2023-02-13T00:00:00+09:00</published><updated>2023-02-13T00:00:00+09:00</updated><id>http://localhost:4000/spring/spring-boot-test-cheat-sheet</id><content type="html" xml:base="http://localhost:4000/spring/spring-boot-test-cheat-sheet/"><![CDATA[<p>📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 참고용 입니다.</p>
+</ul>]]></content><author><name>Oh</name></author><category term="Docker" /><category term="Docker" /><category term="Container" /><summary type="html"><![CDATA[💾 도커 기본 개념을 정리한 내용입니다.]]></summary></entry><entry><title type="html">Spring Boot Test Cheat Sheet</title><link href="http://localhost:4000/spring/spring-boot-test-cheat-sheet/" rel="alternate" type="text/html" title="Spring Boot Test Cheat Sheet" /><published>2023-02-13T00:00:00+09:00</published><updated>2023-02-13T00:00:00+09:00</updated><id>http://localhost:4000/spring/spring-boot-test-cheat-sheet</id><content type="html" xml:base="http://localhost:4000/spring/spring-boot-test-cheat-sheet/"><![CDATA[<p>📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 참고용 입니다.</p>
 <ul>
   <li><a href="/java/TDD(Test-Driven-Development)-테스트-주도-개발" target="_blank">JUnit 5, AssertJ Cheat Sheet</a></li>
 </ul>
@@ -516,7 +1125,7 @@
 <ol>
   <li><code class="language-plaintext highlighter-rouge">@SpringBootTest</code> + <code class="language-plaintext highlighter-rouge">@AutoConfigureMockMvc</code> : MockMVC를 이용하여 통합테스트 할 때 사용</li>
   <li><code class="language-plaintext highlighter-rouge">@WebMvcTest</code> : MVC만 슬라이스(slice) 테스트 할 때 사용</li>
-</ol>]]></content><author><name>Sangjae Oh</name></author><category term="Spring" /><category term="Spring" /><category term="Java" /><category term="Test" /><category term="CheatSheet" /><summary type="html"><![CDATA[📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 참고용 입니다. JUnit 5, AssertJ Cheat Sheet]]></summary></entry><entry><title type="html">Test Double</title><link href="http://localhost:4000/insight/Test-Double/" rel="alternate" type="text/html" title="Test Double" /><published>2023-02-12T00:00:00+09:00</published><updated>2023-02-12T00:00:00+09:00</updated><id>http://localhost:4000/insight/Test-Double</id><content type="html" xml:base="http://localhost:4000/insight/Test-Double/"><![CDATA[<p>테스트 더블(Test Dobule)에 대해 설명합니다.</p>
+</ol>]]></content><author><name>Oh</name></author><category term="Spring" /><category term="Spring" /><category term="Java" /><category term="Test" /><category term="CheatSheet" /><summary type="html"><![CDATA[📝 Spring Boot Test Cheat Sheet 입니다. 설명은 없고 자주 사용하는 테스트 코드 참고용 입니다. JUnit 5, AssertJ Cheat Sheet]]></summary></entry><entry><title type="html">Test Double</title><link href="http://localhost:4000/insight/Test-Double/" rel="alternate" type="text/html" title="Test Double" /><published>2023-02-12T00:00:00+09:00</published><updated>2023-02-12T00:00:00+09:00</updated><id>http://localhost:4000/insight/Test-Double</id><content type="html" xml:base="http://localhost:4000/insight/Test-Double/"><![CDATA[<p>테스트 더블(Test Dobule)에 대해 설명합니다.</p>
 
 <p><br /></p>
 
@@ -733,7 +1342,7 @@
 <ul>
   <li><a href="https://tecoble.techcourse.co.kr/post/2020-09-19-what-is-test-double/" target="_blank">https://tecoble.techcourse.co.kr</a></li>
   <li><a href="https://cobbybb.tistory.com/16" target="_blank">https://cobbybb.tistory.com/16</a></li>
-</ul>]]></content><author><name>Sangjae Oh</name></author><category term="Insight" /><category term="Insight" /><category term="Test" /><category term="TestDobule" /><summary type="html"><![CDATA[테스트 더블(Test Dobule)에 대해 설명합니다.]]></summary></entry><entry><title type="html">단위 테스트, 통합 테스트, 인수 테스트</title><link href="http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8/" rel="alternate" type="text/html" title="단위 테스트, 통합 테스트, 인수 테스트" /><published>2023-02-09T00:00:00+09:00</published><updated>2023-02-09T00:00:00+09:00</updated><id>http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8</id><content type="html" xml:base="http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8/"><![CDATA[<p>단위 테스트, 통합 테스트, 인수  테스트에 대해 설명합니다.</p>
+</ul>]]></content><author><name>Oh</name></author><category term="Insight" /><category term="Insight" /><category term="Test" /><category term="TestDobule" /><summary type="html"><![CDATA[테스트 더블(Test Dobule)에 대해 설명합니다.]]></summary></entry><entry><title type="html">단위 테스트, 통합 테스트, 인수 테스트</title><link href="http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8/" rel="alternate" type="text/html" title="단위 테스트, 통합 테스트, 인수 테스트" /><published>2023-02-09T00:00:00+09:00</published><updated>2023-02-09T00:00:00+09:00</updated><id>http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8</id><content type="html" xml:base="http://localhost:4000/insight/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9D%B8%EC%88%98%ED%85%8C%EC%8A%A4%ED%8A%B8/"><![CDATA[<p>단위 테스트, 통합 테스트, 인수  테스트에 대해 설명합니다.</p>
 
 <p><br /></p>
 
@@ -1004,7 +1613,7 @@
 <ul>
   <li><a href="https://jerry92k.tistory.com/m/77" target="_blank">https://jerry92k.tistory.com/</a></li>
   <li><a href="https://tecoble.techcourse.co.kr/post/2021-05-25-unit-test-vs-integration-test-vs-acceptance-test/" target="_blank">https://tecoble.techcourse.co.kr</a></li>
-</ul>]]></content><author><name>Sangjae Oh</name></author><category term="Insight" /><category term="Insight" /><category term="Test" /><summary type="html"><![CDATA[단위 테스트, 통합 테스트, 인수 테스트에 대해 설명합니다.]]></summary></entry><entry><title type="html">JUnit 5, AssertJ Cheat Sheet</title><link href="http://localhost:4000/java/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/" rel="alternate" type="text/html" title="JUnit 5, AssertJ Cheat Sheet" /><published>2023-02-08T00:00:00+09:00</published><updated>2023-02-08T00:00:00+09:00</updated><id>http://localhost:4000/java/TDD(Test%20Driven%20Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C</id><content type="html" xml:base="http://localhost:4000/java/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/"><![CDATA[<p>JUnit 5, AssertJ의 사용법을 간단하게 정리하였습니다. 😁</p>
+</ul>]]></content><author><name>Oh</name></author><category term="Insight" /><category term="Insight" /><category term="Test" /><summary type="html"><![CDATA[단위 테스트, 통합 테스트, 인수 테스트에 대해 설명합니다.]]></summary></entry><entry><title type="html">JUnit 5, AssertJ Cheat Sheet</title><link href="http://localhost:4000/java/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/" rel="alternate" type="text/html" title="JUnit 5, AssertJ Cheat Sheet" /><published>2023-02-08T00:00:00+09:00</published><updated>2023-02-08T00:00:00+09:00</updated><id>http://localhost:4000/java/TDD(Test%20Driven%20Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C</id><content type="html" xml:base="http://localhost:4000/java/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/"><![CDATA[<p>JUnit 5, AssertJ의 사용법을 간단하게 정리하였습니다. 😁</p>
 <ul>
   <li><a href="https://junit.org/junit5/docs/current/user-guide/#overview-what-is-junit-5" target="_blank">jUnit 5 가이드 링크</a></li>
   <li><a href="https://assertj.github.io/doc/" target="_blank">AssertJ 가이드 링크</a>
@@ -1686,7 +2295,7 @@ Character에 대한 비교</p>
 <span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">assertj</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">Assertions</span><span class="o">.*;</span>
 </code></pre></div></div>
 <p><br />
-<br /></p>]]></content><author><name>Sangjae Oh</name></author><category term="Java" /><category term="Java" /><category term="JUnit 5" /><category term="AssertJ" /><category term="Test" /><category term="CheatSheet" /><summary type="html"><![CDATA[JUnit 5, AssertJ의 사용법을 간단하게 정리하였습니다. 😁 jUnit 5 가이드 링크 AssertJ 가이드 링크]]></summary></entry><entry><title type="html">TDD(Test Driven Development) - 테스트 주도 개발</title><link href="http://localhost:4000/insight/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/" rel="alternate" type="text/html" title="TDD(Test Driven Development) - 테스트 주도 개발" /><published>2023-02-07T00:00:00+09:00</published><updated>2023-02-07T00:00:00+09:00</updated><id>http://localhost:4000/insight/TDD(Test%20Driven%20Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C</id><content type="html" xml:base="http://localhost:4000/insight/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/"><![CDATA[<p><br /></p>
+<br /></p>]]></content><author><name>Oh</name></author><category term="Java" /><category term="Java" /><category term="JUnit 5" /><category term="AssertJ" /><category term="Test" /><category term="CheatSheet" /><summary type="html"><![CDATA[JUnit 5, AssertJ의 사용법을 간단하게 정리하였습니다. 😁 jUnit 5 가이드 링크 AssertJ 가이드 링크]]></summary></entry><entry><title type="html">TDD(Test Driven Development) - 테스트 주도 개발</title><link href="http://localhost:4000/insight/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/" rel="alternate" type="text/html" title="TDD(Test Driven Development) - 테스트 주도 개발" /><published>2023-02-07T00:00:00+09:00</published><updated>2023-02-07T00:00:00+09:00</updated><id>http://localhost:4000/insight/TDD(Test%20Driven%20Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C</id><content type="html" xml:base="http://localhost:4000/insight/TDD(Test-Driven-Development)-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/"><![CDATA[<p><br /></p>
 
 <h1 id="-tddtest-driven-development란">🤔 TDD(Test Driven Development)란?</h1>
 <ul>
@@ -1780,7 +2389,7 @@ TDD의 경우 단위 테스트 기반의 테스트 코드를 작성하기 때문
 
 <p>하지만 리소스를 보유하고 있으며 코드 품질이 가장 중요한 기업은 TDD로 전환을 하는 것이 좋습니다.
 <br />
-<br /></p>]]></content><author><name>Sangjae Oh</name></author><category term="Insight" /><category term="Insight" /><category term="Test" /><category term="TDD" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">📖 자바 ORM 표준 JPA 프로그래밍</title><link href="http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" rel="alternate" type="text/html" title="📖 자바 ORM 표준 JPA 프로그래밍" /><published>2023-01-16T00:00:00+09:00</published><updated>2023-01-16T00:00:00+09:00</updated><id>http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D</id><content type="html" xml:base="http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000000935744" target="_blank">자바 ORM 표준 JPA 프로그래밍</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
+<br /></p>]]></content><author><name>Oh</name></author><category term="Insight" /><category term="Insight" /><category term="Test" /><category term="TDD" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">📖 자바 ORM 표준 JPA 프로그래밍</title><link href="http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" rel="alternate" type="text/html" title="📖 자바 ORM 표준 JPA 프로그래밍" /><published>2023-01-16T00:00:00+09:00</published><updated>2023-01-16T00:00:00+09:00</updated><id>http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D</id><content type="html" xml:base="http://localhost:4000/books/%EC%9E%90%EB%B0%94-ORM-%ED%91%9C%EC%A4%80-JPA-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000000935744" target="_blank">자바 ORM 표준 JPA 프로그래밍</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
 
 <hr />
 
@@ -10407,7 +11016,7 @@ JPA를 사용할 때 추천하는 전략은 <code class="language-plaintext high
 
 <p><strong>감사합니다</strong> 🙇🏻‍♂️</p>
 
-<p><a href="https://product.kyobobook.co.kr/detail/S000000935744" target="_blank">자바 ORM 표준 JPA 프로그래밍</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="Books" /><category term="Books" /><category term="JPA" /><category term="ORM" /><summary type="html"><![CDATA[자바 ORM 표준 JPA 프로그래밍 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍]]></summary></entry><entry><title type="html">📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</title><link href="http://localhost:4000/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지" /><published>2023-01-09T00:00:00+09:00</published><updated>2023-01-09T00:00:00+09:00</updated><id>http://localhost:4000/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
+<p><a href="https://product.kyobobook.co.kr/detail/S000000935744" target="_blank">자바 ORM 표준 JPA 프로그래밍</a></p>]]></content><author><name>Oh</name></author><category term="Books" /><category term="Books" /><category term="JPA" /><category term="ORM" /><summary type="html"><![CDATA[자바 ORM 표준 JPA 프로그래밍 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍]]></summary></entry><entry><title type="html">📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</title><link href="http://localhost:4000/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="📖 도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지" /><published>2023-01-09T00:00:00+09:00</published><updated>2023-01-09T00:00:00+09:00</updated><id>http://localhost:4000/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/books/%EB%8F%84%EB%A9%94%EC%9D%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/"><![CDATA[<p><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a> 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 <strong>꼭 구입해서 읽는것을 추천</strong>합니다~👍</p>
 
 <hr />
 
@@ -12286,98 +12895,54 @@ M-N 연관은 개념적으로 양쪽 애그리거트에 컬렉션으로 연관�
 <ul>
   <li><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a></li>
   <li><a href="https://github.com/madvirus/ddd-start2" target="_blank">예제 코드</a></li>
-</ul>]]></content><author><name>Sangjae Oh</name></author><category term="Books" /><category term="Books" /><category term="DDD" /><summary type="html"><![CDATA[도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 7주차 (레거시 코드 리팩터링)</title><link href="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-7%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 7주차 (레거시 코드 리팩터링)" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-7%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-7%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
-우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
-
-<h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
-<p>레거시 프로젝트를 리팩터링하는 미션</p>
-
-<h2 id="-학습-목표">🎯 학습 목표</h2>
+</ul>]]></content><author><name>Oh</name></author><category term="Books" /><category term="Books" /><category term="DDD" /><summary type="html"><![CDATA[도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍]]></summary></entry><entry><title type="html">MAC 단축키 모음 💻</title><link href="http://localhost:4000/mac/%EB%8B%A8%EC%B6%95%ED%82%A4/" rel="alternate" type="text/html" title="MAC 단축키 모음 💻" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/mac/%EB%8B%A8%EC%B6%95%ED%82%A4</id><content type="html" xml:base="http://localhost:4000/mac/%EB%8B%A8%EC%B6%95%ED%82%A4/"><![CDATA[<h2 id="-일반-단축키">⌨ 일반 단축키</h2>
 <ul>
-  <li>레거시 프로젝트를 리팩터링하는 경험을 통해 서비스를 안정적으로 운영하면서 레거시 코드를 리팩터링할 수 있는 역량을 키운다.</li>
-  <li>프로젝트를 만드는 단계에서 끝나는 것이 아니라 프로젝트를 완료한 후 일정 기간 유지보수를 함으로써 레거시 코드를 리팩터링하는 경험을 쌓는다.</li>
+  <li>화면 잠금: <strong>Control + Command + Q</strong></li>
+  <li>복제: <strong>Command + x</strong></li>
+  <li>다시찾기: <strong>Command + G</strong></li>
+  <li>윈도우 최소화: <strong>Command + M</strong></li>
+  <li>프린트: <strong>Command + P</strong></li>
+  <li>붙여넣기: <strong>Command + V</strong></li>
+  <li>모두선택: <strong>Command + A</strong></li>
+  <li>복사: <strong>Command + C</strong></li>
+  <li>숨기기: <strong>Command + H</strong></li>
+  <li>선택항목 열기: <strong>Command + O</strong></li>
+  <li>문서 저장: <strong>Command + S</strong></li>
+  <li>이전명령: <strong>Command + Z</strong></li>
+  <li>항목찾기: <strong>Command + F</strong></li>
+  <li>새 탭 열기: <strong>Command + T</strong></li>
+  <li>창 닫기: <strong>Command + W</strong></li>
+  <li>강제 종료: <strong>Option + Command + Esc</strong></li>
+  <li>Spotlight 표시/숨기기: <strong>Command + Spacebar</strong></li>
+  <li>이모티콘 및 기타 기호: <strong>Ctrl + Command + Spacebar</strong></li>
+  <li>전체화면: <strong>Ctrl + Command + F</strong></li>
+  <li>스크린샷 및 화면 기록: <strong>Shift + Command + 5</strong></li>
+  <li>새폴더 생성: <strong>Shift + Command + N</strong></li>
+  <li>환경설정 열기: <strong>Command + ,</strong></li>
+  <li>최근 사용 앱으로 전환: <strong>Command + Tab</strong></li>
+  <li>훑어보기: <strong>Spacebar</strong></li>
 </ul>
 
-<h2 id="-강의-내용">📖 강의 내용</h2>
-<p>도메인 주도 설계 및 아키텍처에 대해 설명합니다.</p>
-
-<p><strong>책 추천</strong></p>
+<h2 id="-finder-및-시스템-단축키">⌨ Finder 및 시스템 단축키</h2>
 <ul>
-  <li><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a></li>
-  <li><a href="https://product.kyobobook.co.kr/detail/S000001766367" target="_blank">오브젝트</a></li>
+  <li>선택 파일 복제: <strong>Command + D</strong></li>
+  <li>Finder 윈도우에서 Spotlight 검색 시작: <strong>Command + F</strong></li>
+  <li>선택 디스크 또는 볼륨 추출: <strong>Command + E</strong></li>
+  <li>선택 파일의 정보 가져오기: <strong>Command + I</strong></li>
+  <li>가상본의 원본 파일이 형성: <strong>Command + R</strong></li>
+  <li>컴퓨터 윈도우 열기: <strong>Shift + Command + C</strong></li>
+  <li>최근 윈도우/파일 표시: <strong>Shift + Command + F</strong></li>
+  <li>현재 macOS 사용자 계정 폴더 열기: <strong>Shift + Command + H</strong></li>
+  <li>데스크탑 폴더 열기: <strong>Shift + Command + D</strong></li>
+  <li>폴더로 이동 윈도우 열기: <strong>Shift + Command + G</strong></li>
+  <li>iCloud Drive 열기: <strong>Shift + Command + I</strong></li>
+  <li>네트위크 윈도우 열기: <strong>Shift + Command K</strong></li>
+  <li>새 폴더 생성: <strong>Shift + Command + N</strong></li>
+  <li>Finder 미리보기 패널 표시/가리기: <strong>Shift + Command + P</strong></li>
+  <li>다운로드 폴더 열기: <strong>Shift + Command + L</strong></li>
+  <li>문서 폴더 열기: <strong>Shift + Command + O</strong></li>
+  <li>AirDrop 윈도우 열기: <strong>Shift + Command + R</strong></li>
 </ul>
 
-<h2 id="-미션-후기">📝 미션 후기</h2>
-<p>우테캠 Pro 과정의 사실상 최종 보스… 지금까지의 미션들은 사실상 이번 미션을 하기 위한 준비단계라 여겨도 무방하다고 생각된다.</p>
-
-<p>이번 미션은 JDBC 사용과 서비스에서 모든 비즈니스 구현이라는 우리가 흔히 아는 레거시 프로젝트를 지금까지 배운 ATDD, DDD, JPA, 객체지향 생활 체조 원칙, 의존관계 원칙 등을 활용하여 리팩터링하는 미션이었다.</p>
-
-<p>처음 딱 레거시 프로젝트를 열었을 때 나름 정리가 잘 되어있어서 금방 리팩터링 할 수도 있지 않을까…? 란 쓰레기같은 생각도 했었다 😂</p>
-
-<p>1 단계. 테스트를 통한 코드 보호를 위해 우선 기존 레거시 코드의 모든 비지니스 로직에 대해 테스트 코드를 작성하였다. 뭐… 여기까지는 수월했다.</p>
-
-<p>2 단계. 서비스 리팩터링을 시작하고 지옥이 시작되었다…<br />
-우선은 도메인 분리를 어떻게 할까 생각을 했다. 처음부터 완벽하게 분리할 수 있으면 좋겠지만 그러기는 힘들었고, 일단 레거시 프로젝트에서 나뉘어져있던 패키지 구조대로 분리하기로 하였다. 프로젝트를 분석했을 때 가장 의존관계가 적은 패키지부터 차근차근 리팩터링을 하기 시작하였다. Entity로 매핑하고, 테스트 코드 작성하고, 비지니스로직을 서비스에서 도메인을 옮기고, 에러 수정하고, 리팩터링하고… 계속 반복하였다.</p>
-
-<p>처음에는 다른 패키지와의 의존관계가 별로 없어서 금방 리팩터링 되었지만 진행 하면 할수록 다른 패키지와의 의존관계가 늘어나고 리팩터링 할 때 마다 에러가 빵빵 터지기 시작하였다. <del>내 멘탈도 같이 터짐…</del></p>
-
-<p>이 때 가장 크게 와 닿았던 점은 테스트 코드의 중요성이었다. 테스트를 통한 코드 보호 덕분에 리팩터링을 할 때 내가 제대로 수정하고 있는지, 기능에 오류가 없는지 바로바로 확인할 수 있었다. 또 리팩터링을 진행하다 보면 이전 메소드의 기능이 무었이었는지 햇갈릴 경우가 있는데 이 때 테스트 코트를 봄으로써 기능들을 파악하기 수월하다는 장점도 있었다.</p>
-
-<p>3 단계. 의존성 리팩터링
-의존성 리팩터링을 진행하면서 <a href="https://www.youtube.com/watch?v=dJ5C4qRqAgA" target="_blank">[우아한테크세미나] 우아한객체지향</a> 영상을 출퇴근 시간에 계속 돌려봤다. 객체지향 의존성에 대해 정말 알기 쉽게 설명해 주어서 의존성 리팩터링을 하며 정말 많은 도움이 되었다. 
-쉽게 술술 풀리면 좋았겠지만… 의존성 리팩터링을 하며 좀 애매한 부분도 있었다.</p>
-
-<p>예를 들자면 Product, Menu, MenuGroup 같은 경우 각각 생성되는 시기가 다르다. Product, MenuGroup은 독립적으로 생성될 수 있지만 Menu는 생성할 때 Product와 MenuGroup가 필요하다. 조회도 Product, MenuGroup는 독립적이지만 Menu는 Product, MenuGroup가 같이 필요하다. 이럴 때는 Product, Menu, MenuGroup를 한 패키지로 묶는게 맞는가? 떼는게 맞는가?</p>
-
-<p>다른 예로는 OrderTable과 TableGroup과의 관계도 이와 비슷했다. OrderTable은 독립적으로 생성되지만, TableGroup은 생성할 때 OrderTable가 필요하다. 그렇다고 OrderTable이 완전히 독립적이지도 않고 정책상 TableGroup 여부를 확인해야 한다. 이럴 때는 OrderTable, TableGroup를 한 패키지로 묶는게 맞는가? 떼는게 맞는가?</p>
-
-<p>도메인을 분리할 때 트렌젝션 단위로 분리한다고 한다면 전부 떼는게 맞는거 같기도 하면서, 그렇게 되면 너무 세세하게 분리하게 되어 오히려 독이 되는거 같고… 정하기 어려웠다. 😱</p>
-
-<p>나의 경우에는 크게 product, menu, order, table로 패키지를 나누고 아래 그림과 같이 의존 관계를 맺었다.
-<img src="/assets/images/posts/jwp_refactoring_step3_의존성.png" alt="jwp_refactoring_step3_의존성" /></p>
-
-<p>4 단계. 멀티 모듈 적용
-이번 단계는 Gradle의 멀티 모듈을 이용해 3단계에서 분리했던 패키지들을 모듈로 분리하는 단계였다. 내 생각에는 최종적으로는 모듈 각각이 MSA로 분리되어야 하는데 이를 프로젝트 단위로 분리하는건 미션에서 진행할 수 없으니 Gradle의 멀티 모듈을 이용한게 아닌가 추측해본다. 🤔</p>
-
-<p>이렇게 레거시 코드 리팩터링 미션을 4단계에 걸쳐 진행하였다. 이번 미션을 진행하면서 너무 잠이 부족해 커피를 하루에 3잔씩도 마셨다. 😱 그만큼 난이도도 높았고 시간도 부족한 미션이었다.<br />
-그래도 이번 미션을 통해 도메인을 어떻게 설계하면 좋을지, 프로그래밍을 하면서 의존관계를 어떻게 맺어야 하는지에 대해 많이 생각해 볼 수 있어서 좋은 경험이 되었다.
-<del>도메인 설계를 해보면서 개인적으로 느낀점으로는 도메인 설계는 타고난 센스가 어느정도 필요한거 같다는 점이다 😂</del></p>
-
-<p>이번 미션에서 나의 문제점은 도메인 설계를 제대로 했는지, 패키지간 의존관계를 제대로 맺었는지 확신이 안선다는 점이다. 뭔가 더 좋은 방법이 분명히 있을거 같은데…😂<br />
-다른 문제점으로는 테스트 코드에서의 연관관계 분리를 제대로 하지 못해 모듈 분리할 때 엄청 힘들었다는 점이다.</p>
-
-<p>위 문제점을 개선하기 위해 DDD관련 글을 읽고 공부, 연습을 많이 해봐야 할거같고, 테스트 코드 작성시에도 의존관계를 생각해야할 것 같다(TestFixtures등을 이용)</p>
-
-<h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/jwp-refactoring/tree/step4" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="회고" /><category term="회고" /><category term="교육" /><category term="우아한테크캠프 Pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry><entry><title type="html">우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)</title><link href="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/" rel="alternate" type="text/html" title="우아한테크캠프 Pro 5기 - 8주차 (안정적인 서비스 만들기)" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/%ED%9A%8C%EA%B3%A0/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BA%A0%ED%94%84pro5%EA%B8%B0-8%EC%A3%BC%EC%B0%A8/"><![CDATA[<p><em>2022년 10월 24일 ~ 2022년 12월 23일</em><br />
-우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.</p>
-
-<h2 id="️-미션-설명">🙇🏻‍♂️ 미션 설명</h2>
-<p>안정적인 서비스를 위한 성능개선, 스케일 아웃, 쿼리 최적화 등을 직접 해보는 미션</p>
-
-<h2 id="-학습-목표">🎯 학습 목표</h2>
-<ul>
-  <li>HTTP 개선에 따른 차이를 이해하고 Reverse Proxy 성능 개선</li>
-  <li>HTTP Cache 전략을 이해하여 적절한 정책을 설정</li>
-  <li>쿼리를 최적화하여 조회 성능을 개선</li>
-  <li>인덱스를 설정하여 조회 성능을 개선</li>
-</ul>
-
-<h2 id="-강의-내용">📖 강의 내용</h2>
-<p>화면 응답 개선을 위한 Nginx 설정, AWS Auto Scaling Group를 이용한 스케일아웃, MySql 쿼리 최적화 및 인덱스 설계 설명</p>
-
-<h2 id="-미션-후기">📝 미션 후기</h2>
-<p>이번 미션은 시간 부족으로 7주차 미션과 병행하면 진행하였다 😭</p>
-
-<p>강의를 통해서 배운 Nginx 설정, AWS Auto Scaling Group를 이용한 스케일아웃 등은 직접 하나하나 검색해보면서 적용 해보려면 엄청 힘들고 오래는 작업인데 강의를 통해 바로 배울 수 있어서 좋았고, MySql 쿼리 최적화 및 인덱스 설계는 앞으로 DB조회를 할 때 어떤점을 주의하면서 query를 만들어야 하는지 알 수 있어서 좋았다.</p>
-
-<p>Auto Scaling Group을 설정할 때 인스턴스의 Health Check가 안되서 왜 안되지 하며 몇 시간을 고민했는데 강의 설명에 함정카드가 존재 했었다. 그 이유는 Health Check가 되게 하려면 인스턴스에 퍼블릭 IP를 할당해주어야 하는데 강의 설명에는 그 내용이 없었다. 😱<br />
-<strong>아래 설정들은 자신의 상황에 맞게 세팅합니다. 이미지의 정보는 단순 예시입니다.</strong> 라는 강의 설명 문구의 의미를 잘 확인 했어야 했다. 
-아마 나같이 무작정 따라하는 교육생들은 꽤나 고생했을거 같다 🤣</p>
-
-<p>MySql 쿼리 최적화 및 인덱스 설계의 경우 어떻게 하면 좀 더 조회가 빨라질까 하면서 ID, 참조 컬럼외의 컬럼에도 인덱싱 해 보았다. 그런데 오히려 조회 속도가 느려지는 경우도 발생하였다.😱  인덱스가 많은 경우 오히려 쿼리 성능이 떨어진다는 것을 확인할 수 있었다.</p>
-
-<p>이번 강의를 통해 느낀 점은 인프라 설정은 정말 많은 부분은 신경써야 하면서 구성하기도 힘들다는 점과 테이블 인덱스 설정같은 경우 특수한 경우가 아니라면 ID, 참조 컬럼에만 인덱싱 하면 좋을거같다는 점이다.</p>
-
-<h2 id="-저장소">💾 저장소</h2>
-<p><a href="https://github.com/sangjaeoh/infra-subway-performance/tree/step4" target="_blank">깃허브 저장소 링크</a></p>]]></content><author><name>Sangjae Oh</name></author><category term="회고" /><category term="회고" /><category term="교육" /><category term="우아한테크캠프 Pro 5기" /><summary type="html"><![CDATA[2022년 10월 24일 ~ 2022년 12월 23일 우아한테크캠프 Pro 5기를 경험한 내용 기록입니다.]]></summary></entry></feed>
+<h2 id="-참고-사이트">🔎 참고 사이트</h2>
+<p><a href="https://www.invaiz.com/blog/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;bmode=view&amp;idx=12577409&amp;t=board" target="_blank">invaiz 블로그</a></p>]]></content><author><name>Oh</name></author><category term="Mac" /><category term="Mac" /><category term="단축키" /><summary type="html"><![CDATA[⌨ 일반 단축키 화면 잠금: Control + Command + Q 복제: Command + x 다시찾기: Command + G 윈도우 최소화: Command + M 프린트: Command + P 붙여넣기: Command + V 모두선택: Command + A 복사: Command + C 숨기기: Command + H 선택항목 열기: Command + O 문서 저장: Command + S 이전명령: Command + Z 항목찾기: Command + F 새 탭 열기: Command + T 창 닫기: Command + W 강제 종료: Option + Command + Esc Spotlight 표시/숨기기: Command + Spacebar 이모티콘 및 기타 기호: Ctrl + Command + Spacebar 전체화면: Ctrl + Command + F 스크린샷 및 화면 기록: Shift + Command + 5 새폴더 생성: Shift + Command + N 환경설정 열기: Command + , 최근 사용 앱으로 전환: Command + Tab 훑어보기: Spacebar]]></summary></entry></feed>
