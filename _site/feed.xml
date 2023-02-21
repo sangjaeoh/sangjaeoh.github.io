@@ -1,4 +1,304 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-20T22:04:42+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Oh</name></author><entry><title type="html">🐳 Docker 기본 명령어</title><link href="http://localhost:4000/docker/docker-2/" rel="alternate" type="text/html" title="🐳 Docker 기본 명령어" /><published>2023-02-20T00:00:00+09:00</published><updated>2023-02-20T00:00:00+09:00</updated><id>http://localhost:4000/docker/docker-2</id><content type="html" xml:base="http://localhost:4000/docker/docker-2/"><![CDATA[<p>💾 도커에서 자주 사용하는 명령어를 정리한 내용입니다.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-21T22:38:05+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stack O Flow</title><subtitle>조금씩 알아가는 것을 적는 개발 노트입니다.</subtitle><author><name>Oh</name></author><entry><title type="html">🐳 Docker 이미지 만들기</title><link href="http://localhost:4000/docker/docker-3/" rel="alternate" type="text/html" title="🐳 Docker 이미지 만들기" /><published>2023-02-21T00:00:00+09:00</published><updated>2023-02-21T00:00:00+09:00</updated><id>http://localhost:4000/docker/docker-3</id><content type="html" xml:base="http://localhost:4000/docker/docker-3/"><![CDATA[<p>💾 도커 이미지를 만들기 위해 Dockerfile 이라는 이미지 빌드용 파일을 사용합니다.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/posts/docker/20230221/d1969bd2-2ec2-41d2-924e-38202359d741.png" alt="docker_image_build" />
+<br />
+<br /></p>
+
+<h1 id="-dockerfile-구조">🎯 Dockerfile 구조</h1>
+<p>Ruby 웹 애플리케이션을 ubuntu에 배포하는 과정을 통해 구조를 살펴봅니다.</p>
+
+<h2 id="dockerfile-생성">Dockerfile 생성</h2>
+<p>아래 과정을 쉘 스크립트, Dockerfile로 만들어 비교합니다.</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>순서  |  작업
+---------------------
+1    |  ubuntu 설치
+2    |  ruby 설치
+3    |  소스 복사
+4    |  Gem 패키지 설치
+5    |  Sinatra 서버 실행
+</code></pre></div></div>
+<p><br /></p>
+
+<p><strong>쉘 스크립트</strong></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 1. ubuntu 설치 (패키지 업데이트)</span>
+apt-get update
+
+<span class="c"># 2. ruby 설치</span>
+apt-get <span class="nb">install </span>ruby
+gem <span class="nb">install </span>bundler
+
+<span class="c"># 3. 소스 복사</span>
+<span class="nb">mkdir</span> <span class="nt">-p</span> /usr/src/app
+scp Gemfile app.rb root@ubuntu:/usr/src/app  <span class="c"># From host</span>
+
+<span class="c"># 4. Gem 패키지 설치</span>
+bundle <span class="nb">install</span>
+
+<span class="c"># 5. Sinatra 서버 실행</span>
+bundle <span class="nb">exec </span>ruby app.rb
+</code></pre></div></div>
+<p><br /></p>
+
+<p><strong>Dockerfile</strong></p>
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">## 핵심 명령어는 파일을 복사하는 COPY와 실행하는 RUN 입니다.</span>
+<span class="c"># 1. ubuntu 설치 (패키지 업데이트 + 만든사람 표시)</span>
+<span class="k">FROM</span><span class="s">       ubuntu:16.04</span>
+<span class="k">MAINTAINER</span><span class="s"> subicura@subicura.com</span>
+<span class="k">RUN        </span>apt-get <span class="nt">-y</span> update
+
+<span class="c"># 2. ruby 설치</span>
+<span class="k">RUN </span>apt-get <span class="nt">-y</span> <span class="nb">install </span>ruby
+<span class="k">RUN </span>gem <span class="nb">install </span>bundler
+
+<span class="c"># 3. 소스 복사</span>
+<span class="k">COPY</span><span class="s"> . /usr/src/app</span>
+
+<span class="c"># 4. Gem 패키지 설치 (실행 디렉토리 설정)</span>
+<span class="k">WORKDIR</span><span class="s"> /usr/src/app</span>
+<span class="k">RUN     </span>bundle <span class="nb">install</span>
+
+<span class="c"># 5. Sinatra 서버 실행 (Listen 포트 정의)</span>
+<span class="k">EXPOSE</span><span class="s"> 4567</span>
+<span class="k">CMD</span><span class="s">    bundle exec ruby app.rb -o 0.0.0.0</span>
+</code></pre></div></div>
+<p>쉘 스크립트의 내용을 거의 그대로 Dockerfile로 옮겼습니다. 차이점은 도커 빌드 중엔 키보드를 입력할 수 없기 때문에 (y/n) 을 물어보는 걸 방지하기 위해 -y 옵션을 추가한 것 정도입니다.
+<br /></p>
+
+<h2 id="이미지-생성">이미지 생성</h2>
+<p>생성한 Dockerfile을 기반으로 이미지를 생성합니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Dockerfile을 만든 디렉토리로 이동하여 다음 명령어를 입력합니다.</span>
+<span class="c"># docker build -t [새로 생성할 이미지 이름] [Dockerfile 디렉토리 경로]</span>
+<span class="nv">$ </span>docker build <span class="nt">-t</span> app <span class="nb">.</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="확인">확인</h2>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+app                 latest              54d239c00f11        4 minutes ago       209 MB
+ubuntu              16.04               f49eec89601e        2 weeks ago         129 MB
+</code></pre></div></div>
+<p><br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<h1 id="-dockerfile-기본-명령어">🎯 Dockerfile 기본 명령어</h1>
+<p>Dockerfile의 기본적인 명령어를 살펴봅니다.</p>
+
+<h2 id="from">FROM</h2>
+<p>하나의 Docker 이미지는 base 이미지부터 시작해서 기존 이미지위에 새로운 이미지를 중첩해서 여러 단계의 이미지 층(layer)을 쌓아가며 만들어집니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">FROM</code> 명령문은 이 base 이미지를 지정해주기 위해서 사용되는데, 보통 Dockerfile 내에서 최상단에 위치합니다. base 이미지는 일반적으로 Docker Hub와 같은 Docker repository에 올려놓은 잘 알려진 공개 이미지인 경우가 많습니다.</p>
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># FROM &lt;이미지&gt;</span>
+<span class="c"># FROM &lt;이미지&gt;:&lt;태그&gt;</span>
+
+<span class="c"># Ubuntu 최신 버전을 base 이미지로 사용</span>
+<span class="k">FROM</span><span class="s"> ubuntu:latest</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="maintainer-deprecated">MAINTAINER (deprecated)</h2>
+<p>Dockerfile을 관리하는 사람의 이름 또는 이메일 정보를 적습니다. 빌드에 영향을 주지는 않습니다.</p>
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># MAINTAINER &lt;name&gt;</span>
+
+<span class="k">MAINTAINER</span><span class="s"> name@gmail.com</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="copy">COPY</h2>
+<p>파일이나 디렉토리를 이미지로 복사합니다. 일반적으로 소스를 복사하는 데 사용합니다. target 디렉토리가 없다면 자동으로 생성합니다.</p>
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># COPY [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;</span>
+<span class="c"># COPY [--chown=&lt;user&gt;:&lt;group&gt;] ["&lt;src&gt;",... "&lt;dest&gt;"]</span>
+
+<span class="k">COPY</span><span class="s"> . /usr/src/app</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="add">ADD</h2>
+<p><code class="language-plaintext highlighter-rouge">COPY</code> 명령어와 매우 유사하나 몇가지 추가 기능이 있습니다. src 에 파일 대신 URL을 입력할 수 있고 src
+에 압축 파일을 입력하는 경우 자동으로 압축을 해제하면서 복사됩니다.</p>
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ADD [--chown=&lt;user&gt;:&lt;group&gt;] [--checksum=&lt;checksum&gt;] &lt;src&gt;... &lt;dest&gt;</span>
+<span class="c"># ADD [--chown=&lt;user&gt;:&lt;group&gt;] ["&lt;src&gt;",... "&lt;dest&gt;"]</span>
+
+<span class="k">ADD</span><span class="s"> . /usr/src/app</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="run">RUN</h2>
+<p>명령어를 그대로 실행합니다. 내부적으로 /bin/sh -c 뒤에 명령어를 실행하는 방식입니다.</p>
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># RUN &lt;command&gt;</span>
+<span class="k">RUN </span>npm <span class="nb">install</span> <span class="nt">--silent</span>
+
+<span class="c"># RUN ["executable", "param1", "param2"]</span>
+<span class="k">RUN </span><span class="o">[</span><span class="s2">"/bin/bash"</span>, <span class="s2">"-c"</span>, <span class="s2">"echo hello"</span><span class="o">]</span>
+
+<span class="c"># 멀티라인</span>
+<span class="k">RUN </span>/bin/bash <span class="nt">-c</span> <span class="s1">'source $HOME/.bashrc &amp;&amp; </span><span class="se">\
+</span><span class="s1">echo $HOME'</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="entrypoint">ENTRYPOINT</h2>
+<p><code class="language-plaintext highlighter-rouge">ENTRYPOINT</code> 명령문은 이미지를 컨테이너로 띄울 때 항상 실행되야 하는 커맨드를 지정할 때 사용합니다. <code class="language-plaintext highlighter-rouge">ENTRYPOINT</code> 명령문은 Docker 이미지를 마치 하나의 실행 파일처럼 사용할 때 유용합니다. 왜냐하면 컨테이너가 뜰 때 <code class="language-plaintext highlighter-rouge">ENTRYPOINT</code> 명령문으로 지정된 커맨드가 실행되고, 이 커맨드로 실행된 프로세스가 죽을 때, 컨테이너로 따라서 종료되기 때문입니다.</p>
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ENTRYPOINT ["&lt;커맨드&gt;", "&lt;파라미터1&gt;", "&lt;파라미터2&gt;"]</span>
+<span class="c"># ENTRYPOINT &lt;전체 커맨드&gt;</span>
+<span class="k">ENTRYPOINT</span><span class="s"> ["npm", "start"]</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="cmd">CMD</h2>
+<p>Dockerfile에는 하나의 <code class="language-plaintext highlighter-rouge">CMD</code> 명령어만 있을 수 있습니다. 둘 이상의 <code class="language-plaintext highlighter-rouge">CMD</code>를 나열하면 마지막 <code class="language-plaintext highlighter-rouge">CMD</code>만 적용됩니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">CMD</code>의 주요 목적은 실행 컨테이너에 대한 기본값을 제공하는 것입니다. <code class="language-plaintext highlighter-rouge">CMD</code> 명령문은 많은경우 <code class="language-plaintext highlighter-rouge">ENTRYPOINT</code> 명령문과 함께 사용하게 되는데, <code class="language-plaintext highlighter-rouge">ENTRYPOINT</code> 명령문으로는 커맨드를 지정하고, <code class="language-plaintext highlighter-rouge">CMD</code> 명령문으로 디폴트 파리미터를 지정해주면 매우 유연하게 이미지를 실행할 수 있게 됩니다.</p>
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CMD</span><span class="s"> ["executable","param1","param2"]</span>
+<span class="k">CMD</span><span class="s"> command param1 param2</span>
+<span class="k">CMD</span><span class="s"> bundle exec ruby app.rb</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="workdir">WORKDIR</h2>
+<p><code class="language-plaintext highlighter-rouge">RUN</code>, <code class="language-plaintext highlighter-rouge">CMD</code>, <code class="language-plaintext highlighter-rouge">ADD</code>, <code class="language-plaintext highlighter-rouge">COPY</code>등이 이루어질 기본 디렉토리를 설정합니다. 각 명령어의 현재 디렉토리는 한 줄 한 줄마다 초기화되기 때문에 RUN cd /path 를 하더라도 다음 명령어에선 다시 위치가 초기화 됩니다. 같은 디렉토리에서 계속 작업하기 위해서 <code class="language-plaintext highlighter-rouge">WORKDIR</code> 을 사용합니다.</p>
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">WORKDIR</span><span class="s"> /path/to/workdir</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="expose">EXPOSE</h2>
+<p>도커 컨테이너가 실행되었을 때 요청을 기다리고 있는(Listen) 포트를 지정합니다. 여러개의 포트를 지정할 수 있습니다.</p>
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># EXPOSE &lt;port&gt; [&lt;port&gt;...]</span>
+<span class="c"># EXPOSE &lt;포트&gt;/&lt;프로토콜&gt;</span>
+
+<span class="k">EXPOSE</span><span class="s"> 4567</span>
+<span class="k">EXPOSE</span><span class="s"> 9999/udp</span>
+</code></pre></div></div>
+
+<div class="notice--info">
+<p><strong>참고</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">EXPOSE</code> 명령문으로 지정된 포트는 해당 컨테이너의 내부에서만 유효하며, 호스트(host) 컴퓨터에서는 이 포트를 바로 접근을 할 수 있는 것은 아니라는 겁니다. 호스트 컴퓨터로부터 해당 포트로의 접근을 허용하려면, <code class="language-plaintext highlighter-rouge">docker run</code> 커맨드를 <code class="language-plaintext highlighter-rouge">-p</code> 옵션을 통해 호스트 컴퓨터의 특정 포트를 포워딩(forwarding)시켜줘야 합니다.</p>
+</div>
+<p><br /></p>
+
+<h2 id="volume">VOLUME</h2>
+<p>컨테이너 외부에 파일시스템을 마운트 할 때 사용합니다.</p>
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">VOLUME</span><span class="s"> ["/data"]</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="env">ENV</h2>
+<p>컨테이너에서 사용할 환경변수를 지정합니다. 컨테이너를 실행할 때 <code class="language-plaintext highlighter-rouge">-e</code> 옵션을 사용하면 기존 값을 오버라이딩 하게 됩니다.</p>
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ENV &lt;key&gt; &lt;value&gt;</span>
+<span class="c"># ENV &lt;key&gt;=&lt;value&gt; ...</span>
+<span class="k">ENV</span><span class="s"> DB_URL mysql</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="arg">ARG</h2>
+<p><code class="language-plaintext highlighter-rouge">ARG</code> 명령문은 <code class="language-plaintext highlighter-rouge">docker build</code> 커맨드로 이미지를 빌드 시, <code class="language-plaintext highlighter-rouge">--build-arg</code> 옵션을 통해 넘길 수 있는 인자를 정의하기 위해 사용합니다.</p>
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 예를 들어, Dockerfile에 다음과 같이 ARG 명령문으로 port를 인자로 선언해주면</span>
+<span class="k">ARG</span><span class="s"> port</span>
+
+<span class="c"># 다음과 같이 docker build 커맨드에 --build-arg 옵션에 port 값을 넘길 수가 있습니다.</span>
+$ docker build --build-arg port=8080 .
+
+
+
+# 인자의 디폴트값을 지정해주면, --build-arg 옵션으로 해당 인자가 넘어오지 않았을 때 사용됩니다.
+<span class="k">ARG</span><span class="s"> port=8080</span>
+
+<span class="c"># 설정된 인자 값은 다음과 같이 ${인자명} 형태로 읽어서 사용할 수 있습니다.</span>
+<span class="k">CMD</span><span class="s"> start.sh -h 127.0.0.1 -p ${port}</span>
+</code></pre></div></div>
+
+<div class="notice--info">
+<p><strong>참고</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">ENV</code> 와 달리 <code class="language-plaintext highlighter-rouge">ARG</code> 로 설정한 값은 이미지가 빌드되는 동안에만 유효</p>
+</div>
+<p><br /></p>
+
+<h2 id="dockerignore-파일">.dockerignore 파일</h2>
+<p>Docker 이미지를 빌드할 때 제외 시키고 싶은 파일이 있다면, <code class="language-plaintext highlighter-rouge">.dockerignore</code> 파일에 추가해주면 됩니다.</p>
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># .dockerignore\</span>
+<span class="c"># 제외 할 파일을 작성</span>
+.git
+*.md
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="정리">정리</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>명령어</th>
+      <th>용도</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FROM</td>
+      <td>base 이미지 설정</td>
+    </tr>
+    <tr>
+      <td>WORKDIR</td>
+      <td>작업 디렉터리 설정</td>
+    </tr>
+    <tr>
+      <td>RUN</td>
+      <td>이미지 빌드 시 커맨드 실행</td>
+    </tr>
+    <tr>
+      <td>ENTRYPOINT</td>
+      <td>이미지 실행 시 항상 실행되야 하는 커맨드 설정</td>
+    </tr>
+    <tr>
+      <td>CMD</td>
+      <td>이미지 실행 시 디폴트 커맨드 또는 파라미터 설정</td>
+    </tr>
+    <tr>
+      <td>EXPOSE</td>
+      <td>컨테이너가 리스닝할 포트 및 프로토콜 설정</td>
+    </tr>
+    <tr>
+      <td>COPY/ADD</td>
+      <td>이미지의 파일 시스템으로 파일 또는 디렉터리 복사</td>
+    </tr>
+    <tr>
+      <td>ENV</td>
+      <td>환경 변수 설정</td>
+    </tr>
+    <tr>
+      <td>ARG</td>
+      <td>빌드 시 넘어올 수 있는 인자 설정</td>
+    </tr>
+    <tr>
+      <td>VOLUME</td>
+      <td>컨테이너 외부에 파일시스템을 마운트 할 때 사용합니다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h2 id="레퍼런스-참고">레퍼런스 참고</h2>
+<ul>
+  <li><a href="https://docs.docker.com/engine/reference/builder/" target="_blank">Dockerfile</a>
+<br />
+<br />
+<br />
+<br />
+<br /></li>
+</ul>
+
+<h1 id="️-참고사이트">🙇🏻‍♂️ 참고사이트</h1>
+<ul>
+  <li><a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html" target="_blank">https://subicura.com</a></li>
+  <li><a href="https://www.daleseo.com/?tag=Docker" target="_blank">https://www.daleseo.com</a></li>
+</ul>]]></content><author><name>Oh</name></author><category term="Docker" /><category term="Docker" /><category term="Container" /><summary type="html"><![CDATA[💾 도커 이미지를 만들기 위해 Dockerfile 이라는 이미지 빌드용 파일을 사용합니다.]]></summary></entry><entry><title type="html">🐳 Docker 기본 명령어</title><link href="http://localhost:4000/docker/docker-2/" rel="alternate" type="text/html" title="🐳 Docker 기본 명령어" /><published>2023-02-20T00:00:00+09:00</published><updated>2023-02-20T00:00:00+09:00</updated><id>http://localhost:4000/docker/docker-2</id><content type="html" xml:base="http://localhost:4000/docker/docker-2/"><![CDATA[<p>💾 도커에서 자주 사용하는 명령어를 정리한 내용입니다.</p>
 
 <p><br /></p>
 
@@ -12895,54 +13195,4 @@ M-N 연관은 개념적으로 양쪽 애그리거트에 컬렉션으로 연관�
 <ul>
   <li><a href="https://product.kyobobook.co.kr/detail/S000001810495" target="_blank">도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지</a></li>
   <li><a href="https://github.com/madvirus/ddd-start2" target="_blank">예제 코드</a></li>
-</ul>]]></content><author><name>Oh</name></author><category term="Books" /><category term="Books" /><category term="DDD" /><summary type="html"><![CDATA[도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍]]></summary></entry><entry><title type="html">MAC 단축키 모음 💻</title><link href="http://localhost:4000/mac/%EB%8B%A8%EC%B6%95%ED%82%A4/" rel="alternate" type="text/html" title="MAC 단축키 모음 💻" /><published>2023-01-08T00:00:00+09:00</published><updated>2023-01-08T00:00:00+09:00</updated><id>http://localhost:4000/mac/%EB%8B%A8%EC%B6%95%ED%82%A4</id><content type="html" xml:base="http://localhost:4000/mac/%EB%8B%A8%EC%B6%95%ED%82%A4/"><![CDATA[<h2 id="-일반-단축키">⌨ 일반 단축키</h2>
-<ul>
-  <li>화면 잠금: <strong>Control + Command + Q</strong></li>
-  <li>복제: <strong>Command + x</strong></li>
-  <li>다시찾기: <strong>Command + G</strong></li>
-  <li>윈도우 최소화: <strong>Command + M</strong></li>
-  <li>프린트: <strong>Command + P</strong></li>
-  <li>붙여넣기: <strong>Command + V</strong></li>
-  <li>모두선택: <strong>Command + A</strong></li>
-  <li>복사: <strong>Command + C</strong></li>
-  <li>숨기기: <strong>Command + H</strong></li>
-  <li>선택항목 열기: <strong>Command + O</strong></li>
-  <li>문서 저장: <strong>Command + S</strong></li>
-  <li>이전명령: <strong>Command + Z</strong></li>
-  <li>항목찾기: <strong>Command + F</strong></li>
-  <li>새 탭 열기: <strong>Command + T</strong></li>
-  <li>창 닫기: <strong>Command + W</strong></li>
-  <li>강제 종료: <strong>Option + Command + Esc</strong></li>
-  <li>Spotlight 표시/숨기기: <strong>Command + Spacebar</strong></li>
-  <li>이모티콘 및 기타 기호: <strong>Ctrl + Command + Spacebar</strong></li>
-  <li>전체화면: <strong>Ctrl + Command + F</strong></li>
-  <li>스크린샷 및 화면 기록: <strong>Shift + Command + 5</strong></li>
-  <li>새폴더 생성: <strong>Shift + Command + N</strong></li>
-  <li>환경설정 열기: <strong>Command + ,</strong></li>
-  <li>최근 사용 앱으로 전환: <strong>Command + Tab</strong></li>
-  <li>훑어보기: <strong>Spacebar</strong></li>
-</ul>
-
-<h2 id="-finder-및-시스템-단축키">⌨ Finder 및 시스템 단축키</h2>
-<ul>
-  <li>선택 파일 복제: <strong>Command + D</strong></li>
-  <li>Finder 윈도우에서 Spotlight 검색 시작: <strong>Command + F</strong></li>
-  <li>선택 디스크 또는 볼륨 추출: <strong>Command + E</strong></li>
-  <li>선택 파일의 정보 가져오기: <strong>Command + I</strong></li>
-  <li>가상본의 원본 파일이 형성: <strong>Command + R</strong></li>
-  <li>컴퓨터 윈도우 열기: <strong>Shift + Command + C</strong></li>
-  <li>최근 윈도우/파일 표시: <strong>Shift + Command + F</strong></li>
-  <li>현재 macOS 사용자 계정 폴더 열기: <strong>Shift + Command + H</strong></li>
-  <li>데스크탑 폴더 열기: <strong>Shift + Command + D</strong></li>
-  <li>폴더로 이동 윈도우 열기: <strong>Shift + Command + G</strong></li>
-  <li>iCloud Drive 열기: <strong>Shift + Command + I</strong></li>
-  <li>네트위크 윈도우 열기: <strong>Shift + Command K</strong></li>
-  <li>새 폴더 생성: <strong>Shift + Command + N</strong></li>
-  <li>Finder 미리보기 패널 표시/가리기: <strong>Shift + Command + P</strong></li>
-  <li>다운로드 폴더 열기: <strong>Shift + Command + L</strong></li>
-  <li>문서 폴더 열기: <strong>Shift + Command + O</strong></li>
-  <li>AirDrop 윈도우 열기: <strong>Shift + Command + R</strong></li>
-</ul>
-
-<h2 id="-참고-사이트">🔎 참고 사이트</h2>
-<p><a href="https://www.invaiz.com/blog/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;bmode=view&amp;idx=12577409&amp;t=board" target="_blank">invaiz 블로그</a></p>]]></content><author><name>Oh</name></author><category term="Mac" /><category term="Mac" /><category term="단축키" /><summary type="html"><![CDATA[⌨ 일반 단축키 화면 잠금: Control + Command + Q 복제: Command + x 다시찾기: Command + G 윈도우 최소화: Command + M 프린트: Command + P 붙여넣기: Command + V 모두선택: Command + A 복사: Command + C 숨기기: Command + H 선택항목 열기: Command + O 문서 저장: Command + S 이전명령: Command + Z 항목찾기: Command + F 새 탭 열기: Command + T 창 닫기: Command + W 강제 종료: Option + Command + Esc Spotlight 표시/숨기기: Command + Spacebar 이모티콘 및 기타 기호: Ctrl + Command + Spacebar 전체화면: Ctrl + Command + F 스크린샷 및 화면 기록: Shift + Command + 5 새폴더 생성: Shift + Command + N 환경설정 열기: Command + , 최근 사용 앱으로 전환: Command + Tab 훑어보기: Spacebar]]></summary></entry></feed>
+</ul>]]></content><author><name>Oh</name></author><category term="Books" /><category term="Books" /><category term="DDD" /><summary type="html"><![CDATA[도메인 주도 개발 시작하기: DDD 핵심 개념 정리부터 구현까지 책을 읽고 내용을 아주 간단하게 정리한 글입니다. 책에는 자세한 설명과 예제가 많으니 꼭 구입해서 읽는것을 추천합니다~👍]]></summary></entry></feed>
