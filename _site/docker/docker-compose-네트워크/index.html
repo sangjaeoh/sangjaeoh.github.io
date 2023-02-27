@@ -1,0 +1,893 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>🐳 Docker Compose 네트워크 | Stack O Flow</title>
+<meta name="description" content="💾 여러 개의 컨테이너로 구성된 Docker Compose 애플리케이션 내에서 컨테이너 간의 통신을 설명합니다.">
+
+
+  <meta name="author" content="Oh">
+  
+  <meta property="article:author" content="Oh">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Stack O Flow">
+<meta property="og:title" content="🐳 Docker Compose 네트워크">
+<meta property="og:url" content="http://localhost:4000/docker/docker-compose-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/">
+
+
+  <meta property="og:description" content="💾 여러 개의 컨테이너로 구성된 Docker Compose 애플리케이션 내에서 컨테이너 간의 통신을 설명합니다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-02-27T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/docker/docker-compose-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Oh",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Stack O Flow Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
+<!-- <link rel="manifest" href="/assets/logo.ico/site.webmanifest"> -->
+<link rel="mask-icon" href="/assets/images/favicon.png" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt="Stack O Flow"></a>
+        
+        <a class="site-title" href="/">
+          Stack O Flow
+          <span class="site-subtitle">복붙노트</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">카테고리</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">태그</a>
+            </li><li class="masthead__menu-item">
+              <a href="/search/">🔎</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Oh</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>안녕하세요~🙇🏻‍♂️</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:sangjaeoh91.gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/sangjaeoh" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  
+  <ul class="nav__items">
+    
+    <!-- <li>
+      <a href="http://localhost:4000/categories/"><span class="nav__sub-title" style="border-bottom: 0px;">전체 (25)</span></a>
+    </li> -->
+
+    
+      <li>
+        
+          <span class="nav__sub-title">Stack </span>
+        
+
+        
+        <ul>
+          
+          
+            <li><a href="/categories/docker">Docker (6)</a></li>
+          
+          
+            <li><a href="/categories/insight">Insight (4)</a></li>
+          
+          
+            <li><a href="/categories/java">Java (1)</a></li>
+          
+          
+            <li><a href="/categories/mac">Mac (1)</a></li>
+          
+          
+            <li><a href="/categories/markdown">Markdown (1)</a></li>
+          
+          
+            <li><a href="/categories/spring">Spring (1)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">ETC </span>
+        
+
+        
+        <ul>
+          
+          
+            <li><a href="/categories/books">책 (2)</a></li>
+          
+          
+            <li><a href="/categories/%ED%9A%8C%EA%B3%A0">회고 (9)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="🐳 Docker Compose 네트워크">
+    <meta itemprop="description" content="💾 여러 개의 컨테이너로 구성된 Docker Compose 애플리케이션 내에서 컨테이너 간의 통신을 설명합니다.">
+    <meta itemprop="datePublished" content="2023-02-27T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/docker/docker-compose-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" class="u-url" itemprop="url">🐳 Docker Compose 네트워크
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-27T00:00:00+09:00">2023-02-27</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#디폴트-네트워크">디폴트 네트워크</a></li><li><a href="#컨테이너-간-통신">컨테이너 간 통신</a></li><li><a href="#커스텀-네트워크-추가">커스텀 네트워크 추가</a></li><li><a href="#외부-네트워크-사용">외부 네트워크 사용</a></li><li><a href="#레퍼런스-참고">레퍼런스 참고</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>💾 여러 개의 컨테이너로 구성된 Docker Compose 애플리케이션 내에서 컨테이너 간의 통신을 설명합니다.</p>
+
+<p><br /></p>
+
+<h2 id="디폴트-네트워크">디폴트 네트워크</h2>
+<p>기본적으로 <code class="language-plaintext highlighter-rouge">Docker Compose</code>는 하나의 디폴트 네트워크에 모든 컨테이너를 연결합니다. 디폴트 네트워크의 이름은 <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>가 위치한 디렉토리 이름 뒤에 <code class="language-plaintext highlighter-rouge">_default</code>가 붙습니다. 예를 들어, 디렉토리 이름이 <code class="language-plaintext highlighter-rouge">our_app</code>라면 디폴트 네트워크 이름은 <code class="language-plaintext highlighter-rouge">our_app_default</code>가 됩니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">## /path/our_app 경로</span>
+<span class="nv">$ </span>docker-compose up <span class="nt">-d</span>
+
+Creating network <span class="s2">"our_app_default"</span> with the default driver
+Creating our_app_db_1 ... <span class="k">done
+</span>Creating our_app_web_1 ... <span class="k">done</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">Docker Compose</code>로 애플리케이션을 내릴 때는 반대 순서로 먼저 컨테이너를 종료/제거해놓고 제일 마지막에 네트워크를 제거합니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose down
+Stopping our_app_web_1 ... <span class="k">done
+</span>Stopping our_app_db_1  ... <span class="k">done
+</span>Removing our_app_web_1 ... <span class="k">done
+</span>Removing our_app_db_1  ... <span class="k">done
+</span>Removing network our_app_default
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="컨테이너-간-통신">컨테이너 간 통신</h2>
+
+<p><strong>같은 네트워크 간 통신</strong><br />
+같은 네트워크 안에서 컨테이너 간의 통신은 호스트명을 사용합니다. 만약 호스트명을 지정하지 않았다면 서비스의 이름이 호스트명이 됩니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose <span class="nb">exec </span>web ping db
+
+PING db <span class="o">(</span>192.168.48.2<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+64 bytes from our_app_db_1.our_app_default <span class="o">(</span>192.168.48.2<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>1 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.094 ms
+64 bytes from our_app_db_1.our_app_default <span class="o">(</span>192.168.48.2<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>2 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.162 ms
+</code></pre></div></div>
+<p><br /></p>
+
+<p><strong>호출 위치에 따른 통신</strong><br />
+컨테이넌 간 통신에서 주의할 점은 접속하는 위치가 디폴트 네트워크 내부냐 외부냐에 따라서 포트(port)가 달라질 수 있다는 것입니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>services:
+  web:
+    build: <span class="nb">.</span>
+    ports:
+      - <span class="s2">"8001:8000"</span>
+</code></pre></div></div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 호스트 컴퓨터에서 web 서비스 컨테이너 접속</span>
+<span class="nv">$ </span>curl <span class="nt">-I</span> localhost:8001
+
+HTTP/1.1 200 OK
+Date: Fri, 05 Jun 2020 02:05:10 GMT
+Server: WSGIServer/0.2 CPython/3.8.2
+Content-Type: text/html
+X-Frame-Options: DENY
+Content-Length: 16351
+X-Content-Type-Options: nosniff
+</code></pre></div></div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 같은 네트워크 내의 다른 컨테이너에서 web 서비스 컨테이너 접속</span>
+<span class="nv">$ </span>docker-compose <span class="nb">exec </span>alpine curl <span class="nt">-I</span> web:8000
+
+HTTP/1.1 200 OK
+Date: Fri, 05 Jun 2020 02:13:46 GMT
+Server: WSGIServer/0.2 CPython/3.8.2
+Content-Type: text/html
+X-Frame-Options: DENY
+Content-Length: 16351
+X-Content-Type-Options: nosniff
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="커스텀-네트워크-추가">커스텀 네트워크 추가</h2>
+<p><code class="language-plaintext highlighter-rouge">Docker Compose</code>는 디폴트 네트워크 뿐만 아니라 다른 네트워크도 필요에 따라 추가할 수 있습니다.</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">services</span><span class="pi">:</span>
+  <span class="na">web</span><span class="pi">:</span>
+    <span class="na">build</span><span class="pi">:</span> <span class="s">.</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">8000:8000"</span>
+    <span class="na">networks</span><span class="pi">:</span> <span class="c1"># 서비스에서 연결할 네트워크 작성</span>
+      <span class="pi">-</span> <span class="s">default</span>
+      <span class="pi">-</span> <span class="s">our_net</span>
+
+  <span class="na">db</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">postgres</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">POSTGRES_USER=postgres</span>
+      <span class="pi">-</span> <span class="s">POSTGRES_PASSWORD=postgres</span>
+
+<span class="c1"># 네트워크 추가</span>
+<span class="na">networks</span><span class="pi">:</span>
+  <span class="na">our_net</span><span class="pi">:</span>
+    <span class="na">driver</span><span class="pi">:</span> <span class="s">bridge</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Docker Compose</code>로 애플리케이션을 실행하면 두개의 네트워크가 생성되는걸 확인할 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose up <span class="nt">-d</span>
+Creating network <span class="s2">"our_app_default"</span> with the default driver
+Creating network <span class="s2">"our_app_our_net"</span> with driver <span class="s2">"bridge"</span>
+...
+
+<span class="nv">$ </span>our_app docker network <span class="nb">ls
+</span>NETWORK ID          NAME                   DRIVER              SCOPE
+f1859120a0c3        bridge                 bridge              <span class="nb">local
+</span>95b00551745b        host                   host                <span class="nb">local
+</span>1f7202baa40a        none                   null                <span class="nb">local
+</span>2682634e6535        our_app_default        bridge              <span class="nb">local
+</span>525403b38bbe        our_app_our_net        bridge              <span class="nb">local</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">our_net</code>은 <code class="language-plaintext highlighter-rouge">Docker Compose</code> 내부에서 정의된 네트워크 이므로 애플리케이션을 내릴 때 디폴트 네트워크와 함께 삭제됩니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose down
+
+Stopping our_app_web_1 ... <span class="k">done
+</span>Stopping our_app_db_1  ... <span class="k">done
+</span>Removing our_app_web_1 ... <span class="k">done
+</span>Removing our_app_db_1  ... <span class="k">done
+</span>Removing network our_app_default
+Removing network our_app_our_net
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="외부-네트워크-사용">외부 네트워크 사용</h2>
+<p><code class="language-plaintext highlighter-rouge">Docker Compose</code>가 제공하는 디폴트 네트워크 대신에 외부에서 미리 생성해놓은 다른 네트워크를 사용할 수도 있습니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">our_net</code>이라는 네트워크 생성합니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker network create our_net
+6d791b927c8c151c45a10ac13c62f3571ecf38a90756fd2ca1c62b7d3de804e8
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">docker-compose.yml</code>에서 네트워크의 옵션에 <code class="language-plaintext highlighter-rouge">our_net</code>네트워크에 <code class="language-plaintext highlighter-rouge">external</code>을 설정합니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 1번 방벙</span>
+version: <span class="s1">'3.7'</span>
+
+services:
+  web:
+    build: <span class="nb">.</span>
+    ports:
+      - <span class="s2">"8000:8000"</span>
+    networks:
+      - our_net
+
+networks:
+  our_net:
+    driver: bridge
+    external: <span class="nb">true</span>
+</code></pre></div></div>
+
+<div class="notice--warning">
+<p><strong>경고</strong><br />
+외부에서 생성된 네트워크이므로 <code class="language-plaintext highlighter-rouge">Docker Compose</code> 애플리케이션을 내릴 때 해당 네트워크가 함께 삭제되지 않습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose down
+
+Stopping our_app_web_1 ... <span class="k">done
+</span>Stopping our_app_db_1  ... <span class="k">done
+</span>Removing our_app_web_1 ... <span class="k">done
+</span>Removing our_app_db_1  ... <span class="k">done
+</span>Network our_net is external, skipping
+</code></pre></div></div>
+
+</div>
+
+<h2 id="레퍼런스-참고">레퍼런스 참고</h2>
+<ul>
+  <li><a href="https://docs.docker.com/compose/networking/" target="_blank">docker-compose 네트워크</a></li>
+  <li><a href="https://docs.docker.com/compose/compose-file/#network_mode" target="_blank">docker-compose 네트워크 설정</a>
+<br />
+<br />
+<br />
+<br />
+<br /></li>
+</ul>
+
+<h1 id="️-참고사이트">🙇🏻‍♂️ 참고사이트</h1>
+<ul>
+  <li><a href="https://www.daleseo.com/?tag=Docker" target="_blank">https://www.daleseo.com</a></li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#container" class="page__taxonomy-item p-category" rel="tag">Container</a><span class="sep">, </span>
+    
+      <a href="/tags/#docker" class="page__taxonomy-item p-category" rel="tag">Docker</a><span class="sep">, </span>
+    
+      <a href="/tags/#docker-compose" class="page__taxonomy-item p-category" rel="tag">Docker Compose</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#docker" class="page__taxonomy-item p-category" rel="tag">Docker</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-02-27T00:00:00+09:00">2023-02-27</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%F0%9F%90%B3+Docker+Compose+%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20http%3A%2F%2Flocalhost%3A4000%2Fdocker%2Fdocker-compose-%25EB%2584%25A4%25ED%258A%25B8%25EC%259B%258C%25ED%2581%25AC%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdocker%2Fdocker-compose-%25EB%2584%25A4%25ED%258A%25B8%25EC%259B%258C%25ED%2581%25AC%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdocker%2Fdocker-compose-%25EB%2584%25A4%25ED%258A%25B8%25EC%259B%258C%25ED%2581%25AC%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/docker/docker-compose-%ED%8C%8C%EC%9D%BC-%EA%B5%AC%EC%84%B1-%EC%9A%94%EC%86%8C/" class="pagination--pager" title="🐳 Docker Compose 파일 구성 요소
+">이전</a>
+    
+    
+      <a href="/docker/docker-compose-%EB%AA%85%EB%A0%B9%EC%96%B4/" class="pagination--pager" title="🐳 Docker Compose 명령어
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">다른 읽을거리</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/docker/docker-compose-%EB%AA%85%EB%A0%B9%EC%96%B4/" rel="permalink">🐳 Docker Compose 명령어
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-27T00:00:00+09:00">2023-02-27</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">💾 Docker Compose 애플리케이션을 제어하기 위해 사용되는 명령어를 설명합니다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/docker/docker-compose-%ED%8C%8C%EC%9D%BC-%EA%B5%AC%EC%84%B1-%EC%9A%94%EC%86%8C/" rel="permalink">🐳 Docker Compose 파일 구성 요소
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-22T00:00:00+09:00">2023-02-22</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">💾 도커 컴포즈의 기본 구성 요소룰 정리한 내용입니다. 자주 사용하는 항목만 정리하였고, 다른 항목들을 확인하시려면 docker-compose를 확인하세요.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/docker/docker-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="permalink">🐳 Docker 이미지 만들기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-21T00:00:00+09:00">2023-02-21</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">💾 도커 이미지를 만들기 위해 Dockerfile 이라는 이미지 빌드용 파일을 사용합니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/docker/docker-%EA%B8%B0%EB%B3%B8%EB%AA%85%EB%A0%B9%EC%96%B4/" rel="permalink">🐳 Docker 기본 명령어
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-20T00:00:00+09:00">2023-02-20</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">💾 도커에서 자주 사용하는 명령어를 정리한 내용입니다.
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/sangjaeoh" rel="nofollow noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Oh. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/docker/docker-compose-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/docker/docker-compose-네트워크"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://stack-o-flow.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+
+    <aside class="sidebar__home">
+      <a href="/">
+        <div style="font-size: 0.5rem;"><i class="fas fa-h-square fa-5x"></i></div>
+      </a>
+    </aside>
+
+    <aside class="sidebar__top">
+      <a href="#site-nav">
+        <div style="font-size: 0.5rem;"><i class="fas fa-caret-square-up fa-5x"></i></div>
+      </a>
+    </aside>
+
+    <aside class="sidebar__bottom">
+      <a href="#footer">
+        <div style="font-size: 0.5rem;"><i class="fas fa-caret-square-down fa-5x"></i></div>
+      </a>
+    </aside>
+
+  </body>
+</html>

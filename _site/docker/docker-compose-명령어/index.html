@@ -1,0 +1,807 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>🐳 Docker Compose 명령어 | Stack O Flow</title>
+<meta name="description" content="💾 Docker Compose 애플리케이션을 제어하기 위해 사용되는 명령어를 설명합니다.">
+
+
+  <meta name="author" content="Oh">
+  
+  <meta property="article:author" content="Oh">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Stack O Flow">
+<meta property="og:title" content="🐳 Docker Compose 명령어">
+<meta property="og:url" content="http://localhost:4000/docker/docker-compose-%EB%AA%85%EB%A0%B9%EC%96%B4/">
+
+
+  <meta property="og:description" content="💾 Docker Compose 애플리케이션을 제어하기 위해 사용되는 명령어를 설명합니다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-02-27T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/docker/docker-compose-%EB%AA%85%EB%A0%B9%EC%96%B4/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Oh",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Stack O Flow Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
+<!-- <link rel="manifest" href="/assets/logo.ico/site.webmanifest"> -->
+<link rel="mask-icon" href="/assets/images/favicon.png" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt="Stack O Flow"></a>
+        
+        <a class="site-title" href="/">
+          Stack O Flow
+          <span class="site-subtitle">복붙노트</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">카테고리</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">태그</a>
+            </li><li class="masthead__menu-item">
+              <a href="/search/">🔎</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Oh</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>안녕하세요~🙇🏻‍♂️</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:sangjaeoh91.gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/sangjaeoh" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  
+  <ul class="nav__items">
+    
+    <!-- <li>
+      <a href="http://localhost:4000/categories/"><span class="nav__sub-title" style="border-bottom: 0px;">전체 (25)</span></a>
+    </li> -->
+
+    
+      <li>
+        
+          <span class="nav__sub-title">Stack </span>
+        
+
+        
+        <ul>
+          
+          
+            <li><a href="/categories/docker">Docker (6)</a></li>
+          
+          
+            <li><a href="/categories/insight">Insight (4)</a></li>
+          
+          
+            <li><a href="/categories/java">Java (1)</a></li>
+          
+          
+            <li><a href="/categories/mac">Mac (1)</a></li>
+          
+          
+            <li><a href="/categories/markdown">Markdown (1)</a></li>
+          
+          
+            <li><a href="/categories/spring">Spring (1)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">ETC </span>
+        
+
+        
+        <ul>
+          
+          
+            <li><a href="/categories/books">책 (2)</a></li>
+          
+          
+            <li><a href="/categories/%ED%9A%8C%EA%B3%A0">회고 (9)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="🐳 Docker Compose 명령어">
+    <meta itemprop="description" content="💾 Docker Compose 애플리케이션을 제어하기 위해 사용되는 명령어를 설명합니다.">
+    <meta itemprop="datePublished" content="2023-02-27T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/docker/docker-compose-%EB%AA%85%EB%A0%B9%EC%96%B4/" class="u-url" itemprop="url">🐳 Docker Compose 명령어
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-27T00:00:00+09:00">2023-02-27</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#파일-지정">파일 지정</a></li><li><a href="#컨테이너-생성실행">컨테이너 생성/실행</a></li><li><a href="#컨테이너-정지삭제">컨테이너 정지/삭제</a></li><li><a href="#컨테이너-시작">컨테이너 시작</a></li><li><a href="#컨테이너-정지">컨테이너 정지</a></li><li><a href="#컨테이너-조회">컨테이너 조회</a></li><li><a href="#컨테이너-로그">컨테이너 로그</a></li><li><a href="#명령어-전달">명령어 전달</a></li><li><a href="#일회성-명령어">일회성 명령어</a></li><li><a href="#설정-확인">설정 확인</a></li><li><a href="#레퍼런스-참고">레퍼런스 참고</a></li><li><a href="#️-참고사이트">🙇🏻‍♂️ 참고사이트</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>💾 Docker Compose 애플리케이션을 제어하기 위해 사용되는 명령어를 설명합니다.
+<br /></p>
+
+<h2 id="파일-지정">파일 지정</h2>
+<p><code class="language-plaintext highlighter-rouge">Docker Compose</code>는 기본적으로 커맨드가 실행하는 디렉토리에 있는 <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> 또는 <code class="language-plaintext highlighter-rouge">docker-compose.yaml</code>를 설정 파일로 사용합니다. 다른 이름이나 경로의 파일을 Docker Compose 설정 파일로 사용하고 싶다면 <code class="language-plaintext highlighter-rouge">-f</code> 옵션으로 명시를 해줍니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -f 옵션으로 파일일 지정할 수 있습니다.</span>
+<span class="nv">$ </span>docker-compose <span class="nt">-f</span> docker-compose-local.yml up
+
+<span class="c"># -f 옵션은 여러 개의 설정 파일을 사용할 때도 사용할 수 있습니다.</span>
+<span class="c"># 이 때는 나중에 나오는 설정이 앞에 나오는 설정보다 우선하게 됩니다.</span>
+<span class="nv">$ </span>docker-compose <span class="nt">-f</span> docker-compose.yml <span class="nt">-f</span> docker-compose-test.yml up
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="컨테이너-생성실행">컨테이너 생성/실행</h2>
+<p><code class="language-plaintext highlighter-rouge">docker-compose up</code> 커맨드는 <code class="language-plaintext highlighter-rouge">Docker Compose</code>에 정의되어 있는 모든 서비스 컨테이너를 한 번에 생성하고 실행하기 위해서 사용합니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -d 옵션을 사용하여 백그라운드에서 컨테이너를 띄웁니다.</span>
+<span class="c"># -d 옵션을 사용하지 않으면 현재 터미널에 로그가 출력되고, Ctrl+c를 사용하여 종료할 수 있습니다.</span>
+<span class="nv">$ </span>docker-compose up <span class="nt">-d</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="컨테이너-정지삭제">컨테이너 정지/삭제</h2>
+<p><code class="language-plaintext highlighter-rouge">docker-compose down</code> 커맨드는 <code class="language-plaintext highlighter-rouge">Docker Compose</code>에 정의되어 있는 모든 서비스 컨테이너를 한 번에 정지시키고 삭제합니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -v 옵션을 주면 docker-compose.yml에 정의된 볼륨을 삭제하며 down 합니다.</span>
+<span class="nv">$ </span>docker-compose down <span class="nt">-v</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="컨테이너-시작">컨테이너 시작</h2>
+<p><code class="language-plaintext highlighter-rouge">docker-compose start</code> 커맨드는 내려가 있는 있는 특정 서비스 컨테이너를 올리기 위해서 사용합니다. <code class="language-plaintext highlighter-rouge">docker-compose up</code> 커맨드를 사용해도 내려간 서비스를 알아서 올려줍니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose start web
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="컨테이너-정지">컨테이너 정지</h2>
+<p><code class="language-plaintext highlighter-rouge">docker-compose stop</code> 커맨드는 돌아기고 있는 특정 서비스 컨테이너를 정지시키기 위해서 사용합니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose stop web
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="컨테이너-조회">컨테이너 조회</h2>
+<p><code class="language-plaintext highlighter-rouge">docker-compose ps</code> 커맨드는 <code class="language-plaintext highlighter-rouge">Docker Compose</code>에 정의되어 있는 모든 서비스 컨테이너 목록을 조회할 때 사용합니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose ps
+
+      Name                    Command               State           Ports
+<span class="nt">----------------------------------------------------------------------------------</span>
+django-app_db_1    docker-entrypoint.sh postgres    Up      5432/tcp
+django-app_web_1   python manage.py runserver ...   Up      0.0.0.0:8000-&gt;8000/tcp
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="컨테이너-로그">컨테이너 로그</h2>
+<p><code class="language-plaintext highlighter-rouge">docker-compose logs</code> 커맨드는 서비스 컨테이너의 로그를 확인하고 싶을 때 사용하며, 보통 <code class="language-plaintext highlighter-rouge">-f</code> 옵션을 붙여서 실시간 로그를 확인합니다. <code class="language-plaintext highlighter-rouge">-f</code> 다음에 서비스명을 입력하면 해당 서비스의 로그만 볼 수 있습니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose logs <span class="nt">-f</span> web
+
+web_1  | May 30, 2020 - 22:16:29
+web_1  | Django version 3.0.6, using settings <span class="s1">'our_project.settings'</span>
+web_1  | Starting development server at http://0:8000/
+web_1  | Quit the server with CONTROL-C.
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="명령어-전달">명령어 전달</h2>
+<p><code class="language-plaintext highlighter-rouge">docker-compose exec</code> 커맨드는 실행 중인 서비스 컨테이너를 대상으로 어떤 명령어를 날릴 때 사용합니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose <span class="nb">exec</span> <span class="nt">-it</span> web /bin/bash
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="일회성-명령어">일회성 명령어</h2>
+<p><code class="language-plaintext highlighter-rouge">docker-compose run</code> 커맨드는 서비스 컨테이너의 특정 명령어를 일회성으로 실행할 때 사용합니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker compose run web bash
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="설정-확인">설정 확인</h2>
+<p><code class="language-plaintext highlighter-rouge">docker-compose config</code> 커맨드는 <code class="language-plaintext highlighter-rouge">Docker Compose</code> 설정을 확인할 때 사용합니다. <code class="language-plaintext highlighter-rouge">-f</code> 옵션으로 여러 개의 설정 파일을 사용할 때, 최종적으로 어떻게 설정이 적용되는지 확인해볼 때 유용합니다.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker compose config
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="레퍼런스-참고">레퍼런스 참고</h2>
+<p><a href="https://docs.docker.com/compose/reference/" target="_blank">docker-compose</a>
+<br /></p>
+
+<h2 id="️-참고사이트">🙇🏻‍♂️ 참고사이트</h2>
+<ul>
+  <li><a href="https://www.daleseo.com/?tag=Docker" target="_blank">https://www.daleseo.com</a></li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#container" class="page__taxonomy-item p-category" rel="tag">Container</a><span class="sep">, </span>
+    
+      <a href="/tags/#docker" class="page__taxonomy-item p-category" rel="tag">Docker</a><span class="sep">, </span>
+    
+      <a href="/tags/#docker-compose" class="page__taxonomy-item p-category" rel="tag">Docker Compose</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#docker" class="page__taxonomy-item p-category" rel="tag">Docker</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-02-27T00:00:00+09:00">2023-02-27</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%F0%9F%90%B3+Docker+Compose+%EB%AA%85%EB%A0%B9%EC%96%B4%20http%3A%2F%2Flocalhost%3A4000%2Fdocker%2Fdocker-compose-%25EB%25AA%2585%25EB%25A0%25B9%25EC%2596%25B4%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdocker%2Fdocker-compose-%25EB%25AA%2585%25EB%25A0%25B9%25EC%2596%25B4%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdocker%2Fdocker-compose-%25EB%25AA%2585%25EB%25A0%25B9%25EC%2596%25B4%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/docker/docker-compose-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" class="pagination--pager" title="🐳 Docker Compose 네트워크
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">다른 읽을거리</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/docker/docker-compose-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" rel="permalink">🐳 Docker Compose 네트워크
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-27T00:00:00+09:00">2023-02-27</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">💾 여러 개의 컨테이너로 구성된 Docker Compose 애플리케이션 내에서 컨테이너 간의 통신을 설명합니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/docker/docker-compose-%ED%8C%8C%EC%9D%BC-%EA%B5%AC%EC%84%B1-%EC%9A%94%EC%86%8C/" rel="permalink">🐳 Docker Compose 파일 구성 요소
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-22T00:00:00+09:00">2023-02-22</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">💾 도커 컴포즈의 기본 구성 요소룰 정리한 내용입니다. 자주 사용하는 항목만 정리하였고, 다른 항목들을 확인하시려면 docker-compose를 확인하세요.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/docker/docker-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="permalink">🐳 Docker 이미지 만들기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-21T00:00:00+09:00">2023-02-21</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">💾 도커 이미지를 만들기 위해 Dockerfile 이라는 이미지 빌드용 파일을 사용합니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/docker/docker-%EA%B8%B0%EB%B3%B8%EB%AA%85%EB%A0%B9%EC%96%B4/" rel="permalink">🐳 Docker 기본 명령어
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-20T00:00:00+09:00">2023-02-20</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">💾 도커에서 자주 사용하는 명령어를 정리한 내용입니다.
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/sangjaeoh" rel="nofollow noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Oh. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/docker/docker-compose-%EB%AA%85%EB%A0%B9%EC%96%B4/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/docker/docker-compose-명령어"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://stack-o-flow.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+
+    <aside class="sidebar__home">
+      <a href="/">
+        <div style="font-size: 0.5rem;"><i class="fas fa-h-square fa-5x"></i></div>
+      </a>
+    </aside>
+
+    <aside class="sidebar__top">
+      <a href="#site-nav">
+        <div style="font-size: 0.5rem;"><i class="fas fa-caret-square-up fa-5x"></i></div>
+      </a>
+    </aside>
+
+    <aside class="sidebar__bottom">
+      <a href="#footer">
+        <div style="font-size: 0.5rem;"><i class="fas fa-caret-square-down fa-5x"></i></div>
+      </a>
+    </aside>
+
+  </body>
+</html>

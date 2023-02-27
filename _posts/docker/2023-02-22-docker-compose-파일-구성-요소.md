@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "🐳 Docker Compose 살펴보기"
+title: "🐳 Docker Compose 파일 구성 요소"
 categories: [Docker]
 tag: [Docker, Docker Compose, Container]
 author_profile: true
@@ -8,23 +8,25 @@ toc: true
 toc_sticky: true
 ---
 
-💾 도커 컴포즈의 기본 설정을 정리한 내용입니다.
-
-Docker Compose를 이용하면 여러 개의 컨테이너(container)로 구성된 애플리케이션을 하나의 파일(YAML)에 정의해놓고 한 번에 올리거나 내릴 수 있습니다. Docker Compose는 기본적으로 `docker-compose.yml` 파일을 설정 파일로 사용합니다.
-
-자주 사용하는 항목만 정리하였고, 다른 항목들을 확인하시려면 [docker-compose](https://docs.docker.com/compose/compose-file){:target="_blank"}를 확인하세요.
+💾 도커 컴포즈의 기본 구성 요소룰 정리한 내용입니다. 자주 사용하는 항목만 정리하였고, 다른 항목들을 확인하시려면 [docker-compose](https://docs.docker.com/compose/compose-file){:target="_blank"}를 확인하세요.
 
 <br/>
 
-# 파일 위치 / 기본 구조
+# Docker compose란?
+Docker Compose를 이용하면 여러 개의 컨테이너(container)로 구성된 애플리케이션을 하나의 파일(YAML)에 정의해놓고 명령어를 사용해 한 번에 올리거나 내릴 수 있습니다. Docker Compose는 기본적으로 `docker-compose.yml` 파일을 설정 파일로 사용합니다.
+<br/>
+<br/>
+
+
+## 기본 구조
 `docker-compose.yml` 파일은 대략적으로 다음과 같은 구조를 갖습니다.
 ```yaml
 version: "3.7"
 services:
   web:
-    # 서비스명, 웹 애플리케이션 설정
+    # 컨테이너 서비스, 웹 애플리케이션 설정
   db:
-    # 서비스명, 데이터베이스 설정
+    # 컨테이너 서비스, 데이터베이스 설정
 networks:
   # 네트워크 설정
 volumes:
@@ -34,10 +36,7 @@ Docker Compose에서 서비스는 독립된 컨테이너에서 돌아가는 애�
 <br/>
 <br/>
 
-
-
-
-# .env 파일
+## .env 파일
 `docker-compose.yml` 파일과 같은 경로에 `.env` 파일을 정의할 수 있습니다. `.env `파일에 환경변수를 정의 하면 `docker-compose.yml` 에서 사용할 수 있습니다.
 ```text
 # .env
@@ -56,10 +55,16 @@ services:
 ```
 <br/>
 <br/>
+<br/>
+<br/>
 
 
 
-# build
+# 구성 요소
+`docker-compose.yml`작성시 자주 사용하는 항목을 정리한 내용입니다.
+<br/>
+
+## build
 `build` 항목은 해당 서비스의 이미지를 빌드하기 위한 용도로, `Dockerfile`이 위치하는 경로를 지정하기 위해 사용됩니다. 
 ```yaml
 ## docker-compose.yml 파일과 동일한 디렉토리에 위치한 Dockerfile 을 사용해서 web 서비스의 이미지를 빌드
@@ -84,7 +89,7 @@ services:
 <br/>
 
 
-# image
+## image
 프로젝트에서 직접 개발하지 않는 데이터베이스와 같은 경우에는, 이미지를 직접 빌드하는 대신에 이미지 저장소(repository)로 부터 이미지를 내려받아서 사용하는 것이 일반적입니다.
 ```yaml
 # image 항목은 이미지 저장소로 부터 내려받을 이미지의 이름과 태그를 명시하는데 사용됩
@@ -99,7 +104,7 @@ services:
 <br/>
 
 
-# ports
+## ports
 `ports` 항목은 외부로 노출시킬 포트의 맵핑을 명시합니다. 바인드(bind)가 필요한 호스트 외부 포트와 컨테이너 내부 포트를 지정합니다.
 ```yaml
 services:
@@ -115,7 +120,7 @@ services:
 
 
 
-# volumes
+## volumes
 `volumes` 항목은 볼륨 설정을 위해 쓰입니다. 마운트(mount)가 필요한 호스트의 경로와 컨테이너의 경로를 명시합니다.
 ```yaml
 # 호스트의 경로로 볼륨 설정
@@ -141,7 +146,7 @@ volumes:
 
 
 
-# depends_on
+## depends_on
 `depends_on` 항목은 서비스 간 의존 관계를 지정하기 위해서 사용됩니다. 예를 들어, 웹 애플리케이션이 올라오기 전에 데이터베이스, 레디스 서비스가 먼저 올라와야 한다면 다음과 같이 설정합니다.
 ```yaml
 version: "3.7"
@@ -161,7 +166,7 @@ services:
 
 
 
-# command
+## command
 `command` 항목은 해당 서비스가 올라올 때 `Dockerfile` 의 `CMD` 명령문을 무시하고 실행할 명령어를 설정하기 위해서 사용됩니다.
 ```yaml
 services:
@@ -172,7 +177,7 @@ services:
 <br/>
 
 
-# environment
+## environment
 `environment` 항목은 환경 변수를 설정하기 위해서 사용됩니다.
 ```yaml
 services:
@@ -196,7 +201,9 @@ environment:
 <br/>
 <br/>
 
-# 레퍼런스 참고
+
+
+## 레퍼런스 참고
 [docker-compose](https://docs.docker.com/compose/compose-file){:target="_blank"}
 <br/>
 <br/>
