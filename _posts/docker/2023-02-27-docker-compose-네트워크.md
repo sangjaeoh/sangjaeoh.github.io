@@ -191,10 +191,7 @@ Network our_net is external, skipping
 - [docker-compose 네트워크 설정](https://docs.docker.com/compose/compose-file/#network_mode){:target="_blank"}
 <br/>
 <br/>
-<br/>
-<br/>
-<br/>
 
 
-# 🙇🏻‍♂️ 참고사이트
+## 🙇🏻‍♂️ 참고사이트
 - [https://www.daleseo.com](https://www.daleseo.com/?tag=Docker){:target="_blank"}
