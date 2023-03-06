@@ -144,6 +144,8 @@ body {
     padding-bottom: 0.1rem;
     font-size: 0.8em;
     background: $code-background-color;
+    /* custom css */
+    color: $base08;
     border-radius: $border-radius;
 
     &::before,

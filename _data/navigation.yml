@@ -20,6 +20,9 @@ docs:
       - title: "Java"
         url: /categories/java
         category: "Java"
+      - title: "kubernetes"
+        url: /categories/kubernetes
+        category: "Kubernetes"
       - title: "Mac"
         url: /categories/mac
         category: "Mac"
