@@ -119,21 +119,88 @@ toc_sticky: true
 ![선언적구조](/assets/images/posts/kubernetes/20230306/C43E9BFE-A4C2-4FC0-AB8C-56EBFAA99BE5.png)
 {% endcapture %}
 <div class="notice--info">{{ notice | markdownify }}</div>
-
-
-
 <br/>
-<br/><br/>
-<br/><br/>
-<br/><br/>
-<br/><br/>
-<br/><br/>
+<br/>
 <br/>
 
-작성중....
+
+
+# 🎯 오브젝트
+쿠버네티스를 사용하는 관점에서 파드, 디플로이먼트 등은 스펙(spec)과 상태(status) 등의 값을 가지고 있습니다. 이러한 값을 가지고 있는 파드와 디플로이먼트 등을 개별 속성을 포함해 부르는 단위를 오브젝트(Object)라고 합니다.
+
+쿠버네티스 오브젝트는 하나의 **의도를 담은 레코드**입니다. 오브젝트를 생성하게 되면, 쿠버네티스 시스템은 그 오브젝트 생성을 보장하기 위해 지속적으로 작동할 것입니다. 오브젝트를 생성함으로써, 클러스터의 워크로드를 어떤 형태로 보이고자 하는지에 대해 효과적으로 쿠버네티스 시스템에 전달합니다.
+<br/>
+<br/>
+
+
+## 기본 오브젝트
+- **파드(Pod):** 쿠버네티스에 실행되는 최소 단위, 독립적인 공간과 사용 가능한 IP를 가지고 있습니다. 하나의 파드는 1개 이상의 컨테이너를 갖고 있습니다.
+- **네임스페이스(Namespaces):** 쿠버네티스 클러스터에서 사용되는 리소스들을 구분해 관리하는 그룹입니다.
+- **볼륨(Volume):** 파드가 생성될 때 파드에서 사용할 수 있는 디렉터리를 제공합니다. 기본적으로 파드는 영속되는 개념이 아니라 제공되는 디렉토리도 임시로 사용합니다. 하지만 파드가 사라지더라도 저장과 보존이 가능한 디렉터리를 볼륨 오브젝트를 통해 생성하고 사용할 수 있습니다.
+- **서비스(Service):** 파드는 클러스터 내에서 유동적이기 때문에 접속 정보가 고정일 수 없습니다. 따라서 파드 접속을 안정적으로 유지하도록 서비스를 통해 내/외부로 연결됩니다. 새로운 파드가 생성될 때 부여되는 새로운 IP를 기존에 제공하던 기능과 연결해 줍니다.  
+<br/>
+<br/>
+
+
+기본 오브젝트 말고도 [여러가지 오브젝트](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/){:target="_blank"}들이 존재합니다. 
+
+## 디플로이먼트
+기본 오브젝트만으로도 쿠버네티스를 사용할 수 있지만 이를 좀 더 효율적으로 작동하도록 기능들을 조합하고 추가해 구현한 것이 디플로이먼트 입니다. 디플로이먼트 오브젝트는 파드에 기본을 두고 있으며, 레플리카셋 오브젝트를 합쳐 놓은 형태 입니다.  
+![디플로이먼트](/assets/images/posts/kubernetes/20230306/701F7E06-6E1B-4DEC-8522-53ED577F2AAE.png)
+<br/>
+<br/>
+<br/>
 
 
 
-<!-- # 🙇🏻‍♂️ 참고사이트
-- [https://subicura.com](https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html){:target="_blank"}
-- [https://www.daleseo.com](https://www.daleseo.com/?tag=Docker){:target="_blank"} -->
+## 레플리카셋 
+다수의 파드가 필요한데 이를 하나씩 생성한다면 매우 비효율적입니다. 그래서 쿠버네티스에서는 다수의 파드를 만드는 레플리카셋 오브젝트를 제공합니다.
+
+예를 들어 파드를 3개 만들겠다고 레플리카셋에 선언하면 컨트롤러 매니저와 스케줄러가 워커 노드에 파드 3개를 만들도록 선언합니다. 그러나 레플리카셋은 파드 수를 보장하는 기능만 제공하기 때문에 롤링 업데이트 기능 등이 추가된 디플로이먼트를 사용해 파드 수를 관리하기를 권장합니다.
+![레플리카셋](/assets/images/posts/kubernetes/20230306/19156B09-0770-4580-A1E8-47EE207F990E.png)
+<br/>
+<br/>
+<br/>
+
+
+
+## 오브젝트 스펙
+여러가지 설정을 커맨드 명령으로만으로 실행할 수 없습니다. 이런 설정은 파일로 작성해야 합니다. 이때 작성하는 파일을 오브젝트 스펙이라고 합니다. 오브젝트 스펙은 일반적으로 야믈(YAML) 문법으로 작성합니다. 
+
+다음은 [오브젝트 스펙의 예시](https://kubernetes.io/ko/docs/concepts/workloads/controllers/){:target="_blank"}입니다.
+```yaml
+apiVersion: apps/v1
+kind: Deployment   # 종류
+metadata:
+  name: nginx-deployment     # 디플로이먼트의 이름
+  labels:                    # 디플로이먼트의 레이블
+    app: nginx
+spec:
+  replicas: 3       # 레플리카 셋을 몇 개 생성할지 결정
+  selector:         # 셀렉터의 레이블 지정
+    matchLabels:
+      app: nginx
+  template:
+    metadata:       # 템플릿의 메타데이터 지정
+      labels:
+        app: nginx
+    spec:           # 템플릿에서 사용할 컨테이너 이미지 지정
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+```
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+# 🙇🏻‍♂️ 참고사이트
+- [컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커](https://product.kyobobook.co.kr/detail/S000001834629){:target="_blank"}
+- [쿠버네티스 레퍼런스](https://kubernetes.io/ko/docs/home/){:target="_blank"}
+- [쿠버네티스 가이드](https://subicura.com/k8s/guide/#%E1%84%80%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%83%E1%85%B3){:target="_blank"}
+- [김징어의 Devlog](https://kimjingo.tistory.com/category/About/Kubernetes){:target="_blank"}
