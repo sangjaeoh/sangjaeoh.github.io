@@ -1,0 +1,917 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>kubectl 기본 명령어 | Stack O Flow</title>
+<meta name="description" content="💾 kubectl 기본명령어를 정리한 내용입니다.">
+
+
+  <meta name="author" content="Oh">
+  
+  <meta property="article:author" content="Oh">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Stack O Flow">
+<meta property="og:title" content="kubectl 기본 명령어">
+<meta property="og:url" content="http://localhost:4000/kubernetes/kubectl-%EA%B8%B0%EB%B3%B8%EB%AA%85%EB%A0%B9%EC%96%B4/">
+
+
+  <meta property="og:description" content="💾 kubectl 기본명령어를 정리한 내용입니다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-03-14T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/kubernetes/kubectl-%EA%B8%B0%EB%B3%B8%EB%AA%85%EB%A0%B9%EC%96%B4/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Oh",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Stack O Flow Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
+<!-- <link rel="manifest" href="/assets/logo.ico/site.webmanifest"> -->
+<link rel="mask-icon" href="/assets/images/favicon.png" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt="Stack O Flow"></a>
+        
+        <a class="site-title" href="/">
+          Stack O Flow
+          <span class="site-subtitle">복붙노트</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">카테고리</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">태그</a>
+            </li><li class="masthead__menu-item">
+              <a href="/search/">🔎</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Oh</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>안녕하세요~🙇🏻‍♂️</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:sangjaeoh91.gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/sangjaeoh" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  
+  <ul class="nav__items">
+    
+    <!-- <li>
+      <a href="http://localhost:4000/categories/"><span class="nav__sub-title" style="border-bottom: 0px;">전체 (27)</span></a>
+    </li> -->
+
+    
+      <li>
+        
+          <span class="nav__sub-title">Stack </span>
+        
+
+        
+        <ul>
+          
+          
+            <li><a href="/categories/docker">Docker (6)</a></li>
+          
+          
+            <li><a href="/categories/insight">Insight (4)</a></li>
+          
+          
+            <li><a href="/categories/java">Java (1)</a></li>
+          
+          
+            <li><a href="/categories/kubernetes">kubernetes (2)</a></li>
+          
+          
+            <li><a href="/categories/mac">Mac (1)</a></li>
+          
+          
+            <li><a href="/categories/markdown">Markdown (1)</a></li>
+          
+          
+            <li><a href="/categories/spring">Spring (1)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">ETC </span>
+        
+
+        
+        <ul>
+          
+          
+            <li><a href="/categories/books">책 (2)</a></li>
+          
+          
+            <li><a href="/categories/%ED%9A%8C%EA%B3%A0">회고 (9)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="kubectl 기본 명령어">
+    <meta itemprop="description" content="💾 kubectl 기본명령어를 정리한 내용입니다.">
+    <meta itemprop="datePublished" content="2023-03-14T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/kubernetes/kubectl-%EA%B8%B0%EB%B3%B8%EB%AA%85%EB%A0%B9%EC%96%B4/" class="u-url" itemprop="url">kubectl 기본 명령어
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-03-14T00:00:00+09:00">2023-03-14</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#apply">apply</a></li><li><a href="#get">get</a></li><li><a href="#describe">describe</a></li><li><a href="#delete">delete</a></li><li><a href="#logs">logs</a></li><li><a href="#exec">exec</a></li><li><a href="#config">config</a></li><li><a href="#api-resources">api-resources</a></li><li><a href="#explain">explain</a></li><li><a href="#cp">cp</a></li><li><a href="#출력-형식-지정">출력 형식 지정</a></li><li><a href="#참고사이트">참고사이트</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>💾 kubectl 기본명령어를 정리한 내용입니다.</p>
+
+<p><br /></p>
+
+<h2 id="apply">apply</h2>
+<p>원하는 리소스의 상태를 YAML로 작성하고 apply 명렁어로 선언합니다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply <span class="nt">-f</span> <span class="o">[</span>파일명 또는 URL]
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply <span class="nt">-f</span> ./my-manifest.yaml        <span class="c"># 리소스(들) 생성</span>
+kubectl apply <span class="nt">-f</span> ./my1.yaml <span class="nt">-f</span> ./my2.yaml  <span class="c"># 여러 파일로 부터 생성</span>
+kubectl apply <span class="nt">-f</span> ./dir                     <span class="c"># dir 내 모든 매니페스트 파일에서 리소스(들) 생성 </span>
+kubectl apply <span class="nt">-f</span> https://git.io/vPieo      <span class="c"># url로부터 리소스(들) 생성</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="get">get</h2>
+<p>리소스 목록 보기. 출력 형태를 변경할 수 있는 <code class="language-plaintext highlighter-rouge">-o</code>와 레이블을 확인할 수 있는 <code class="language-plaintext highlighter-rouge">--show-labels</code>를 함께 사용할 수 있습니다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get <span class="o">[</span>TYPE]
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 기본 출력을 위한 Get 커맨드</span>
+kubectl get services                      <span class="c"># 네임스페이스 내 모든 서비스의 목록 조회</span>
+kubectl get pods <span class="nt">--all-namespaces</span>         <span class="c"># 모든 네임스페이스 내 모든 파드의 목록 조회</span>
+kubectl get pods <span class="nt">-o</span> wide                  <span class="c"># 해당하는 네임스페이스 내 모든 파드의 상세 목록 조회</span>
+kubectl get deployment my-dep             <span class="c"># 특정 디플로이먼트의 목록 조회</span>
+kubectl get pods                          <span class="c"># 네임스페이스 내 모든 파드의 목록 조회</span>
+kubectl get pod my-pod <span class="nt">-o</span> yaml            <span class="c"># 파드의 YAML 조회</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="describe">describe</h2>
+<p>쿠버네티스에 선언된 리소스의 상세한 상태를 확인합니다. 특정 리소스의 상태가 궁금하거나 생성이 실패한 이유를 확인할 때 주로 사용합니다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl describe <span class="o">[</span>TYPE]/[NAME] 또는 <span class="o">[</span>TYPE] <span class="o">[</span>NAME]
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get pod                                 <span class="c"># Pod 조회로 이름 검색</span>
+kubectl describe pod/wordpress-5f59577d4d-8t2dg <span class="c"># 조회한 이름으로 상세 확인</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="delete">delete</h2>
+<p>쿠버네티스에 선언된 리소스를 제거합니다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl delete <span class="o">[</span>TYPE]/[NAME] 또는 <span class="o">[</span>TYPE] <span class="o">[</span>NAME]
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get pod                                <span class="c"># Pod 조회로 이름 검색</span>
+kubectl delete pod/wordpress-5f59577d4d-8t2dg  <span class="c"># 조회한 Pod 제거</span>
+kubectl delete deploy deploymentname <span class="nt">-n</span> namespacename
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="logs">logs</h2>
+<p>컨테이너의 로그를 확인합니다. 실시간 로그를 보고 싶다면 <code class="language-plaintext highlighter-rouge">-f</code> 옵션을 이용합니다. 하나의 Pod에 여러 개의 컨테이너가 있는 경우는 <code class="language-plaintext highlighter-rouge">-c</code> 옵션으로 컨테이너를 지정해야 합니다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl logs <span class="o">[</span>POD_NAME]
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get pod                              <span class="c"># Pod 조회로 이름 검색</span>
+kubectl logs wordpress-5f59577d4d-8t2dg      <span class="c"># 조회한 Pod 로그조회</span>
+kubectl logs <span class="nt">-f</span> wordpress-5f59577d4d-8t2dg   <span class="c"># 실시간 로그 보기</span>
+kubectl logs my-pod <span class="nt">-c</span> my-container          <span class="c"># 멀티-컨테이너 경우</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="exec">exec</h2>
+<p>컨테이너에 명령어를 전달합니다. 쉘로 접속하여 컨테이너 상태를 확인하는 경우에 <code class="language-plaintext highlighter-rouge">-it</code> 옵션을 사용합니다. 여러 개의 컨테이너가 있는 경우엔 <code class="language-plaintext highlighter-rouge">-c</code> 옵션으로 컨테이너를 지정합니다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl <span class="nb">exec</span> <span class="o">[</span><span class="nt">-it</span><span class="o">]</span> <span class="o">[</span>POD_NAME] <span class="nt">--</span> <span class="o">[</span>COMMAND]
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get pod                                        <span class="c"># Pod 조회로 이름 검색</span>
+kubectl <span class="nb">exec</span> <span class="nt">-it</span> wordpress-5f59577d4d-8t2dg <span class="nt">--</span> bash    <span class="c"># 조회한 Pod의 컨테이너에 접속</span>
+kubectl <span class="nb">exec </span>my-pod <span class="nt">-c</span> my-container <span class="nt">--</span> <span class="nb">ls</span> /            <span class="c"># 멀티-컨테이너 경우</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="config">config</h2>
+<p><code class="language-plaintext highlighter-rouge">kubectl</code>이 통신하고 설정 정보를 수정하는 쿠버네티스 클러스터를 지정합니다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl config get-contexts             <span class="c"># 컨텍스트 리스트 출력</span>
+kubectl config current-context          <span class="c"># 현재 컨텍스트 확인</span>
+kubectl config use-context minikube     <span class="c"># 기본 컨텍스트로 설정</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="api-resources">api-resources</h2>
+<p>API 리소스를 탐색합니다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl api-resources                        <span class="c"># 전체 오브젝트 종류 확인</span>
+kubectl api-resources <span class="nt">--namespaced</span><span class="o">=</span><span class="nb">true</span>      <span class="c"># 네임스페이스를 가지는 모든 리소스</span>
+kubectl api-resources <span class="nt">--namespaced</span><span class="o">=</span><span class="nb">false</span>     <span class="c"># 네임스페이스를 가지지 않는 모든 리소스</span>
+kubectl api-resources <span class="nt">-o</span> name                <span class="c"># 모든 리소스의 단순한 (리소스 이름만) 출력</span>
+kubectl api-resources <span class="nt">-o</span> wide                <span class="c"># 모든 리소스의 확장된 ("wide"로 알려진) 출력</span>
+kubectl api-resources <span class="nt">--verbs</span><span class="o">=</span>list,get       <span class="c"># "list"와 "get"의 요청 동사를 지원하는 모든 리소스 출력</span>
+kubectl api-resources <span class="nt">--api-group</span><span class="o">=</span>extensions <span class="c"># "extensions" API 그룹의 모든 리소스</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="explain">explain</h2>
+<p>특정 오브젝트 설명을 확인합니다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl explain pods           <span class="c"># 파드 매니페스트 문서를 조회</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="cp">cp</h2>
+<p>로컬에서 컨테이너로, 컨테이너에서 로컬로 파일과 디렉터리를 복사합니다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl <span class="nb">cp</span> /tmp/foo_dir my-pod:/tmp/bar_dir            <span class="c"># 로컬 디렉토리 /tmp/foo_dir 를 현재 네임스페이스의 my-pod 파드 안의 /tmp/bar_dir 로 복사</span>
+kubectl <span class="nb">cp</span> /tmp/foo my-pod:/tmp/bar <span class="nt">-c</span> my-container    <span class="c"># 로컬 파일 /tmp/foo 를 my-pod 파드의 my-container 컨테이너 안의 /tmp/bar 로 복사</span>
+kubectl <span class="nb">cp</span> /tmp/foo my-namespace/my-pod:/tmp/bar       <span class="c"># 로컬 파일 /tmp/foo 를 my-namespace 네임스페이스의 my-pod 파드 안의 /tmp/bar 로 복사</span>
+kubectl <span class="nb">cp </span>my-namespace/my-pod:/tmp/foo /tmp/bar       <span class="c"># my-namespace 네임스페이스의 my-pod 파드 안의 파일 /tmp/foo 를 로컬의 /tmp/bar 로 복사</span>
+</code></pre></div></div>
+<p><br />
+<br /></p>
+
+<h2 id="출력-형식-지정">출력 형식 지정</h2>
+<p>특정 형식으로 터미널 창에 세부사항을 출력하려면, <code class="language-plaintext highlighter-rouge">kubectl</code> 명령에 <code class="language-plaintext highlighter-rouge">-o</code> (또는 <code class="language-plaintext highlighter-rouge">--output</code>) 플래그를 추가합니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>출력 형식</th>
+      <th>세부 사항</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>-o=custom-columns=<명세></명세></td>
+      <td>쉼표로 구분된 사용자 정의 열 목록을 사용하여 테이블 출력</td>
+    </tr>
+    <tr>
+      <td>-o=custom-columns-file=<파일명></파일명></td>
+      <td><파일명>파일에서 사용자 정의 열 템플릿을 사용하여 테이블 출력</파일명></td>
+    </tr>
+    <tr>
+      <td>-o=json</td>
+      <td>JSON 형식의 API 오브젝트 출력</td>
+    </tr>
+    <tr>
+      <td>-o=jsonpath=<템플릿></템플릿></td>
+      <td>https://kubernetes.io/ko/docs/reference/kubectl/jsonpath 표현식에 정의된 필드 출력</td>
+    </tr>
+    <tr>
+      <td>-o=jsonpath-file=<파일명></파일명></td>
+      <td><파일명> 파일에서 https://kubernetes.io/ko/docs/reference/kubectl/jsonpath 표현식에 정의된 필드 출력</파일명></td>
+    </tr>
+    <tr>
+      <td>-o=name</td>
+      <td>리소스 명만 출력하고 그 외에는 출력하지 않음</td>
+    </tr>
+    <tr>
+      <td>-o=wide</td>
+      <td>추가 정보가 포함된 일반-텍스트 형식으로 출력하고, 파드의 경우 노드 명이 포함</td>
+    </tr>
+    <tr>
+      <td>-o=yaml</td>
+      <td>YAML 형식의 API 오브젝트 출력</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="notice--info">
+<p><strong>사용방법</strong></p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ kubectl get [(-o|--output=)json|yaml|name|go-template|go-template-file
+|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file|custom-columns
+|custom-columns-file|wide] (TYPE[.VERSION][.GROUP] [NAME | -l label] | TYPE[.VERSION][.GROUP]/NAME ...) [flags]
+</code></pre></div></div>
+</div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 클러스터에서 실행 중인 모든 이미지</span>
+kubectl get pods <span class="nt">-A</span> <span class="nt">-o</span><span class="o">=</span>custom-columns<span class="o">=</span><span class="s1">'DATA:spec.containers[*].image'</span>
+
+<span class="c"># `default` 네임스페이스의 모든 이미지를 파드별로 그룹지어 출력</span>
+kubectl get pods <span class="nt">--namespace</span> default <span class="nt">--output</span><span class="o">=</span>custom-columns<span class="o">=</span><span class="s2">"NAME:.metadata.name,IMAGE:.spec.containers[*].image"</span>
+
+ <span class="c"># "registry.k8s.io/coredns:1.6.2" 를 제외한 모든 이미지</span>
+kubectl get pods <span class="nt">-A</span> <span class="nt">-o</span><span class="o">=</span>custom-columns<span class="o">=</span><span class="s1">'DATA:spec.containers[?(@.image!="registry.k8s.io/coredns:1.6.2")].image'</span>
+
+<span class="c"># 이름에 관계없이 메타데이터 아래의 모든 필드</span>
+kubectl get pods <span class="nt">-A</span> <span class="nt">-o</span><span class="o">=</span>custom-columns<span class="o">=</span><span class="s1">'DATA:metadata.*'</span>
+</code></pre></div></div>
+
+<div class="notice--info">
+<p><strong>도커 사용자를 위한 kubectl</strong><br />
+만약 도커 커맨드 라인 도구에 익숙하다면 <a href="https://kubernetes.io/ko/docs/reference/kubectl/docker-cli-to-kubectl/" target="_blank">링크</a>를 통해 간단히 비교할 수 있습니다.</p>
+</div>
+<p><br />
+<br />
+<br /></p>
+
+<h2 id="참고사이트">참고사이트</h2>
+<ul>
+  <li><a href="https://kubernetes.io/ko/docs/reference/kubectl/" target="_blank">kubectl docs 1</a></li>
+  <li><a href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands" target="_blank">kubectl docs 2</a></li>
+  <li><a href="https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/" target="_blank">kubectl cheatsheet</a></li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#k8s" class="page__taxonomy-item p-category" rel="tag">k8s</a><span class="sep">, </span>
+    
+      <a href="/tags/#kubectl" class="page__taxonomy-item p-category" rel="tag">kubectl</a><span class="sep">, </span>
+    
+      <a href="/tags/#kubernetes" class="page__taxonomy-item p-category" rel="tag">Kubernetes</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#kubernetes" class="page__taxonomy-item p-category" rel="tag">Kubernetes</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-03-14T00:00:00+09:00">2023-03-14</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=kubectl+%EA%B8%B0%EB%B3%B8+%EB%AA%85%EB%A0%B9%EC%96%B4%20http%3A%2F%2Flocalhost%3A4000%2Fkubernetes%2Fkubectl-%25EA%25B8%25B0%25EB%25B3%25B8%25EB%25AA%2585%25EB%25A0%25B9%25EC%2596%25B4%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fkubernetes%2Fkubectl-%25EA%25B8%25B0%25EB%25B3%25B8%25EB%25AA%2585%25EB%25A0%25B9%25EC%2596%25B4%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fkubernetes%2Fkubectl-%25EA%25B8%25B0%25EB%25B3%25B8%25EB%25AA%2585%25EB%25A0%25B9%25EC%2596%25B4%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/kubernetes/kubernetes-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0/" class="pagination--pager" title="Kubernetes 살펴보기
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">다른 읽을거리</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/kubernetes/kubernetes-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0/" rel="permalink">Kubernetes 살펴보기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-03-06T00:00:00+09:00">2023-03-06</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">💾 쿠버네티스의 기본 개념을 정리한 내용입니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/docker/docker-compose-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" rel="permalink">🐳 Docker Compose 네트워크
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-28T00:00:00+09:00">2023-02-28</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">💾 여러 개의 컨테이너로 구성된 Docker Compose 애플리케이션 내에서 컨테이너 간의 통신을 설명합니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/docker/docker-compose-%EB%AA%85%EB%A0%B9%EC%96%B4/" rel="permalink">🐳 Docker Compose 명령어
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-27T00:00:00+09:00">2023-02-27</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">💾 Docker Compose 애플리케이션을 제어하기 위해 사용되는 명령어를 설명합니다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/docker/docker-compose-%ED%8C%8C%EC%9D%BC-%EA%B5%AC%EC%84%B1-%EC%9A%94%EC%86%8C/" rel="permalink">🐳 Docker Compose 파일 구성 요소
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-22T00:00:00+09:00">2023-02-22</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">💾 도커 컴포즈의 기본 구성 요소룰 정리한 내용입니다. 자주 사용하는 항목만 정리하였고, 다른 항목들을 확인하시려면 docker-compose를 확인하세요.
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/sangjaeoh" rel="nofollow noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Oh. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/kubernetes/kubectl-%EA%B8%B0%EB%B3%B8%EB%AA%85%EB%A0%B9%EC%96%B4/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/kubernetes/kubectl-기본명령어"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://stack-o-flow.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+
+    <aside class="sidebar__home">
+      <a href="/">
+        <div style="font-size: 0.5rem;"><i class="fas fa-h-square fa-5x"></i></div>
+      </a>
+    </aside>
+
+    <aside class="sidebar__top">
+      <a href="#site-nav">
+        <div style="font-size: 0.5rem;"><i class="fas fa-caret-square-up fa-5x"></i></div>
+      </a>
+    </aside>
+
+    <aside class="sidebar__bottom">
+      <a href="#footer">
+        <div style="font-size: 0.5rem;"><i class="fas fa-caret-square-down fa-5x"></i></div>
+      </a>
+    </aside>
+
+  </body>
+</html>
