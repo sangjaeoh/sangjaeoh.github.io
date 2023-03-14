@@ -39,9 +39,9 @@ docs:
       - title: "책"
         url: /categories/books
         category: "Books"
-      - title: "회고"
-        url: /categories/회고
-        category: "회고"
+      # - title: "회고"
+      #   url: /categories/회고
+      #   category: "회고"
 
 
       
