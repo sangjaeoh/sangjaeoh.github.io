@@ -106,4 +106,10 @@ var store = [{
         "tags": ["Kubernetes","k8s","kubectl"],
         "url": "/kubernetes/kubectl-%EA%B8%B0%EB%B3%B8%EB%AA%85%EB%A0%B9%EC%96%B4/",
         "teaser": null
+      },{
+        "title": "kubernetes 기본사용법",
+        "excerpt":"💾 kubernetes의 기본 사용법을 정리한 내용입니다. 자세한 내용은 링크에서 확인할 수 있습니다.       🎯 Pod  쿠버네티스와 도커의 차이점은 도커는 컨테이너를 만들지만, 쿠버네티스는 Pod를 만듭니다.  Pod는 한 개 또는 여러 개의 컨테이너를 포함합니다.   Pod 생성  # 생성 kubectl run nginx-pod --image=nginx  # 확인 kubectl get pod  # 출력 NAME READY STATUS RESTARTS AGE nginx-pod 1/1 Running 0 35s    kubernetes v1.18 이상은 run명령어가 pod을 만들지만 v1.17 이하는 deployment를 만듭니다.    Pod 제거  kubectl delete pod/nginx-pod   YAML으로 파드 생성  YAML 파일 정의  # simple-pod.yaml apiVersion: v1 kind: Pod metadata:   name: nginx-pod   labels:     app: nginx-pod spec:   containers:     - name: app       image: nginx    필수 요소                  정의       설명       예                       version       오브젝트 버전       v1, app/v1, networking.k8s.io/v1, …                 kind       종류       Pod, ReplicaSet, Deployment, Service, …                 metadata       메타데이터       name과 label, annotation(주석)으로 구성                 spec       상세명세       리소스 종류마다 다름           version, kind, metadata, spec 는 리소스를 정의할 때 반드시 필요한 요소입니다.    Pod 생성  kubectl apply -f simple-pod.yaml                   작성중….  ","categories": ["Kubernetes"],
+        "tags": ["Kubernetes","k8s"],
+        "url": "/kubernetes/kubernetes-%EA%B8%B0%EB%B3%B8%EC%82%AC%EC%9A%A9%EB%B2%95/",
+        "teaser": null
       }]
