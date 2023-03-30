@@ -377,7 +377,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#-pod">🎯 Pod</a><ul><li><a href="#pod-생성">Pod 생성</a></li><li><a href="#pod-제거">Pod 제거</a></li><li><a href="#yaml으로-파드-생성">YAML으로 파드 생성</a></li><li><a href="#컨테이너-상태-모니터링">컨테이너 상태 모니터링</a></li></ul></li><li><a href="#-replicaset">🎯 ReplicaSet</a><ul><li><a href="#replicaset-yaml">ReplicaSet YAML</a></li><li><a href="#replicaset-생성-및-확인">ReplicaSet 생성 및 확인</a></li><li><a href="#스케일-아웃">스케일 아웃</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#-pod">🎯 Pod</a><ul><li><a href="#pod-생성">Pod 생성</a></li><li><a href="#pod-제거">Pod 제거</a></li><li><a href="#yaml으로-파드-생성">YAML으로 파드 생성</a></li><li><a href="#컨테이너-상태-모니터링">컨테이너 상태 모니터링</a></li></ul></li><li><a href="#-replicaset">🎯 ReplicaSet</a><ul><li><a href="#replicaset-yaml">ReplicaSet YAML</a></li><li><a href="#replicaset-생성-및-확인">ReplicaSet 생성 및 확인</a></li><li><a href="#스케일-아웃">스케일 아웃</a></li></ul></li><li><a href="#-deployment">🎯 Deployment</a><ul><li><a href="#deployment-yaml">Deployment YAML</a></li><li><a href="#deployment-생성-및-확인">Deployment 생성 및 확인</a></li><li><a href="#deployment-업데이트">Deployment 업데이트</a></li><li><a href="#스케일링">스케일링</a></li><li><a href="#버전관리">버전관리</a></li><li><a href="#배포-전략-설정">배포 전략 설정</a></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -689,6 +689,216 @@ pod/echo-rs-xpqnc   1/1     Running   0          2m12s
 NAME                      DESIRED   CURRENT   READY   AGE
 replicaset.apps/echo-rs   4         4         4       12m
 </code></pre></div></div>
+<p><br />
+<br />
+<br /></p>
+
+<h1 id="-deployment">🎯 Deployment</h1>
+<p>Deployment는 쿠버네티스에서 가장 널리 사용되는 오브젝트입니다. ReplicaSet을 이용하여 Pod을 업데이트하고 이력을 관리하여 롤백하거나 특정 버전(revision)으로 돌아갈 수 있습니다.</p>
+
+<h2 id="deployment-yaml">Deployment YAML</h2>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># echo-deployment.yml</span>
+
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">echo-deploy</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">4</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">echo</span>
+      <span class="na">tier</span><span class="pi">:</span> <span class="s">app</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">echo</span>
+        <span class="na">tier</span><span class="pi">:</span> <span class="s">app</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">echo</span>
+          <span class="na">image</span><span class="pi">:</span> <span class="s">ghcr.io/subicura/echo:v1</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="deployment-생성-및-확인">Deployment 생성 및 확인</h2>
+<p><strong>생성</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Deployment 생성</span>
+kubectl apply <span class="nt">-f</span> echo-deployment.yml
+</code></pre></div></div>
+
+<p><strong>확인</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 리소스 확인</span>
+kubectl get po,rs,deploy
+
+<span class="c"># 리소스 확인 결과</span>
+NAME                               READY   STATUS    RESTARTS   AGE
+pod/echo-deploy-76dcd9f4f9-clx78   1/1     Running   0          17s
+pod/echo-deploy-76dcd9f4f9-jxnzx   1/1     Running   0          17s
+pod/echo-deploy-76dcd9f4f9-kfl25   1/1     Running   0          17s
+pod/echo-deploy-76dcd9f4f9-p8b85   1/1     Running   0          17s
+
+NAME                                     DESIRED   CURRENT   READY   AGE
+replicaset.apps/echo-deploy-76dcd9f4f9   4         4         4       17s
+
+NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/echo-deploy   4/4     4            4           17s
+
+</code></pre></div></div>
+<p>ReplicaSet과 비슷해 보이지만 Deployment는 Pod을 새로운 이미지로 업데이트할 때 동작이 다릅니다.</p>
+
+<h2 id="deployment-업데이트">Deployment 업데이트</h2>
+<p>Pod의 이미지를 변경합니다.</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># echo-deployment.yml</span>
+
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">echo-deploy</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">4</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">echo</span>
+      <span class="na">tier</span><span class="pi">:</span> <span class="s">app</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">echo</span>
+        <span class="na">tier</span><span class="pi">:</span> <span class="s">app</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">echo</span>
+          <span class="na">image</span><span class="pi">:</span> <span class="s">ghcr.io/subicura/echo:v2</span>  <span class="c1"># 이미지 변경</span>
+</code></pre></div></div>
+
+<p><strong>업데이트</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 새로운 이미지 업데이트</span>
+kubectl apply <span class="nt">-f</span> echo-deployment-v2.yml
+</code></pre></div></div>
+
+<p><strong>확인</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 리소스 확인</span>
+kubectl get po,rs,deploy
+
+<span class="c"># 리소스 확인 결과</span>
+NAME                               READY   STATUS    RESTARTS   AGE
+pod/echo-deploy-77cd7699f4-jg7ws   1/1     Running   0          33s
+pod/echo-deploy-77cd7699f4-rpbjx   1/1     Running   0          20s
+pod/echo-deploy-77cd7699f4-rtgcv   1/1     Running   0          19s
+pod/echo-deploy-77cd7699f4-rw29n   1/1     Running   0          33s
+
+NAME                                     DESIRED   CURRENT   READY   AGE
+replicaset.apps/echo-deploy-76dcd9f4f9   0         0         0       3m35s
+replicaset.apps/echo-deploy-77cd7699f4   4         4         4       33s
+
+NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/echo-deploy   4/4     4            4           3m35s
+</code></pre></div></div>
+<p>모두 새로운 Pod으로 변경된 것을 확인할 수 있습니다.</p>
+
+<div class="notice--info">
+<p><strong>참고</strong><br />
+Pod은 업데이트라는 개념이 없고 새로운 버전을 생성하고, 기존 Pod을 제거합니다.</p>
+</div>
+<p><br /></p>
+
+<h2 id="스케일링">스케일링</h2>
+<p>Deployment는 스케일링을 설정할 수 있습니다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Pod의 수를 10개로 지정</span>
+kubectl scale deployment/nginx-deployment <span class="nt">--replicas</span><span class="o">=</span>10
+</code></pre></div></div>
+<p><br /></p>
+
+<p>클러스터에서 <a href="https://kubernetes.io/ko/docs/tasks/run-application/horizontal-pod-autoscale/" target="_blank">horizontal Pod Autoscaling</a>를 설정 한 경우 Deployment에 대한 오토스케일러를 설정할 수 있습니다. 아래는 Pod의 CPU 사용률을 기준으로 실행할 최소 Pod 및 최대 Pod의 수를 설정한 예입니다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl autoscale deployment/nginx-deployment <span class="nt">--min</span><span class="o">=</span>10 <span class="nt">--max</span><span class="o">=</span>15 <span class="nt">--cpu-percent</span><span class="o">=</span>80
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="버전관리">버전관리</h2>
+<p>Deployment는 변경된 상태를 기록합니다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 히스토리 확인</span>
+kubectl rollout <span class="nb">history </span>deploy/echo-deploy
+
+<span class="c"># revision 1 히스토리 상세 확인</span>
+kubectl rollout <span class="nb">history </span>deploy/echo-deploy <span class="nt">--revision</span><span class="o">=</span>1
+
+<span class="c"># 바로 전으로 롤백</span>
+kubectl rollout undo deploy/echo-deploy
+
+<span class="c"># 특정 버전으로 롤백</span>
+kubectl rollout undo deploy/echo-deploy <span class="nt">--to-revision</span><span class="o">=</span>2
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="배포-전략-설정">배포 전략 설정</h2>
+<p>Deployment는 다양한 방식의 배포 전략(Rolling Update, Blue-Green, Canary)이 있습니다. 이 중 Rolling Update를 설명합니다.</p>
+
+<p>Rolling Update방식을 사용할 때 동시에 업데이트하는 Pod의 개수를 변경하는 예입니다.</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># echo-strategy.yml</span>
+
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">echo-deploy-st</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">4</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">echo</span>
+      <span class="na">tier</span><span class="pi">:</span> <span class="s">app</span>
+  <span class="na">minReadySeconds</span><span class="pi">:</span> <span class="m">5</span>
+  <span class="na">strategy</span><span class="pi">:</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s">RollingUpdate</span>        <span class="c1"># 배포 전략 설정</span>
+    <span class="na">rollingUpdate</span><span class="pi">:</span>
+      <span class="na">maxSurge</span><span class="pi">:</span> <span class="m">3</span>
+      <span class="na">maxUnavailable</span><span class="pi">:</span> <span class="m">3</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">echo</span>
+        <span class="na">tier</span><span class="pi">:</span> <span class="s">app</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">echo</span>
+          <span class="na">image</span><span class="pi">:</span> <span class="s">ghcr.io/subicura/echo:v1</span>
+          <span class="na">livenessProbe</span><span class="pi">:</span>
+            <span class="na">httpGet</span><span class="pi">:</span>
+              <span class="na">path</span><span class="pi">:</span> <span class="s">/</span>
+              <span class="na">port</span><span class="pi">:</span> <span class="m">3000</span>
+</code></pre></div></div>
+
+<p><strong>Deployment를 생성하고 결과를 확인</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 실행</span>
+kubectl apply <span class="nt">-f</span> echo-strategy.yml
+
+<span class="c"># 조회</span>
+kubectl get po,rs,deploy
+
+<span class="c"># 이미지 변경 (명령어로)</span>
+kubectl <span class="nb">set </span>image deploy/echo-deploy-st <span class="nb">echo</span><span class="o">=</span>ghcr.io/subicura/echo:v2
+
+<span class="c"># 이벤트 확인</span>
+kubectl describe deploy/echo-deploy-st
+
+<span class="c"># 이벤트 확인 결과</span>
+Events:
+  Type    Reason             Age   From                   Message
+  <span class="nt">----</span>    <span class="nt">------</span>             <span class="nt">----</span>  <span class="nt">----</span>                   <span class="nt">-------</span>
+  Normal  ScalingReplicaSet  59s   deployment-controller  Scaled up replica <span class="nb">set </span>echo-deploy-st-679749cb78 to 4
+  Normal  ScalingReplicaSet  29s   deployment-controller  Scaled up replica <span class="nb">set </span>echo-deploy-st-6754948699 to 3
+  Normal  ScalingReplicaSet  29s   deployment-controller  Scaled down replica <span class="nb">set </span>echo-deploy-st-679749cb78 to 1
+  Normal  ScalingReplicaSet  29s   deployment-controller  Scaled up replica <span class="nb">set </span>echo-deploy-st-6754948699 to 4
+  Normal  ScalingReplicaSet  19s   deployment-controller  Scaled down replica <span class="nb">set </span>echo-deploy-st-679749cb78 to 0
+
+</code></pre></div></div>
+<p>Pod를 하나씩 생성하지 않고 3개씩 생성되는 것을 확인할 수 있습니다.</p>
+
+<div class="notice--info">
+<p><strong>참고</strong><br />
+<code class="language-plaintext highlighter-rouge">maxSurge</code>와 <code class="language-plaintext highlighter-rouge">maxUnavailable</code>의 <code class="language-plaintext highlighter-rouge">기본값은 25%</code>입니다. 대부분의 상황에서 적당하지만 상황에 따라 적절하게 조정이 필요합니다.</p>
+</div>
 
 <p><br />
 <br />

@@ -336,6 +336,251 @@ pod/echo-rs-xpqnc   1/1     Running   0          2m12s
 NAME                      DESIRED   CURRENT   READY   AGE
 replicaset.apps/echo-rs   4         4         4       12m
 ```
+<br/>
+<br/>
+<br/>
+
+
+
+
+
+# 🎯 Deployment
+Deployment는 쿠버네티스에서 가장 널리 사용되는 오브젝트입니다. ReplicaSet을 이용하여 Pod을 업데이트하고 이력을 관리하여 롤백하거나 특정 버전(revision)으로 돌아갈 수 있습니다.
+
+
+## Deployment YAML
+```yaml
+# echo-deployment.yml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-deploy
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: echo
+      tier: app
+  template:
+    metadata:
+      labels:
+        app: echo
+        tier: app
+    spec:
+      containers:
+        - name: echo
+          image: ghcr.io/subicura/echo:v1
+```
+<br/>
+
+
+
+## Deployment 생성 및 확인
+**생성**  
+```bash
+# Deployment 생성
+kubectl apply -f echo-deployment.yml
+```
+
+**확인**  
+```bash
+# 리소스 확인
+kubectl get po,rs,deploy
+
+# 리소스 확인 결과
+NAME                               READY   STATUS    RESTARTS   AGE
+pod/echo-deploy-76dcd9f4f9-clx78   1/1     Running   0          17s
+pod/echo-deploy-76dcd9f4f9-jxnzx   1/1     Running   0          17s
+pod/echo-deploy-76dcd9f4f9-kfl25   1/1     Running   0          17s
+pod/echo-deploy-76dcd9f4f9-p8b85   1/1     Running   0          17s
+
+NAME                                     DESIRED   CURRENT   READY   AGE
+replicaset.apps/echo-deploy-76dcd9f4f9   4         4         4       17s
+
+NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/echo-deploy   4/4     4            4           17s
+
+```
+ReplicaSet과 비슷해 보이지만 Deployment는 Pod을 새로운 이미지로 업데이트할 때 동작이 다릅니다.
+
+
+## Deployment 업데이트
+Pod의 이미지를 변경합니다.
+```yaml
+# echo-deployment.yml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-deploy
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: echo
+      tier: app
+  template:
+    metadata:
+      labels:
+        app: echo
+        tier: app
+    spec:
+      containers:
+        - name: echo
+          image: ghcr.io/subicura/echo:v2  # 이미지 변경
+```
+
+
+**업데이트**
+```bash
+# 새로운 이미지 업데이트
+kubectl apply -f echo-deployment-v2.yml
+```
+
+**확인**
+```bash
+# 리소스 확인
+kubectl get po,rs,deploy
+
+# 리소스 확인 결과
+NAME                               READY   STATUS    RESTARTS   AGE
+pod/echo-deploy-77cd7699f4-jg7ws   1/1     Running   0          33s
+pod/echo-deploy-77cd7699f4-rpbjx   1/1     Running   0          20s
+pod/echo-deploy-77cd7699f4-rtgcv   1/1     Running   0          19s
+pod/echo-deploy-77cd7699f4-rw29n   1/1     Running   0          33s
+
+NAME                                     DESIRED   CURRENT   READY   AGE
+replicaset.apps/echo-deploy-76dcd9f4f9   0         0         0       3m35s
+replicaset.apps/echo-deploy-77cd7699f4   4         4         4       33s
+
+NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/echo-deploy   4/4     4            4           3m35s
+```
+모두 새로운 Pod으로 변경된 것을 확인할 수 있습니다.
+{% capture notice %}
+**참고**  
+Pod은 업데이트라는 개념이 없고 새로운 버전을 생성하고, 기존 Pod을 제거합니다.
+{% endcapture %}
+<div class="notice--info">{{ notice | markdownify }}</div>
+<br/>
+
+
+
+
+
+## 스케일링
+Deployment는 스케일링을 설정할 수 있습니다.
+
+```bash
+# Pod의 수를 10개로 지정
+kubectl scale deployment/nginx-deployment --replicas=10
+```
+<br/>
+
+클러스터에서 [horizontal Pod Autoscaling](https://kubernetes.io/ko/docs/tasks/run-application/horizontal-pod-autoscale/){:target="_blank"}를 설정 한 경우 Deployment에 대한 오토스케일러를 설정할 수 있습니다. 아래는 Pod의 CPU 사용률을 기준으로 실행할 최소 Pod 및 최대 Pod의 수를 설정한 예입니다.
+```bash
+kubectl autoscale deployment/nginx-deployment --min=10 --max=15 --cpu-percent=80
+```
+<br/>
+
+
+
+## 버전관리
+Deployment는 변경된 상태를 기록합니다.
+```bash
+# 히스토리 확인
+kubectl rollout history deploy/echo-deploy
+
+# revision 1 히스토리 상세 확인
+kubectl rollout history deploy/echo-deploy --revision=1
+
+# 바로 전으로 롤백
+kubectl rollout undo deploy/echo-deploy
+
+# 특정 버전으로 롤백
+kubectl rollout undo deploy/echo-deploy --to-revision=2
+```
+<br/>
+
+
+
+## 배포 전략 설정
+Deployment는 다양한 방식의 배포 전략(Rolling Update, Blue-Green, Canary)이 있습니다. 이 중 Rolling Update를 설명합니다.
+
+Rolling Update방식을 사용할 때 동시에 업데이트하는 Pod의 개수를 변경하는 예입니다.
+```yaml
+# echo-strategy.yml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-deploy-st
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: echo
+      tier: app
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate        # 배포 전략 설정
+    rollingUpdate:
+      maxSurge: 3
+      maxUnavailable: 3
+  template:
+    metadata:
+      labels:
+        app: echo
+        tier: app
+    spec:
+      containers:
+        - name: echo
+          image: ghcr.io/subicura/echo:v1
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+```
+
+**Deployment를 생성하고 결과를 확인**
+```bash
+# 실행
+kubectl apply -f echo-strategy.yml
+
+# 조회
+kubectl get po,rs,deploy
+
+# 이미지 변경 (명령어로)
+kubectl set image deploy/echo-deploy-st echo=ghcr.io/subicura/echo:v2
+
+# 이벤트 확인
+kubectl describe deploy/echo-deploy-st
+
+# 이벤트 확인 결과
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  59s   deployment-controller  Scaled up replica set echo-deploy-st-679749cb78 to 4
+  Normal  ScalingReplicaSet  29s   deployment-controller  Scaled up replica set echo-deploy-st-6754948699 to 3
+  Normal  ScalingReplicaSet  29s   deployment-controller  Scaled down replica set echo-deploy-st-679749cb78 to 1
+  Normal  ScalingReplicaSet  29s   deployment-controller  Scaled up replica set echo-deploy-st-6754948699 to 4
+  Normal  ScalingReplicaSet  19s   deployment-controller  Scaled down replica set echo-deploy-st-679749cb78 to 0
+
+```
+Pod를 하나씩 생성하지 않고 3개씩 생성되는 것을 확인할 수 있습니다.
+{% capture notice %}
+**참고**  
+`maxSurge`와 `maxUnavailable`의 `기본값은 25%`입니다. 대부분의 상황에서 적당하지만 상황에 따라 적절하게 조정이 필요합니다.
+{% endcapture %}
+<div class="notice--info">{{ notice | markdownify }}</div>
+
+
+
+
+
+
+
 
 
 
